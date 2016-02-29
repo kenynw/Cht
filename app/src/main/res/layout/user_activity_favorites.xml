@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.damenghai.chahuitong.view.personal.FavoritesActivity">
+
+    <include layout="@layout/include_toolbar" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rcv_favorites_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="LinearLayoutManager"
+            android:visibility="gone"
+            />
+
+        <LinearLayout
+            android:id="@+id/layout_favorites_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            >
+
+            <Button
+                android:id="@+id/btn_favorites_shopping"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:text="@string/btn_go_shopping"
+                android:background="@drawable/btn_rectangle_accent_stroke"
+                android:layout_gravity="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/text_size_body_material"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_favorites_empty"
+                style="@style/TextCaption"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.damenghai.chahuitong.view.main.SearchActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/bg_actionbar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:navigationIcon="@mipmap/ic_toolbar_back"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/widget_small_height"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            >
+
+            <EditText
+                android:id="@+id/et_search_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@drawable/btn_rectangle_divider_bg_white_stroke"
+                android:drawablePadding="@dimen/activity_horizontal_margin"
+                android:gravity="left|center_vertical"
+                android:hint="@string/hint_search"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:singleLine="true"
+                android:textColorHint="@color/text_black_secondary"
+                android:textSize="@dimen/text_size_body_material"
+                android:imeOptions="actionSearch"
+                />
+
+            <Button
+                android:id="@+id/btn_search_done"
+                android:layout_width="@dimen/widget_medium_height"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                style="@style/ButtonBorderless"
+                android:drawableLeft="@mipmap/ic_search"
+                />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/subhead_search_history"
+        android:textSize="@dimen/text_size_subhead_material"
+        android:textColor="@color/text_black_secondary"
+        android:background="@color/white"
+        android:padding="@dimen/activity_vertical_margin"
+        android:layout_marginBottom="-16dp"
+        />
+
+    <com.damenghai.chahuitong.widget.FlowViewGroup
+        android:id="@+id/flv_search_recently"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:background="@color/white"
+        app:columns="3"
+        app:horizontalSpace="@dimen/activity_horizontal_margin"
+        app:verticalSpace="@dimen/activity_vertical_margin"
+        app:textBackground="@drawable/btn_rectangle_divider_bg_white_stroke"
+        />
+
+</LinearLayout>

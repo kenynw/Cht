@@ -1,0 +1,256 @@
+<resources>
+    <string name="app_name">茶汇通</string>
+
+    <!--页面标题，命名格式为：title_页面-->
+    <string name="title_valuator_recommend">试茶师推荐</string>
+    <string name="title_activity_sample">本期免费茶样</string>
+    <string name="title_activity_bargain">限时抢购</string>
+    <string name="title_activity_login">登录</string>
+    <string name="title_activity_register">注册</string>
+    <string name="title_activity_personal">个人中心</string>
+    <string name="title_activity_order">确认订单</string>
+    <string name="title_activity_order_detail">订单详情</string>
+    <string name="title_activity_voucher">我的优惠券</string>
+    <string name="title_activity_favorites">我的收藏夹</string>
+    <string name="title_activity_settings">设置</string>
+    <string name="title_activity_about">关于茶汇通</string>
+    <string name="title_activity_profile">我的资料</string>
+    <string name="title_activity_change_password">修改密码</string>
+    <string name="title_activity_reset_password">重置密码</string>
+    <string name="title_activity_pay_result">支付详情</string>
+    <string name="title_activity_pay_order">订单支付</string>
+    <string name="title_activity_feedback">意见反馈</string>
+    <string name="title_activity_goods">商品详情</string>
+    <string name="title_my_order">我的订单</string>
+
+    <!--页面副标题，命名格式为：subhead_页面-->
+    <string name="subhead_home_recommend">试茶师推荐 </string>
+    <string name="subhead_home_guess">猜你喜欢 </string>
+    <string name="subhead_search_history">历史搜索</string>
+
+    <!--按钮文字，命名格式为：btn_按钮事件-->
+    <string name="btn_ok">确 定</string>
+    <string name="btn_cancel">取 消</string>
+    <string name="btn_home_apply">点击领取</string>
+    <string name="btn_home_buy">点击抢购</string>
+    <string name="btn_apply">申    领</string>
+    <string name="btn_read_comment">看评价</string>
+    <string name="btn_to_buy">去购买</string>
+    <string name="btn_login_register">注册帐号</string>
+    <string name="btn_login_feedback">意见反馈</string>
+    <string name="btn_forgot_password">忘记密码</string>
+    <string name="btn_login_qq">腾讯QQ</string>
+    <string name="btn_login_weibo">新浪微博</string>
+    <string name="btn_login_wechat">微信</string>
+    <string name="btn_send_code">获取验证码</string>
+    <string name="btn_register">注&#160;册</string>
+    <string name="btn_login_or_register">登录/注册</string>
+    <string name="btn_logout">退出登录</string>
+    <string name="btn_address">收货地址</string>
+    <string name="btn_unpaid">待付款</string>
+    <string name="btn_paid">待发货</string>
+    <string name="btn_receive">待收货</string>
+    <string name="btn_uncomment">待评价</string>
+    <string name="btn_all_order">查看全部订单</string>
+    <string name="btn_go_pay">去支付</string>
+    <string name="btn_add_address">添加地址</string>
+    <string name="btn_save_address">保存地址</string>
+    <string name="btn_sure_order">确认订单</string>
+    <string name="btn_cancel_order">取消订单</string>
+    <string name="btn_pay">付款</string>
+    <string name="btn_repay">重新付款</string>
+    <string name="btn_view_delivery">查看物流</string>
+    <string name="btn_comment">评价</string>
+    <string name="btn_check_all">全选</string>
+    <string name="btn_go_shopping">去逛逛</string>
+    <string name="btn_stay_shopping">再逛逛</string>
+    <string name="btn_balance">结算</string>
+    <string name="btn_delete">删除</string>
+    <string name="btn_move_favorites">移入收藏夹</string>
+    <string name="btn_voucher_order">选择优惠券</string>
+    <string name="btn_favorites">收藏</string>
+    <string name="btn_share">分享</string>
+    <string name="btn_cart">购物车</string>
+    <string name="btn_add_cart">加入购物车</string>
+    <string name="btn_go_cart">去购物车</string>
+    <string name="btn_buy">立即购买</string>
+    <string name="btn_service">客服</string>
+    <string name="btn_personal_favorites">我的收藏</string>
+    <string name="btn_personal_voucher">优惠券</string>
+    <string name="btn_personal_phone">免费电话</string>
+    <string name="btn_personal_service">客服消息</string>
+    <string name="btn_personal_active">我的活动</string>
+    <string name="btn_personal_feedback">意见反馈</string>
+    <string name="btn_setting_profile">个人资料</string>
+    <string name="btn_born">出生年月</string>
+    <string name="btn_gender">性别</string>
+    <string name="btn_change_password">修改密码</string>
+    <string name="btn_setting_clean_cache">清除缓存</string>
+    <string name="btn_setting_check_update">检查更新</string>
+    <string name="btn_setting_about_us">关于茶汇通</string>
+    <string name="btn_view_order">查看订单</string>
+    <string name="btn_back_home">返回首页</string>
+
+    <!--文本文字，命名格式为：text_按钮事件-->
+    <string name="text_copyright">©茶信科技</string>
+    <string name="text_freight">运费</string>
+    <string name="text_carriage_free">免运费</string>
+    <string name="text_hotline_counseling">客服/热线咨询：</string>
+    <string name="text_phone_number">05925990900</string>
+    <string name="text_sample_notice">申领资格：茶汇通注册会员\r\n申领限额：每月一次\r\n申领流程</string>
+    <string name="text_cart_empty">暂无商品</string>
+    <string name="text_comment_empty">暂无评论</string>
+    <string name="text_goods_quality">正品保证</string>
+    <string name="text_goods_delivery_today">12小时发货</string>
+    <string name="text_goods_spot">实地认证</string>
+    <string name="text_bargain_timer">距离结束还剩</string>
+    <string name="text_day">天</string>
+    <string name="text_hour">时</string>
+    <string name="text_minute">分</string>
+    <string name="text_second">秒</string>
+    <string name="text_favorites_empty">您还未收藏任何商品哦~</string>
+    <string name="text_order_empty">您还没有相关订单，快去看看有什么想买的~</string>
+    <string name="text_about_chahuitong">茶汇通APP是茶产业垂直生态平台，整合茶域庞大的生态圈，融合线上线下，提供专家咨询、精华资讯、
+        即时交流、茶圈互动、活动发起、精品购茶等一系列多样化服务。在茶汇通，茶友圈的信息是即时的、直接的、精华的、权威的；茶产品是安全、高质
+        、正品、专享的；茶友圈的社交是个性的、全分享的。</string>
+    <string name="text_valuer_empty">不好意思我们不卖这种茶~</string>
+    <string name="text_pay_prepare">正在支付中&#8230;</string>
+    <string name="text_pay_success">嗨，你支付成功了！</string>
+    <string name="text_pay_fail">哦额，您的订单支付失败了！</string>
+    <string name="text_pay_title_prefix">茶汇通-订单编号</string>
+    <string name="text_alipay">支付宝</string>
+    <string name="text_alipay_body">支付宝用户使用</string>
+    <string name="text_wxpay">微信支付</string>
+    <string name="text_wxpay_body">微信支付用户使用</string>
+    <string name="text_upmp">银行卡支付</string>
+    <string name="text_upmp_body">支持所有银联储蓄卡和信用卡支付</string>
+
+    <!--标签文字，命名格式为：label_标签文字-->
+    <string name="label_home_free">免费茶样领取</string>
+    <string name="label_home_recommend">· 对味品鉴</string>
+    <string name="label_home_guess">· 适合才最好</string>
+    <string name="label_recommend_score">综合评价</string>
+    <string name="label_goods_origin">产地:</string>
+    <string name="label_goods_weight">重量:</string>
+    <string name="label_goods_freight">运费:</string>
+    <string name="label_sample_limit">限购:</string>
+    <string name="label_goods_sales">月销量：</string>
+    <string name="label_goods_attrs">产品参数：</string>
+    <string name="label_goods_style">购买选择：</string>
+    <string name="label_register_notice">*未注册用户先注册</string>
+    <string name="label_login_third">第三方登录</string>
+    <string name="label_username">用户名 : </string>
+    <string name="label_mobile_number">手机号 : </string>
+    <string name="label_captcha">验证码 : </string>
+    <string name="label_password">密&#160;&#160;&#160;&#160;码 : </string>
+    <string name="label_bargain_buy">马上抢</string>
+    <string name="label_account">帐号：</string>
+    <string name="label_point">积分：</string>
+    <string name="label_pay_alipay">支付宝</string>
+    <string name="label_pay_weixin">微信支付</string>
+    <string name="label_pay_upmp">银行卡支付</string>
+    <string name="label_alipay_desc">支付宝用户使用</string>
+    <string name="label_wxpay_desc">微信支付用户使用</string>
+    <string name="label_upmp_desc">支持所有银联储蓄卡和信用卡支付</string>
+    <string name="label_consignee">收件人：</string>
+    <string name="label_address">收货地址：</string>
+    <string name="label_goods_total">商品总额：</string>
+    <string name="label_freight">运&#160;&#160;&#160;&#160;费：</string>
+    <string name="label_total">总&#160;&#160;&#160;&#160;计：</string>
+    <string name="label_total_pay">合计：</string>
+    <string name="label_consignee_name">收件人姓名</string>
+    <string name="label_area">省市区</string>
+    <string name="label_detail_address">详细地址</string>
+    <string name="label_tea_name">品名</string>
+    <string name="label_year">年份</string>
+    <string name="label_unit">单位</string>
+    <string name="label_price">参考价</string>
+    <string name="label_pay_total">支付金额：</string>
+    <string name="label_order_num">订单编号：</string>
+    <string name="label_pay_num">支付编号：</string>
+    <string name="label_time_create">创建时间：</string>
+    <string name="label_rmb">￥</string>
+    <string name="label_yuan">元</string>
+    <string name="label_true_name">真实姓名</string>
+    <string name="label_new_password">新的密码：</string>
+    <string name="label_password_confirm">重复输入：</string>
+
+    <!--选项卡文字，命名格式为：tab_选项卡文字-->
+    <string name="tab_home_mall">商城</string>
+    <string name="tab_home_forum">论坛</string>
+    <string name="tab_home_cart">购物车</string>
+    <string name="tab_home_personal">个人中心</string>
+    <string name="tab_sample_notice">申领须知</string>
+    <string name="tab_sample_history">往期茶样</string>
+    <string name="tab_discount_nowadays">今日抢购</string>
+    <string name="tab_discount_next">明日预告</string>
+    <string name="tab_order_all">全部订单</string>
+    <string name="tab_order_unpaid">待付款</string>
+    <string name="tab_order_paid">待发货</string>
+    <string name="tab_order_receive">待收货</string>
+    <string name="tab_order_uncomment">待评价</string>
+    <string name="tab_voucher_unused">未使用</string>
+    <string name="tab_voucher_used">已使用</string>
+    <string name="tab_voucher_valid">已过期</string>
+    <string name="tab_goods_detail">产品详情</string>
+    <string name="tab_comment">评价</string>
+
+    <!--消息框文字，命名格式为：toast_消息-->
+    <string name="toast_network_error">网络连接错误</string>
+    <string name="toast_network_timeout">网络连接超时</string>
+    <string name="toast_logout_success">退出成功</string>
+    <string name="toast_cancel_success">取消成功</string>
+    <string name="toast_sure_success">确认订单成功</string>
+    <string name="toast_pay_success">支付成功</string>
+    <string name="toast_pay_comfirming">支付确认中</string>
+    <string name="toast_pay_fail">支付失败</string>
+    <string name="toast_loading">正在加载</string>
+    <string name="toast_operate_success">操作成功</string>
+    <string name="toast_not_update">已经是最新版本了</string>
+    <string name="toast_update_no_wifi">请在wifi环境下更新</string>
+    <string name="toast_login_success">登录成功</string>
+    <string name="toast_invalid_mobile">请输入正确的手机号码</string>
+    <string name="toast_invalid_code">请输入6位验证码</string>
+    <string name="toast_invalid_password">请输入大于8位的密码</string>
+    <string name="toast_invalid_confirm">两次输入的密码不一致</string>
+    <string name="toast_old_password">旧密码不能为空</string>
+    <string name="toast_new_password">请输入大于8位的新密码</string>
+
+    <!--编辑框的提示文字，命名格式为：hint_提示信息-->
+    <string name="hint_login_username">请您输入手机号/用户名</string>
+    <string name="hint_mobile_number">请输入手机号</string>
+    <string name="hint_password">请输入密码</string>
+    <string name="hint_old_password">请输入旧密码</string>
+    <string name="hint_new_password">请输入新密码</string>
+    <string name="hint_confirm_password">请确认新的密码</string>
+    <string name="hint_captcha">6位验证码</string>
+    <string name="hint_limit_name">最少2个字</string>
+    <string name="hint_limit_mobile">11位手机号</string>
+    <string name="hint_please_choose">请选择</string>
+    <string name="hint_detail_address">请输入详细地址</string>
+    <string name="hint_true_name">不少于2个字符</string>
+    <string name="hint_search">搜索商品名称、店铺等</string>
+
+    <!--图片的描述文字，命名格式为：desc_图片文字-->
+    <string name="desc_cart_empty">购物车暂无商品</string>
+    <string name="desc_goods_thumb">商品缩略图</string>
+
+    <!--对话框的文字，命名格式为：dialog_文字-->
+    <string name="dialog_cancel_order">确定要取消订单？</string>
+    <string name="dialog_sure_order">确定要确认订单吗？</string>
+    <string name="dialog_delete_address">确认要删除所选中的地址吗？</string>
+    <string name="dialog_add_cart_success">添加购物车成功</string>
+    <string name="dialog_clean_cache">确认要删除所有缓存吗？（不包括登录信息等数据）</string>
+    <string name="dialog_logout">确定要退出登录吗？</string>
+
+    <!--menu的item文字，命名格式为：action_文字-->
+    <string name="action_main_cart">购物车</string>
+    <string name="action_edit">编辑全部</string>
+    <string name="action_done">完成</string>
+    <string name="action_delete">删除</string>
+    <string name="action_settings">设置</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:padding="4dp"
+    android:paddingBottom="8dp"
+    >
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/dv_sample_image"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_weight="0.382"
+        app:actualImageScaleType="centerCrop"
+        app:failureImage="@mipmap/def_image_failure"
+        app:placeholderImage="@mipmap/def_image_loading"
+        />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/text_margin"
+        android:layout_weight="0.618"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/tv_sample_title"
+            style="@style/TextSubhead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            />
+
+        <TextView
+            android:id="@+id/tv_sample_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_margin"
+            android:text="￥55.00"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/text_size_body_material"
+            />
+
+        <TextView
+            android:id="@+id/tv_sample_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:drawableLeft="@mipmap/ic_location_goods"
+            android:drawablePadding="@dimen/text_drawable_padding"
+            android:paddingRight="4dp"
+            android:text="云南"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:gravity="right"
+            android:minHeight="48dp"
+            android:orientation="horizontal"
+            android:paddingRight="4dp"
+            >
+
+            <Button
+                android:id="@+id/btn_sample_comment"
+                style="@style/TextBody"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/widget_small_height"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/btn_rectangle_divider_bg_white_stroke"
+                android:text="@string/btn_read_comment"
+                />
+
+            <Button
+                android:id="@+id/btn_sample_buy"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/widget_small_height"
+                android:background="@drawable/btn_radius_primary2dark_selector"
+                android:text="@string/btn_to_buy"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_body_material"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

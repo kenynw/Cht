@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="4dp"
+    >
+
+    <ImageView
+        android:id="@+id/item_goods_image"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@mipmap/ic_launcher"
+        android:scaleType="centerCrop"
+        />
+
+    <TextView
+        android:id="@+id/item_goods_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="正山小种礼盒 装养胃茶、春茶圆香 金俊眉红"
+        android:gravity="center_vertical"
+        android:layout_gravity="bottom"
+        android:lines="2"
+        style="@style/TextBody"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="4dp"
+        android:gravity="center"
+        >
+
+        <TextView
+            android:id="@+id/item_goods_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="￥198.00"
+            android:singleLine="true"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_size_body_material"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="云南"
+            android:drawableLeft="@mipmap/ic_location_goods"
+            android:drawablePadding="2dp"
+            android:gravity="center"
+            style="@style/TextCaption"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

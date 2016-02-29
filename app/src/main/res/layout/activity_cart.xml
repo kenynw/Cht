@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.damenghai.chahuitong.view.mall.CartActivity">
+
+    <include layout="@layout/include_toolbar" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/cart_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+        <LinearLayout
+            android:id="@+id/layout_cart_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:visibility="gone"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/ic_cart_empty"
+                android:text="@string/text_cart_empty"
+                android:drawablePadding="@dimen/text_drawable_padding"
+                android:textSize="@dimen/text_size_body_material"
+                android:textColor="@color/text_black_secondary"
+                />
+
+            <Button
+                android:id="@+id/btn_cart_shopping"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:background="@drawable/btn_rectangle_accent_stroke"
+                android:text="@string/btn_go_shopping"
+                android:layout_marginTop="8dp"
+                android:textSize="@dimen/text_size_body_material"
+                android:textColor="@color/colorAccent"
+                />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/div_gray"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        >
+
+        <CheckBox
+            android:id="@+id/cart_cb_all"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:drawableLeft="@drawable/rbtn_primary2white_sel"
+            android:drawablePadding="8dp"
+            android:text="@string/btn_check_all"
+            android:textSize="@dimen/text_size_body_material"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:enabled="false"
+            android:checked="true"
+            />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:id="@+id/layout_cart_total"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical|right"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_total_pay"
+                style="@style/TextBody"
+                />
+
+            <TextView
+                android:id="@+id/cart_tv_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_rmb"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/text_size_body_material"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                />
+
+            <Button
+                android:id="@+id/btn_cart_balance"
+                android:layout_width="104dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                android:text="@string/btn_balance"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_subhead_material"
+                android:layout_gravity="right"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_cart_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            >
+
+            <Button
+                android:id="@+id/btn_cart_favorites"
+                android:layout_width="104dp"
+                android:layout_height="match_parent"
+                android:background="@color/text_black_disable"
+                android:textSize="@dimen/text_size_subhead_material"
+                android:textColor="@color/white"
+                android:text="@string/btn_move_favorites"
+                />
+
+            <Button
+                android:id="@+id/btn_cart_delete"
+                android:layout_width="104dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                android:text="@string/btn_delete"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_subhead_material"
+                android:layout_gravity="right"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

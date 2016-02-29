@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.user.LoginActivity"
+    >
+
+    <include layout="@layout/include_toolbar" />
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/et_login_username"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_medium_height"
+        android:hint="@string/hint_login_username"
+        android:textColorHint="@color/text_hint"
+        android:textSize="@dimen/text_size_body_material"
+        android:background="@color/white"
+        android:drawableLeft="@mipmap/ic_login_username"
+        android:drawablePadding="@dimen/text_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/div_gray"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="8dp"
+        />
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/et_login_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_medium_height"
+        android:hint="@string/hint_password"
+        android:textColorHint="@color/text_hint"
+        android:textSize="@dimen/text_size_body_material"
+        android:background="@color/white"
+        android:drawableLeft="@mipmap/ic_login_password"
+        android:drawablePadding="@dimen/text_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:inputType="textPassword"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_login_register"
+            style="@style/ButtonBorderlessColored"
+            android:onClick="toRegister"
+            />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btn_login_forgot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/ButtonBorderlessColored"
+            android:textColor="@color/text_black_secondary"
+            android:text="@string/btn_forgot_password"
+            android:onClick="toSetPassword"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:background="@drawable/btn_radius_primary2dark_selector"
+        android:text="@string/btn_ok"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_subhead_material"
+        android:onClick="toLogin"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_register_notice"
+            />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            />
+
+        <Button
+            android:id="@+id/btn_login_feedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/ButtonBorderlessColored"
+            android:text="@string/btn_login_feedback"
+            android:textColor="@color/text_black_secondary"
+            android:onClick="toFeedback"
+            />
+
+    </LinearLayout>
+
+    <include layout="@layout/include_third_login" />
+
+</LinearLayout>

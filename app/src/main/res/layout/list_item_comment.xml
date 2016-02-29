@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_vertical_margin"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/dv_comment_avatar"
+            android:layout_width="@dimen/widget_medium_height"
+            android:layout_height="@dimen/widget_medium_height"
+            app:actualImageScaleType="centerCrop"
+            app:failureImage="@mipmap/def_image_failure"
+            app:placeholderImage="@mipmap/def_avatar_placeholder"
+            app:roundAsCircle="true"
+            />
+
+        <TextView
+            android:id="@+id/tv_comment_name"
+            style="@style/TextBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="8dp"
+            tools:text="名字"
+            />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tv_comment_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            tools:text="2016-2-3"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_comment_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:lineSpacingMultiplier="1.3"
+        android:textColor="@color/text_black_primary"
+        android:textSize="@dimen/text_size_caption_material"
+        tools:text="口感不错，汤色很好，值得买进此茶口感不错，汤色很好，值得买进此茶口感不错，汤色很好，值得买进此茶口感不错，汤色很好，值得买进此茶口感不错，汤色很好，值得买进此茶"
+        />
+
+</LinearLayout>

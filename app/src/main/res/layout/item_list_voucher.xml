@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dashed_rect_primary"
+    android:id="@+id/voucher_item_layout"
+    android:layout_margin="8dp"
+    >
+
+    <LinearLayout
+        android:id="@+id/voucher_item_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="24dp"
+        android:paddingBottom="20dp"
+        android:paddingLeft="13dp"
+        android:paddingRight="13dp"
+        android:gravity="center_horizontal"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/tv_voucher_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="12dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_size_title_material"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_subhead_material"
+                android:textColor="@color/colorPrimary"
+                android:text="@string/label_yuan"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_voucher_limit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextBody"
+            />
+    </LinearLayout>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="48dp"
+        android:background="@color/colorPrimary"
+        android:layout_toRightOf="@id/voucher_item_left"
+        android:layout_centerVertical="true"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_toRightOf="@id/voucher_item_left"
+        android:paddingTop="23dp"
+        android:paddingLeft="13dp"
+        android:paddingBottom="13dp"
+        >
+
+        <TextView
+            android:id="@+id/tv_voucher_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_subhead_material"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/tv_voucher_valid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_body_material"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="22dp"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

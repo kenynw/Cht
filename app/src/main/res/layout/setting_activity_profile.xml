@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.damenghai.chahuitong.view.settings.ProfileActivity">
+
+    <include layout="@layout/include_toolbar"/>
+
+    <RelativeLayout
+        android:id="@+id/profile_avatar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@mipmap/bg_profile_avatar"
+        >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/sdv_profile_avatar"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true"
+            android:onClick="toPickPicture"
+            fresco:roundAsCircle="true"
+            fresco:roundingBorderWidth="4dp"
+            fresco:actualImageScaleType="centerCrop"
+            fresco:placeholderImage="@mipmap/def_image_loading"
+            fresco:roundingBorderColor="@color/colorPrimary"
+            />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_profile_username"
+        style="@style/TextSubhead"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_medium_height"
+        android:background="@color/white"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:text="@string/label_account"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/div_gray"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_medium_height"
+        android:background="@color/white"
+        >
+
+        <Button
+            style="@style/ListItemDetailButton"
+            android:text="@string/label_true_name"
+            />
+
+        <EditText
+            android:id="@+id/et_profile_truename"
+            style="@style/Base.TextAppearance.AppCompat.Body1"
+            android:layout_width="160dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="40dp"
+            android:background="@null"
+            android:gravity="right|center_vertical"
+            android:hint="@string/hint_true_name"
+            android:inputType="textPersonName"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        >
+
+        <Button
+            style="@style/ListItemDetailButton"
+            android:text="@string/btn_gender"
+            android:onClick="toChangeGender"
+            />
+
+        <TextView
+            android:id="@+id/tv_profile_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="男"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="40dp"
+            style="@style/TextBody"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        >
+
+        <Button
+            style="@style/ListItemDetailButton"
+            android:text="@string/btn_born"
+            android:onClick="toChangeBorn"
+            />
+
+        <TextView
+            android:id="@+id/tv_profile_born"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1991-06-11"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="40dp"
+            style="@style/TextBody"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        >
+
+        <Button
+            style="@style/ListItemDetailButton"
+            android:text="@string/btn_change_password"
+            android:onClick="toChangePassword"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:background="@drawable/btn_radius_primary2dark_selector"
+        android:text="@string/btn_ok"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_subhead_material"
+        android:onClick="toSave"
+        />
+
+</LinearLayout>

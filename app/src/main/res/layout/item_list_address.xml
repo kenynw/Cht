@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/activity_vertical_margin"
+    android:background="@color/white"
+    >
+
+    <CheckBox
+        android:id="@+id/cb_address_edit"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:button="@drawable/rbtn_primary2white_sel"
+        android:layout_centerVertical="true"
+        />
+
+    <LinearLayout
+        android:id="@+id/ll_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_toRightOf="@id/cb_address_edit"
+        >
+        <TextView
+            android:id="@+id/tv_address_name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/TextSubhead"
+            android:text="@string/label_consignee"
+            android:gravity="center_vertical"
+            />
+
+        <TextView
+            android:id="@+id/tv_address_mobile"
+            style="@style/TextSubhead"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="15375870891"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_address_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextBody"
+        android:text="福建省 厦门市 湖里区安岭路三福财富中心湖里区安岭路三福财富中心"
+        android:layout_below="@id/ll_address"
+        android:layout_alignLeft="@id/ll_address"
+        android:layout_marginTop="8dp"
+        android:lines="2"
+        />
+
+</RelativeLayout>

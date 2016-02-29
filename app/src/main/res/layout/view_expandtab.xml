@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@color/white"
+    >
+
+    <ToggleButton
+        android:id="@+id/tbtn_expand_cate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textOff="类别"
+        android:textOn="普洱茶"
+        style="@style/TextCaption"
+        android:checked="true"
+        android:background="@null"
+        android:drawableRight="@mipmap/ic_valuator_tab_normal"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
+        android:onClick="toPopupMenu"
+        />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/div_gray"
+        />
+
+    <ToggleButton
+        android:id="@+id/tbtn_expand_price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textOff="价格"
+        android:textOn="价格高到低"
+        style="@style/TextCaption"
+        android:checked="true"
+        android:background="@color/white"
+        android:drawableRight="@mipmap/ic_valuator_tab_normal"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
+        />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/div_gray"
+        />
+
+    <ToggleButton
+        android:id="@+id/tbtn_expand_sales"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textOff="销量优先"
+        android:textOn="价格从高到低"
+        style="@style/TextCaption"
+        android:background="@color/white"
+        android:drawableRight="@mipmap/ic_valuator_tab_normal"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
+        />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/div_gray"
+        />
+
+    <ToggleButton
+        android:id="@+id/tbtn_expand_season"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textOff="季节"
+        android:textOn="价格从高到低"
+        style="@style/TextCaption"
+        android:background="@color/white"
+        android:drawableRight="@mipmap/ic_valuator_tab_normal"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
+        />
+
+</LinearLayout>

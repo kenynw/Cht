@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.user.RegisterActivity">
+
+    <include layout="@layout/include_toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_medium_height"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_mobile_number"
+            style="@style/TextBody"
+            />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/et_register_mobile"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/widget_medium_height"
+            android:hint="@string/hint_mobile_number"
+            android:textColorHint="@color/text_hint"
+            android:textSize="@dimen/text_size_body_material"
+            android:background="@color/white"
+            android:drawablePadding="@dimen/text_margin"
+            android:paddingLeft="8dp"
+            android:singleLine="true"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/div_gray"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="8dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_medium_height"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_captcha"
+            style="@style/TextBody"
+            />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/et_register_captcha"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/widget_medium_height"
+            android:layout_weight="1"
+            android:textColorHint="@color/text_hint"
+            android:textSize="@dimen/text_size_body_material"
+            android:background="@color/white"
+            android:drawablePadding="@dimen/text_margin"
+            android:paddingLeft="8dp"
+            android:singleLine="true"
+            android:inputType="number"
+            android:maxLength="6"
+            android:hint="@string/hint_captcha"
+            />
+
+        <Button
+            android:id="@+id/btn_register_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@drawable/btn_rectangle_divider_bg_white_stroke"
+            android:text="@string/btn_send_code"
+            style="@style/TextCaption"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/div_gray"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="8dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_medium_height"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_password"
+            style="@style/TextBody"
+            />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/et_register_password"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/widget_medium_height"
+            android:hint="@string/hint_password"
+            android:textColorHint="@color/text_hint"
+            android:textSize="@dimen/text_size_body_material"
+            android:background="@color/white"
+            android:drawablePadding="@dimen/text_margin"
+            android:paddingLeft="8dp"
+            android:singleLine="true"
+            android:inputType="textPassword"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_register_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:background="@drawable/btn_radius_primary2dark_selector"
+        android:text="@string/btn_register"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_subhead_material"
+        android:onClick="toRegister"
+        />
+
+    <Button
+        android:id="@+id/btn_register_feedback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/ButtonBorderlessColored"
+        android:text="@string/btn_login_feedback"
+        android:textColor="@color/text_black_secondary"
+        android:layout_gravity="right"
+        android:onClick="toFeedback"
+        />
+
+</LinearLayout>

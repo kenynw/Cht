@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:background="@color/bg_window"
+    >
+
+    <CheckBox
+        android:id="@+id/cb_favorites_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dp"
+        android:button="@null"
+        android:drawableLeft="@drawable/rbtn_primary2white_sel"
+        android:visibility="invisible"
+        />
+
+    <ImageView
+        android:id="@+id/goods_iv_thumb"
+        android:layout_width="77dp"
+        android:layout_height="77dp"
+        android:padding="1dp"
+        android:src="@mipmap/def_image_loading"
+        android:layout_toRightOf="@id/cb_favorites_edit"
+        />
+
+    <LinearLayout
+        android:id="@+id/layout_goods_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignTop="@id/goods_iv_thumb"
+        android:layout_toRightOf="@id/goods_iv_thumb"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="2dp"
+        >
+
+        <TextView
+            android:id="@+id/goods_tv_title"
+            style="@style/TextCaption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:singleLine="true"
+            />
+
+        <TextView
+            android:id="@+id/goods_tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/text_size_caption_material"
+            />
+
+    </LinearLayout>
+
+    <com.damenghai.chahuitong.widget.QuantityView
+        android:id="@+id/goods_count_view"
+        android:layout_width="106dp"
+        android:layout_height="34dp"
+        android:layout_alignBottom="@id/goods_iv_thumb"
+        android:layout_alignLeft="@id/layout_goods_title"
+        android:layout_marginLeft="8dp"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/goods_tv_count"
+        style="@style/TextCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/goods_iv_thumb"
+        android:layout_alignParentRight="true"
+        android:text="x"
+        />
+
+</RelativeLayout>

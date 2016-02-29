@@ -1,0 +1,102 @@
+package com.damenghai.chahuitong.expansion.data;
+
+import android.os.Bundle;
+
+import com.damenghai.chahuitong.bijection.Presenter;
+
+import rx.Subscriber;
+import rx.Subscription;
+import rx.subjects.BehaviorSubject;
+
+/**
+ * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
+ */
+public class BaseDataFragmentPresenter<M> extends Presenter<BaseDataFragment> {
+
+    //用于缓存数据的Subscriber
+    private BehaviorSubject<M> mData = BehaviorSubject.create();
+
+    //View的订阅关系，View被销毁时自动取消订阅。
+    private Subscriber<M> mSubscriber = new Subscriber<M>() {
+        @Override
+        public void onCompleted() {
+
+        }
+
+        @Override
+        public void onError(Throwable e) {
+            mData.onError(e);
+        }
+
+        @Override
+        public void onNext(M m) {
+            mData.onNext(m);
+        }
+    };
+
+    private Subscription mSubscription;
+
+    @Override
+    protected void onCreate(BaseDataFragment view, Bundle saveState) {
+        super.onCreate(view, saveState);
+        mSubscription = mData.unsafeSubscribe(new Subscriber<M>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                getView().showError(e);
+            }
+
+            @Override
+            public void onNext(M m) {
+                getView().setData(m);
+            }
+        });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mSubscription.unsubscribe();
+    }
+
+    /**
+     * 获取存放数据的subscriber，通常用于
+     *
+     *     Observable.unsafeSubscribe(getDataSubscriber());
+     *
+     * @return
+     */
+    public Subscriber<M> getSubscriber() {
+        return mSubscriber;
+    }
+
+    /**
+     * 获取缓存数据的Subscriber
+     * 可以通过 `getDataSubject().getValue();` 获取缓存数据。
+     * @return
+     */
+    public BehaviorSubject<M> getDataSubject() {
+        return mData;
+    }
+
+    /**
+     * 手动发布数据
+     * @param m
+     */
+    public void publishData(M m) {
+        mData.onNext(m);
+    }
+
+    /**
+     * 手动发布错误
+     * @param e
+     */
+    public void publishError(Throwable e) {
+        mData.onError(e);
+    }
+
+}
