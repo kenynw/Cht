@@ -52,7 +52,7 @@ public class PersonalGridAdapter extends RecyclerView.Adapter<PersonalGridAdapte
     }
 
     @Override
-    public void onBindViewHolder(PersonalGridAdapter.PersonalItemViewHolder holder, final int position) {
+    public void onBindViewHolder(PersonalItemViewHolder holder, final int position) {
         holder.mIcon.setImageResource(ICON_RES_LIST[position]);
         holder.mText.setText(TEXT_RES_LIST[position]);
 
@@ -95,7 +95,7 @@ public class PersonalGridAdapter extends RecyclerView.Adapter<PersonalGridAdapte
     }
 
     @Override
-    public PersonalGridAdapter.PersonalItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public PersonalItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext).inflate(R.layout.item_grid_personal, parent, false);
         view.setMinimumHeight(parent.getHeight() / 2 - 2);
         return new PersonalItemViewHolder(view);

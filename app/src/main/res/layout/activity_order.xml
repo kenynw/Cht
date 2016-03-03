@@ -9,7 +9,7 @@
     android:orientation="vertical"
     tools:context=".view.mall.BuyActivity">
 
-    <include layout="@layout/include_toolbar" />
+    <include layout="@layout/include_toolbar"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -36,23 +36,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginTop="16dp"
+                android:background="@color/white"
                 android:gravity="center_vertical"
                 android:onClick="toChangeAddress"
                 android:orientation="vertical"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
-                android:background="@color/white"
                 >
 
                 <TextView
                     android:id="@+id/order_tv_consignee"
                     style="@style/TextSubhead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:paddingTop="8dp"
                     android:singleLine="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/label_consignee"
                     />
 
@@ -75,15 +75,16 @@
                 android:layout_height="136dp"
                 android:layout_marginBottom="16dp"
                 android:layout_marginTop="16dp"
+                android:background="@color/white"
                 android:gravity="center_vertical"
                 android:orientation="vertical"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
-                android:background="@color/white"
                 >
 
                 <RadioButton
                     android:id="@+id/order_rbtn_alipay"
+                    style="@style/TextBody"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -94,7 +95,6 @@
                     android:drawableRight="@drawable/rbtn_primary2white_sel"
                     android:paddingTop="4dp"
                     android:text="@string/label_pay_alipay"
-                    style="@style/TextBody"
                     />
 
                 <View
@@ -105,6 +105,7 @@
 
                 <RadioButton
                     android:id="@+id/order_rbtn_wxpay"
+                    style="@style/TextBody"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -113,7 +114,6 @@
                     android:drawablePadding="8dp"
                     android:drawableRight="@drawable/rbtn_primary2white_sel"
                     android:text="@string/label_pay_weixin"
-                    style="@style/TextBody"
                     />
 
                 <View
@@ -124,6 +124,7 @@
 
                 <RadioButton
                     android:id="@+id/order_rbtn_upmp"
+                    style="@style/TextBody"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -133,7 +134,6 @@
                     android:drawableRight="@drawable/rbtn_primary2white_sel"
                     android:paddingBottom="4dp"
                     android:text="@string/label_pay_upmp"
-                    style="@style/TextBody"
                     />
 
             </RadioGroup>
@@ -142,14 +142,14 @@
 
             <TextView
                 android:id="@+id/tv_order_voucher"
+                style="@style/TextBody"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:text="@string/btn_voucher_order"
-                style="@style/TextBody"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:background="@color/white"
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:background="@color/white"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:text="@string/btn_voucher_order"
                 />
 
             <LinearLayout
@@ -251,18 +251,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:gravity="right|center_vertical"
         android:orientation="horizontal"
         android:paddingBottom="8dp"
         android:paddingRight="16dp"
         android:paddingTop="8dp"
-        android:background="@color/white"
         >
 
         <TextView
+            style="@style/TextCaption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/TextCaption"
             android:text="@string/label_total_pay"
             />
 
@@ -270,9 +270,9 @@
             android:id="@+id/order_tv_pay_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/label_rmb"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/text_size_subhead_material"
-            android:text="@string/label_rmb"
             />
 
         <Button
@@ -281,11 +281,11 @@
             android:layout_height="40dp"
             android:layout_marginLeft="8dp"
             android:background="@drawable/btn_radius_primary2dark_selector"
+            android:enabled="false"
             android:onClick="toPay"
             android:text="@string/btn_go_pay"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_body_material"
-            android:enabled="false"
             />
 
     </LinearLayout>

@@ -94,7 +94,7 @@ public class GoodsRecycleViewAdapter extends BaseRecycleListAdapter<Goods, Goods
     }
 
     @Override
-    public GoodsRecycleViewAdapter.GoodsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public GoodsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext)
                 .inflate(R.layout.item_list_order_goods, parent, false);
         return new GoodsViewHolder(view);

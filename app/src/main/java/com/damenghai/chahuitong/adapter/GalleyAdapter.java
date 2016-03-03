@@ -50,7 +50,7 @@ public class GalleyAdapter extends RecyclerView.Adapter<GalleyAdapter.ViewHolder
     }
 
     @Override
-    public GalleyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = View.inflate(mContext, R.layout.item_galley_goods, null);
         ViewHolder holder = new ViewHolder(view);
 
@@ -70,7 +70,7 @@ public class GalleyAdapter extends RecyclerView.Adapter<GalleyAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(GalleyAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
         final Recommend goods = mData.get(position);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

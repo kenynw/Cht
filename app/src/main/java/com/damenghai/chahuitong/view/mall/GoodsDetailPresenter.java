@@ -9,6 +9,7 @@ import com.damenghai.chahuitong.model.bean.GoodsInfo;
 import com.damenghai.chahuitong.model.service.ServiceClient;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.model.service.ServiceTransform;
+import com.damenghai.chahuitong.presenter.BuyPresenter;
 import com.damenghai.chahuitong.utils.DialogFactory;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.damenghai.chahuitong.view.user.LoginActivity;
@@ -83,10 +84,7 @@ public class GoodsDetailPresenter extends BaseDataActivityPresenter<GoodsDetailA
 
     public void toBuy() {
         if (isLogin()) {
-            Intent intent = new Intent(getView(), BuyActivity.class);
-            intent.putExtra("goods_id", mGoodsId);
-            intent.putExtra("buynum", "1");
-            getView().startActivity(intent);
+            getView().startActivity(BuyPresenter.getStartIntent(getView(), mGoodsId + "|1", "0"));
         }
     }
 

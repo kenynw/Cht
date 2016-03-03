@@ -19,11 +19,14 @@ import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.adapter.BaseListAdapter;
 import com.damenghai.chahuitong.adapter.ViewHolder;
 import com.damenghai.chahuitong.base.BaseActivity;
+import com.damenghai.chahuitong.bijection.RequiresPresenter;
+import com.damenghai.chahuitong.expansion.data.BaseDataActivity;
 import com.damenghai.chahuitong.model.bean.Address;
 import com.damenghai.chahuitong.model.bean.Goods;
 import com.damenghai.chahuitong.model.bean.Order;
 import com.damenghai.chahuitong.model.bean.Store;
 import com.damenghai.chahuitong.model.bean.Voucher;
+import com.damenghai.chahuitong.model.bean.response.OrderInfo;
 import com.damenghai.chahuitong.presenter.BuyPresenter;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.damenghai.chahuitong.view.web.WebViewActivity;
@@ -31,6 +34,7 @@ import com.damenghai.chahuitong.view.address.AddressListActivity;
 import com.damenghai.chahuitong.widget.QuantityView;
 import com.damenghai.chahuitong.widget.WrapHeightListView;
 import com.damenghai.chahuitong.wxapi.WXPayEntryActivity;
+import com.google.gson.Gson;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -40,7 +44,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
 
-public class BuyActivity extends BaseActivity implements BuyMvpView {
+@RequiresPresenter(BuyPresenter.class)
+public class BuyActivity extends BaseDataActivity<BuyPresenter, OrderInfo> {
 
     @Bind(R.id.order_address_container)
     FrameLayout mContainerAddress;
@@ -95,8 +100,6 @@ public class BuyActivity extends BaseActivity implements BuyMvpView {
 
     private Voucher mVoucher;
 
-    private BuyPresenter mPresenter;
-
     private List<Voucher> mVoucherList;
 
     @Override
@@ -106,24 +109,18 @@ public class BuyActivity extends BaseActivity implements BuyMvpView {
         setToolbarTitle(R.string.title_activity_order);
         ButterKnife.bind(this);
         EventBus.getDefault().register(this);
-
-        mGoodsId = getIntent().getStringExtra("goods_id");
-        mBuyNum = getIntent().getStringExtra("buynum");
-
-        mIfCart = getIntent().getStringExtra("ifcart");
-        mCartId = getIntent().getStringExtra("cart_id");
-
-        LUtils.log(mGoodsId + "|" + mBuyNum);
-
-        mPresenter = new BuyPresenter(this);
-        mPresenter.attach(this);
-        mPresenter.showInfo();
+//
+//        mGoodsId = getIntent().getStringExtra("goods_id");
+//        mBuyNum = getIntent().getStringExtra("buynum");
+//
+//        mIfCart = getIntent().getStringExtra("ifcart");
+//        mCartId = getIntent().getStringExtra("cart_id");
     }
 
     @OnClick(R.id.tv_order_voucher)
     public void chooseVoucher() {
         if (mVoucherList == null) {
-            showShort("没有可用的优惠券");
+            LUtils.toast("没有可用的优惠券");
             return;
         }
         String[] items = new String[mVoucherList.size()];
@@ -149,7 +146,7 @@ public class BuyActivity extends BaseActivity implements BuyMvpView {
         mContainerAddress.setVisibility(View.GONE);
         mTvConsignee.setText(getResources().getString(R.string.label_consignee) + address.getTrue_name() + " " + address.getMob_phone());
         mTvAddress.setText(getResources().getString(R.string.label_address) + address.getArea_info() + " " + address.getAddress());
-        mPresenter.changeAddress();
+//        mPresenter.changeAddress();
     }
 
     public void selectedVoucher(Voucher voucher) {
@@ -163,7 +160,6 @@ public class BuyActivity extends BaseActivity implements BuyMvpView {
         mTvVoucher.setText(voucher.getVoucher_title());
     }
 
-    @Override
     public void setStore(Store store) {
         GoodsListAdapter adapter = new GoodsListAdapter(this, store.getGoods_list(), R.layout.item_list_order_goods);
         mListView.setAdapter(adapter);
@@ -185,9 +181,34 @@ public class BuyActivity extends BaseActivity implements BuyMvpView {
         }
     }
 
-    @Override
     public void setVoucher(List<Voucher> vouchers) {
         mVoucherList = vouchers;
+    }
+
+    @Override
+    public void setData(OrderInfo orderInfo) {
+        super.setData(orderInfo);
+
+        LUtils.log("order info: " + new Gson().toJson(orderInfo));
+
+        LUtils.log("store list: " + orderInfo.getStore_cart_list().get(0).get("2"));
+
+        if (orderInfo.getAddress_info() != null) {
+            Address address = orderInfo.getAddress_info();
+            mAddress = address;
+            mLayoutAddress.setVisibility(View.VISIBLE);
+            mContainerAddress.setVisibility(View.GONE);
+            mTvConsignee.append(address.getTrue_name() + " " + address.getMob_phone());
+            mTvAddress.append(address.getArea_info() + " " + address.getAddress());
+        } else {
+            mLayoutAddress.setVisibility(View.GONE);
+            mContainerAddress.setVisibility(View.VISIBLE);
+        }
+
+        // 设置店铺信息
+
+        // 设置优惠券
+
     }
 
     public void toChangeAddress(View view) {
@@ -198,10 +219,9 @@ public class BuyActivity extends BaseActivity implements BuyMvpView {
 
     public void toPay(View view) {
         view.setEnabled(false);
-        mPresenter.genPaySn();
+//        mPresenter.genPaySn();
     }
 
-    @Override
     public void startPay(Order order) {
 
         String title = getResources().getString(R.string.text_pay_title_prefix) + order.getOrder_sn();
@@ -218,35 +238,35 @@ public class BuyActivity extends BaseActivity implements BuyMvpView {
                     @Override
                     public void onSuccess() {
                         bundle.putInt("resultCode", WXPayEntryActivity.RESULT_SUCCESS);
-                        openActivity(WXPayEntryActivity.class, bundle);
+//                        openActivity(WXPayEntryActivity.class, bundle);
                     }
 
                     @Override
                     public void onConfirming() {
                         bundle.putInt("resultCode", WXPayEntryActivity.RESULT_FAIL);
-                        openActivity(WXPayEntryActivity.class, bundle);
+//                        openActivity(WXPayEntryActivity.class, bundle);
                     }
 
                     @Override
                     public void onError() {
                         bundle.putInt("resultCode", WXPayEntryActivity.RESULT_FAIL);
-                        openActivity(WXPayEntryActivity.class, bundle);
+//                        openActivity(WXPayEntryActivity.class, bundle);
                     }
                 });
                 break;
             case R.id.order_rbtn_wxpay :
-                openActivity(WXPayEntryActivity.class, bundle);
+//                openActivity(WXPayEntryActivity.class, bundle);
                 WxpayManager manager = WxpayManager.getInstance(this);
                 manager.pay(title, price, order.getPay_sn());
                 finish();
                 break;
             case R.id.order_rbtn_upmp :
-                String url = "http://www.chahuitong.com/mobile/index.php?act=member_payment&op=pay&key="
-                        + mPresenter.getKey()
-                        + "&pay_sn=" + order.getPay_sn() + "&payment_code=yinlian";
-                Bundle urlBundle = new Bundle();
-                urlBundle.putString("url", url);
-                openActivity(WebViewActivity.class, urlBundle);
+//                String url = "http://www.chahuitong.com/mobile/index.php?act=member_payment&op=pay&key="
+//                        + mPresenter.getKey()
+//                        + "&pay_sn=" + order.getPay_sn() + "&payment_code=yinlian";
+//                Bundle urlBundle = new Bundle();
+//                urlBundle.putString("url", url);
+//                openActivity(WebViewActivity.class, urlBundle);
                 finish();
                 break;
         }
@@ -255,21 +275,18 @@ public class BuyActivity extends BaseActivity implements BuyMvpView {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mPresenter.detach();
+//        mPresenter.detach();
         EventBus.getDefault().unregister(this);
     }
 
-    @Override
     public String getCartId() {
         return TextUtils.isEmpty(mCartId) ? mGoodsId + "|" + mBuyNum : mCartId;
     }
 
-    @Override
     public String getIsCart() {
         return mIfCart;
     }
 
-    @Override
     public void setAddress(Address address) {
         mAddress = address;
         mLayoutAddress.setVisibility(View.VISIBLE);
@@ -278,12 +295,10 @@ public class BuyActivity extends BaseActivity implements BuyMvpView {
         mTvAddress.append(address.getArea_info() + " " + address.getAddress());
     }
 
-    @Override
     public Address getAddress() {
         return mAddress;
     }
 
-    @Override
     public Voucher getVoucher() {
         return mVoucher;
     }

@@ -168,7 +168,8 @@ public interface Services {
     //--------------------------购买--------------------------
     @FormUrlEncoded
     @POST("/mobile/index.php?act=member_buy&op=buy_step1")
-    Observable<Response<OrderInfo>> getOrderInfo(
+    Observable<OrderInfo> getOrderInfo(
+            @Field("version") String version,
             @Field("key") String key,
             @Field("cart_id") String cartId,
             @Field("ifcart") String isCart

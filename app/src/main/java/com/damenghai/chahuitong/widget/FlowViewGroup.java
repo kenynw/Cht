@@ -73,7 +73,7 @@ public class FlowViewGroup extends ViewGroup {
             View child = getChildAt(i);
 
             measureChild(child, widthMeasureSpec, heightMeasureSpec);
-            ViewGroup.LayoutParams lp = child.getLayoutParams();
+            LayoutParams lp = child.getLayoutParams();
 
             int childMeasureHeightSpec = getChildMeasureSpec(heightMeasureSpec,
                     getPaddingLeft() + getPaddingRight(), lp.height);

@@ -69,7 +69,7 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
                     }
                 });
                 dialog.findViewById(R.id.dialog_btn_ok)
-                        .setOnClickListener(new View.OnClickListener() {
+                        .setOnClickListener(new OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 mTvCount.setText(etCount.getText());
@@ -86,7 +86,7 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
                             }
                         });
                 dialog.findViewById(R.id.dialog_btn_cancel)
-                        .setOnClickListener(new View.OnClickListener() {
+                        .setOnClickListener(new OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 dialog.dismiss();

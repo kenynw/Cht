@@ -1,10 +1,14 @@
 package com.damenghai.chahuitong.model.bean.response;
 
 import com.damenghai.chahuitong.model.bean.Address;
+import com.damenghai.chahuitong.model.bean.Store;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import org.json.JSONObject;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
@@ -19,7 +23,7 @@ public class OrderInfo extends Data {
     /**
      * 购物车列表 店铺编号为下标的数组
      */
-    private JsonObject store_cart_list;
+    private List<Map<Integer, Store>> store_cart_list;
 
     /**
      * 商品列表
@@ -107,11 +111,11 @@ public class OrderInfo extends Data {
         this.ifcart = ifcart;
     }
 
-    public JsonObject getStore_cart_list() {
+    public List<Map<Integer, Store>> getStore_cart_list() {
         return store_cart_list;
     }
 
-    public void setStore_cart_list(JsonObject store_cart_list) {
+    public void setStore_cart_list(List<Map<Integer, Store>> store_cart_list) {
         this.store_cart_list = store_cart_list;
     }
 

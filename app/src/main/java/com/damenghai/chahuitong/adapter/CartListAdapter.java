@@ -78,7 +78,7 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.CartVi
     }
 
     @Override
-    public void onBindViewHolder(final CartListAdapter.CartViewHolder holder, final int position) {
+    public void onBindViewHolder(final CartViewHolder holder, final int position) {
         final Goods goods = mData.get(position);
 
         holder.mCb.setVisibility(View.VISIBLE);
@@ -130,7 +130,7 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.CartVi
     }
 
     @Override
-    public CartListAdapter.CartViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public CartViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext)
                 .inflate(R.layout.item_list_cart, parent, false);
         return new CartViewHolder(view);

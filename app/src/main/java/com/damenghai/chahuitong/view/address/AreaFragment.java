@@ -86,14 +86,14 @@ public class AreaFragment extends BaseListFragment implements AreaMvpView {
         }
 
         @Override
-        public AreaAdapter.AreaViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public AreaViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(mContext)
                     .inflate(android.R.layout.simple_expandable_list_item_1, parent, false);
             return new AreaViewHolder(view);
         }
 
         @Override
-        public void onBindViewHolder(AreaAdapter.AreaViewHolder holder, int position) {
+        public void onBindViewHolder(AreaViewHolder holder, int position) {
             final Area area = mList.get(position);
             holder.tv.setText(area.getArea_name());
             holder.itemView.setOnClickListener(new View.OnClickListener() {
