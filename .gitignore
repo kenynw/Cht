@@ -2,7 +2,7 @@
 .DS_Store
 
 # IDE
-*.iml
+#*.iml
 
 # Built application files
 *.apk
