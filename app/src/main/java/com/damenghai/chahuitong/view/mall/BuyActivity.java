@@ -191,7 +191,7 @@ public class BuyActivity extends BaseDataActivity<BuyPresenter, OrderInfo> {
 
         LUtils.log("order info: " + new Gson().toJson(orderInfo));
 
-        LUtils.log("store list: " + orderInfo.getStore_cart_list().get(0).get("2"));
+        LUtils.log("store list: " + orderInfo.getStore_cart_list());
 
         if (orderInfo.getAddress_info() != null) {
             Address address = orderInfo.getAddress_info();

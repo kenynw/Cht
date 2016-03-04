@@ -23,7 +23,7 @@ public class OrderInfo extends Data {
     /**
      * 购物车列表 店铺编号为下标的数组
      */
-    private List<Map<Integer, Store>> store_cart_list;
+    private JsonObject store_cart_list;
 
     /**
      * 商品列表
@@ -111,11 +111,11 @@ public class OrderInfo extends Data {
         this.ifcart = ifcart;
     }
 
-    public List<Map<Integer, Store>> getStore_cart_list() {
+    public JsonObject getStore_cart_list() {
         return store_cart_list;
     }
 
-    public void setStore_cart_list(List<Map<Integer, Store>> store_cart_list) {
+    public void setStore_cart_list(JsonObject store_cart_list) {
         this.store_cart_list = store_cart_list;
     }
 

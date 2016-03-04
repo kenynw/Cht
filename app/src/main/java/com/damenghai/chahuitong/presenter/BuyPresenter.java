@@ -72,6 +72,7 @@ public class BuyPresenter extends BaseDataActivityPresenter<BuyActivity, OrderIn
             getView().finish();
         }
         orderInfo();
+        LUtils.log("cart id: " + getView().getIntent().getStringExtra(EXTRA_CART_ID));
     }
 
     public void orderInfo() {
