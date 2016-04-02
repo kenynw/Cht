@@ -44,7 +44,8 @@ public class WxpayManager {
         return mInstance;
     }
 
-    public void  pay(String body, double price, String tradeNo) {
+    public void  pay(String body, String priceStr, String tradeNo) {
+        double price = Double.parseDouble(priceStr);
         GetPrepayIdTask task = new GetPrepayIdTask(body, ((int) (price * 100)) + "", tradeNo);
         task.execute();
     }

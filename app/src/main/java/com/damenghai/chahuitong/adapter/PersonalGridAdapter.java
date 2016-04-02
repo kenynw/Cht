@@ -12,13 +12,12 @@ import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.model.local.PreferenceHelper;
-import com.damenghai.chahuitong.utils.LUtils;
 import com.damenghai.chahuitong.utils.T;
-import com.damenghai.chahuitong.view.personal.FeedbackActivity;
-import com.damenghai.chahuitong.view.web.WebViewActivity;
-import com.damenghai.chahuitong.view.personal.FavoritesActivity;
-import com.damenghai.chahuitong.view.personal.VoucherActivity;
-import com.damenghai.chahuitong.view.user.LoginActivity;
+import com.damenghai.chahuitong.module.personal.FeedbackActivity;
+import com.damenghai.chahuitong.module.web.WebViewActivity;
+import com.damenghai.chahuitong.module.personal.FavoritesActivity;
+import com.damenghai.chahuitong.module.personal.VoucherActivity;
+import com.damenghai.chahuitong.module.user.LoginActivity;
 import com.umeng.fb.FeedbackAgent;
 import com.umeng.fb.fragment.FeedbackFragment;
 

@@ -1,7 +1,7 @@
 package com.damenghai.chahuitong.presenter;
 
 
-import com.damenghai.chahuitong.view.MvpView;
+import com.damenghai.chahuitong.module.MvpView;
 import com.google.gson.Gson;
 
 import retrofit2.GsonConverterFactory;

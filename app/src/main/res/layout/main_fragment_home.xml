@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.main.HomeFragment"
+    tools:context=".module.main.HomeFragment"
     >
 
     <LinearLayout
@@ -54,7 +54,7 @@
             >
 
             <LinearLayout
-                android:id="@+id/rl_home_free"
+                android:id="@+id/ll_home_sample"
                 android:layout_width="0dp"
                 android:layout_height="64dp"
                 android:layout_weight="1"
@@ -62,7 +62,7 @@
                 >
 
                 <com.facebook.drawee.view.SimpleDraweeView
-                    android:id="@+id/iv_home_free"
+                    android:id="@+id/dv_home_sample"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginRight="8dp"
@@ -110,7 +110,7 @@
                 />
 
             <LinearLayout
-                android:id="@+id/rl_home_discount"
+                android:id="@+id/ll_home_Bargain"
                 android:layout_width="0dp"
                 android:layout_height="64dp"
                 android:layout_weight="1"
@@ -118,7 +118,7 @@
                 >
 
                 <com.facebook.drawee.view.SimpleDraweeView
-                    android:id="@+id/iv_home_bargain"
+                    android:id="@+id/dv_home_bargain"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginRight="8dp"
@@ -254,15 +254,12 @@
 
         </LinearLayout>
 
-        <com.damenghai.chahuitong.widget.WrapHeightGridView
+        <android.support.v7.widget.RecyclerView
             android:id="@+id/gv_home_guess"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/bg_window"
-            android:horizontalSpacing="4dp"
-            android:numColumns="2"
             android:padding="8dp"
-            android:verticalSpacing="4dp"
             />
 
     </LinearLayout>

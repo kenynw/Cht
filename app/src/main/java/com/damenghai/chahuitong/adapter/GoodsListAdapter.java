@@ -19,8 +19,8 @@ public class GoodsListAdapter extends BaseListAdapter<Goods> {
 
     @Override
     public void convert(ViewHolder holder, Goods goods) {
-        holder.displayImage(R.id.goods_iv_thumb, goods.getGoods_image_url())
-                .setText(R.id.goods_tv_title, goods.getName())
+        holder.displayImage(R.id.goods_dv_thumb, goods.getGoods_image_url())
+                .setText(R.id.goods_tv_title, goods.getGoods_name())
                 .setText(R.id.goods_tv_price, "￥" + goods.getGoods_price())
                 .setText(R.id.goods_tv_count, "x" + goods.getGoods_num())
                 .setVisibility(R.id.goods_count_view, View.GONE);

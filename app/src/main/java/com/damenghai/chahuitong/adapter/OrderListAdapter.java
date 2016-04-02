@@ -10,11 +10,10 @@ import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.model.bean.Order;
 import com.damenghai.chahuitong.presenter.OrderListPresenter;
 import com.damenghai.chahuitong.utils.DialogFactory;
-import com.damenghai.chahuitong.utils.LUtils;
-import com.damenghai.chahuitong.view.mall.PayActivity;
-import com.damenghai.chahuitong.view.order.OrderDetailActivity;
-import com.damenghai.chahuitong.view.order.OrderListActivity;
-import com.damenghai.chahuitong.view.web.WebViewActivity;
+import com.damenghai.chahuitong.module.mall.PayActivity;
+import com.damenghai.chahuitong.module.order.OrderDetailActivity;
+import com.damenghai.chahuitong.module.order.OrderListActivity;
+import com.damenghai.chahuitong.module.web.WebViewActivity;
 import com.damenghai.chahuitong.widget.WrapHeightListView;
 
 import java.util.List;
@@ -43,12 +42,12 @@ public class OrderListAdapter extends BaseListAdapter<Order> {
                 .setText(R.id.order_tv_count, "共" + order.getExtend_order_goods().size() + "件商品")
                 .setText(R.id.order_tv_total, "￥" + order.getOrder_amount());
 
-        WrapHeightListView lv = holder.getView(R.id.order_lv_goods);
+        WrapHeightListView goodsListView = holder.getView(R.id.order_lv_goods);
         if(order.getExtend_order_goods() != null) {
             GoodsListAdapter goodsListAdapter = new GoodsListAdapter(mContext,
                     order.getExtend_order_goods(), R.layout.item_list_order_goods);
-            lv.setAdapter(goodsListAdapter);
-            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            goodsListView.setAdapter(goodsListAdapter);
+            goodsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     Intent intent = new Intent(mContext, OrderDetailActivity.class);

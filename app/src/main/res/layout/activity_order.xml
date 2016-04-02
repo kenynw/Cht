@@ -7,7 +7,7 @@
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:orientation="vertical"
-    tools:context=".view.mall.BuyActivity">
+    tools:context=".module.mall.BuyActivity">
 
     <include layout="@layout/include_toolbar"/>
 
@@ -38,7 +38,6 @@
                 android:layout_marginTop="16dp"
                 android:background="@color/white"
                 android:gravity="center_vertical"
-                android:onClick="toChangeAddress"
                 android:orientation="vertical"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"

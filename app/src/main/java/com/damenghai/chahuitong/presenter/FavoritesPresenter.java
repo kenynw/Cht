@@ -8,10 +8,9 @@ import com.damenghai.chahuitong.model.bean.response.Response;
 import com.damenghai.chahuitong.model.local.PreferenceHelper;
 import com.damenghai.chahuitong.model.repository.FavoritesRepository;
 import com.damenghai.chahuitong.utils.L;
-import com.damenghai.chahuitong.view.personal.FavoritesMvpView;
+import com.damenghai.chahuitong.module.personal.FavoritesMvpView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
 
 import java.util.List;
 

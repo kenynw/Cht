@@ -12,7 +12,7 @@ import com.damenghai.chahuitong.model.bean.Valuator;
 import com.damenghai.chahuitong.model.bean.Voucher;
 import com.damenghai.chahuitong.model.bean.response.ListResponse;
 import com.damenghai.chahuitong.model.bean.response.OrderGroupList;
-import com.damenghai.chahuitong.model.bean.response.OrderInfo;
+import com.damenghai.chahuitong.model.bean.OrderInfo;
 import com.damenghai.chahuitong.model.bean.response.Response;
 import com.google.gson.JsonObject;
 
@@ -42,7 +42,6 @@ public interface Services {
             @Field("key") String key,
             @Field("page") int page
     );
-
 
     //--------------------------专题--------------------------
     // 免费茶样往期列表
@@ -193,6 +192,12 @@ public interface Services {
 
     @FormUrlEncoded
     @POST("/mobile/index.php?act=member_buy&op=change_address")
+    /**
+     * @param key 当前登录令牌
+     * @param freight_hash 运费hash，第一步返回结果里有直接提交
+     * @param city_id 城市编号
+     * @param area_id 地区编号
+     */
     Observable<JsonObject> changeAddress(
             @Field("key") String key,
             @Field("freight_hash") String freight_hash,

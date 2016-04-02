@@ -7,58 +7,63 @@ import java.util.ArrayList;
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
 public class Home implements Serializable {
-    private int isLogin;
-    private ArrayList<Banner> carouselFigure;
-    private Image goodsSample;
-    private Bargain flashSale;
-    private ArrayList<Recommend> tastersRecommends;
-    private ArrayList<Goods> guessYouLike;
+    private boolean is_login;
 
-    public ArrayList<Goods> getGuessYouLike() {
-        return guessYouLike;
+    private ArrayList<Banner> adds;
+
+    private String sample_image;
+
+    private Bargain xianshi;
+
+    private ArrayList<Recommend> tasters_list;
+
+    private ArrayList<Goods> guess_list;
+
+    public boolean is_login() {
+        return is_login;
     }
 
-    public void setGuessYouLike(ArrayList<Goods> guessYouLike) {
-        this.guessYouLike = guessYouLike;
+    public void setIs_login(boolean is_login) {
+        this.is_login = is_login;
     }
 
-    public ArrayList<Recommend> getTastersRecommends() {
-        return tastersRecommends;
+    public ArrayList<Banner> getAdds() {
+        return adds;
     }
 
-    public void setTastersRecommends(ArrayList<Recommend> tastersRecommends) {
-        this.tastersRecommends = tastersRecommends;
+    public void setAdds(ArrayList<Banner> adds) {
+        this.adds = adds;
     }
 
-    public Image getGoodsSample() {
-        return goodsSample;
+    public String getSample_image() {
+        return sample_image;
     }
 
-    public void setGoodsSample(Image goodsSample) {
-        this.goodsSample = goodsSample;
+    public void setSample_image(String sample_image) {
+        this.sample_image = sample_image;
     }
 
-    public Bargain getFlashSale() {
-        return flashSale;
+    public Bargain getXianshi() {
+        return xianshi;
     }
 
-    public void setFlashSale(Bargain flashSale) {
-        this.flashSale = flashSale;
+    public void setXianshi(Bargain xianshi) {
+        this.xianshi = xianshi;
     }
 
-    public ArrayList<Banner> getCarouselFigure() {
-        return carouselFigure;
+    public ArrayList<Recommend> getTasters_list() {
+        return tasters_list;
     }
 
-    public void setCarouselFigure(ArrayList<Banner> carouselFigure) {
-        this.carouselFigure = carouselFigure;
+    public void setTasters_list(ArrayList<Recommend> tasters_list) {
+        this.tasters_list = tasters_list;
     }
 
-    public int getIsLogin() {
-        return isLogin;
+    public ArrayList<Goods> getGuess_list() {
+        return guess_list;
     }
 
-    public void setIsLogin(int isLogin) {
-        this.isLogin = isLogin;
+    public void setGuess_list(ArrayList<Goods> guess_list) {
+        this.guess_list = guess_list;
     }
 }

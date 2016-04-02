@@ -3,6 +3,7 @@ package com.damenghai.chahuitong.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
+import android.net.Uri;
 import android.os.CountDownTimer;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
@@ -11,15 +12,13 @@ import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.config.Config;
 import com.damenghai.chahuitong.model.bean.Bargain;
-import com.damenghai.chahuitong.view.mall.GoodsDetailActivity;
-import com.damenghai.chahuitong.view.web.WebViewActivity;
+import com.damenghai.chahuitong.module.mall.GoodsDetailActivity;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;
@@ -80,7 +79,7 @@ public class BargainListAdapter extends RecyclerView.Adapter<BargainListAdapter.
             holder.mLayout.setVisibility(View.GONE);
         }
 
-        mImageLoader.displayImage(bargain.getGoods_image().getBmiddle_pic(), holder.mIvImage);
+        holder.mDvImage.setImageURI(Uri.parse(bargain.getGoods_image_url()));
         holder.mTvName.setText(bargain.getGoods_name());
         holder.mTvPrice.setText("￥" + bargain.getGoods_price());
         holder.mTvPrice.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG); // 加删除线
@@ -132,8 +131,8 @@ public class BargainListAdapter extends RecyclerView.Adapter<BargainListAdapter.
         @Bind(R.id.tv_bargain_second)
         TextView mTvSecond;
 
-        @Bind(R.id.iv_bargain_image)
-        ImageView mIvImage;
+        @Bind(R.id.dv_bargain_image)
+        SimpleDraweeView mDvImage;
 
         @Bind(R.id.tv_bargain_name)
         TextView mTvName;

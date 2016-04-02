@@ -13,10 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.config.Config;
 import com.damenghai.chahuitong.model.bean.Goods;
-import com.damenghai.chahuitong.view.mall.GoodsDetailActivity;
-import com.damenghai.chahuitong.view.web.WebViewActivity;
+import com.damenghai.chahuitong.module.mall.GoodsDetailActivity;
 import com.damenghai.chahuitong.widget.QuantityView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -84,7 +82,7 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.CartVi
         holder.mCb.setVisibility(View.VISIBLE);
         holder.mCb.setChecked(mStates.get(position));
         mImageLoader.displayImage(goods.getGoods_image_url(), holder.mIvThumb);
-        holder.mTvName.setText(goods.getName());
+        holder.mTvName.setText(goods.getGoods_name());
 
         if (mIsEdit) {
             holder.mLayoutEdit.setVisibility(View.VISIBLE);

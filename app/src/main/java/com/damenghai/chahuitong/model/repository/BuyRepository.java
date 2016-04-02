@@ -1,6 +1,6 @@
 package com.damenghai.chahuitong.model.repository;
 
-import com.damenghai.chahuitong.model.bean.response.OrderInfo;
+import com.damenghai.chahuitong.model.bean.OrderInfo;
 import com.damenghai.chahuitong.model.bean.response.Response;
 import com.google.gson.JsonObject;
 

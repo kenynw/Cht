@@ -9,8 +9,8 @@ import android.webkit.JavascriptInterface;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.model.local.PreferenceHelper;
-import com.damenghai.chahuitong.view.mall.CartActivity;
-import com.damenghai.chahuitong.view.user.LoginActivity;
+import com.damenghai.chahuitong.module.mall.CartActivity;
+import com.damenghai.chahuitong.module.user.LoginActivity;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.

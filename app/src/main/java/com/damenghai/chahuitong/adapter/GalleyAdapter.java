@@ -15,10 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.config.Config;
 import com.damenghai.chahuitong.model.bean.Recommend;
-import com.damenghai.chahuitong.view.mall.GoodsDetailActivity;
-import com.damenghai.chahuitong.view.web.WebViewActivity;
+import com.damenghai.chahuitong.module.mall.GoodsDetailActivity;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;
@@ -87,8 +85,8 @@ public class GalleyAdapter extends RecyclerView.Adapter<GalleyAdapter.ViewHolder
         spanText.setSpan(new ForegroundColorSpan(mContext.getResources().getColor(R.color.colorAccent)),
                 scoreLabel.length(), spanText.length() - 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        mImageLoader.displayImage(goods.getImage().getBmiddle_pic(), holder.mIvImage);
-        holder.mTvName.setText(goods.getName());
+        mImageLoader.displayImage(goods.getGoods_image_url(), holder.mIvImage);
+        holder.mTvName.setText(goods.getGoods_name());
         holder.mTvscore.setText(spanText);
     }
 

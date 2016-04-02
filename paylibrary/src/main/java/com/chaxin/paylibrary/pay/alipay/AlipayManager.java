@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.alipay.sdk.app.PayTask;
 
@@ -126,6 +127,8 @@ public class AlipayManager {
                 PayTask alipay = new PayTask((Activity) mContext);
                 // 调用支付接口，获取支付结果
                 String result = alipay.pay(payInfo);
+
+                Log.d("DSK", "pay info: " + payInfo + ", result: " + result);
 
                 Message msg = new Message();
                 msg.what = AlipayManager.SDK_PAY_FLAG;

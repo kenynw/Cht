@@ -11,7 +11,7 @@ import rx.subjects.BehaviorSubject;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class BaseDataFragmentPresenter<M> extends Presenter<BaseDataFragment> {
+public class BaseDataFragmentPresenter<V extends BaseDataFragment, M> extends Presenter<V> {
 
     //用于缓存数据的Subscriber
     private BehaviorSubject<M> mData = BehaviorSubject.create();
@@ -37,7 +37,7 @@ public class BaseDataFragmentPresenter<M> extends Presenter<BaseDataFragment> {
     private Subscription mSubscription;
 
     @Override
-    protected void onCreate(BaseDataFragment view, Bundle saveState) {
+    protected void onCreate(V view, Bundle saveState) {
         super.onCreate(view, saveState);
         mSubscription = mData.unsafeSubscribe(new Subscriber<M>() {
             @Override

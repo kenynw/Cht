@@ -4,7 +4,7 @@ import com.damenghai.chahuitong.model.bean.Valuator;
 import com.damenghai.chahuitong.model.bean.response.Response;
 import com.damenghai.chahuitong.model.repository.ValuerRepository;
 import com.damenghai.chahuitong.utils.L;
-import com.damenghai.chahuitong.view.special.ValuerListMvp;
+import com.damenghai.chahuitong.module.special.ValuerListMvp;
 
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;

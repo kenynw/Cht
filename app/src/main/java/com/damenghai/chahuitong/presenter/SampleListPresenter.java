@@ -4,7 +4,7 @@ import com.damenghai.chahuitong.model.bean.Sample;
 import com.damenghai.chahuitong.model.bean.response.Response;
 import com.damenghai.chahuitong.model.repository.SampleRepository;
 import com.damenghai.chahuitong.utils.L;
-import com.damenghai.chahuitong.view.special.SampleListMvpView;
+import com.damenghai.chahuitong.module.special.SampleListMvpView;
 
 import java.util.List;
 

@@ -4,12 +4,11 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.damenghai.chahuitong.model.bean.Voucher;
-import com.damenghai.chahuitong.model.bean.response.ListResponse;
 import com.damenghai.chahuitong.model.bean.response.Response;
 import com.damenghai.chahuitong.model.local.PreferenceHelper;
 import com.damenghai.chahuitong.model.repository.VoucherRepository;
 import com.damenghai.chahuitong.utils.L;
-import com.damenghai.chahuitong.view.personal.VoucherMvpView;
+import com.damenghai.chahuitong.module.personal.VoucherMvpView;
 
 import java.util.List;
 

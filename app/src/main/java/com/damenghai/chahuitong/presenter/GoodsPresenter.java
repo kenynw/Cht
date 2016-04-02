@@ -6,7 +6,7 @@ import com.damenghai.chahuitong.model.local.PreferenceHelper;
 import com.damenghai.chahuitong.model.repository.CartRepository;
 import com.damenghai.chahuitong.model.repository.FavoritesRepository;
 import com.damenghai.chahuitong.utils.L;
-import com.damenghai.chahuitong.view.mall.GoodsMvpView;
+import com.damenghai.chahuitong.module.mall.GoodsMvpView;
 import com.google.gson.JsonObject;
 
 import rx.android.schedulers.AndroidSchedulers;

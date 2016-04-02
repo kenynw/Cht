@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.damenghai.chahuitong.view.user.ForgotActivity">
+    tools:context="com.damenghai.chahuitong.module.user.ForgotActivity">
 
     <include layout="@layout/include_toolbar"/>
 

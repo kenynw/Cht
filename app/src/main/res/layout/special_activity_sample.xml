@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.special.SampleActivity">
+    tools:context=".module.special.SampleActivity">
 
     <include layout="@layout/include_toolbar"/>
 

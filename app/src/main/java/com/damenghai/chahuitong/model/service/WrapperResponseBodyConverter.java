@@ -47,7 +47,7 @@ final class WrapperResponseBodyConverter<T> implements Converter<ResponseBody, T
             String result = "";
             int code = data.getInt("code");
 
-            if (code != 1 && code != 200) {
+            if (code != API.SUCCESS && code != 200) {
                 throw new IOException(new ServiceException(code, data.getString("msg")));
             }
 

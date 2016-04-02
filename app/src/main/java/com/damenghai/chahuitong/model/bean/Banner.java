@@ -1,14 +1,22 @@
 package com.damenghai.chahuitong.model.bean;
 
+import java.io.Serializable;
+
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class Banner {
+public class Banner implements Serializable {
+
     private String id;
-    private String goods_image;
+
+    private String image;
+
     private String state;
+
     private String order;
+
     private String link;
+
     private String location;
 
     public String getId() {
@@ -20,11 +28,11 @@ public class Banner {
     }
 
     public String getImage() {
-        return goods_image;
+        return image;
     }
 
     public void setImage(String image) {
-        this.goods_image = image;
+        this.image = image;
     }
 
     public String getState() {

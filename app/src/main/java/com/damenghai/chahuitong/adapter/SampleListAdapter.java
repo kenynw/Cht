@@ -12,9 +12,8 @@ import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.model.bean.Sample;
-import com.damenghai.chahuitong.view.mall.GoodsDetailActivity;
+import com.damenghai.chahuitong.module.mall.GoodsDetailActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;
 

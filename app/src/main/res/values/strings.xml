@@ -124,6 +124,7 @@
     <string name="text_wxpay_body">微信支付用户使用</string>
     <string name="text_upmp">银行卡支付</string>
     <string name="text_upmp_body">支持所有银联储蓄卡和信用卡支付</string>
+    <string name="text_voucher_none">没有可用的优惠券</string>
 
     <!--标签文字，命名格式为：label_标签文字-->
     <string name="label_home_free">免费茶样领取</string>
@@ -196,6 +197,7 @@
     <string name="tab_comment">评价</string>
 
     <!--消息框文字，命名格式为：toast_消息-->
+    <string name="toast_exit">再按一次退出茶汇通</string>
     <string name="toast_network_error">网络连接错误</string>
     <string name="toast_network_timeout">网络连接超时</string>
     <string name="toast_logout_success">退出成功</string>

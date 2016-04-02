@@ -2,14 +2,13 @@ package com.damenghai.chahuitong.base;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.view.MvpView;
+import com.damenghai.chahuitong.module.MvpView;
 import com.damenghai.chahuitong.widget.DividerItemDecoration;
 import com.damenghai.chahuitong.widget.WrapHeightListManager;
 

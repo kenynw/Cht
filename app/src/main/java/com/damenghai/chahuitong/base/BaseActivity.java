@@ -16,8 +16,8 @@ import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.utils.T;
-import com.damenghai.chahuitong.view.MvpView;
-import com.damenghai.chahuitong.view.user.LoginActivity;
+import com.damenghai.chahuitong.module.MvpView;
+import com.damenghai.chahuitong.module.user.LoginActivity;
 import com.umeng.analytics.MobclickAgent;
 
 import me.zhanghai.android.materialprogressbar.IndeterminateProgressDrawable;

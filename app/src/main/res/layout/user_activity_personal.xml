@@ -227,7 +227,7 @@
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_weight="2.8"
         app:layoutManager="GridLayoutManager"
-        tools:context=".view.special.SampleHistoryFragment"
+        tools:context=".module.special.SampleHistoryFragment"
         tools:listitem="@layout/item_grid_personal"
         />
 

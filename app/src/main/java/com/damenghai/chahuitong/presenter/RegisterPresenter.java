@@ -6,7 +6,7 @@ import com.damenghai.chahuitong.config.Config;
 import com.damenghai.chahuitong.model.bean.response.Response;
 import com.damenghai.chahuitong.model.bean.Token;
 import com.damenghai.chahuitong.model.repository.RegisterRepository;
-import com.damenghai.chahuitong.view.user.RegisterMvpView;
+import com.damenghai.chahuitong.module.user.RegisterMvpView;
 
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;

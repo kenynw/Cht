@@ -1,7 +1,7 @@
 package com.damenghai.chahuitong.presenter;
 
 
-import com.damenghai.chahuitong.view.MvpView;
+import com.damenghai.chahuitong.module.MvpView;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.

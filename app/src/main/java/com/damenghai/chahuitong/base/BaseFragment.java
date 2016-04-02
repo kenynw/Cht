@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 
-import com.damenghai.chahuitong.view.MvpView;
-import com.damenghai.chahuitong.view.user.LoginActivity;
+import com.damenghai.chahuitong.module.MvpView;
+import com.damenghai.chahuitong.module.user.LoginActivity;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.

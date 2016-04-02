@@ -133,12 +133,13 @@
             android:orientation="vertical"
             >
 
-            <ImageView
-                android:id="@+id/iv_bargain_image"
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/dv_bargain_image"
                 android:layout_width="match_parent"
                 android:layout_height="184dp"
-                android:scaleType="centerCrop"
-                android:src="@mipmap/def_image_loading"
+                app:actualImageScaleType="centerCrop"
+                app:placeholderImage="@mipmap/def_image_loading"
+                app:placeholderImageScaleType="centerCrop"
                 />
 
             <LinearLayout

@@ -1,6 +1,5 @@
 package com.damenghai.chahuitong.utils;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -9,7 +8,7 @@ import android.support.annotation.StringRes;
 import android.support.v7.app.AlertDialog;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.view.mall.CartActivity;
+import com.damenghai.chahuitong.module.mall.CartActivity;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.

@@ -6,10 +6,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.view.main.CartFragment;
-import com.damenghai.chahuitong.view.main.ForumFragment;
-import com.damenghai.chahuitong.view.main.HomeFragment;
-import com.damenghai.chahuitong.view.main.PersonalFragment;
+import com.damenghai.chahuitong.module.main.CartFragment;
+import com.damenghai.chahuitong.module.main.ForumFragment;
+import com.damenghai.chahuitong.module.main.HomeFragment;
+import com.damenghai.chahuitong.module.main.PersonalFragment;
 
 import java.util.ArrayList;
 import java.util.List;

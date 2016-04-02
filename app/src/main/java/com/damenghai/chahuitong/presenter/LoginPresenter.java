@@ -9,7 +9,7 @@ import com.damenghai.chahuitong.model.bean.Token;
 import com.damenghai.chahuitong.model.repository.LoginRepository;
 import com.damenghai.chahuitong.utils.L;
 import com.damenghai.chahuitong.utils.LUtils;
-import com.damenghai.chahuitong.view.user.LoginMvpView;
+import com.damenghai.chahuitong.module.user.LoginMvpView;
 import com.google.gson.JsonObject;
 import com.umeng.socialize.UMAuthListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;

@@ -9,52 +9,84 @@ import java.util.List;
  * Created by Sgun on 15/8/13.
  */
 public class Goods implements Serializable {
-    @Expose
+    /**
+     * 商品id(SKU)
+     */
     private String goods_id;
-    @Expose
+
+    /**
+     * 商品名称（+规格名称）
+     */
     private String goods_name;
-    @Expose
+
     private String goods_num;
-    @Expose
+
     private double goods_sum;
-    @Expose
+
     private String goods_price;
+
     private String goods_marketprice;
-    private Image goods_image;
-    @Expose
+
+    private String goods_image;
+
     private String goods_image_url;
+
     private String image_url;
+
     private String goods_vat;
-    @Expose
+
     private String goods_total;
+
     private String goods_freight;
+
     private String goods_storage;
+
     private String goods_commonid;
+
     private String goods_storage_alarm;
+
     private String goods_salenum;
+
     private String goods_commentnum;
+
     private String gc_id;
+
     private String state;
+
     private String store_id;
+
     private String store_name;
+
     private String is_fcode;
+
     private String transport_id;
-    @Expose
+
     private String bl_id;
+
     private String groupbuy_info;
-    @Expose
+
     private String cart_id;
+
     private String buyer_id;
+
     private String have_gift;
+
     private String storage_state;
+
     private String fav;
-    @Expose
+
     private String fav_id;
+
     private List<Attribute> goods_attr;
+
     private String title;
+
     private String remark;
+
     private String promotion_price;
+
     private String down_price;
+
     public String getGoods_id() {
         return goods_id;
     }
@@ -63,7 +95,7 @@ public class Goods implements Serializable {
         this.goods_id = goods_id;
     }
 
-    public String getName() {
+    public String getGoods_name() {
         return goods_name;
     }
 
@@ -71,11 +103,11 @@ public class Goods implements Serializable {
         this.goods_name = goods_name;
     }
 
-    public Image getImage() {
+    public String getGoods_image() {
         return goods_image;
     }
 
-    public void setImageUrl(Image goods_image) {
+    public void setGoods_image(String goods_image) {
         this.goods_image = goods_image;
     }
 

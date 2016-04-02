@@ -10,8 +10,10 @@ import com.damenghai.chahuitong.model.bean.response.OrderGroupList;
 import com.damenghai.chahuitong.model.bean.response.Response;
 import com.damenghai.chahuitong.model.local.PreferenceHelper;
 import com.damenghai.chahuitong.model.repository.OrderRepository;
-import com.damenghai.chahuitong.utils.L;
-import com.damenghai.chahuitong.view.order.OrderListMvpView;
+import com.damenghai.chahuitong.model.service.ServiceClient;
+import com.damenghai.chahuitong.model.service.ServiceTransform;
+import com.damenghai.chahuitong.module.order.OrderListMvpView;
+import com.damenghai.chahuitong.utils.LUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
@@ -69,46 +71,71 @@ public class OrderListPresenter extends BasePresenter<OrderListMvpView> {
             return;
         }
 
-        mRepository.list(mKey, getView().getState(), curPage, Config.DEFAULT_GET_PAYMENT, Config.DEFAULT_PAGE_SIZE)
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
+        ServiceClient.getServices().orderList(
+                LUtils.getPreferences().getString("key", ""),
+                getView().getState(),
+                curPage,
+                Config.DEFAULT_GET_PAYMENT,
+                Config.DEFAULT_PAGE_SIZE)
+                .compose(new ServiceTransform<>())
                 .subscribe(new Subscriber<Response<OrderGroupList>>() {
-
-                    @Override
-                    public void onStart() {
-                        getView().showLoading();
-                    }
-
                     @Override
                     public void onCompleted() {
-                        getView().hideLoading();
+
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        getView().showError(e.getMessage());
+
                     }
 
                     @Override
-                    public void onNext(Response<OrderGroupList> response) {
-                        OrderGroupList data = response.getDatas();
-                        if (data.isError()) {
-                            getView().showError(data.getError());
-                        } else {
-                            mHasMore = response.isHasmore();
-                            mPageTotal = response.getPage_total();
+                    public void onNext(Response<OrderGroupList> orderGroupListResponse) {
 
-                            List<Order> list = new ArrayList<>();
-                            for (OrderGroup group : data.getOrder_group_list()) {
-                                for (Order order : group.getOrder_list()) {
-                                    list.add(order);
-                                }
-                            }
-                            getView().showList(list);
-                        }
                     }
-
                 });
+
+//
+//        mRepository.list(mKey, getView().getState(), curPage, Config.DEFAULT_GET_PAYMENT, Config.DEFAULT_PAGE_SIZE)
+//                .subscribeOn(Schedulers.newThread())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new Subscriber<Response<OrderGroupList>>() {
+//
+//                    @Override
+//                    public void onStart() {
+//                        getView().showLoading();
+//                    }
+//
+//                    @Override
+//                    public void onCompleted() {
+//                        getView().hideLoading();
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//                        getView().showError(e.getMessage());
+//                    }
+//
+//                    @Override
+//                    public void onNext(Response<OrderGroupList> response) {
+//                        OrderGroupList data = response.getDatas();
+//                        if (data.isError()) {
+//                            getView().showError(data.getError());
+//                        } else {
+//                            mHasMore = response.isHasmore();
+//                            mPageTotal = response.getPage_total();
+//
+//                            List<Order> list = new ArrayList<>();
+//                            for (OrderGroup group : data.getOrder_group_list()) {
+//                                for (Order order : group.getOrder_list()) {
+//                                    list.add(order);
+//                                }
+//                            }
+//                            getView().showList(list);
+//                        }
+//                    }
+//
+//                });
     }
 
     public void cancel(String orderId) {

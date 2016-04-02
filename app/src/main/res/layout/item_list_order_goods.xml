@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="8dp"
+    android:background="@color/bg_window"
     android:paddingBottom="8dp"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:background="@color/bg_window"
+    android:paddingTop="8dp"
     >
 
     <CheckBox
@@ -22,21 +23,21 @@
         />
 
     <ImageView
-        android:id="@+id/goods_iv_thumb"
+        android:id="@+id/goods_dv_thumb"
         android:layout_width="77dp"
         android:layout_height="77dp"
+        android:layout_toRightOf="@id/cb_favorites_edit"
         android:padding="1dp"
         android:src="@mipmap/def_image_loading"
-        android:layout_toRightOf="@id/cb_favorites_edit"
         />
 
     <LinearLayout
         android:id="@+id/layout_goods_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignTop="@id/goods_dv_thumb"
+        android:layout_toRightOf="@id/goods_dv_thumb"
         android:orientation="horizontal"
-        android:layout_alignTop="@id/goods_iv_thumb"
-        android:layout_toRightOf="@id/goods_iv_thumb"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         android:paddingTop="2dp"
@@ -50,6 +51,7 @@
             android:layout_weight="1"
             android:ellipsize="end"
             android:singleLine="true"
+            tools:text="喝好茶首选茶汇通"
             />
 
         <TextView
@@ -58,6 +60,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccent"
             android:textSize="@dimen/text_size_caption_material"
+            tools:text="￥199.00"
             />
 
     </LinearLayout>
@@ -66,7 +69,7 @@
         android:id="@+id/goods_count_view"
         android:layout_width="106dp"
         android:layout_height="34dp"
-        android:layout_alignBottom="@id/goods_iv_thumb"
+        android:layout_alignBottom="@id/goods_dv_thumb"
         android:layout_alignLeft="@id/layout_goods_title"
         android:layout_marginLeft="8dp"
         android:visibility="gone"
@@ -77,7 +80,7 @@
         style="@style/TextCaption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/goods_iv_thumb"
+        android:layout_alignBottom="@id/goods_dv_thumb"
         android:layout_alignParentRight="true"
         android:text="x"
         />

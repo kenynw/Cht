@@ -6,16 +6,27 @@ import java.io.Serializable;
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
 public class Address implements Serializable {
+
     private String dlyp_id;
+
     private String city_id;
+
     private String area_id;
+
     private String address;
+
     private String address_id;
+
     private String true_name;
+
     private String is_default;
+
     private String mob_phone;
+
     private String tel_phone;
+
     private String area_info;
+
     private String member_id;
 
     public String getMember_id() {

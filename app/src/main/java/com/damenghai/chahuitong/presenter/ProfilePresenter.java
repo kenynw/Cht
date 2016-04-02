@@ -9,16 +9,9 @@ import com.damenghai.chahuitong.model.bean.User;
 import com.damenghai.chahuitong.model.bean.response.Response;
 import com.damenghai.chahuitong.model.local.PreferenceHelper;
 import com.damenghai.chahuitong.model.repository.UserRepository;
-import com.damenghai.chahuitong.utils.L;
 import com.damenghai.chahuitong.utils.LUtils;
-import com.damenghai.chahuitong.view.settings.UserMvpView;
-import com.google.gson.JsonObject;
+import com.damenghai.chahuitong.module.settings.UserMvpView;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 

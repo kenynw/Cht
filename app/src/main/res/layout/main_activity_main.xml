@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.main.MainActivity"
+    tools:context=".module.main.MainActivity"
     >
 
     <android.support.v7.widget.Toolbar
@@ -39,7 +39,7 @@
 
     <fragment
         android:id="@+id/fragment_home"
-        class="com.damenghai.chahuitong.view.main.HomeFragment"
+        class="com.damenghai.chahuitong.module.main.HomeFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout="@layout/main_fragment_home"/>

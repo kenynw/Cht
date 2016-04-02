@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.damenghai.chahuitong.model.bean.Banner;
-import com.damenghai.chahuitong.view.web.WebViewActivity;
+import com.damenghai.chahuitong.module.web.WebViewActivity;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
