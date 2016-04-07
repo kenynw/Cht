@@ -1,18 +1,12 @@
 package com.damenghai.chahuitong.model.repository;
 
-import android.content.Context;
-
-import com.damenghai.chahuitong.model.bean.response.OrderGroupList;
+import com.damenghai.chahuitong.model.bean.OrderList;
 import com.damenghai.chahuitong.model.bean.response.Response;
 import com.google.gson.JsonObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 import rx.Observable;
 
@@ -36,7 +30,7 @@ public interface OrderRepository {
      */
     @FormUrlEncoded
     @POST("/mobile/index.php?act=member_order&op=order_list" + ORDER_LIST_GET_PAYMENT + ORDER_LIST_PAGE_SIZE)
-    Observable<Response<OrderGroupList>> list(
+    Observable<Response<OrderList>> list(
             @Field("key") String key,
             @Field("order_state") String orderState,
             @Query("curpage") int curPage,

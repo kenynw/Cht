@@ -8,7 +8,7 @@ import android.widget.AdapterView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.model.bean.Order;
-import com.damenghai.chahuitong.presenter.OrderListPresenter;
+import com.damenghai.chahuitong.module.order.OrderListPresenter;
 import com.damenghai.chahuitong.utils.DialogFactory;
 import com.damenghai.chahuitong.module.mall.PayActivity;
 import com.damenghai.chahuitong.module.order.OrderDetailActivity;

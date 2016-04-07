@@ -1,7 +1,5 @@
 package com.damenghai.chahuitong.module.order;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,13 +10,13 @@ import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.adapter.GoodsListAdapter;
-import com.damenghai.chahuitong.base.BaseActivity;
+import com.damenghai.chahuitong.bijection.RequiresPresenter;
+import com.damenghai.chahuitong.expansion.data.BaseDataActivity;
 import com.damenghai.chahuitong.model.bean.Goods;
 import com.damenghai.chahuitong.model.bean.Order;
-import com.damenghai.chahuitong.utils.DateUtils;
 import com.damenghai.chahuitong.module.mall.GoodsDetailActivity;
-import com.damenghai.chahuitong.module.mall.PayActivity;
-import com.damenghai.chahuitong.module.web.WebViewActivity;
+import com.damenghai.chahuitong.utils.DateUtils;
+import com.damenghai.chahuitong.utils.DialogFactory;
 import com.damenghai.chahuitong.widget.WrapHeightListView;
 
 import java.util.ArrayList;
@@ -26,7 +24,8 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class OrderDetailActivity extends BaseActivity {
+@RequiresPresenter(OrderDetailPresenter.class)
+public class OrderDetailActivity extends BaseDataActivity<OrderDetailPresenter, Order> {
 
     @Bind(R.id.order_detail_tv_state)
     TextView mTvState;
@@ -61,7 +60,8 @@ public class OrderDetailActivity extends BaseActivity {
     @Bind(R.id.order_detail_btn_right)
     Button mBtnRight;
 
-    private Order mOrder;
+    @Bind(R.id.order_detail_ll_phone)
+    LinearLayout mLlPhone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,50 +69,52 @@ public class OrderDetailActivity extends BaseActivity {
         setContentView(R.layout.activity_order_detail);
         setToolbarTitle(R.string.title_activity_order_detail);
         ButterKnife.bind(this);
-
-        mOrder = (Order) getIntent().getSerializableExtra("order");
-
-        initView();
+        mLlPhone.setOnClickListener(v ->
+                startActivity(new Intent(Intent.ACTION_DIAL,
+                        Uri.parse("tel:" + getString(R.string.text_phone_number)))));
     }
 
-    private void initView() {
-        if (mOrder != null) {
-            mTvState.setText(mOrder.getState_desc());
-            mTvStore.setText(mOrder.getStore_name());
-            mTvFreight.setText(mOrder.getShipping_fee());
-            mTvTotal.append(mOrder.getOrder_amount());
-            mTvOrderNo.append(mOrder.getOrder_sn());
-            mTvPayNo.append(mOrder.getPay_sn());
-            mTvCreateTime.append(DateUtils.getDateTime(mOrder.getAdd_time()));
-            ArrayList<Goods> data = mOrder.getExtend_order_goods();
+    @Override
+    public void setData(Order order) {
+        super.setData(order);
+        if (order != null) {
+            mTvState.setText(order.getState_desc());
+            mTvStore.setText(order.getStore_name());
+            mTvFreight.setText(String.format(getString(R.string.label_rmb), order.getShipping_fee()));
+            mTvTotal.setText(String.format(getString(R.string.label_rmb), order.getOrder_amount()));
+            mTvOrderNo.setText(String.format(getString(R.string.label_order_num), order.getOrder_sn()));
+            mTvPayNo.setText(String.format(getString(R.string.label_pay_num), order.getPay_sn()));
+            mTvCreateTime.setText(String.format(getString(R.string.label_time_create), DateUtils.getDateTime(order.getAdd_time())));
+
+            ArrayList<Goods> data = order.getExtend_order_goods();
             if (data != null) {
                 GoodsListAdapter adapter = new GoodsListAdapter(this, data, R.layout.item_list_order_goods);
                 mLvGoods.setAdapter(adapter);
                 mLvGoods.setOnItemClickListener((parent, view, position, id) -> {
                     Intent intent = new Intent(OrderDetailActivity.this, GoodsDetailActivity.class);
-                    intent.putExtra("goods_id", mOrder.getExtend_order_goods().get(position).getGoods_id());
+                    intent.putExtra("goods_id", order.getExtend_order_goods().get(position).getGoods_id());
                     startActivity(intent);
                 });
             }
 
-            switch (mOrder.getOrder_state()) {
-                case OrderListActivity.STATE_UNPAID :
+            switch (order.getOrder_state()) {
+                case OrderListActivity.STATE_UNPAID:
                     mBtnLeft.setOnClickListener(view -> cancelOrder());
-                    mBtnRight.setOnClickListener(view -> payOrder());
+                    mBtnRight.setOnClickListener(view -> getPresenter().payOrder());
                     break;
-                case OrderListActivity.STATE_RECEIVE :
+                case OrderListActivity.STATE_RECEIVE:
                     mBtnLeft.setText(R.string.btn_view_delivery);
-                    mBtnLeft.setOnClickListener(view -> viewDelivery());
+                    mBtnLeft.setOnClickListener(view -> getPresenter().viewDelivery());
 
                     mBtnRight.setText(R.string.btn_sure_order);
                     mBtnRight.setOnClickListener(view -> sureOrder());
                     break;
-                case OrderListActivity.STATE_UNCOMMENT :
+                case OrderListActivity.STATE_UNCOMMENT:
                     mBtnLeft.setText(R.string.btn_view_delivery);
-                    mBtnLeft.setOnClickListener(view -> viewDelivery());
+                    mBtnLeft.setOnClickListener(view -> getPresenter().viewDelivery());
 
                     mBtnRight.setText(R.string.btn_comment);
-                    mBtnRight.setOnClickListener(view -> comment());
+                    mBtnRight.setOnClickListener(view -> getPresenter().comment());
                     break;
                 default:
                     mLayoutBtn.setVisibility(View.GONE);
@@ -122,64 +124,21 @@ public class OrderDetailActivity extends BaseActivity {
     }
 
     public void cancelOrder() {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog.setMessage(R.string.dialog_cancel_order)
-                .setNegativeButton(R.string.btn_cancel, null)
-                .setPositiveButton(R.string.btn_ok, (dialogInterface, i) -> {
-                })
-                .show();
-
+        DialogFactory.createGenericDialog(
+                this,
+                R.string.dialog_cancel_order,
+                (dialogInterface, which) -> {
+                    getPresenter().cancelOrder();
+                });
     }
 
     public void sureOrder() {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog.setMessage(R.string.dialog_sure_order)
-                .setNegativeButton(R.string.btn_cancel, null)
-                .setPositiveButton(R.string.btn_ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-//                        OrderApi.sureOrder(OrderDetailActivity.this, mOrder.getOrder_id(), new VolleyRequest() {
-//                            @Override
-//                            public void onSuccess(String response) {
-//                                super.onSuccess(response);
-//                                try {
-//                                    JSONObject object = new JSONObject(response);
-//                                    if (object.has("error")) {
-//                                        T.showShort(OrderDetailActivity.this, object.getString("error"));
-//                                    } else {
-//                                        T.showShort(OrderDetailActivity.this, R.string.toast_sure_success);
-//                                        EventBus.getDefault().post(mOrder);
-//                                    }
-//                                } catch (JSONException e) {
-//                                    e.printStackTrace();
-//                                }
-//                            }
-//                        });
-                    }
-                })
-                .show();
+        DialogFactory.createGenericDialog(
+                this,
+                R.string.dialog_sure_order,
+                (dialogInterface, which) -> {
+                    getPresenter().sureOrder();
+                });
     }
 
-    public void viewDelivery() {
-        Intent intent = new Intent(this, WebViewActivity.class);
-        intent.putExtra("url", "http://www.chahuitong.com/wap/tmpl/member/order_delivery.html?order_id=" + mOrder.getOrder_id());
-        startActivity(intent);
-    }
-
-    public void comment() {
-        Intent intent = new Intent(this, WebViewActivity.class);
-        intent.putExtra("url", "http://www.chahuitong.com/wap/index.php/Home/Index/pingjiaorder/oid/" + mOrder.getOrder_id());
-        startActivity(intent);
-    }
-
-    public void payOrder() {
-        Intent intent = new Intent(this, PayActivity.class);
-        intent.putExtra("order", mOrder);
-        startActivity(intent);
-    }
-
-    public void toCall(View view) {
-        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:05925990900"));
-        startActivity(intent);
-    }
 }

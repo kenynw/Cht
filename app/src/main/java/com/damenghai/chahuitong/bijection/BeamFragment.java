@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.damenghai.chahuitong.bijection.Presenter;
 import com.damenghai.chahuitong.bijection.ViewHelper;
@@ -12,12 +15,6 @@ import com.damenghai.chahuitong.bijection.ViewHelper;
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
 public class BeamFragment<PresenterType extends Presenter> extends Fragment {
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        mHelper.onResult(requestCode, resultCode, data);
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,6 +26,20 @@ public class BeamFragment<PresenterType extends Presenter> extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mHelper.onPostCreate();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mHelper.onSave(outState);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mHelper.onDestroyView();
+        if (getActivity().isFinishing())
+            mHelper.onDestroy();
     }
 
     @Override
@@ -44,15 +55,9 @@ public class BeamFragment<PresenterType extends Presenter> extends Fragment {
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        mHelper.onDestroy();
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        mHelper.onDestroyView();
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        mHelper.onResult(requestCode, resultCode, data);
     }
 
     public PresenterType getPresenter() {

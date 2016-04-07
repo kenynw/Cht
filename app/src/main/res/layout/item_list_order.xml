@@ -7,7 +7,7 @@
     android:layout_marginBottom="16dp"
     android:orientation="vertical"
     android:background="@color/white"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,6 +25,7 @@
             android:textSize="@dimen/text_size_subhead_material"
             android:drawableLeft="@mipmap/ic_store_name"
             android:drawablePadding="@dimen/text_drawable_padding"
+            tools:text="茶汇通商城"
             />
 
         <View
@@ -38,6 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/TextBody"
+            tools:text="待付款"
             />
     </LinearLayout>
 

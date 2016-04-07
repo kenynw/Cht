@@ -51,11 +51,33 @@ public class Order implements Serializable {
     private String payment_name;
     @Expose
     private ArrayList<Goods> extend_order_goods;
+
+    /**
+     * 是否显示取消订单
+     */
     private boolean if_cancel;
+
+    /**
+     * 是否显示收货
+     */
     private boolean if_receive;
+
+    /**
+     * 是否显示锁定中
+     */
     private boolean if_lock;
+
+    /**
+     * 是否显示物流跟踪
+     */
     private boolean if_deliver;
+
+    /**
+     * 是否显示评价
+     */
     private boolean if_evaluation;
+
+    private int pay_amount;
 
     public String getOrder_id() {
         return order_id;
@@ -186,7 +208,7 @@ public class Order implements Serializable {
     }
 
     public String getShipping_fee() {
-        return "￥" + shipping_fee;
+        return shipping_fee;
     }
 
     public void setShipping_fee(String shipping_fee) {
@@ -327,5 +349,13 @@ public class Order implements Serializable {
 
     public void setIf_evaluation(boolean if_evaluation) {
         this.if_evaluation = if_evaluation;
+    }
+
+    public int getPay_amount() {
+        return pay_amount;
+    }
+
+    public void setPay_amount(int pay_amount) {
+        this.pay_amount = pay_amount;
     }
 }

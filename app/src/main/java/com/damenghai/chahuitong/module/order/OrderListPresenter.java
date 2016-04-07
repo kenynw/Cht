@@ -4,18 +4,15 @@ import android.widget.ListView;
 
 import com.damenghai.chahuitong.bijection.Presenter;
 import com.damenghai.chahuitong.config.API;
+import com.damenghai.chahuitong.model.OrderModel;
 import com.damenghai.chahuitong.model.bean.OrderList;
 import com.damenghai.chahuitong.model.service.ServiceClient;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.model.service.ServiceTransform;
-import com.damenghai.chahuitong.module.order.OrderListFragment;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnLastItemVisibleListener;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
-
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
@@ -36,12 +33,8 @@ public class OrderListPresenter extends Presenter<OrderListFragment>
     }
 
     public void refresh() {
-        ServiceClient.getServices().orderList(
-                API.VERSION,
-                LUtils.getPreferences().getString("key", ""),
-                mState, 1)
-                .compose(new ServiceTransform<>())
-                .subscribe(new ServiceResponse<OrderList>(){
+        OrderModel.getInstance().getOrderList(mState, 1)
+                .subscribe(new ServiceResponse<OrderList>() {
                     @Override
                     public void onNext(OrderList orderList) {
                         super.onNext(orderList);
@@ -57,12 +50,7 @@ public class OrderListPresenter extends Presenter<OrderListFragment>
     }
 
     public void loadMore() {
-        ServiceClient.getServices().orderList(
-                API.VERSION,
-                LUtils.getPreferences().getString("key", ""),
-                mState,
-                mPage)
-                .compose(new ServiceTransform<>())
+        OrderModel.getInstance().getOrderList(mState, mPage)
                 .subscribe(new ServiceResponse<OrderList>() {
                     @Override
                     public void onNext(OrderList orderList) {
@@ -74,20 +62,15 @@ public class OrderListPresenter extends Presenter<OrderListFragment>
     }
 
     public void cancel(String orderId) {
-        ServiceClient.getServices().orderCancel(LUtils.getPreferences().getString("key", ""), orderId)
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
+        OrderModel.getInstance().cancelOrder(orderId)
                 .subscribe(j -> {
                     refresh();
                     getView().cancelSuccess();
                 });
-
     }
 
     public void sure(String orderId) {
-        ServiceClient.getServices().orderSure(LUtils.getPreferences().getString("key", ""), orderId)
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
+        OrderModel.getInstance().sureOrder(orderId)
                 .subscribe(j -> {
                     refresh();
                     getView().sureSuccess();

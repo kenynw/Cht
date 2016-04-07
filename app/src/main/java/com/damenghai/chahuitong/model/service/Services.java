@@ -5,13 +5,14 @@ import com.damenghai.chahuitong.model.bean.Bargain;
 import com.damenghai.chahuitong.model.bean.Cart;
 import com.damenghai.chahuitong.model.bean.GoodsInfo;
 import com.damenghai.chahuitong.model.bean.Home;
+import com.damenghai.chahuitong.model.bean.Order;
 import com.damenghai.chahuitong.model.bean.Sample;
 import com.damenghai.chahuitong.model.bean.Token;
 import com.damenghai.chahuitong.model.bean.User;
 import com.damenghai.chahuitong.model.bean.Valuator;
 import com.damenghai.chahuitong.model.bean.Voucher;
 import com.damenghai.chahuitong.model.bean.response.ListResponse;
-import com.damenghai.chahuitong.model.bean.response.OrderGroupList;
+import com.damenghai.chahuitong.model.bean.OrderList;
 import com.damenghai.chahuitong.model.bean.OrderInfo;
 import com.damenghai.chahuitong.model.bean.response.Response;
 import com.google.gson.JsonObject;
@@ -23,6 +24,8 @@ import okhttp3.RequestBody;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
+import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PartMap;
@@ -306,12 +309,24 @@ public interface Services {
     //--------------------------我的订单--------------------------
     @FormUrlEncoded
     @POST("/mobile/index.php?act=member_order&op=order_list")
-    Observable<Response<OrderGroupList>> orderList(
+    Observable<OrderList> orderList(
+            @Field("version") String version,
             @Field("key") String key,
-            @Field("order_state") String orderState, //订单状态。10-待支付 20-待发货 30-待收货 40待评价
-            @Query("curpage") int curPage,
-            @Query("getpayment") boolean getPayment,
-            @Query("page") int pageCount
+            @Field("order_state") String state, //订单状态。10-待支付 20-待发货 30-待收货 40待评价
+            @Query("curpage") int curPage
+    );
+
+    /**
+     * 取单条订单信息
+     * @param key 登录信息
+     * @param order_id 订单ID
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("/mobile/index.php?act=member_order&op=order_info")
+    Observable<Order> orderInfo(
+            @Field("key") String key,
+            @Field("order_id") String order_id
     );
 
     @FormUrlEncoded

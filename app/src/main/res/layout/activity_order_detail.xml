@@ -121,6 +121,7 @@
                         style="@style/TextBody"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        tools:text="10.0"
                         />
 
                 </LinearLayout>
@@ -160,18 +161,18 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
                     android:background="@color/div_gray"
                     />
 
                 <LinearLayout
+                    android:id="@+id/order_detail_ll_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clickable="true"
-                    android:onClick="toCall"
                     android:orientation="horizontal"
-                    android:paddingBottom="16dp"
-                    android:paddingTop="16dp"
+                    android:paddingTop="@dimen/activity_vertical_margin"
+                    android:paddingBottom="@dimen/activity_vertical_margin"
                     >
 
                     <TextView
@@ -188,7 +189,7 @@
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="@string/text_phone_number"
                         />
                 </LinearLayout>
@@ -196,7 +197,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:background="@color/div_gray"
                     />
 

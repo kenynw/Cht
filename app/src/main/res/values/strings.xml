@@ -167,10 +167,10 @@
     <string name="label_unit">单位</string>
     <string name="label_price">参考价</string>
     <string name="label_pay_total">支付金额：</string>
-    <string name="label_order_num">订单编号：</string>
-    <string name="label_pay_num">支付编号：</string>
-    <string name="label_time_create">创建时间：</string>
-    <string name="label_rmb">￥</string>
+    <string name="label_order_num">订单编号：%s</string>
+    <string name="label_pay_num">支付编号：%s</string>
+    <string name="label_time_create">创建时间：%s</string>
+    <string name="label_rmb">￥%s</string>
     <string name="label_yuan">元</string>
     <string name="label_true_name">真实姓名</string>
     <string name="label_new_password">新的密码：</string>

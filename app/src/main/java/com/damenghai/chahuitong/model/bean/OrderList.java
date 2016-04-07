@@ -1,9 +1,5 @@
 package com.damenghai.chahuitong.model.bean;
 
-import com.damenghai.chahuitong.model.bean.Order;
-import com.damenghai.chahuitong.model.bean.OrderGroup;
-import com.google.gson.annotations.Expose;
-
 import java.io.Serializable;
 import java.util.List;
 
@@ -11,6 +7,7 @@ import java.util.List;
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
 public class OrderList implements Serializable {
+
     private List<Order> order_list;
 
     private boolean hasmore;

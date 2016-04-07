@@ -28,14 +28,17 @@ public class OrderListActivity extends BaseActivity {
      * 未付款
      */
     public static final int STATE_UNPAID = 10;
+
     /**
      * 已付款，待发货
      */
     public static final int STATE_PAID = 20;
+
     /**
      * 已发货，待收货
      */
     public static final int STATE_RECEIVE = 30;
+
     /**
      * 交易完成，待评价
      */
