@@ -23,16 +23,16 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:padding="16dp"
             android:onClick="toProfile"
+            android:padding="16dp"
             >
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/dv_user_avatar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:placeholderImage="@mipmap/def_avatar_placeholder"
                 app:failureImage="@mipmap/def_image_failure"
+                app:placeholderImage="@mipmap/def_avatar_placeholder"
                 app:roundAsCircle="true"
                 />
 
@@ -102,14 +102,14 @@
                 android:layout_height="24dp"
                 android:layout_gravity="center"
                 android:background="@drawable/btn_rectangle_divider_bg_white_stroke"
-                android:text="@string/btn_address"
                 android:onClick="toAddress"
+                android:text="@string/btn_address"
                 />
 
         </FrameLayout>
     </LinearLayout>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/activity_vertical_margin"
@@ -121,31 +121,29 @@
             style="@style/TextBody"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
             android:gravity="center"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:text="@string/title_my_order"
             />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-
         <Button
             android:id="@+id/btn_user_order_list"
             style="@style/ButtonBorderless"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/widget_small_height"
+            android:layout_gravity="right"
             android:drawablePadding="@dimen/text_drawable_padding"
             android:drawableRight="@mipmap/ic_arrow_more"
+            android:onClick="toOrders"
+            android:tag="4"
             android:text="@string/btn_all_order"
             android:textColor="@color/text_black_secondary"
             android:textSize="@dimen/text_size_caption_material"
-            android:onClick="toOrders"
             />
 
-    </LinearLayout>
+    </FrameLayout>
 
     <View
         android:layout_width="match_parent"
@@ -157,67 +155,157 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/button_min_width"
         android:background="@color/white"
+        android:baselineAligned="true"
         android:orientation="horizontal"
         >
 
-        <Button
-            android:id="@+id/btn_user_unpaid"
-            style="@style/ButtonBorderless"
+        <FrameLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:drawableTop="@mipmap/ic_personal_unpaid"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            android:text="@string/btn_unpaid"
-            android:textColor="@color/text_black_primary"
-            android:textSize="@dimen/text_size_caption_material"
-            android:onClick="toOrders"
-            />
+            >
 
-        <Button
-            android:id="@+id/btn_user_paid"
-            style="@style/ButtonBorderless"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:drawableTop="@mipmap/ic_personal_unpaid"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            android:text="@string/btn_paid"
-            android:textColor="@color/text_black_primary"
-            android:textSize="@dimen/text_size_caption_material"
-            android:onClick="toOrders"
-            />
+            <Button
+                android:id="@+id/btn_user_unpaid"
+                style="@style/ButtonBorderless"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableTop="@mipmap/ic_personal_unpaid"
+                android:onClick="toOrders"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:tag="0"
+                android:text="@string/btn_unpaid"
+                android:textColor="@color/text_black_primary"
+                android:textSize="@dimen/text_size_caption_material"
+                />
 
-        <Button
-            android:id="@+id/btn_user_receive"
-            style="@style/ButtonBorderless"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:drawableTop="@mipmap/ic_personal_receive"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            android:text="@string/btn_receive"
-            android:textColor="@color/text_black_primary"
-            android:textSize="@dimen/text_size_caption_material"
-            android:onClick="toOrders"
-            />
+            <TextView
+                android:id="@+id/tv_unpaid_tips"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/btn_round_primary_stroke"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="10sp"
+                tools:text="19"/>
 
-        <Button
-            android:id="@+id/btn_user_uncomment"
-            style="@style/ButtonBorderless"
+        </FrameLayout>
+
+        <FrameLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:drawableTop="@mipmap/ic_personal_uncomment"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            android:text="@string/btn_uncomment"
-            android:textColor="@color/text_black_primary"
-            android:textSize="@dimen/text_size_caption_material"
-            android:onClick="toOrders"
-            />
+            >
+
+            <Button
+                android:id="@+id/btn_user_paid"
+                style="@style/ButtonBorderless"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableTop="@mipmap/ic_personal_unpaid"
+                android:onClick="toOrders"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:tag="1"
+                android:text="@string/btn_paid"
+                android:textColor="@color/text_black_primary"
+                android:textSize="@dimen/text_size_caption_material"
+                />
+
+            <TextView
+                android:id="@+id/tv_paid_tips"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/btn_round_primary_stroke"
+                android:contentDescription="@string/action_settings"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="10sp"
+                android:visibility="gone"
+                tools:text="2"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+
+            <Button
+                android:id="@+id/btn_user_receive"
+                style="@style/ButtonBorderless"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableTop="@mipmap/ic_personal_receive"
+                android:onClick="toOrders"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:tag="2"
+                android:text="@string/btn_receive"
+                android:textColor="@color/text_black_primary"
+                android:textSize="@dimen/text_size_caption_material"
+                />
+
+            <TextView
+                android:id="@+id/tv_receive_tips"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/btn_round_primary_stroke"
+                android:contentDescription="@string/action_settings"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="10sp"
+                android:visibility="gone"
+                tools:text="2"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+
+            <Button
+                android:id="@+id/btn_user_uncomment"
+                style="@style/ButtonBorderless"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableTop="@mipmap/ic_personal_uncomment"
+                android:onClick="toOrders"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:tag="3"
+                android:text="@string/btn_uncomment"
+                android:textColor="@color/text_black_primary"
+                android:textSize="@dimen/text_size_caption_material"
+                />
+
+            <TextView
+                android:id="@+id/tv_uncomment_tips"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/btn_round_primary_stroke"
+                android:contentDescription="@string/action_settings"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="10sp"
+                android:visibility="gone"
+                tools:text="2"/>
+
+        </FrameLayout>
 
     </LinearLayout>
-
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/grid_item_personal"

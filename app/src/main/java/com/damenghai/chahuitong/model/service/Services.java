@@ -151,7 +151,8 @@ public interface Services {
     //--------------------------用户信息--------------------------
     @FormUrlEncoded
     @POST("/mobile/index.php?act=member_index")
-    Observable<JsonObject> getUser(
+    Observable<User> getUser(
+            @Field("version") String version,
             @Field("key") String key
     );
 

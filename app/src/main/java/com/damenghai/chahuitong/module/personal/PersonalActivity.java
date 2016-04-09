@@ -7,6 +7,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -20,6 +21,7 @@ import com.damenghai.chahuitong.module.address.AddressListActivity;
 import com.damenghai.chahuitong.module.order.OrderListActivity;
 import com.damenghai.chahuitong.module.settings.ProfileActivity;
 import com.damenghai.chahuitong.module.settings.SettingsActivity;
+import com.damenghai.chahuitong.utils.LUtils;
 import com.damenghai.chahuitong.widget.DividerGridItemDecoration;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -47,6 +49,18 @@ public class PersonalActivity extends BaseDataActivity<PersonalPresenter, User> 
     @Bind(R.id.grid_item_personal)
     RecyclerView mGridItem;
 
+    @Bind(R.id.tv_unpaid_tips)
+    TextView mTvUnpaid;
+
+    @Bind(R.id.tv_paid_tips)
+    TextView mTvPaid;
+
+    @Bind(R.id.tv_receive_tips)
+    TextView mTvReceive;
+
+    @Bind(R.id.tv_uncomment_tips)
+    TextView mTvUncomment;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,11 +72,38 @@ public class PersonalActivity extends BaseDataActivity<PersonalPresenter, User> 
 
     @Override
     public void setData(User user) {
-        mDvAvatar.setImageURI(Uri.parse(user.getAvatar()));
-        mTvUsername.append(user.getUser_name());
-        mTvPoint.append(user.getPoint());
+        mDvAvatar.setImageURI(Uri.parse(user.getMember_avatar()));
+        mTvUsername.append(user.getMember_name());
+        mTvPoint.append(user.getMember_points());
         mLayoutInfo.setVisibility(View.VISIBLE);
         mLayoutLogin.setVisibility(View.GONE);
+        if (user.getOrder_new_count() > 0) {
+            mTvUnpaid.setVisibility(View.VISIBLE);
+            mTvUnpaid.setText(String.valueOf(user.getOrder_new_count()));
+        } else {
+            mTvUnpaid.setVisibility(View.GONE);
+        }
+
+        if (user.getOrder_pay_count() > 0) {
+            mTvPaid.setVisibility(View.VISIBLE);
+            mTvPaid.setText(String.valueOf(user.getOrder_pay_count()));
+        } else {
+            mTvPaid.setVisibility(View.GONE);
+        }
+
+        if (user.getOrder_send_count() > 0) {
+            mTvReceive.setVisibility(View.VISIBLE);
+            mTvReceive.setText(String.valueOf(user.getOrder_send_count()));
+        } else {
+            mTvReceive.setVisibility(View.GONE);
+        }
+
+        if (user.getOrder_eval_count() > 0) {
+            mTvUncomment.setVisibility(View.VISIBLE);
+            mTvUncomment.setText(String.valueOf(user.getOrder_eval_count()));
+        } else {
+            mTvUncomment.setVisibility(View.GONE);
+        }
     }
 
     private void initView() {
@@ -79,23 +120,7 @@ public class PersonalActivity extends BaseDataActivity<PersonalPresenter, User> 
     public void toOrders(View view) {
         if (getPresenter().isLogin()) {
             Intent intent = new Intent(this, OrderListActivity.class);
-            switch (view.getId()) {
-                case R.id.btn_user_unpaid:
-                    intent.putExtra("position", 0);
-                    break;
-                case R.id.btn_user_paid:
-                    intent.putExtra("position", 1);
-                    break;
-                case R.id.btn_user_receive:
-                    intent.putExtra("position", 2);
-                    break;
-                case R.id.btn_user_uncomment:
-                    intent.putExtra("position", 3);
-                    break;
-                default:
-                    intent.putExtra("position", 4);
-                    break;
-            }
+            intent.putExtra("position", Integer.parseInt(view.getTag().toString()));
             startActivity(intent);
         }
     }

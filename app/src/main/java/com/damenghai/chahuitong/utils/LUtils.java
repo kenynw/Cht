@@ -15,6 +15,8 @@ import com.damenghai.chahuitong.model.local.PreferenceHelper;
 public class LUtils {
     private static final String TAG = "DSK";
 
+    private static final String PREFERENCES_NAME = "chahuitong_prefs";
+
     public static boolean isDebug = true;
 
     private static Toast toast;
@@ -63,7 +65,7 @@ public class LUtils {
     }
 
     public static SharedPreferences getPreferences() {
-        return getPreferences(PreferenceHelper.PREFERENCES_NAME, Activity.MODE_PRIVATE);
+        return getPreferences(PREFERENCES_NAME, Activity.MODE_PRIVATE);
     }
 
     public static SharedPreferences getPreferences(String name) {

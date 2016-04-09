@@ -5,57 +5,117 @@ import java.io.Serializable;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class User extends Account implements Serializable {
+public class User implements Serializable {
+
     private String member_id;
+
     private String member_name;
+
     private String member_truename;
+
     private String member_avatar;
+
     private String member_sex;
+
     private String member_birthday;
+
     private String member_passwd;
+
     private String member_paypwd;
+
     private String member_email;
+
     private String member_email_bind;
+
     private String member_mobile;
+
     private String member_mobile_bind;
+
     private String member_qq;
+
     private String member_ww;
+
     private String member_login_num;
+
     private String member_time;
+
     private String member_login_time;
+
     private String member_old_login_time;
+
     private String member_login_ip;
+
     private String member_old_login_ip;
+
     private String member_qqopenid;
+
     private String member_qqinfo;
+
     private String member_sinaopenid;
+
     private String member_sinainfo;
+
     private String member_weixinopenid;
+
     private String member_weixininfo;
+
     private String member_points;
+
     private String member_lable;
+
     private String available_predeposit;
+
     private String freeze_predeposit;
+
     private String available_rc_balance;
+
     private String freeze_rc_balance;
+
     private String inform_allow;
+
     private String is_buy;
+
     private String is_allowtalk;
+
     private String member_state;
+
     private String member_snsvisitnum;
+
     private String member_areaid;
+
     private String member_cityid;
+
     private String member_provinceid;
+
     private String member_areainfo;
+
     private String member_privacy;
+
     private String member_quicklink;
+
     private String member_exppoints;
+
     private String inviter_id;
+
     private String chashi;
+
     private String guanzhu;
+
     private String rank;
+
     private String articles;
+
     private String follow;
+
+    private String member_title;
+
+    private int order_new_count;
+
+    private int order_pay_count;
+
+    private int order_send_count;
+
+    private int order_eval_count;
 
     public String getMember_id() {
         return member_id;
@@ -455,5 +515,45 @@ public class User extends Account implements Serializable {
 
     public void setFollow(String follow) {
         this.follow = follow;
+    }
+
+    public String getMember_title() {
+        return member_title;
+    }
+
+    public void setMember_title(String member_title) {
+        this.member_title = member_title;
+    }
+
+    public int getOrder_new_count() {
+        return order_new_count;
+    }
+
+    public void setOrder_new_count(int order_new_count) {
+        this.order_new_count = order_new_count;
+    }
+
+    public int getOrder_pay_count() {
+        return order_pay_count;
+    }
+
+    public void setOrder_pay_count(int order_pay_count) {
+        this.order_pay_count = order_pay_count;
+    }
+
+    public int getOrder_send_count() {
+        return order_send_count;
+    }
+
+    public void setOrder_send_count(int order_send_count) {
+        this.order_send_count = order_send_count;
+    }
+
+    public int getOrder_eval_count() {
+        return order_eval_count;
+    }
+
+    public void setOrder_eval_count(int order_eval_count) {
+        this.order_eval_count = order_eval_count;
     }
 }
