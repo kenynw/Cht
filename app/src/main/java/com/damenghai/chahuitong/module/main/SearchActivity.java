@@ -1,11 +1,13 @@
 package com.damenghai.chahuitong.module.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.base.BaseActivity;
+import com.damenghai.chahuitong.module.mall.GoodsListActivity;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.damenghai.chahuitong.widget.FlowViewGroup;
 
@@ -32,6 +34,17 @@ public class SearchActivity extends BaseActivity {
         ButterKnife.bind(this);
 
         mFlvRecently.setText(mRecently);
-        mFlvRecently.setOnTextClickListener(v -> LUtils.toast(v));
+        mFlvRecently.setOnTextClickListener(text -> {
+            Intent intent = new Intent(this, GoodsListActivity.class);
+            intent.putExtra("keyword", text);
+            intent.putExtra("op", "goods_list");
+            startActivity(intent);
+        });
+        mBtnDone.setOnClickListener(v -> {
+            Intent intent = new Intent(this, GoodsListActivity.class);
+            intent.putExtra("keyword", mEtSearch.getText());
+            intent.putExtra("op", "goods_list");
+            startActivity(intent);
+        });
     }
 }

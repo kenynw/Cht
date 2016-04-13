@@ -218,9 +218,9 @@ public class BuyActivity extends BaseDataActivity<BuyPresenter, OrderInfo> {
                         .setVisibility(R.id.goods_tv_count, View.VISIBLE);
             }
 
-            holder.displayImage(R.id.goods_dv_thumb, goods.getGoods_image_url())
-                    .setText(R.id.goods_tv_title, goods.getGoods_name())
-                    .setText(R.id.goods_tv_price, "￥" + goods.getGoods_price());
+            holder.displayImage(R.id.dv_goods_thumb, goods.getGoods_image_url())
+                    .setText(R.id.tv_goods_name, goods.getGoods_name())
+                    .setText(R.id.tv_goods_price, "￥" + goods.getGoods_price());
 
         }
 

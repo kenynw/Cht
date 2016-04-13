@@ -15,17 +15,17 @@ import butterknife.ButterKnife;
  */
 public class GoodsViewHolder extends RecyclerView.ViewHolder {
 
-    @Bind(R.id.goods_dv_thumb)
+    @Bind(R.id.dv_goods_thumb)
     ImageView mDvThumb;
 
-    @Bind(R.id.goods_tv_title)
+    @Bind(R.id.tv_goods_name)
     TextView mTvName;
 
-    @Bind(R.id.goods_tv_price)
+    @Bind(R.id.tv_goods_price)
     TextView mTvPrice;
 
-    @Bind(R.id.goods_tv_origin)
-    TextView mTvLocation;
+    @Bind(R.id.tv_goods_origin)
+    TextView mTvOrigin;
 
     public GoodsViewHolder(View itemView) {
         super(itemView);

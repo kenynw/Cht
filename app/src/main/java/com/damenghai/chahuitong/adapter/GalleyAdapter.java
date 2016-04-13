@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
+import com.damenghai.chahuitong.model.bean.Goods;
 import com.damenghai.chahuitong.model.bean.Recommend;
 import com.damenghai.chahuitong.module.mall.GoodsDetailActivity;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -32,11 +33,11 @@ public class GalleyAdapter extends RecyclerView.Adapter<GalleyAdapter.ViewHolder
     private static final int VISIBLE_ITEM_COUNT = 3;
     private final int mScreenWidth;
     private Context mContext;
-    private List<Recommend> mData;
+    private List<Goods> mData;
     private ImageLoader mImageLoader;
     private boolean mShouldResetParent = true;
 
-    public GalleyAdapter(Context context, List<Recommend> data) {
+    public GalleyAdapter(Context context, List<Goods> data) {
         mContext = context;
         mData = data;
         mImageLoader = ImageLoader.getInstance();
@@ -69,7 +70,7 @@ public class GalleyAdapter extends RecyclerView.Adapter<GalleyAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final Recommend goods = mData.get(position);
+        final Goods goods = mData.get(position);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -174,7 +174,7 @@ public class ValuerActivity extends BaseActivity implements ValuerListMvp, OnIte
 
         switch (position) {
             case 0 :
-                if (mCategoryList != null) mCateSort = mCategoryList.get(selected).getGc_id();
+                if (mCategoryList != null) mCateSort = mCategoryList.get(selected).getGc_id() + "";
                 break;
             case 1 :
                 mPriceSort = selected;
@@ -216,10 +216,10 @@ public class ValuerActivity extends BaseActivity implements ValuerListMvp, OnIte
             spanText.setSpan(new ForegroundColorSpan(mContext.getResources().getColor(R.color.colorAccent)),
                     scoreLabel.length(), spanText.length() - 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-            SimpleDraweeView dvImage = holder.getView(R.id.item_valuator_image);
+            SimpleDraweeView dvImage = holder.getView(R.id.dv_goods_thumb);
             dvImage.setImageURI(Uri.parse(goods.getGoods_image_url()));
 
-            holder.setText(R.id.item_valuator_name, goods.getGoods_name())
+            holder.setText(R.id.tv_goods_name, goods.getGoods_name())
                     .setText(R.id.item_valuator_price, "￥" + goods.getGoods_price())
                     .setText(R.id.item_valuator_score, spanText);
 

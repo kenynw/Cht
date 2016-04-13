@@ -131,7 +131,7 @@ public class GoodsDetailActivity extends BaseDataActivity<GoodsDetailPresenter, 
         mPagerImage.setAdapter(new ImagePagerAdapter(this, imageList));
         mIndicator.setViewPager(mPagerImage);
 
-        mGridAttrs.setAdapter(new AttrsGridAdapter(this, goods.getGoods_attr(), R.layout.grid_item_attrs));
+        mGridAttrs.setAdapter(new AttrsGridAdapter(this, goods.getGoods_attr(), R.layout.item_grid_attrs));
 
         mFragments = new ArrayList<>();
         mFragments.add(GoodsBodyFragment.newInstance(goods.getGoods_id()));

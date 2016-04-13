@@ -2,6 +2,7 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardBackgroundColor="@color/white"
@@ -14,41 +15,42 @@
         >
 
         <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/item_valuator_image"
+            android:id="@+id/dv_goods_thumb"
             android:layout_width="match_parent"
             android:layout_height="184dp"
+            app:actualImageScaleType="centerCrop"
             app:placeholderImage="@mipmap/def_image_loading"
             app:placeholderImageScaleType="centerCrop"
-            app:actualImageScaleType="centerCrop"
             />
 
         <TextView
-            android:id="@+id/item_valuator_name"
+            android:id="@+id/tv_goods_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="呈记福建省铁观音"
-            android:paddingTop="@dimen/activity_vertical_margin"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
+            android:paddingTop="@dimen/activity_vertical_margin"
             android:textAppearance="@style/TextSubhead"
+            tools:text="呈记福建省铁观音"
             />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:paddingBottom="8dp"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
             android:paddingTop="@dimen/activity_vertical_margin"
-            android:paddingBottom="8dp"
             >
+
             <TextView
                 android:id="@+id/item_valuator_price"
                 android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:text="￥198.00"
-                android:textColor="@color/colorAccent"
                 android:textAppearance="@style/TextBody"
+                android:textColor="@color/colorAccent"
                 />
 
             <TextView
@@ -61,14 +63,14 @@
 
             <TextView
                 android:id="@+id/item_valuator_location"
+                style="@style/TextCaption"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="云南"
-                android:drawableRight="@mipmap/ic_location_goods"
                 android:drawablePadding="4dp"
+                android:drawableRight="@mipmap/ic_location_goods"
                 android:gravity="right"
-                style="@style/TextCaption"
+                android:text="云南"
                 />
         </LinearLayout>
 

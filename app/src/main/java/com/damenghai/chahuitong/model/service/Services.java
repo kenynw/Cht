@@ -1,8 +1,12 @@
 package com.damenghai.chahuitong.model.service;
 
+import com.damenghai.chahuitong.config.API;
 import com.damenghai.chahuitong.model.bean.Account;
 import com.damenghai.chahuitong.model.bean.Bargain;
+import com.damenghai.chahuitong.model.bean.BeanList;
 import com.damenghai.chahuitong.model.bean.Cart;
+import com.damenghai.chahuitong.model.bean.Category;
+import com.damenghai.chahuitong.model.bean.Goods;
 import com.damenghai.chahuitong.model.bean.GoodsInfo;
 import com.damenghai.chahuitong.model.bean.Home;
 import com.damenghai.chahuitong.model.bean.Order;
@@ -29,6 +33,7 @@ import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PartMap;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 import rx.Observable;
 
@@ -68,8 +73,8 @@ public interface Services {
 
     // 茶艺师推荐
     @FormUrlEncoded
-    @POST("/mobile/index.php?act=tasters_recommends")
-    Observable<Response<Valuator>> valuerList(
+    @POST("/mobile/index.php?act=goods&op=recommend_list")
+    Observable<Response<Valuator>> recommendList(
             @Field("page") int page,
             @Field("gc_id") String byCate, // 按分类进行筛选，类目ID
             @Field("byPrice") int byPrice, // 按 价格进行筛选，值为1 倒序 值为 0 顺序
@@ -78,6 +83,28 @@ public interface Services {
     );
 
     //--------------------------商品--------------------------
+
+    /**
+     * @param key 排序方式 1-销量 2-浏览量 3-价格 空-按最新发布排序
+     * @param order 排序方式 1-升序 2-降序
+//     * @param page 每页数量
+     * @param curPage 当前页码
+     * @param gc_id 分类编号
+     * @param keyword 搜索关键字 注：gc_id和keyword二选一不能同时出现
+     * @return
+     */
+    @GET("/mobile/index.php?act=goods")
+    Observable<BeanList<Goods>> goodsList(
+            @Query("op") String op,
+            @Query("version") String version,
+            @Query("key") String key,
+            @Query("order") int order,
+//            @Query("page") int page,
+            @Query("curpage") int curPage,
+            @Query("gc_id") int gc_id,
+            @Query("keyword") CharSequence keyword
+    );
+
     @GET("/mobile/index.php?act=goods&op=goods_detail_api")
     Observable<GoodsInfo> goodsDetail(
             @Query("goods_id") String goods_id,
@@ -87,6 +114,12 @@ public interface Services {
     @GET("/mobile/index.php?act=goods&op=goods_body")
     Observable<GoodsInfo> goodsBody(
             @Query("goods_id") String goods_id
+    );
+
+    @GET("/mobile/index.php?act=goods_class")
+    Observable<List<Category>> goodsClass(
+            @Query("version") String version,
+            @Query("gc_id") int gc_id
     );
 
     //--------------------------登录注册--------------------------

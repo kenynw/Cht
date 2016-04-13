@@ -23,7 +23,7 @@
         />
 
     <ImageView
-        android:id="@+id/goods_dv_thumb"
+        android:id="@+id/dv_goods_thumb"
         android:layout_width="77dp"
         android:layout_height="77dp"
         android:layout_toRightOf="@id/cb_favorites_edit"
@@ -35,8 +35,8 @@
         android:id="@+id/layout_goods_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/goods_dv_thumb"
-        android:layout_toRightOf="@id/goods_dv_thumb"
+        android:layout_alignTop="@id/dv_goods_thumb"
+        android:layout_toRightOf="@id/dv_goods_thumb"
         android:orientation="horizontal"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
@@ -44,7 +44,7 @@
         >
 
         <TextView
-            android:id="@+id/goods_tv_title"
+            android:id="@+id/tv_goods_name"
             style="@style/TextCaption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
             />
 
         <TextView
-            android:id="@+id/goods_tv_price"
+            android:id="@+id/tv_goods_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccent"
@@ -69,7 +69,7 @@
         android:id="@+id/goods_count_view"
         android:layout_width="106dp"
         android:layout_height="34dp"
-        android:layout_alignBottom="@id/goods_dv_thumb"
+        android:layout_alignBottom="@id/dv_goods_thumb"
         android:layout_alignLeft="@id/layout_goods_title"
         android:layout_marginLeft="8dp"
         android:visibility="gone"
@@ -80,7 +80,7 @@
         style="@style/TextCaption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/goods_dv_thumb"
+        android:layout_alignBottom="@id/dv_goods_thumb"
         android:layout_alignParentRight="true"
         android:text="x"
         />

@@ -15,7 +15,7 @@ public class Home implements Serializable {
 
     private Bargain xianshi;
 
-    private ArrayList<Recommend> tasters_list;
+    private ArrayList<Goods> tasters_list;
 
     private ArrayList<Goods> guess_list;
 
@@ -51,11 +51,11 @@ public class Home implements Serializable {
         this.xianshi = xianshi;
     }
 
-    public ArrayList<Recommend> getTasters_list() {
+    public ArrayList<Goods> getTasters_list() {
         return tasters_list;
     }
 
-    public void setTasters_list(ArrayList<Recommend> tasters_list) {
+    public void setTasters_list(ArrayList<Goods> tasters_list) {
         this.tasters_list = tasters_list;
     }
 

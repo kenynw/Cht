@@ -29,14 +29,14 @@ import java.util.Map;
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
 public class ExpandTabView extends LinearLayout implements OnCheckedChangeListener, View.OnClickListener, AdapterView.OnItemClickListener {
-    private static final String[] BUTTON_TEXTS = new String[] {"类别", "价格", "销量", "点击量"};
+    private static final String[] BUTTON_TEXTS = new String[] {"类别", "销量", "浏览量", "价格"};
 
     List<String> mCateList;
 
     private static final String[][] MENU_ARRAY = new String[][] {
-            { "价格低到高", "价格高到低" },
             { "销量低到高", "销量高到低" },
-            { "点击量低到高", "点击量高到低" }
+            { "浏览量低到高", "浏览量高到低" },
+            { "价格低到高", "价格高到低" }
     };
 
     private Context mContext;

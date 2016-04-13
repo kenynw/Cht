@@ -17,6 +17,11 @@
         <!--<item name="android:textColorPrimary">@color/text_black_primary</item>-->
         <!--<item name="android:textColorSecondary">@color/text_black_secondary</item>-->
 
+        <item name="android:listDivider">@drawable/decoration_medium</item>
+    </style>
+
+    <style name="AppTheme.ItemLineDecoration">
+        <item name="android:listDivider">@drawable/decoration_line</item>
     </style>
 
     <style name="LaunchTheme" parent="Theme.AppCompat.NoActionBar">

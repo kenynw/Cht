@@ -1,7 +1,5 @@
 package com.damenghai.chahuitong.model.bean;
 
-import com.google.gson.annotations.Expose;
-
 import java.io.Serializable;
 import java.util.List;
 
@@ -87,6 +85,31 @@ public class Goods implements Serializable {
 
     private String down_price;
 
+    /**
+     * 是否抢购
+     */
+    private boolean group_flag;
+
+    /**
+     * 是否限时折扣
+     */
+    private boolean xianshi_flag;
+
+    /**
+     * 产地
+     */
+    private String origin;
+
+    private String recommend_score;
+
+    private String recommend_taste;
+
+    private String recommend_light;
+
+    private String recommend_aroma;
+
+    private String recommend_leaf;
+
     public String getGoods_id() {
         return goods_id;
     }
@@ -99,7 +122,7 @@ public class Goods implements Serializable {
         return goods_name;
     }
 
-    public void setName(String goods_name) {
+    public void setGoods_name(String goods_name) {
         this.goods_name = goods_name;
     }
 
@@ -126,7 +149,6 @@ public class Goods implements Serializable {
     public void setGoods_num(String goods_num) {
         this.goods_num = goods_num;
     }
-
 
     public double getGoods_sum() {
         return goods_sum;
@@ -374,5 +396,69 @@ public class Goods implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public boolean isGroup_flag() {
+        return group_flag;
+    }
+
+    public void setGroup_flag(boolean group_flag) {
+        this.group_flag = group_flag;
+    }
+
+    public boolean isXianshi_flag() {
+        return xianshi_flag;
+    }
+
+    public void setXianshi_flag(boolean xianshi_flag) {
+        this.xianshi_flag = xianshi_flag;
+    }
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+
+    public String getRecommend_score() {
+        return recommend_score;
+    }
+
+    public void setRecommend_score(String recommend_score) {
+        this.recommend_score = recommend_score;
+    }
+
+    public String getRecommend_taste() {
+        return recommend_taste;
+    }
+
+    public void setRecommend_taste(String recommend_taste) {
+        this.recommend_taste = recommend_taste;
+    }
+
+    public String getRecommend_light() {
+        return recommend_light;
+    }
+
+    public void setRecommend_light(String recommend_light) {
+        this.recommend_light = recommend_light;
+    }
+
+    public String getRecommend_aroma() {
+        return recommend_aroma;
+    }
+
+    public void setRecommend_aroma(String recommend_aroma) {
+        this.recommend_aroma = recommend_aroma;
+    }
+
+    public String getRecommend_leaf() {
+        return recommend_leaf;
+    }
+
+    public void setRecommend_leaf(String recommend_leaf) {
+        this.recommend_leaf = recommend_leaf;
     }
 }

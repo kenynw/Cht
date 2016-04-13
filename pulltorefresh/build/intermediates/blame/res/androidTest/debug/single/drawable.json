@@ -1,18 +1,10 @@
 [
     {
-        "merged": "/Users/Sgun/StudioProject/Chahuitong/pulltorefresh/build/intermediates/res/merged/androidTest/debug/drawable/indicator_bg_bottom.xml",
-        "source": "/Users/Sgun/StudioProject/Chahuitong/pulltorefresh/build/intermediates/bundles/debug/res/drawable/indicator_bg_bottom.xml"
-    },
-    {
         "merged": "/Users/Sgun/StudioProject/cht/pulltorefresh/build/intermediates/res/merged/androidTest/debug/drawable/indicator_bg_bottom.xml",
         "source": "/Users/Sgun/StudioProject/cht/pulltorefresh/build/intermediates/bundles/debug/res/drawable/indicator_bg_bottom.xml"
     },
     {
         "merged": "/Users/Sgun/StudioProject/cht/pulltorefresh/build/intermediates/res/merged/androidTest/debug/drawable/indicator_bg_top.xml",
         "source": "/Users/Sgun/StudioProject/cht/pulltorefresh/build/intermediates/bundles/debug/res/drawable/indicator_bg_top.xml"
-    },
-    {
-        "merged": "/Users/Sgun/StudioProject/Chahuitong/pulltorefresh/build/intermediates/res/merged/androidTest/debug/drawable/indicator_bg_top.xml",
-        "source": "/Users/Sgun/StudioProject/Chahuitong/pulltorefresh/build/intermediates/bundles/debug/res/drawable/indicator_bg_top.xml"
     }
 ]

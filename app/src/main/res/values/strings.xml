@@ -3,6 +3,7 @@
 
     <!--页面标题，命名格式为：title_页面-->
     <string name="title_valuator_recommend">试茶师推荐</string>
+    <string name="title_goods_list">商品列表</string>
     <string name="title_activity_sample">本期免费茶样</string>
     <string name="title_activity_bargain">限时抢购</string>
     <string name="title_activity_login">登录</string>
@@ -92,6 +93,7 @@
     <string name="btn_back_home">返回首页</string>
 
     <!--文本文字，命名格式为：text_按钮事件-->
+    <string name="text_rmb">￥%s</string>
     <string name="text_copyright">©茶信科技</string>
     <string name="text_freight">运费</string>
     <string name="text_carriage_free">免运费</string>
@@ -99,7 +101,7 @@
     <string name="text_phone_number">05925990900</string>
     <string name="text_sample_notice">申领资格：茶汇通注册会员\r\n申领限额：每月一次\r\n申领流程</string>
     <string name="text_cart_empty">暂无商品</string>
-    <string name="text_comment_empty">暂无评论</string>
+    <string name="text_empty">暂无数据</string>
     <string name="text_goods_quality">正品保证</string>
     <string name="text_goods_delivery_today">12小时发货</string>
     <string name="text_goods_spot">实地认证</string>
@@ -125,11 +127,12 @@
     <string name="text_upmp">银行卡支付</string>
     <string name="text_upmp_body">支持所有银联储蓄卡和信用卡支付</string>
     <string name="text_voucher_none">没有可用的优惠券</string>
+    <string name="text_recommend_score"><u>综</u>合评价%s分</string>
 
     <!--标签文字，命名格式为：label_标签文字-->
     <string name="label_home_free">免费茶样领取</string>
     <string name="label_home_recommend">· 对味品鉴</string>
-    <string name="label_home_guess">· 适合才最好</string>
+    <string name="label_home_guess">· 适合才是最好</string>
     <string name="label_recommend_score">综合评价</string>
     <string name="label_goods_origin">产地:</string>
     <string name="label_goods_weight">重量:</string>
@@ -170,11 +173,13 @@
     <string name="label_order_num">订单编号：%s</string>
     <string name="label_pay_num">支付编号：%s</string>
     <string name="label_time_create">创建时间：%s</string>
-    <string name="label_rmb">￥%s</string>
+    <string name="label_rmb">￥</string>
     <string name="label_yuan">元</string>
     <string name="label_true_name">真实姓名</string>
     <string name="label_new_password">新的密码：</string>
     <string name="label_password_confirm">重复输入：</string>
+    <string name="label_load_more">正在加载下一页</string>
+    <string name="label_no_more">已经到最后一页</string>
 
     <!--选项卡文字，命名格式为：tab_选项卡文字-->
     <string name="tab_home_mall">商城</string>

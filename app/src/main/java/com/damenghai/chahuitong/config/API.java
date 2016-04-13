@@ -4,7 +4,7 @@ package com.damenghai.chahuitong.config;
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
 public interface API {
-    String VERSION = "3";
+    String VERSION = "3.0";
 
     /**
      * 获取数据成功

@@ -108,13 +108,13 @@ public class GoodsRecycleListAdapter extends BaseRecycleListAdapter<Goods, Goods
         @Bind(R.id.cb_favorites_edit)
         CheckBox mCbEdit;
 
-        @Bind(R.id.goods_dv_thumb)
+        @Bind(R.id.dv_goods_thumb)
         ImageView mIvThumb;
 
-        @Bind(R.id.goods_tv_title)
+        @Bind(R.id.tv_goods_name)
         TextView mTvName;
 
-        @Bind(R.id.goods_tv_price)
+        @Bind(R.id.tv_goods_price)
         TextView mTvPrice;
 
         @Bind(R.id.goods_tv_count)

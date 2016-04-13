@@ -67,8 +67,8 @@
                     android:layout_height="match_parent"
                     android:layout_marginRight="8dp"
                     android:layout_weight="1"
-                    fresco:placeholderImage="@mipmap/def_image_loading"
                     fresco:actualImageScaleType="centerCrop"
+                    fresco:placeholderImage="@mipmap/def_image_loading"
                     />
 
                 <LinearLayout
@@ -110,7 +110,7 @@
                 />
 
             <LinearLayout
-                android:id="@+id/ll_home_Bargain"
+                android:id="@+id/ll_home_bargain"
                 android:layout_width="0dp"
                 android:layout_height="64dp"
                 android:layout_weight="1"
@@ -123,9 +123,9 @@
                     android:layout_height="match_parent"
                     android:layout_marginRight="8dp"
                     android:layout_weight="1"
-                    fresco:placeholderImage="@mipmap/def_image_loading"
-                    fresco:actualImageScaleType="centerCrop"
                     android:padding="1dp"
+                    fresco:actualImageScaleType="centerCrop"
+                    fresco:placeholderImage="@mipmap/def_image_loading"
                     />
 
                 <LinearLayout
@@ -169,7 +169,7 @@
             >
 
             <LinearLayout
-                android:id="@+id/ll_valuator_layout"
+                android:id="@+id/ll_home_valuer"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:clickable="true"
@@ -201,7 +201,7 @@
             </LinearLayout>
 
             <ImageView
-                android:id="@+id/iv_home_recommend"
+                android:id="@+id/iv_home_valuer"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 android:layout_marginBottom="8dp"
@@ -222,7 +222,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ll_recommend_layout"
+            android:id="@+id/ll_home_guess"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="8dp"
@@ -246,6 +246,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:drawableRight="@mipmap/ic_arrow_more"
                 android:gravity="center_vertical"
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:singleLine="true"

@@ -1,6 +1,5 @@
 package com.damenghai.chahuitong.module.main;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,19 +16,17 @@ import android.widget.ScrollView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.adapter.BannerPagerAdapter;
-import com.damenghai.chahuitong.adapter.BaseListAdapter;
 import com.damenghai.chahuitong.adapter.GalleyAdapter;
 import com.damenghai.chahuitong.adapter.GoodsRecycleGridAdapter;
-import com.damenghai.chahuitong.adapter.ViewHolder;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.expansion.data.BaseDataFragment;
 import com.damenghai.chahuitong.model.bean.Goods;
 import com.damenghai.chahuitong.model.bean.Home;
-import com.damenghai.chahuitong.module.mall.GoodsDetailActivity;
+import com.damenghai.chahuitong.module.mall.GoodsListActivity;
 import com.damenghai.chahuitong.module.special.BargainActivity;
 import com.damenghai.chahuitong.module.special.SampleActivity;
-import com.damenghai.chahuitong.module.special.ValuerActivity;
 import com.damenghai.chahuitong.widget.CirclePageIndicator;
+import com.damenghai.chahuitong.widget.DividerGridItemDecoration;
 import com.damenghai.chahuitong.widget.HeadViewPager;
 import com.damenghai.chahuitong.widget.WrapHeightGridManager;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -65,14 +62,17 @@ public class HomeFragment extends BaseDataFragment<HomePresenter, Home> implemen
     @Bind(R.id.dv_home_bargain)
     SimpleDraweeView mDvBargain;
 
-    @Bind(R.id.ll_home_Bargain)
+    @Bind(R.id.ll_home_bargain)
     LinearLayout mLayoutBargain;
 
+    @Bind(R.id.ll_home_guess)
+    LinearLayout mLayoutGuess;
+
     @Bind(R.id.rcv_home_galley)
-    RecyclerView mRcvGalley;
+    RecyclerView mRvGalley;
 
     @Bind(R.id.gv_home_guess)
-    RecyclerView mRgvGuess;
+    RecyclerView mRvGuess;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -93,23 +93,32 @@ public class HomeFragment extends BaseDataFragment<HomePresenter, Home> implemen
         mDvSample.setImageURI(Uri.parse(home.getSample_image()));
         mDvBargain.setImageURI(Uri.parse(home.getXianshi().getImage()));
 
-        mRcvGalley.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-        mRcvGalley.setAdapter(new GalleyAdapter(getActivity(), home.getTasters_list()));
+        mRvGalley.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+        mRvGalley.setAdapter(new GalleyAdapter(getActivity(), home.getTasters_list()));
 
-        mRgvGuess.setLayoutManager(new WrapHeightGridManager(getActivity(), 2));
-        mRgvGuess.setAdapter(new GoodsRecycleGridAdapter(getActivity(), home.getGuess_list()));
+        mRvGuess.setLayoutManager(new WrapHeightGridManager(getActivity(), 2));
+        mRvGuess.addItemDecoration(new DividerGridItemDecoration(getActivity()));
+        mRvGuess.setAdapter(new GoodsRecycleGridAdapter(getActivity(), home.getGuess_list()));
 
         mLayoutSample.setOnClickListener(v -> startActivity(new Intent(getActivity(), SampleActivity.class)));
         mLayoutBargain.setOnClickListener(v -> startActivity(new Intent(getActivity(), BargainActivity.class)));
+
+        mLayoutGuess.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), GoodsListActivity.class);
+            intent.putExtra("op", "goods_list");
+            startActivity(intent);
+        });
     }
 
     public void nextPage(List<Goods> list) {
-        ((GoodsRecycleGridAdapter) mRgvGuess.getAdapter()).addList(list);
+        ((GoodsRecycleGridAdapter) mRvGuess.getAdapter()).addList(list);
     }
 
-    @OnClick({R.id.iv_home_recommend, R.id.ll_valuator_layout})
+    @OnClick({R.id.iv_home_valuer, R.id.ll_home_valuer})
     void valuerList() {
-        startActivity(new Intent(getActivity(), ValuerActivity.class));
+        Intent intent = new Intent(getActivity(), GoodsListActivity.class);
+        intent.putExtra("op", "recommend_list");
+        startActivity(intent);
     }
 
     @Override
@@ -123,25 +132,6 @@ public class HomeFragment extends BaseDataFragment<HomePresenter, Home> implemen
             }
         }
         return false;
-    }
-
-    private class GoodsListAdapter extends BaseListAdapter<Goods> {
-        public GoodsListAdapter(Context context, List<Goods> data, int resId) {
-            super(context, data, resId);
-        }
-
-        @Override
-        public void convert(ViewHolder holder, final Goods goods) {
-            holder.getConvertView().setOnClickListener(v -> {
-                Intent intent = new Intent(mContext, GoodsDetailActivity.class);
-                intent.putExtra("goods_id", goods.getGoods_id());
-                mContext.startActivity(intent);
-            });
-
-            holder.displayImage(R.id.goods_dv_thumb, goods.getGoods_image_url())
-                    .setText(R.id.goods_tv_title, goods.getGoods_name())
-                    .setText(R.id.goods_tv_price, "￥" + goods.getGoods_price());
-        }
     }
 
 }

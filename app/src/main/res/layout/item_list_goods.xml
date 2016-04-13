@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardBackgroundColor="@color/white"
+    app:cardElevation="2dp"
     >
 
     <LinearLayout
@@ -16,7 +17,7 @@
         >
 
         <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/goods_dv_thumb"
+            android:id="@+id/dv_goods_thumb"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             app:actualImageScaleType="centerCrop"
@@ -25,45 +26,58 @@
             />
 
         <TextView
-            android:id="@+id/goods_tv_title"
+            android:id="@+id/tv_goods_name"
             style="@style/TextBody"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:gravity="center_vertical"
             android:lines="2"
-            tools:text="正山小种礼盒 装养胃茶、春茶圆香 金俊眉红"
+            android:padding="8dp"
+            tools:text="正山小种礼盒 装养胃茶、春茶圆香 金俊眉红正山小种礼盒 装养胃茶、春茶圆香 金俊眉红"
             />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:orientation="horizontal"
-            android:paddingTop="4dp"
+            android:padding="8dp"
             >
 
             <TextView
-                android:id="@+id/goods_tv_price"
-                android:layout_width="0dp"
+                android:id="@+id/tv_goods_price"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:singleLine="true"
                 android:textColor="@color/colorAccent"
                 android:textSize="@dimen/text_size_body_material"
                 android:textStyle="bold"
+                android:text="@string/label_rmb"
                 tools:text="￥198.00"
                 />
 
             <TextView
-                android:id="@+id/goods_tv_origin"
+                android:id="@+id/tv_goods_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_recommend_score"
+                android:textAppearance="@style/TextBody"
+                />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                />
+
+            <TextView
+                android:id="@+id/tv_goods_origin"
                 style="@style/TextCaption"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@mipmap/ic_location_goods"
                 android:drawablePadding="2dp"
-                android:gravity="center"
-                android:visibility="gone"
+                android:layout_gravity="end"
                 tools:text="云南"
                 />
 

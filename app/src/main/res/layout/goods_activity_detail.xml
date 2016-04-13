@@ -77,7 +77,6 @@
                         android:text="@string/label_rmb"
                         android:textColor="@color/colorAccent"
                         android:textSize="@dimen/text_size_title_material"
-                        tools:text="￥198.00"
                         />
 
                     <TextView

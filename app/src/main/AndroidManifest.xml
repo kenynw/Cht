@@ -159,6 +159,7 @@
         </activity>
         <activity
             android:name=".module.personal.PersonalActivity"
+            android:theme="@style/AppTheme.ItemLineDecoration"
             android:screenOrientation="portrait">
         </activity>
         <activity android:name=".module.address.AddressListActivity">
@@ -190,6 +191,8 @@
         <activity android:name=".module.main.SearchActivity">
         </activity>
         <activity android:name=".module.settings.ChangePasswordActivity">
+        </activity>
+        <activity android:name=".module.mall.GoodsListActivity">
         </activity>
     </application>
 
