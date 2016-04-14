@@ -89,6 +89,10 @@ public abstract class BaseListActivity<P extends BaseListPresenter> extends Beam
         return 0;
     }
 
+    public EasyRecyclerView getListView() {
+        return mListView;
+    }
+
     protected abstract BaseViewHolder createViewHolder(ViewGroup parent, int viewType);
 
 }

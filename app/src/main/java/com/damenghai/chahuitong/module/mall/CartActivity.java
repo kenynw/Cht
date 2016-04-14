@@ -97,7 +97,7 @@ public class CartActivity extends BaseActivity implements CartMvpView {
 
         mPresenter = new CartPresenter(this);
         mPresenter.attach(this);
-        mPresenter.loadData();
+        mPresenter.onRefresh();
     }
 
     private void changeMode(int mode) {

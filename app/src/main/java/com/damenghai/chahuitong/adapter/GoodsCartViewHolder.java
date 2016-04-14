@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class GoodsDataViewHolder extends BaseViewHolder<Goods> {
+public class GoodsCartViewHolder extends BaseViewHolder<Goods> {
 
     @Bind(R.id.dv_goods_thumb)
     SimpleDraweeView mDvThumb;
@@ -40,7 +40,7 @@ public class GoodsDataViewHolder extends BaseViewHolder<Goods> {
     @Bind(R.id.tv_goods_origin)
     TextView mTvOrigin;
 
-    public GoodsDataViewHolder(ViewGroup parent) {
+    public GoodsCartViewHolder(ViewGroup parent) {
         super(parent, R.layout.item_list_goods);
         ButterKnife.bind(this, itemView);
     }

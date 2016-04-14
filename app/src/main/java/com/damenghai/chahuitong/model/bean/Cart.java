@@ -8,10 +8,9 @@ import java.util.List;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class Cart extends Data {
-    @Expose
+public class Cart {
     private List<Goods> cart_list;
-    @Expose
+
     private String sum;
 
     public List<Goods> getCart_list() {

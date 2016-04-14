@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/bg_window"
+    android:background="@color/white"
     android:paddingBottom="8dp"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -19,16 +20,19 @@
         android:layout_marginRight="8dp"
         android:button="@null"
         android:drawableLeft="@drawable/rbtn_primary2white_sel"
-        android:visibility="invisible"
+        android:visibility="gone"
         />
 
-    <ImageView
+    <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/dv_goods_thumb"
         android:layout_width="77dp"
         android:layout_height="77dp"
         android:layout_toRightOf="@id/cb_favorites_edit"
+        android:background="@color/bg_window"
         android:padding="1dp"
-        android:src="@mipmap/def_image_loading"
+        app:actualImageScaleType="centerCrop"
+        app:placeholderImage="@mipmap/def_image_loading"
+        app:placeholderImageScaleType="centerCrop"
         />
 
     <LinearLayout
@@ -83,6 +87,7 @@
         android:layout_alignBottom="@id/dv_goods_thumb"
         android:layout_alignParentRight="true"
         android:text="x"
+        android:visibility="gone"
         />
 
 </RelativeLayout>

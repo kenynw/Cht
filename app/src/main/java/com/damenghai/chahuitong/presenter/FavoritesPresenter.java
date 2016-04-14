@@ -1,106 +1,60 @@
 package com.damenghai.chahuitong.presenter;
 
-import android.content.Context;
-import android.text.TextUtils;
-
-import com.damenghai.chahuitong.model.bean.response.ListResponse;
-import com.damenghai.chahuitong.model.bean.response.Response;
-import com.damenghai.chahuitong.model.local.PreferenceHelper;
-import com.damenghai.chahuitong.model.repository.FavoritesRepository;
-import com.damenghai.chahuitong.utils.L;
-import com.damenghai.chahuitong.module.personal.FavoritesMvpView;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import java.util.List;
+import com.damenghai.chahuitong.R;
+import com.damenghai.chahuitong.adapter.GoodsEditableViewHolder;
+import com.damenghai.chahuitong.expansion.list.BaseListPresenter;
+import com.damenghai.chahuitong.model.FavoritesModel;
+import com.damenghai.chahuitong.model.bean.Goods;
+import com.damenghai.chahuitong.model.service.ServiceResponse;
+import com.damenghai.chahuitong.module.personal.FavoritesActivity;
+import com.damenghai.chahuitong.utils.LUtils;
+import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
 import rx.Observable;
 import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
-import rx.functions.Func1;
-import rx.schedulers.Schedulers;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class FavoritesPresenter extends BasePresenter<FavoritesMvpView> {
+public class FavoritesPresenter extends BaseListPresenter<FavoritesActivity, Goods> implements RecyclerArrayAdapter.OnLoadMoreListener {
 
-    private FavoritesRepository mRepository;
-
-    private String mKey;
-
-    public FavoritesPresenter(Context context) {
-        mRepository = mRetrofit.create(FavoritesRepository.class);
-        mKey = new PreferenceHelper(context).readSession();
+    @Override
+    protected void onCreateView(FavoritesActivity view) {
+        super.onCreateView(view);
+        onRefresh();
     }
 
     @Override
-    protected Gson getGson() {
-        return new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+    public void onRefresh() {
+        FavoritesModel.getInstance().getFavoritesList(1).unsafeSubscribe(getRefreshSubscriber());
     }
 
-    public void list() {
-        mRepository.list(mKey)
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<Response<ListResponse>>() {
-
-                    @Override
-                    public void onStart() {
-                        getView().showLoading();
-                    }
-
-                    @Override
-                    public void onCompleted() {
-                        getView().hideLoading();
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        getView().hideLoading();
-                        L.d("onError" + e.getLocalizedMessage() + ", " + e.getMessage());
-                    }
-
-                    @Override
-                    public void onNext(Response<ListResponse> response) {
-                        ListResponse data = response.getDatas();
-                        if (data.isError()) {
-                           getView().showError(data.getError());
-                        } else if (data.getFavorites_list().size() > 0) {
-                            getView().showList(data.getFavorites_list());
-                        } else {
-                            getView().showEmpty();
-                        }
-                    }
-                });
-
+    @Override
+    public void onLoadMore() {
+        FavoritesModel.getInstance().getFavoritesList(getCurPage()).unsafeSubscribe(getMoreSubscriber());
     }
 
     public void delete() {
-        if (TextUtils.isEmpty(mKey)) getView().toLogin();
-
-        List<String> favList = getView().getFavIdList();
-
-        Observable.from(favList)
-                .flatMap(new Func1<String, Observable<Response<String>>>() {
-                    @Override
-                    public Observable<Response<String>> call(String s) {
-                        return mRepository.delete(mKey, s);
+        Observable.from(GoodsEditableViewHolder.mStates.keySet())
+                .flatMap(position -> {
+                    if (GoodsEditableViewHolder.mStates.get(position)) {
+                        Goods goods = getAdapter().getItem(position);
+                        return FavoritesModel.getInstance().deleteFavorites(goods.getFav_id());
                     }
+                    return null;
                 })
-                .subscribeOn(Schedulers.computation())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<Response<String>>() {
+                .subscribe(new ServiceResponse<String>() {
                     @Override
-                    public void call(Response<String> response) {
-                        if (response.getDatas().equals("1")) {
-                            getView().operateSuccess();
-                            list();
-                        }
+                    public void onCompleted() {
+                        GoodsEditableViewHolder.mStates.clear();
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                        LUtils.toast(R.string.toast_operate_success);
+                        onRefresh();
                     }
                 });
-
     }
 
 }

@@ -4,10 +4,9 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.adapter.GoodsDataViewHolder;
+import com.damenghai.chahuitong.adapter.GoodsCartViewHolder;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.expansion.list.BaseListActivity;
-import com.damenghai.chahuitong.utils.LUtils;
 import com.damenghai.chahuitong.widget.ExpandTabView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 
@@ -49,7 +48,7 @@ public class GoodsListActivity extends BaseListActivity<GoodsListPresenter> {
 
     @Override
     protected BaseViewHolder createViewHolder(ViewGroup parent, int viewType) {
-        return new GoodsDataViewHolder(parent);
+        return new GoodsCartViewHolder(parent);
     }
 
     public void setCategory(String[] list) {

@@ -7,13 +7,12 @@
         android:id="@+id/action_fav_edit"
         app:showAsAction="ifRoom"
         android:title="@string/action_edit"
-        android:visible="false"
         />
 
     <item
-        android:id="@+id/action_fav_delete"
+        android:id="@+id/action_fav_done"
         app:showAsAction="ifRoom"
-        android:title="@string/action_delete"
+        android:title="@string/action_done"
         android:visible="false"
         />
 

@@ -245,7 +245,7 @@ public interface Services {
     //--------------------------我的购物车--------------------------
     @FormUrlEncoded
     @POST("/mobile/index.php?act=member_cart&op=cart_list")
-    Observable<Response<Cart>> cartList(
+    Observable<Cart> cartList(
             @Field("key") String key
     );
 
@@ -275,8 +275,10 @@ public interface Services {
     //--------------------------我的收藏--------------------------
     @FormUrlEncoded
     @POST("/mobile/index.php?act=member_favorites&op=favorites_list")
-    Observable<Response<ListResponse>> favList(
-            @Field("key") String key
+    Observable<BeanList<Goods>> favList(
+            @Field("version") String version,
+            @Field("key") String key,
+            @Query("curpage") int curPage
     );
 
     @FormUrlEncoded
@@ -289,7 +291,8 @@ public interface Services {
 
     @FormUrlEncoded
     @POST("/mobile/index.php?act=member_favorites&op=favorites_del")
-    Observable<Response<String>> favDel(
+    Observable<String> favDel(
+            @Field("version") String version,
             @Field("key") String key,
             @Field("fav_id") String fav_id
     );

@@ -3,14 +3,14 @@ package com.damenghai.chahuitong.module.mall;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.damenghai.chahuitong.model.bean.Cart;
 import com.damenghai.chahuitong.model.bean.Goods;
-import com.damenghai.chahuitong.model.bean.response.Response;
 import com.damenghai.chahuitong.model.local.PreferenceHelper;
 import com.damenghai.chahuitong.model.repository.CartRepository;
 import com.damenghai.chahuitong.model.repository.FavoritesRepository;
-import com.damenghai.chahuitong.module.mall.CartMvpView;
+import com.damenghai.chahuitong.model.service.ServiceClient;
+import com.damenghai.chahuitong.model.service.ServiceTransform;
 import com.damenghai.chahuitong.presenter.BasePresenter;
+import com.damenghai.chahuitong.utils.LUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
@@ -49,34 +49,28 @@ public class CartPresenter extends BasePresenter<CartMvpView> {
         return new Action1<JsonObject>() {
             @Override
             public void call(JsonObject jsonObject) {
-                loadData();
+                onRefresh();
             }
         };
     }
 
-    public void loadData() {
+    public void onRefresh() {
         if (TextUtils.isEmpty(mKey)) {
             getView().showLogin();
             return;
         }
 
-        mCartRep.list(mKey)
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<Response<Cart>>() {
-                    @Override
-                    public void call(Response<Cart> response) {
-                        Cart cart = response.getDatas();
-                        if (cart.isError()) {
-                            getView().showError(cart.getError());
-                        } else if (cart.getCart_list().isEmpty()) {
-                            getView().showEmpty();
-                        } else {
-                            getView().setList(cart.getCart_list());
-                            getView().setTotal(cart.getSum());
-                        }
+        ServiceClient.getServices().cartList(LUtils.getPreferences().getString("key", ""))
+                .compose(new ServiceTransform<>())
+                .subscribe(cart -> {
+                    if (cart.getCart_list().isEmpty()) {
+                        getView().showEmpty();
+                    } else {
+                        getView().setList(cart.getCart_list());
+                        getView().setTotal(cart.getSum());
                     }
                 });
+
     }
 
     public void addFavorites() {
@@ -106,7 +100,6 @@ public class CartPresenter extends BasePresenter<CartMvpView> {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(getOnNextRefresh());
-
     }
 
     public void editQuantity() {

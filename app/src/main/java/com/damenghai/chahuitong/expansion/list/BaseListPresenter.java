@@ -31,6 +31,7 @@ public class BaseListPresenter<V extends BaseListActivity, M> extends Presenter<
 
         @Override
         public void onError(Throwable e) {
+            super.onError(e);
             getView().stopRefresh();
             getView().showError();
         }
@@ -40,7 +41,7 @@ public class BaseListPresenter<V extends BaseListActivity, M> extends Presenter<
             mAdapter.clear();
             mAdapter.addAll(beanList.getList());
             if (beanList.isHasmore()) mPage = 2;
-            else mAdapter.stopMore();
+            else if (getView().getLoadMoreRes() > 0) mAdapter.stopMore();
         }
     };
 
@@ -52,6 +53,7 @@ public class BaseListPresenter<V extends BaseListActivity, M> extends Presenter<
 
         @Override
         public void onError(Throwable e) {
+            super.onError(e);
             mAdapter.pauseMore();
         }
 
@@ -100,6 +102,7 @@ public class BaseListPresenter<V extends BaseListActivity, M> extends Presenter<
         public BaseViewHolder OnCreateViewHolder(ViewGroup parent, int viewType) {
             return getView().createViewHolder(parent, viewType);
         }
+
     }
 
 }

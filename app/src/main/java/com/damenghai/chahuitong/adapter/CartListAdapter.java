@@ -106,8 +106,8 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.CartVi
         } else {
             holder.mLayoutEdit.setVisibility(View.GONE);
             holder.mLayoutNormal.setVisibility(View.VISIBLE);
-            holder.mTvPrice.setText("￥" + goods.getGoods_price());
-            holder.mTvCount.setText("x" + goods.getGoods_num());
+            holder.mTvPrice.setText(String.format(mContext.getString(R.string.text_rmb), goods.getGoods_price()));
+            holder.mTvCount.setText(String.format("x%s", goods.getGoods_num()));
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
