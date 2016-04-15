@@ -1,37 +1,31 @@
 package com.damenghai.chahuitong.expansion.list;
 
 import android.content.Context;
-import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.ViewGroup;
 
 import com.damenghai.chahuitong.bijection.Presenter;
 import com.damenghai.chahuitong.model.bean.BeanList;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
-import com.damenghai.chahuitong.utils.LUtils;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
-import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter.OnLoadMoreListener;
 
 import rx.Subscriber;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class BaseListPresenter<V extends BaseListActivity, M> extends Presenter<V>
-        implements OnLoadMoreListener, OnRefreshListener {
+public class BaseListFragmentPresenter<V extends BaseListFragment, M> extends Presenter<V>
+        implements SwipeRefreshLayout.OnRefreshListener, RecyclerArrayAdapter.OnLoadMoreListener {
 
     private DataAdapter mAdapter;
 
     private int mPage = 1;
 
     private Subscriber<BeanList<M>> mRefreshSubscriber = new ServiceResponse<BeanList<M>>() {
-        @Override
-        public void onCompleted() {
-        }
 
         @Override
         public void onError(Throwable e) {
-            super.onError(e);
             getView().stopRefresh();
             getView().showError();
         }
@@ -41,16 +35,11 @@ public class BaseListPresenter<V extends BaseListActivity, M> extends Presenter<
             mAdapter.clear();
             mAdapter.addAll(beanList.getList());
             if (beanList.isHasmore()) mPage = 2;
-            else if (getView().getLoadMoreRes() > 0) mAdapter.stopMore();
+            else mAdapter.stopMore();
         }
     };
 
     private Subscriber<BeanList<M>> mMoreSubscriber = new ServiceResponse<BeanList<M>>() {
-        @Override
-        public void onCompleted() {
-
-        }
-
         @Override
         public void onError(Throwable e) {
             super.onError(e);
@@ -60,10 +49,14 @@ public class BaseListPresenter<V extends BaseListActivity, M> extends Presenter<
         @Override
         public void onNext(BeanList<M> beanList) {
             mAdapter.addAll(beanList.getList());
-            if (beanList.isHasmore()) mPage++;
-            else mAdapter.stopMore();
+            mPage++;
         }
     };
+
+    public DataAdapter getAdapter() {
+        if (mAdapter == null) mAdapter = new DataAdapter(getView().getActivity());
+        return mAdapter;
+    }
 
     public Subscriber<BeanList<M>> getRefreshSubscriber() {
         return mRefreshSubscriber;
@@ -73,24 +66,19 @@ public class BaseListPresenter<V extends BaseListActivity, M> extends Presenter<
         return mMoreSubscriber;
     }
 
-    public DataAdapter getAdapter() {
-        if (mAdapter == null) mAdapter = new DataAdapter(getView());
-        return mAdapter;
-    }
-
-    public int getCurPage() {
+    public int getPage() {
         return mPage;
     }
 
-    public void setCurPage(int page) {
-        this.mPage = page;
+    public void setPage(int page) {
+        mPage = page;
     }
 
     @Override
-    public void onLoadMore() {}
+    public void onRefresh() {}
 
     @Override
-    public void onRefresh() {}
+    public void onLoadMore() {}
 
     public class DataAdapter extends RecyclerArrayAdapter<M> {
 
@@ -99,10 +87,14 @@ public class BaseListPresenter<V extends BaseListActivity, M> extends Presenter<
         }
 
         @Override
+        public int getViewType(int position) {
+            return getView().getViewType(position);
+        }
+
+        @Override
         public BaseViewHolder OnCreateViewHolder(ViewGroup parent, int viewType) {
             return getView().createViewHolder(parent, viewType);
         }
 
     }
-
 }

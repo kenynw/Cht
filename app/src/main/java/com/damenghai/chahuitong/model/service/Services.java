@@ -381,11 +381,19 @@ public interface Services {
     );
 
     //--------------------------我的优惠券--------------------------
+
+    /**
+     * @param version 版本号
+     * @param key 当前登录令牌
+     * @param state 代金券状态(1-未使用 2-已使用 3-已过期)
+     * @return
+     */
     @FormUrlEncoded
-    @POST("/wap/index.php/Home/Index/get_voucher_api/")
-    Observable<Response<List<Voucher>>> voucherList(
+    @POST("/mobile/index.php?act=member_voucher&op=voucher_list")
+    Observable<BeanList<Voucher>> voucherList(
+            @Field("version") String version,
             @Field("key") String key,
-            @Field("voucher_state") String state
+            @Field("voucher_state") int state
     );
 
 }

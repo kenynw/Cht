@@ -39,9 +39,9 @@ public class VoucherActivity extends BaseActivity {
     }
 
     private void initTab() {
-        String[] states = new String[] {"1", "2", "3"};
+        int[] states = new int[] {1, 2, 3};
         List<Fragment> fragments = new ArrayList<>();
-        for (String state : states) {
+        for (int state : states) {
             fragments.add(VoucherFragment.newInstance(state));
         }
         TitlePagerAdapter adapter = new TitlePagerAdapter(this, TITLE, fragments, getSupportFragmentManager());

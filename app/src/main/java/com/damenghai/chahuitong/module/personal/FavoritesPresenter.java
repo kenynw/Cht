@@ -1,22 +1,20 @@
-package com.damenghai.chahuitong.presenter;
+package com.damenghai.chahuitong.module.personal;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.adapter.GoodsEditableViewHolder;
-import com.damenghai.chahuitong.expansion.list.BaseListPresenter;
+import com.damenghai.chahuitong.adapter.viewholder.GoodsEditableViewHolder;
+import com.damenghai.chahuitong.expansion.list.BaseListActivityPresenter;
 import com.damenghai.chahuitong.model.FavoritesModel;
 import com.damenghai.chahuitong.model.bean.Goods;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
-import com.damenghai.chahuitong.module.personal.FavoritesActivity;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
 import rx.Observable;
-import rx.Subscriber;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class FavoritesPresenter extends BaseListPresenter<FavoritesActivity, Goods> implements RecyclerArrayAdapter.OnLoadMoreListener {
+public class FavoritesPresenter extends BaseListActivityPresenter<FavoritesActivity, Goods> implements RecyclerArrayAdapter.OnLoadMoreListener {
 
     @Override
     protected void onCreateView(FavoritesActivity view) {

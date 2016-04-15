@@ -9,11 +9,10 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.adapter.GoodsEditableViewHolder;
+import com.damenghai.chahuitong.adapter.viewholder.GoodsEditableViewHolder;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.expansion.list.BaseListActivity;
 import com.damenghai.chahuitong.module.mall.GoodsListActivity;
-import com.damenghai.chahuitong.presenter.FavoritesPresenter;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 
 import butterknife.Bind;

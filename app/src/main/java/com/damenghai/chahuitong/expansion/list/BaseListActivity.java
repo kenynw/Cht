@@ -7,17 +7,14 @@ import android.view.ViewGroup;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.bijection.BeamBaseActivity;
-import com.damenghai.chahuitong.utils.LUtils;
 import com.damenghai.chahuitong.widget.DividerItemDecoration;
-import com.damenghai.chahuitong.widget.WrapHeightListManager;
 import com.jude.easyrecyclerview.EasyRecyclerView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
-import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public abstract class BaseListActivity<P extends BaseListPresenter> extends BeamBaseActivity<P> {
+public abstract class BaseListActivity<P extends BaseListActivityPresenter> extends BeamBaseActivity<P> {
     private EasyRecyclerView mListView;
 
     @Override
@@ -33,8 +30,8 @@ public abstract class BaseListActivity<P extends BaseListPresenter> extends Beam
             setContentView(getLayout());
         } else {
             mListView = new EasyRecyclerView(this);
-            mListView.setLayoutParams(new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, RecyclerView.LayoutParams.MATCH_PARENT));
             mListView.setId(R.id.recycle);
+            mListView.setLayoutParams(new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, RecyclerView.LayoutParams.MATCH_PARENT));
             setContentView(mListView);
         }
     }
@@ -51,7 +48,7 @@ public abstract class BaseListActivity<P extends BaseListPresenter> extends Beam
     }
 
     private void initAdapter() {
-        BaseListPresenter.DataAdapter adapter = getPresenter().getAdapter();
+        BaseListActivityPresenter.DataAdapter adapter = getPresenter().getAdapter();
         mListView.setAdapterWithProgress(adapter);
         if (getLoadMoreRes() != 0) adapter.setMore(getLoadMoreRes(), getPresenter());
         if (getNoMoreRes() != 0) adapter.setNoMore(getNoMoreRes());

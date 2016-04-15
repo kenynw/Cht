@@ -1,4 +1,4 @@
-package com.damenghai.chahuitong.adapter;
+package com.damenghai.chahuitong.adapter.viewholder;
 
 import android.content.Intent;
 import android.net.Uri;

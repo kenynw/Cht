@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.adapter.GoodsCartViewHolder;
+import com.damenghai.chahuitong.adapter.viewholder.GoodsCartViewHolder;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.expansion.list.BaseListActivity;
 import com.damenghai.chahuitong.widget.ExpandTabView;

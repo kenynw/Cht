@@ -1,26 +1,19 @@
 package com.damenghai.chahuitong.module.mall;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
-import com.damenghai.chahuitong.expansion.list.BaseListPresenter;
+import com.damenghai.chahuitong.expansion.list.BaseListActivityPresenter;
 import com.damenghai.chahuitong.model.GoodsModel;
 import com.damenghai.chahuitong.model.bean.Category;
 import com.damenghai.chahuitong.model.bean.Goods;
-import com.damenghai.chahuitong.model.service.ServiceTransform;
-import com.damenghai.chahuitong.utils.LUtils;
 import com.damenghai.chahuitong.widget.ExpandTabView;
-import com.google.gson.Gson;
 
 import java.util.List;
-
-import rx.functions.Action1;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class GoodsListPresenter extends BaseListPresenter<GoodsListActivity, Goods> implements ExpandTabView.OnItemSelectedListener {
+public class GoodsListPresenter extends BaseListActivityPresenter<GoodsListActivity, Goods> implements ExpandTabView.OnItemSelectedListener {
 
     private List<Category> mCategories;
 

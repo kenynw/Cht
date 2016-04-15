@@ -3,6 +3,7 @@ package com.damenghai.chahuitong.adapter;
 import android.content.Context;
 import android.view.ViewGroup;
 
+import com.damenghai.chahuitong.adapter.viewholder.GoodsCartViewHolder;
 import com.damenghai.chahuitong.model.bean.Goods;
 
 import java.util.List;
