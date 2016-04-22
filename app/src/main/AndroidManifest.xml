@@ -125,10 +125,6 @@
             android:label="@string/title_activity_login">
         </activity>
         <activity
-            android:name=".module.special.ValuerActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
             android:name=".module.special.SampleActivity"
             android:screenOrientation="portrait">
         </activity>
@@ -159,8 +155,8 @@
         </activity>
         <activity
             android:name=".module.personal.PersonalActivity"
-            android:theme="@style/AppTheme.ItemLineDecoration"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.ItemLineDecoration">
         </activity>
         <activity android:name=".module.address.AddressListActivity">
         </activity>
@@ -192,7 +188,10 @@
         </activity>
         <activity android:name=".module.settings.ChangePasswordActivity">
         </activity>
-        <activity android:name=".module.mall.GoodsListActivity">
+        <activity
+            android:name=".module.mall.GoodsListActivity"
+            android:windowSoftInputMode="stateUnspecified|adjustPan"
+            >
         </activity>
     </application>
 

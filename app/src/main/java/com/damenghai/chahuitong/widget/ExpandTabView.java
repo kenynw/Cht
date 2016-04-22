@@ -132,6 +132,7 @@ public class ExpandTabView extends LinearLayout implements OnCheckedChangeListen
             lv.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
             lv.setAdapter(adapter);
             lv.setOnItemClickListener(this);
+            lv.setDividerHeight(2);
             rl.addView(lv);
 
             View view = new View(mContext);

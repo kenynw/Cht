@@ -50,6 +50,7 @@ public class GoodsCartViewHolder extends BaseViewHolder<Goods> {
         super.setData(goods);
         mDvThumb.setImageURI(Uri.parse(goods.getGoods_image_url()));
         mTvName.setText(goods.getGoods_name());
+
         mTvPrice.setText(String.format(getContext().getString(R.string.text_rmb), goods.getGoods_price()));
         if (!TextUtils.isEmpty(goods.getOrigin())) {
             mTvOrigin.setText(goods.getOrigin());
@@ -57,16 +58,18 @@ public class GoodsCartViewHolder extends BaseViewHolder<Goods> {
         } else {
             mTvOrigin.setVisibility(View.GONE);
         }
+
+        // 如果有评分则显示
         if (!TextUtils.isEmpty(goods.getRecommend_score())) {
             SpannableString spanText = new SpannableString(String.format(getContext().getString(R.string.text_recommend_score), goods.getRecommend_score()));
             spanText.setSpan(new ForegroundColorSpan(getContext().getResources().getColor(R.color.colorAccent)),
                     4, 4 + goods.getRecommend_score().length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
             mTvScore.setVisibility(View.VISIBLE);
             mTvScore.setText(spanText);
         } else {
             mTvScore.setVisibility(View.GONE);
         }
+
         itemView.setOnClickListener(v -> {
             Intent view = new Intent(getContext(), GoodsDetailActivity.class);
             view.putExtra("goods_id", goods.getGoods_id());

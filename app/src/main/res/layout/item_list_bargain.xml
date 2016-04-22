@@ -9,7 +9,7 @@
     >
 
     <LinearLayout
-        android:id="@+id/layout_bargain_slogan"
+        android:id="@+id/layout_bargain_timer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/bg_window"
@@ -159,6 +159,7 @@
                     android:maxLines="2"
                     android:padding="8dp"
                     android:textAppearance="@style/TextSubhead"
+                    tools:text="这里是标题是的啊啊"
                     />
 
                 <LinearLayout
@@ -176,6 +177,7 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/TextBody"
                         android:textColor="@color/colorAccent"
+                        tools:text="￥98.00"
                         />
 
                     <TextView
@@ -184,6 +186,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
+                        tools:text="￥200.00"
                         />
 
                     <TextView
@@ -192,22 +195,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
-                        />
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="24dp"
-                        android:background="@drawable/btn_radius_accent_selector"
-                        android:gravity="center"
-                        android:minWidth="64dp"
-                        android:text="@string/label_bargain_buy"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text_size_body_material"
+                        tools:text="已抢购5份/共120份"
                         />
 
                 </LinearLayout>

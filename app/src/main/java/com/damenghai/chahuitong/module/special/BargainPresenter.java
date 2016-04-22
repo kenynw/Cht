@@ -1,58 +1,31 @@
 package com.damenghai.chahuitong.module.special;
 
+import android.os.Bundle;
+
+import com.damenghai.chahuitong.expansion.list.BaseListActivityPresenter;
+import com.damenghai.chahuitong.expansion.list.BaseListFragmentPresenter;
 import com.damenghai.chahuitong.model.bean.Bargain;
-import com.damenghai.chahuitong.model.bean.response.Response;
-import com.damenghai.chahuitong.model.repository.BargainRepository;
-import com.damenghai.chahuitong.module.special.BargainMvpView;
-import com.damenghai.chahuitong.presenter.BasePresenter;
-
-import java.util.List;
-
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import com.damenghai.chahuitong.model.service.ServiceClient;
+import com.damenghai.chahuitong.model.service.ServiceTransform;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class BargainPresenter extends BasePresenter<BargainMvpView> {
-    BargainRepository mRepository;
+public class BargainPresenter extends BaseListActivityPresenter<BargainActivity, Bargain> {
 
-    public BargainPresenter() {
-        mRepository = mRetrofit.create(BargainRepository.class);
+    @Override
+    protected void onCreate(BargainActivity view, Bundle saveState) {
+        super.onCreate(view, saveState);
+        onRefresh();
     }
 
-    public void showList() {
-        mRepository.showList(getView().getCurPage(), getView().getOp())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<Response<List<Bargain>>>() {
-
-                    @Override
-                    public void onStart() {
-                        getView().showLoading();
-                    }
-
-                    @Override
-                    public void onCompleted() {
-                        getView().hideLoading();
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        getView().showError("没有数据");
-                        getView().hideLoading();
-                    }
-
-                    @Override
-                    public void onNext(Response<List<Bargain>> response) {
-                        if (response.isSuccess()) {
-                            getView().showList(response.getContent());
-                        } else {
-                            getView().showError(response.getMsg());
-                        }
-                    }
-                });
+    @Override
+    public void onRefresh() {
+        ServiceClient.getServices().bargainList(1).compose(new ServiceTransform<>()).unsafeSubscribe(getRefreshSubscriber());
     }
 
+    @Override
+    public void onLoadMore() {
+        ServiceClient.getServices().bargainList(getCurPage()).compose(new ServiceTransform<>()).unsafeSubscribe(getMoreSubscriber());
+    }
 }

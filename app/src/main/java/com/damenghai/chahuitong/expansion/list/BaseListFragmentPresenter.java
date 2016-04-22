@@ -66,11 +66,11 @@ public class BaseListFragmentPresenter<V extends BaseListFragment, M> extends Pr
         return mMoreSubscriber;
     }
 
-    public int getPage() {
+    public int getCurPage() {
         return mPage;
     }
 
-    public void setPage(int page) {
+    public void setCurPage(int page) {
         mPage = page;
     }
 

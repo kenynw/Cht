@@ -65,10 +65,9 @@ public interface Services {
 
     // 限时抢购
     @FormUrlEncoded
-    @POST("/mobile/index.php?act=flash_sale")
-    Observable<Response<List<Bargain>>> bargainList(
-            @Field("page") int page,
-            @Query("op") String op
+    @POST("/mobile/index.php?act=xianshi_goods&op=current_list")
+    Observable<BeanList<Bargain>> bargainList(
+            @Field("page") int page
     );
 
     // 茶艺师推荐

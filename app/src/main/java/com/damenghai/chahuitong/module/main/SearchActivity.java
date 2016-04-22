@@ -34,17 +34,16 @@ public class SearchActivity extends BaseActivity {
         ButterKnife.bind(this);
 
         mFlvRecently.setText(mRecently);
-        mFlvRecently.setOnTextClickListener(text -> {
-            Intent intent = new Intent(this, GoodsListActivity.class);
-            intent.putExtra("keyword", text);
-            intent.putExtra("op", "goods_list");
-            startActivity(intent);
-        });
-        mBtnDone.setOnClickListener(v -> {
-            Intent intent = new Intent(this, GoodsListActivity.class);
-            intent.putExtra("keyword", mEtSearch.getText());
-            intent.putExtra("op", "goods_list");
-            startActivity(intent);
+        mFlvRecently.setOnTextClickListener(text -> startActivity(new Intent(this, GoodsListActivity.class)
+                .putExtra("keyword", text).putExtra("op", "goods_list")));
+        mBtnDone.setOnClickListener(v ->
+            startActivity(new Intent(this, GoodsListActivity.class)
+                    .putExtra("keyword", mEtSearch.getText()).putExtra("op", "goods_list")));
+
+        mEtSearch.setOnEditorActionListener((v, actionId, event) -> {
+            startActivity(new Intent(this, GoodsListActivity.class)
+                    .putExtra("keyword", mEtSearch.getText()).putExtra("op", "goods_list"));
+            return false;
         });
     }
 }

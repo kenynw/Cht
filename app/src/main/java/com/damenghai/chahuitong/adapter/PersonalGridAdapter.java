@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.model.local.PreferenceHelper;
+import com.damenghai.chahuitong.utils.LUtils;
 import com.damenghai.chahuitong.utils.T;
 import com.damenghai.chahuitong.module.personal.FeedbackActivity;
 import com.damenghai.chahuitong.module.web.WebViewActivity;
@@ -77,10 +78,10 @@ public class PersonalGridAdapter extends RecyclerView.Adapter<PersonalGridAdapte
                     mContext.startActivity(intent);
                     break;
                 case 3 :
-                    T.showShort(mContext, "程序狗们正在努力开发中...");
+                    LUtils.toast("程序狗们正在努力开发中...");
                     break;
                 case 4 :
-                    T.showShort(mContext, "程序狗们正在努力开发中...");
+                    LUtils.toast("程序狗们正在努力开发中...");
                     break;
                 case 5 :
                     String id = new FeedbackAgent(mContext).getDefaultConversation().getId();
