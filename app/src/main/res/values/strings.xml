@@ -127,7 +127,7 @@
     <string name="text_upmp">银行卡支付</string>
     <string name="text_upmp_body">支持所有银联储蓄卡和信用卡支付</string>
     <string name="text_voucher_none">没有可用的优惠券</string>
-    <string name="text_recommend_score"><u>综</u>合评价%s分</string>
+    <string name="text_recommend_score">综合评价%s分</string>
     <string name="text_to">%1$s&#160;~&#160;%2$s</string>
     <string name="text_man">【满%s】</string>
     <string name="text_stock">已抢购%1$s份/共%2$s份</string>

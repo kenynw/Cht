@@ -4,9 +4,12 @@ import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.View.MeasureSpec;
 import android.view.ViewGroup;
+
+import com.damenghai.chahuitong.utils.LUtils;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
@@ -42,11 +45,12 @@ public class WrapHeightListManager extends LinearLayoutManager {
             recycler.recycleView(child);
 
             if (getOrientation() == HORIZONTAL) {
-                width += childWidth;
+                height = Math.max(height, childHeight);
+                width = Math.max(width, childWidth);
             } else {
                 height += childHeight;
+                width += childWidth;
             }
-
         }
 
         setMeasuredDimension(

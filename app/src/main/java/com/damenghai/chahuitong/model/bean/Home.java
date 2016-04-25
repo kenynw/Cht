@@ -7,7 +7,6 @@ import java.util.ArrayList;
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
 public class Home implements Serializable {
-    private boolean is_login;
 
     private ArrayList<Banner> adds;
 
@@ -18,14 +17,6 @@ public class Home implements Serializable {
     private ArrayList<Goods> tasters_list;
 
     private ArrayList<Goods> guess_list;
-
-    public boolean is_login() {
-        return is_login;
-    }
-
-    public void setIs_login(boolean is_login) {
-        this.is_login = is_login;
-    }
 
     public ArrayList<Banner> getAdds() {
         return adds;

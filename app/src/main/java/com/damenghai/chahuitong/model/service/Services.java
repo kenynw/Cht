@@ -1,6 +1,5 @@
 package com.damenghai.chahuitong.model.service;
 
-import com.damenghai.chahuitong.config.API;
 import com.damenghai.chahuitong.model.bean.Account;
 import com.damenghai.chahuitong.model.bean.Bargain;
 import com.damenghai.chahuitong.model.bean.BeanList;
@@ -10,14 +9,14 @@ import com.damenghai.chahuitong.model.bean.Goods;
 import com.damenghai.chahuitong.model.bean.GoodsInfo;
 import com.damenghai.chahuitong.model.bean.Home;
 import com.damenghai.chahuitong.model.bean.Order;
+import com.damenghai.chahuitong.model.bean.OrderInfo;
+import com.damenghai.chahuitong.model.bean.OrderList;
 import com.damenghai.chahuitong.model.bean.Sample;
 import com.damenghai.chahuitong.model.bean.Token;
 import com.damenghai.chahuitong.model.bean.User;
 import com.damenghai.chahuitong.model.bean.Valuator;
 import com.damenghai.chahuitong.model.bean.Voucher;
 import com.damenghai.chahuitong.model.bean.response.ListResponse;
-import com.damenghai.chahuitong.model.bean.OrderList;
-import com.damenghai.chahuitong.model.bean.OrderInfo;
 import com.damenghai.chahuitong.model.bean.response.Response;
 import com.google.gson.JsonObject;
 
@@ -28,12 +27,9 @@ import okhttp3.RequestBody;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
-import retrofit2.http.Header;
-import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PartMap;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 import rx.Observable;
 
@@ -44,11 +40,11 @@ public interface Services {
 
     String BASE_URL = "http://www.chahuitong.com";
 
+    // 首页
     @FormUrlEncoded
-    @POST("/mobile/index.php?act=home&op=home_page_api")
+    @POST("/mobile/index.php?act=home")
     Observable<Home> home(
-            @Field("key") String key,
-            @Field("page") int page
+            @Field("key") String key
     );
 
     //--------------------------专题--------------------------

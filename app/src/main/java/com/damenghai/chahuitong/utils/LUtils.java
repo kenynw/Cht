@@ -5,9 +5,10 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.annotation.StringRes;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
+import android.view.WindowManager;
 import android.widget.Toast;
-
-import com.damenghai.chahuitong.model.local.PreferenceHelper;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
@@ -23,7 +24,7 @@ public class LUtils {
 
     private static Context applicationContext;
 
-    public static void initialize (Application app) {
+    public static void initialize(Application app) {
         applicationContext = app.getApplicationContext();
     }
 
@@ -39,7 +40,7 @@ public class LUtils {
     }
 
     public static void toast(CharSequence text) {
-        if(toast == null) {
+        if (toast == null) {
             toast = Toast.makeText(applicationContext, text, Toast.LENGTH_SHORT);
         } else {
             toast.setText(text);
@@ -52,7 +53,7 @@ public class LUtils {
     }
 
     public static void toastLong(CharSequence text) {
-        if(toast == null) {
+        if (toast == null) {
             toast = Toast.makeText(applicationContext, text, Toast.LENGTH_LONG);
         } else {
             toast.setText(text);
@@ -74,6 +75,42 @@ public class LUtils {
 
     public static SharedPreferences getPreferences(String name, int mode) {
         return applicationContext.getSharedPreferences(name, mode);
+    }
+
+
+    /**
+     * 获得屏幕高度
+     *
+     * @return
+     */
+    public static int getScreenWidth() {
+        WindowManager wm = (WindowManager) applicationContext.getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        wm.getDefaultDisplay().getMetrics(outMetrics);
+        return outMetrics.widthPixels;
+    }
+
+    /**
+     * 获得屏幕宽度
+     *
+     * @return
+     */
+    public static int getScreenHeight() {
+        WindowManager wm = (WindowManager) applicationContext.getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        wm.getDefaultDisplay().getMetrics(outMetrics);
+        return outMetrics.heightPixels;
+    }
+
+    /**
+     * dp转px
+     *
+     * @param dpVal
+     * @return
+     */
+    public static int dp2px(float dpVal) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+                dpVal, applicationContext.getResources().getDisplayMetrics());
     }
 
 }

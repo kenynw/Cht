@@ -1,61 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/white"
-    android:paddingRight="8dp"
+    android:background="@color/bg_window"
+    android:orientation="vertical"
     >
 
-    <ImageView
+    <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/item_galley_img"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="0.618"
-        android:src="@mipmap/def_image_loading"
-        android:scaleType="centerCrop"
-        android:background="@color/bg_window"
-        android:padding="1dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:contentDescription="@string/desc_goods_thumb"
+        app:actualImageScaleType="centerCrop"
+        app:placeholderImage="@mipmap/def_image_loading"
+        app:placeholderImageScaleType="centerCrop"
         />
 
-    <RelativeLayout
-        android:id="@+id/layout_galley_text"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="0.382"
-        android:gravity="center_horizontal"
-        android:paddingTop="4dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         >
+
 
         <TextView
             android:id="@+id/item_galley_name"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="五福茶业"
-            android:maxLength="10"
-            android:gravity="center"
-            style="@style/TextBody"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
             android:singleLine="true"
+            android:textColor="@color/text_black_secondary"
+            android:textSize="@dimen/text_size_body_material"
+            tools:text="五福茶业"
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
             />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/item_galley_score"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_below="@id/item_galley_name"
-            android:paddingTop="4dp"
-            >
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:text="@string/text_recommend_score"
+            android:textColor="@color/text_black_primary"
+            android:textSize="@dimen/text_size_caption_material"
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            />
 
-            <TextView
-                android:id="@+id/item_galley_score"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="93"
-                style="@style/TextCaption"
-                />
-
-        </LinearLayout>
-
-    </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>

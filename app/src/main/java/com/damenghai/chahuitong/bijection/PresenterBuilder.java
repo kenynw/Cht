@@ -18,11 +18,9 @@ public class PresenterBuilder {
         PresenterType presenter;
         try {
             presenter = presenterClass.newInstance();
-        }
-        catch (InstantiationException e) {
+        } catch (InstantiationException e) {
             throw new RuntimeException(e);
-        }
-        catch (IllegalAccessException e) {
+        } catch (IllegalAccessException e) {
             throw new RuntimeException(e);
         }
         return presenter;

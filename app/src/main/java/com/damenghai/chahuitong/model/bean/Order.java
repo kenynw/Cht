@@ -77,7 +77,7 @@ public class Order implements Serializable {
      */
     private boolean if_evaluation;
 
-    private int pay_amount;
+    private double pay_amount;
 
     public String getOrder_id() {
         return order_id;
@@ -351,11 +351,11 @@ public class Order implements Serializable {
         this.if_evaluation = if_evaluation;
     }
 
-    public int getPay_amount() {
+    public double getPay_amount() {
         return pay_amount;
     }
 
-    public void setPay_amount(int pay_amount) {
+    public void setPay_amount(double pay_amount) {
         this.pay_amount = pay_amount;
     }
 }
