@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
             android:layout_marginLeft="8dp"
-            tools:text="名字"
+            tools:text="用户名"
             />
 
         <View
@@ -47,6 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
+            style="@style/TextCaption"
             tools:text="2016-2-3"
             />
 
@@ -61,6 +62,7 @@
         android:textColor="@color/text_black_primary"
         android:textSize="@dimen/text_size_caption_material"
         tools:text="口感不错，汤色很好，值得买进此茶口感不错，汤色很好，值得买进此茶口感不错，汤色很好，值得买进此茶口感不错，汤色很好，值得买进此茶口感不错，汤色很好，值得买进此茶"
+        android:ellipsize="end"
         />
 
 </LinearLayout>

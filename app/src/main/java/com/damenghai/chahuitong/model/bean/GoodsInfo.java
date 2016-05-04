@@ -6,6 +6,7 @@ import java.util.List;
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
 public class GoodsInfo {
+
     private Goods goods_info;
 
     private String goods_image;

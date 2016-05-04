@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    >
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager_image_browse"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/tv_image_browse_indicator"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:padding="4dp"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_size_title_material"
+        android:textStyle="bold"
+        tools:text="1/9"/>
+
+    <ImageView
+        android:id="@+id/iv_image_browse_back"
+        android:layout_width="@dimen/widget_medium_height"
+        android:layout_height="@dimen/widget_medium_height"
+        android:src="@mipmap/ic_toolbar_white_back"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="-6dp"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:scaleType="fitXY"
+        />
+
+</RelativeLayout>

@@ -40,30 +40,6 @@ public class VoucherPresenter extends BaseListFragmentPresenter<VoucherFragment,
         ServiceClient.getServices().voucherList(API.VERSION, LUtils.getPreferences().getString("key", ""), mState)
                 .compose(new ServiceTransform<>())
                 .unsafeSubscribe(getRefreshSubscriber());
-
-//        mRepository.list(mKey, getView().getState())
-//                .subscribeOn(Schedulers.newThread())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(new Subscriber<Response<List<Voucher>>>() {
-//                    @Override
-//                    public void onCompleted() {
-//                        L.d("onCompleted");
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//                        L.d(e.getLocalizedMessage() + ", message: " + e.getMessage());
-//                    }
-//
-//                    @Override
-//                    public void onNext(Response<List<Voucher>> response) {
-//                        if (response.isSuccess() && response.getContent() != null) {
-//                            getView().showList(response.getContent());
-//                        } else {
-//                            getView().showError(response.getMsg());
-//                        }
-//                    }
-//                });
     }
 
     @Override

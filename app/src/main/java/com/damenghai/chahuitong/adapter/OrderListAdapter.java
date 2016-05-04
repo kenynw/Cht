@@ -13,7 +13,7 @@ import com.damenghai.chahuitong.utils.DialogFactory;
 import com.damenghai.chahuitong.module.mall.PayActivity;
 import com.damenghai.chahuitong.module.order.OrderDetailActivity;
 import com.damenghai.chahuitong.module.order.OrderListActivity;
-import com.damenghai.chahuitong.module.web.WebViewActivity;
+import com.damenghai.chahuitong.module.common.WebViewActivity;
 import com.damenghai.chahuitong.widget.WrapHeightListView;
 
 import java.util.List;

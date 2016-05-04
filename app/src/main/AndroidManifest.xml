@@ -150,7 +150,7 @@
             android:windowSoftInputMode="stateUnspecified|adjustPan">
         </activity>
         <activity
-            android:name=".module.web.WebViewActivity"
+            android:name=".module.common.WebViewActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
@@ -170,7 +170,9 @@
         </activity>
         <activity android:name=".module.personal.VoucherActivity">
         </activity>
-        <activity android:name=".module.mall.GoodsDetailActivity">
+        <activity
+            android:name=".module.mall.GoodsDetailActivity"
+            android:theme="@style/AppTheme.ItemLineDecoration">
         </activity>
         <activity android:name=".module.personal.FavoritesActivity">
         </activity>
@@ -190,8 +192,9 @@
         </activity>
         <activity
             android:name=".module.mall.GoodsListActivity"
-            android:windowSoftInputMode="stateUnspecified|adjustPan"
-            >
+            android:windowSoftInputMode="stateUnspecified|adjustPan">
+        </activity>
+        <activity android:name=".module.common.ImageBrowseActivity">
         </activity>
     </application>
 

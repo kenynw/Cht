@@ -95,7 +95,7 @@ public class BargainGoodsViewHolder extends BaseViewHolder<Bargain> {
         mTvOldPrice.setText(String.format(getContext().getString(R.string.text_rmb), goods.getGoods_price()));
         mTvOldPrice.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG); // 加删除线
 
-        SpannableString stockSpn = new SpannableString(String.format(getContext().getString(R.string.text_stock), goods.getGoods_salenum(), goods.getGoods_storage()));
+        SpannableString stockSpn = new SpannableString(String.format(getContext().getString(R.string.text_xianshi_storage), goods.getGoods_salenum(), goods.getGoods_storage()));
         stockSpn.setSpan(new ForegroundColorSpan(getContext().getResources().getColor(R.color.colorAccent)),
                 3, 3 + goods.getGoods_salenum().length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         mTvStock.setText(stockSpn);

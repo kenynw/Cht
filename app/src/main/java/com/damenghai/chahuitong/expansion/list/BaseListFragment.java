@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.bijection.BeamFragment;
+import com.damenghai.chahuitong.widget.DividerItemDecoration;
 import com.jude.easyrecyclerview.EasyRecyclerView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 
@@ -34,15 +35,16 @@ public abstract class BaseListFragment<P extends BaseListFragmentPresenter, M> e
             mRootView = LayoutInflater.from(getActivity()).inflate(getLayout(), container, false);
         } else {
             mListView = new EasyRecyclerView(getActivity());
-            mListView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+            mListView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             mListView.setId(R.id.recycle);
             mRootView = mListView;
         }
     }
 
     private void initListView() {
-        if (mListView == null) mRootView.findViewById(R.id.recycle);
+        if (mListView == null) mListView = (EasyRecyclerView) mRootView.findViewById(R.id.recycle);
         mListView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        if (getItemDecoration() != null) mListView.addItemDecoration(getItemDecoration());
         mListView.setRefreshListener(getPresenter());
         if (getErrorRes() > 0) mListView.setErrorView(getErrorRes());
         if (getEmptyRes() > 0) mListView.setEmptyView(getEmptyRes());
@@ -88,6 +90,10 @@ public abstract class BaseListFragment<P extends BaseListFragmentPresenter, M> e
 
     public int getNoMoreRes() {
         return 0;
+    }
+
+    public DividerItemDecoration getItemDecoration() {
+        return null;
     }
 
     public int getViewType(int position) {

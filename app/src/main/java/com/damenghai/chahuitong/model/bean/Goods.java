@@ -29,7 +29,7 @@ public class Goods implements Serializable {
 
     private String goods_image_url;
 
-    private String image_url;
+    private String goods_url;
 
     private String goods_vat;
 
@@ -61,7 +61,7 @@ public class Goods implements Serializable {
 
     private String bl_id;
 
-    private String groupbuy_info;
+    private Groupbuy groupbuy_info;
 
     private String cart_id;
 
@@ -174,12 +174,12 @@ public class Goods implements Serializable {
         this.goods_image_url = goods_image_url;
     }
 
-    public String getImage_url() {
-        return image_url;
+    public String getGoods_url() {
+        return goods_url;
     }
 
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
+    public void setGoods_url(String goods_url) {
+        this.goods_url = goods_url;
     }
 
     public String getStore_id() {
@@ -246,11 +246,11 @@ public class Goods implements Serializable {
         this.goods_freight = goods_freight;
     }
 
-    public String getGroupbuy_info() {
+    public Groupbuy getGroupbuy_info() {
         return groupbuy_info;
     }
 
-    public void setGroupbuy_info(String groupbuy_info) {
+    public void setGroupbuy_info(Groupbuy groupbuy_info) {
         this.groupbuy_info = groupbuy_info;
     }
 

@@ -35,7 +35,7 @@ public class BaseListFragmentPresenter<V extends BaseListFragment, M> extends Pr
             mAdapter.clear();
             mAdapter.addAll(beanList.getList());
             if (beanList.isHasmore()) mPage = 2;
-            else mAdapter.stopMore();
+            else if (getView().getLoadMoreRes() > 0) mAdapter.stopMore();
         }
     };
 

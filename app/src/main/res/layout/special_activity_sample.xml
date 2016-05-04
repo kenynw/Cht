@@ -48,10 +48,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:background="@color/white"
                 android:orientation="vertical"
                 android:padding="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
                 >
 
                 <TextView
@@ -59,6 +59,8 @@
                     style="@style/TextSubhead"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.2"
+                    tools:text="免费茶样这是标题"
                     />
 
                 <LinearLayout
@@ -69,31 +71,15 @@
                     android:orientation="horizontal"
                     >
 
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/tv_sample_origin"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:orientation="horizontal"
-                        >
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="@string/label_goods_origin"
-                            android:textColor="@color/text_black_secondary"
-                            android:textSize="@dimen/text_size_body_material"
-                            />
-
-                        <TextView
-                            android:id="@+id/tv_sample_origin"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="4dp"
-                            android:textColor="@color/text_black_primary"
-                            android:textSize="@dimen/text_size_body_material"
-                            />
-
-                    </LinearLayout>
+                        android:text="@string/label_goods_origin"
+                        android:textColor="@color/text_black_secondary"
+                        android:textSize="@dimen/text_size_body_material"
+                        />
 
                     <View
                         android:layout_width="1dp"
@@ -101,33 +87,16 @@
                         android:background="@color/div_gray"
                         />
 
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/tv_sample_storage"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:orientation="horizontal"
-                        >
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text="@string/label_goods_weight"
-                            android:textColor="@color/text_black_secondary"
-                            android:textSize="@dimen/text_size_body_material"
-                            />
-
-                        <TextView
-                            android:id="@+id/tv_sample_weight"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="4dp"
-                            android:textColor="@color/text_black_primary"
-                            android:textSize="@dimen/text_size_body_material"
-                            />
-
-                    </LinearLayout>
+                        android:text="@string/label_goods_storage"
+                        android:textColor="@color/text_black_secondary"
+                        android:textSize="@dimen/text_size_body_material"
+                        />
 
                     <View
                         android:layout_width="1dp"
@@ -135,33 +104,16 @@
                         android:background="@color/div_gray"
                         />
 
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/tv_sample_obtain"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:orientation="horizontal"
-                        >
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text="@string/label_goods_freight"
-                            android:textColor="@color/text_black_secondary"
-                            android:textSize="@dimen/text_size_body_material"
-                            />
-
-                        <TextView
-                            android:id="@+id/tv_sample_freight"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="4dp"
-                            android:textColor="@color/text_black_primary"
-                            android:textSize="@dimen/text_size_body_material"
-                            />
-
-                    </LinearLayout>
+                        android:text="@string/label_sample_obtain"
+                        android:textColor="@color/text_black_secondary"
+                        android:textSize="@dimen/text_size_body_material"
+                        />
 
                     <View
                         android:layout_width="1dp"
@@ -169,46 +121,28 @@
                         android:background="@color/div_gray"
                         />
 
-                    <LinearLayout
+                    <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:orientation="horizontal"
-                        >
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text="@string/label_sample_limit"
-                            android:textColor="@color/text_black_secondary"
-                            android:textSize="@dimen/text_size_body_material"
-                            />
-
-                        <TextView
-                            android:id="@+id/tv_sample_limit"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="4dp"
-                            android:textColor="@color/text_black_primary"
-                            android:textSize="@dimen/text_size_body_material"
-                            />
-
-                    </LinearLayout>
+                        android:text="@string/label_buy_limit"
+                        android:textColor="@color/text_black_secondary"
+                        android:textSize="@dimen/text_size_body_material"
+                        />
 
                 </LinearLayout>
 
                 <Button
                     android:id="@+id/btn_sample_apply"
                     android:layout_width="128dp"
-                    android:layout_height="30dp"
+                    android:layout_height="@dimen/widget_small_height"
                     android:layout_gravity="center"
                     android:background="@drawable/btn_round_primay2dark_selector"
                     android:minWidth="@dimen/button_min_width"
                     android:text="@string/btn_apply"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_subhead_material"
+                    android:textSize="@dimen/text_size_body_material"
                     />
 
             </LinearLayout>
@@ -223,33 +157,33 @@
 
                 <RadioButton
                     android:id="@+id/rbt_sample_notice"
+                    style="@style/TextBody"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="@string/tab_sample_notice"
-                    style="@style/TextBody"
                     android:background="@drawable/indicator_primary_selector"
                     android:button="@null"
                     android:gravity="center"
+                    android:text="@string/tab_sample_notice"
                     />
 
                 <View
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
-                    android:background="@color/div_gray" />
+                    android:layout_marginTop="8dp"
+                    android:background="@color/div_gray"/>
 
                 <RadioButton
                     android:id="@+id/rbt_sample_history"
+                    style="@style/TextBody"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="@string/tab_sample_history"
-                    style="@style/TextBody"
                     android:background="@drawable/indicator_primary_selector"
                     android:button="@null"
                     android:gravity="center"
+                    android:text="@string/tab_sample_history"
                     />
 
             </RadioGroup>

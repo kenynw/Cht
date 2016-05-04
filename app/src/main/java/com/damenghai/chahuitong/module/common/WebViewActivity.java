@@ -1,4 +1,4 @@
-package com.damenghai.chahuitong.module.web;
+package com.damenghai.chahuitong.module.common;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;

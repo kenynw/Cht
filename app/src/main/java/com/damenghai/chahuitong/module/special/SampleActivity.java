@@ -1,6 +1,5 @@
 package com.damenghai.chahuitong.module.special;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -13,7 +12,7 @@ import com.damenghai.chahuitong.adapter.ImagePagerAdapter;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.expansion.data.BaseDataActivity;
 import com.damenghai.chahuitong.model.bean.Sample;
-import com.damenghai.chahuitong.module.mall.BuyActivity;
+import com.damenghai.chahuitong.module.mall.BuyPresenter;
 import com.damenghai.chahuitong.widget.CirclePageIndicator;
 import com.damenghai.chahuitong.widget.HeadViewPager;
 
@@ -35,17 +34,14 @@ public class SampleActivity extends BaseDataActivity<SamplePresenter, Sample> {
     @Bind(R.id.tv_sample_name)
     TextView mTvName;
 
+    @Bind(R.id.tv_sample_storage)
+    TextView mTvStorage;
+
+    @Bind(R.id.tv_sample_obtain)
+    TextView mTvObtain;
+
     @Bind(R.id.tv_sample_origin)
     TextView mTvOrigin;
-
-    @Bind(R.id.tv_sample_weight)
-    TextView mTvWeight;
-
-    @Bind(R.id.tv_sample_freight)
-    TextView mTvFreight;
-
-    @Bind(R.id.tv_sample_limit)
-    TextView mTvLimit;
 
     @Bind(R.id.btn_sample_apply)
     Button mBtnApply;
@@ -89,25 +85,17 @@ public class SampleActivity extends BaseDataActivity<SamplePresenter, Sample> {
 
     @Override
     public void setData(final Sample sample) {
-        ImagePagerAdapter adapter = new ImagePagerAdapter(this, sample.getSampleImages());
-        mImagePager.setAdapter(adapter);
+        mImagePager.setAdapter(new ImagePagerAdapter(this, sample.getSampleImages()));
         mIndicator.setViewPager(mImagePager);
         mTvName.setText(sample.getSample_name());
         mTvOrigin.append(sample.getSample_origin_place());
-        mTvWeight.append(sample.getSample_weight());
-        mTvFreight.append(sample.getSample_freight());
-        mTvLimit.append(sample.getSample_limit_number());
+        mTvStorage.append(sample.getGoods_storage());
+        mTvObtain.append(sample.getGoods_salenum());
+        mBtnApply.setText(sample.getState_text());
 
-        if (sample.getAllow()) {
-            mBtnApply.setOnClickListener(v -> {
-                Intent intent = new Intent(SampleActivity.this, BuyActivity.class);
-                intent.putExtra("goods_id", sample.getSample_link());
-                intent.putExtra("buynum", "1");
-                startActivity(intent);
-            });
+        if (sample.getAllow() == 1) {
+            mBtnApply.setOnClickListener(v -> startActivity(BuyPresenter.getStartIntent(SampleActivity.this, sample.getSample_link() + "|1", "0")));
         } else {
-            mBtnApply.setText(sample.getState());
-            mBtnApply.setBackgroundResource(R.drawable.btn_round_disable_selector);
             mBtnApply.setEnabled(false);
         }
     }

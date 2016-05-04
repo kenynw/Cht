@@ -7,7 +7,7 @@ import com.damenghai.chahuitong.model.OrderModel;
 import com.damenghai.chahuitong.model.bean.Order;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.module.mall.PayActivity;
-import com.damenghai.chahuitong.module.web.WebViewActivity;
+import com.damenghai.chahuitong.module.common.WebViewActivity;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.google.gson.JsonObject;
 

@@ -5,6 +5,7 @@ import com.damenghai.chahuitong.model.bean.Bargain;
 import com.damenghai.chahuitong.model.bean.BeanList;
 import com.damenghai.chahuitong.model.bean.Cart;
 import com.damenghai.chahuitong.model.bean.Category;
+import com.damenghai.chahuitong.model.bean.Comment;
 import com.damenghai.chahuitong.model.bean.Goods;
 import com.damenghai.chahuitong.model.bean.GoodsInfo;
 import com.damenghai.chahuitong.model.bean.Home;
@@ -19,9 +20,11 @@ import com.damenghai.chahuitong.model.bean.Voucher;
 import com.damenghai.chahuitong.model.bean.response.ListResponse;
 import com.damenghai.chahuitong.model.bean.response.Response;
 import com.google.gson.JsonObject;
+import com.google.gson.internal.Streams;
 
 import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 import okhttp3.RequestBody;
 import retrofit2.http.Field;
@@ -66,23 +69,12 @@ public interface Services {
             @Field("page") int page
     );
 
-    // 茶艺师推荐
-    @FormUrlEncoded
-    @POST("/mobile/index.php?act=goods&op=recommend_list")
-    Observable<Response<Valuator>> recommendList(
-            @Field("page") int page,
-            @Field("gc_id") String byCate, // 按分类进行筛选，类目ID
-            @Field("byPrice") int byPrice, // 按 价格进行筛选，值为1 倒序 值为 0 顺序
-            @Field("bySalenum") int bySales, // 按销量进行筛选，值为1 倒序 值为 0 顺序
-            @Field("byClick") int bySeason  // 按点击量进行筛选，值为1 倒序 值为 0 顺序
-    );
-
     //--------------------------商品--------------------------
 
     /**
+     * @param op 接口名字 goods_list-所有商品列表 recommend_list-茶艺师推荐列表
      * @param key 排序方式 1-销量 2-浏览量 3-价格 空-按最新发布排序
      * @param order 排序方式 1-升序 2-降序
-//     * @param page 每页数量
      * @param curPage 当前页码
      * @param gc_id 分类编号
      * @param keyword 搜索关键字 注：gc_id和keyword二选一不能同时出现
@@ -94,7 +86,6 @@ public interface Services {
             @Query("version") String version,
             @Query("key") String key,
             @Query("order") int order,
-//            @Query("page") int page,
             @Query("curpage") int curPage,
             @Query("gc_id") int gc_id,
             @Query("keyword") CharSequence keyword
@@ -102,6 +93,7 @@ public interface Services {
 
     @GET("/mobile/index.php?act=goods&op=goods_detail_api")
     Observable<GoodsInfo> goodsDetail(
+            @Query("version") String version,
             @Query("goods_id") String goods_id,
             @Query("key") String key
     );
@@ -109,6 +101,11 @@ public interface Services {
     @GET("/mobile/index.php?act=goods&op=goods_body")
     Observable<GoodsInfo> goodsBody(
             @Query("goods_id") String goods_id
+    );
+
+    @GET("/mobile/index.php?act=goods&op=comments_list")
+    Observable<BeanList<Comment>> goodsComments(
+            @Query("goods_id") String goodsId
     );
 
     @GET("/mobile/index.php?act=goods_class")

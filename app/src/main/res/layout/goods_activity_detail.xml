@@ -102,6 +102,7 @@
                         style="@style/TextCaption"
                         android:layout_width="56dp"
                         android:layout_height="wrap_content"
+                        android:singleLine="true"
                         android:text="@string/label_goods_freight"
                         />
 
@@ -110,6 +111,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:singleLine="true"
                         android:text="@string/label_goods_sales"
                         />
 
@@ -117,23 +119,10 @@
                         android:id="@+id/tv_goods_sales"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:singleLine="true"
                         android:textColor="@color/text_black_primary"
                         android:textSize="@dimen/text_size_caption_material"
                         tools:text="60"
-                        />
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        />
-
-                    <TextView
-                        android:id="@+id/tv_goods_origin"
-                        style="@style/TextCaption"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        tools:text="福建省"
                         />
 
                 </LinearLayout>
@@ -221,13 +210,13 @@
                     />
 
                 <com.damenghai.chahuitong.widget.WrapHeightGridView
-                    android:layout_marginTop="@dimen/activity_vertical_margin"
                     android:id="@+id/grid_detail_attrs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:horizontalSpacing="8dp"
                     android:numColumns="3"
                     android:verticalSpacing="8dp"
-                    android:horizontalSpacing="8dp"
                     />
 
             </LinearLayout>

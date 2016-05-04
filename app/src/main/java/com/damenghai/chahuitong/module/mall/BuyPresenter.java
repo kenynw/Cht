@@ -18,7 +18,7 @@ import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.model.service.ServiceTransform;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.damenghai.chahuitong.module.user.LoginActivity;
-import com.damenghai.chahuitong.module.web.WebViewActivity;
+import com.damenghai.chahuitong.module.common.WebViewActivity;
 import com.damenghai.chahuitong.wxapi.WXPayEntryActivity;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;

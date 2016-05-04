@@ -42,8 +42,10 @@ public class GoodsModel {
                 ).compose(new ServiceTransform<>());
     }
 
-    public Observable<GoodsInfo> getGoodsDetail() {
-        return ServiceClient.getServices().goodsDetail("", "").compose(new ServiceTransform<>());
+    public Observable<GoodsInfo> getGoodsDetail(String goodsId) {
+        return ServiceClient.getServices()
+                .goodsDetail(API.VERSION, goodsId, LUtils.getPreferences().getString("key", ""))
+                .compose(new ServiceTransform<>());
     }
 
     public Observable<List<Category>> getGoodsCategory(int gc_id) {

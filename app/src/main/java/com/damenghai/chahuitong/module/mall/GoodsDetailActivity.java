@@ -3,13 +3,10 @@ package com.damenghai.chahuitong.module.mall;
 import android.content.Context;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -21,7 +18,6 @@ import com.damenghai.chahuitong.adapter.BaseListAdapter;
 import com.damenghai.chahuitong.adapter.ImagePagerAdapter;
 import com.damenghai.chahuitong.adapter.ViewHolder;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
-import com.damenghai.chahuitong.config.Config;
 import com.damenghai.chahuitong.expansion.data.BaseDataActivity;
 import com.damenghai.chahuitong.model.bean.Goods;
 import com.damenghai.chahuitong.model.bean.GoodsInfo;
@@ -31,9 +27,6 @@ import com.damenghai.chahuitong.utils.LUtils;
 import com.damenghai.chahuitong.widget.CirclePageIndicator;
 import com.damenghai.chahuitong.widget.HeadViewPager;
 import com.damenghai.chahuitong.widget.WrapHeightGridView;
-import com.umeng.socialize.ShareAction;
-import com.umeng.socialize.bean.SHARE_MEDIA;
-import com.umeng.socialize.media.UMImage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,9 +61,6 @@ public class GoodsDetailActivity extends BaseDataActivity<GoodsDetailPresenter, 
     @Bind(R.id.tv_goods_sales)
     TextView mTvSales;
 
-    @Bind(R.id.tv_goods_origin)
-    TextView mTvOrigin;
-
     @Bind(R.id.grid_detail_attrs)
     WrapHeightGridView mGridAttrs;
 
@@ -95,20 +85,15 @@ public class GoodsDetailActivity extends BaseDataActivity<GoodsDetailPresenter, 
     @Bind(R.id.btn_goods_detail_buy)
     Button mBtnBuy;
 
-    private List<Fragment> mFragments;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.goods_activity_detail);
         setToolbarTitle(R.string.title_activity_goods);
         ButterKnife.bind(this);
-        getToolbar().setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                getPresenter().toCart();
-                return true;
-            }
+        getToolbar().setOnMenuItemClickListener(item -> {
+            getPresenter().toCart();
+            return true;
         });
     }
 
@@ -123,66 +108,21 @@ public class GoodsDetailActivity extends BaseDataActivity<GoodsDetailPresenter, 
         mTvSales.append(goods.getGoods_salenum());
 
         String[] images = goodsInfo.getGoods_image().split(",");
-        final List<Image> imageList = new ArrayList<>();
-        for (String imageStr : images) {
-            Image image = new Image(null, imageStr, null);
-            imageList.add(image);
+        if (images.length > 0) {
+            goods.setGoods_image_url(images[0]);
+            final ArrayList<Image> imageList = new ArrayList<>();
+            for (String imageStr : images) {
+                Image image = new Image();
+                image.setImage_mid(imageStr);
+                imageList.add(image);
+            }
+            mPagerImage.setAdapter(new ImagePagerAdapter(this, imageList));
         }
-        mPagerImage.setAdapter(new ImagePagerAdapter(this, imageList));
         mIndicator.setViewPager(mPagerImage);
-
         mGridAttrs.setAdapter(new AttrsGridAdapter(this, goods.getGoods_attr(), R.layout.item_grid_attrs));
 
-        mFragments = new ArrayList<>();
-        mFragments.add(GoodsBodyFragment.newInstance(goods.getGoods_id()));
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.container_goods_detail, mFragments.get(0));
-        ft.commit();
-
-        mTabDetail.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.tab_goods_body:
-                        FragmentTransaction bodyTransaction = getSupportFragmentManager().beginTransaction();
-                        bodyTransaction.replace(R.id.container_goods_detail, mFragments.get(0));
-                        bodyTransaction.commit();
-                        break;
-                    case R.id.tab_goods_comment:
-                        FragmentTransaction commentTransaction = getSupportFragmentManager().beginTransaction();
-                        if (mFragments.size() < 2) {
-                            if (goodsInfo.getGoods_evaluate_info().size() <= 0) {
-                                mFragments.add(new EmptyFragment());
-                            } else {
-                                mFragments.add(GoodsCommentFragment.newInstance(goodsInfo.getGoods_evaluate_info()));
-                            }
-                        }
-                        commentTransaction.replace(R.id.container_goods_detail, mFragments.get(1));
-                        commentTransaction.commit();
-                        break;
-                }
-            }
-        });
-
-        mBtnShare.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final SHARE_MEDIA[] displayList = new SHARE_MEDIA[]
-                        {
-                                SHARE_MEDIA.WEIXIN, SHARE_MEDIA.WEIXIN_CIRCLE,
-                                SHARE_MEDIA.QQ, SHARE_MEDIA.QZONE,
-                                SHARE_MEDIA.SINA
-                        };
-                new ShareAction(GoodsDetailActivity.this)
-                        .setDisplayList(displayList)
-                        .withText(goods.getGoods_name())
-                        .withTitle(goods.getGoods_name())
-                        .withMedia(new UMImage(GoodsDetailActivity.this, imageList.get(0).getBmiddle_pic()))
-                        .withTargetUrl(Config.BASE_GOODS_DETAIL_URL + goods.getGoods_id())
-                        .open();
-            }
-        });
-
+        mTabDetail.setOnCheckedChangeListener(getPresenter());
+        mBtnShare.setOnClickListener(v -> getPresenter().share(goods));
         mBtnFavorites.setOnClickListener(v -> getPresenter().addFavorites());
         mBtnService.setOnClickListener(v -> LUtils.toast("客服系统正在完善中..."));
         mBtnAddCart.setOnClickListener(v -> getPresenter().addCart());

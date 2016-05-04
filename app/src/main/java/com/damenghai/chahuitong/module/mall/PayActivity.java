@@ -13,7 +13,7 @@ import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.base.BaseActivity;
 import com.damenghai.chahuitong.model.bean.Order;
 import com.damenghai.chahuitong.utils.LUtils;
-import com.damenghai.chahuitong.module.web.WebViewActivity;
+import com.damenghai.chahuitong.module.common.WebViewActivity;
 import com.damenghai.chahuitong.wxapi.WXPayEntryActivity;
 
 import butterknife.Bind;

@@ -1,20 +1,19 @@
 package com.damenghai.chahuitong.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.model.bean.Image;
-import com.damenghai.chahuitong.utils.L;
+import com.damenghai.chahuitong.module.common.ImageBrowseActivity;
 import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,11 +25,11 @@ public class ImagePagerAdapter extends PagerAdapter {
 
     private Context mContext;
 
-    private List<Image> mList;
+    private ArrayList<Image> mList;
 
     private List<View> mViews;
 
-    public ImagePagerAdapter(Context context, List<Image> list) {
+    public ImagePagerAdapter(Context context, ArrayList<Image> list) {
         mContext = context;
         mList = list;
         mViews = new ArrayList<>();
@@ -46,7 +45,13 @@ public class ImagePagerAdapter extends PagerAdapter {
                 .build();
         SimpleDraweeView dv = new SimpleDraweeView(mContext);
         dv.setHierarchy(hierarchy);
-        dv.setImageURI(Uri.parse(mList.get(position).getBmiddle_pic()));
+        dv.setImageURI(Uri.parse(mList.get(position).getImage_mid()));
+        dv.setOnClickListener(v -> {
+            Intent imageIntent = new Intent(mContext, ImageBrowseActivity.class);
+            imageIntent.putParcelableArrayListExtra("images", mList);
+            imageIntent.putExtra("position", position);
+            mContext.startActivity(imageIntent);
+        });
 
         mViews.add(dv);
         container.addView(dv);

@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -28,7 +29,6 @@ import com.damenghai.chahuitong.widget.DividerGridItemDecoration;
 import com.damenghai.chahuitong.widget.DividerItemDecoration;
 import com.damenghai.chahuitong.widget.GalleyLinearLayout;
 import com.damenghai.chahuitong.widget.HeadViewPager;
-import com.damenghai.chahuitong.widget.WrapHeightGridManager;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import butterknife.Bind;
@@ -80,7 +80,7 @@ public class HomeFragment extends BeamFragment<HomePresenter> {
         mRvGalley.setLayoutManager(new GalleyLinearLayout(getContext(), LinearLayoutManager.HORIZONTAL, false));
         mRvGalley.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.HORIZONTAL_LIST));
 
-        mRvGuess.setLayoutManager(new WrapHeightGridManager(getActivity(), 2));
+        mRvGuess.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         mRvGuess.addItemDecoration(new DividerGridItemDecoration(getActivity()));
 
         mRefreshLayout.setOnRefreshListener(getPresenter());

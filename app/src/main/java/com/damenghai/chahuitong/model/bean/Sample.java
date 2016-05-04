@@ -1,31 +1,51 @@
 package com.damenghai.chahuitong.model.bean;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class Sample {
+public class Sample extends Goods {
+
     private String sample_id;
+
     private String sample_name;
-    private List<Image> sample_image;
+
+    private ArrayList<Image> sample_image;
+
     private String sample_origin_place;
+
     private String sample_weight;
+
     private String sample_correlation_price;
+
     private String sample_freight;
+
     private String sample_limit_number;
+
     private String sample_add_time;
+
     private String sample_start_time;
+
     private String sample_end_time;
+
     private String sample_state;
+
     private String sample_received_number;
+
     private String sample_link;
+
     private String sample_bak_price;
+
     private String sample_bak_promotion_price;
+
     private String goods_promotion_price;
+
     private String sample_goods_price;
-    private String state;
-    private boolean allow;
+
+    private String state_text;
+
+    private int allow;
 
     public String getSample_id() {
         return sample_id;
@@ -43,11 +63,11 @@ public class Sample {
         this.sample_name = sample_name;
     }
 
-    public List<Image> getSampleImages() {
+    public ArrayList<Image> getSampleImages() {
         return sample_image;
     }
 
-    public void setSample_image(List<Image> Images) {
+    public void setSample_image(ArrayList<Image> Images) {
         this.sample_image = Images;
     }
 
@@ -171,19 +191,20 @@ public class Sample {
         this.sample_goods_price = sample_goods_price;
     }
 
-    public String getState() {
-        return state;
+    public String getState_text() {
+        return state_text;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setState_text(String state_text) {
+        this.state_text = state_text;
     }
 
-    public boolean getAllow() {
+    public int getAllow() {
         return allow;
     }
 
-    public void setAllow(boolean allow) {
+    public void setAllow(int allow) {
         this.allow = allow;
     }
+
 }

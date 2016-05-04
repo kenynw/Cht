@@ -130,20 +130,23 @@
     <string name="text_recommend_score">综合评价%s分</string>
     <string name="text_to">%1$s&#160;~&#160;%2$s</string>
     <string name="text_man">【满%s】</string>
-    <string name="text_stock">已抢购%1$s份/共%2$s份</string>
+    <string name="text_xianshi_storage">已抢购%1$s份/共%2$s份</string>
+    <string name="text_image_indicator">%1$s/%2$s</string>
 
     <!--标签文字，命名格式为：label_标签文字-->
     <string name="label_home_free">免费茶样领取</string>
     <string name="label_home_recommend">· 对味品鉴</string>
     <string name="label_home_guess">· 适合才是最好</string>
     <string name="label_recommend_score">综合评价</string>
-    <string name="label_goods_origin">产地:</string>
-    <string name="label_goods_weight">重量:</string>
-    <string name="label_goods_freight">运费:</string>
-    <string name="label_sample_limit">限购:</string>
+    <string name="label_goods_origin"><b>产地：</b></string>
+    <string name="label_goods_weight">重量：</string>
+    <string name="label_goods_freight">运费：</string>
+    <string name="label_sample_obtain"><b>已领：</b></string>
     <string name="label_goods_sales">月销量：</string>
     <string name="label_goods_attrs">产品参数：</string>
     <string name="label_goods_style">购买选择：</string>
+    <string name="label_goods_storage"><b>库存：</b></string>
+    <string name="label_buy_limit">每人限领<b>1</b>份</string>
     <string name="label_register_notice">*未注册用户先注册</string>
     <string name="label_login_third">第三方登录</string>
     <string name="label_username">用户名 : </string>
