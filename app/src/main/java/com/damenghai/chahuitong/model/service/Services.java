@@ -338,7 +338,7 @@ public interface Services {
     //--------------------------我的订单--------------------------
     @FormUrlEncoded
     @POST("/mobile/index.php?act=member_order&op=order_list")
-    Observable<OrderList> orderList(
+    Observable<BeanList<Order>> orderList(
             @Field("version") String version,
             @Field("key") String key,
             @Field("order_state") String state, //订单状态。10-待支付 20-待发货 30-待收货 40待评价
@@ -360,14 +360,14 @@ public interface Services {
 
     @FormUrlEncoded
     @POST("/mobile/index.php?act=member_order&op=order_cancel")
-    Observable<JsonObject> orderCancel(
+    Observable<String> orderCancel(
             @Field("key") String key,
             @Field("order_id") String orderId
     );
 
     @FormUrlEncoded
     @POST("/mobile/index.php?act=member_order&op=order_receive")
-    Observable<JsonObject> orderSure(
+    Observable<String> orderSure(
             @Field("key") String key,
             @Field("order_id") String orderId
     );

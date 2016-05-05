@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.model.bean.Bargain;
-import com.damenghai.chahuitong.module.mall.GoodsDetailActivity;
+import com.damenghai.chahuitong.module.goods.GoodsDetailActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 
@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class BargainGoodsViewHolder extends BaseViewHolder<Bargain> {
+public class GoodsBargainViewHolder extends BaseViewHolder<Bargain> {
 
     @Bind(R.id.tv_bargain_day)
     TextView mTvDays;
@@ -56,7 +56,7 @@ public class BargainGoodsViewHolder extends BaseViewHolder<Bargain> {
     @Bind(R.id.tv_bargain_stock)
     TextView mTvStock;
 
-    public BargainGoodsViewHolder(ViewGroup parent) {
+    public GoodsBargainViewHolder(ViewGroup parent) {
         super(parent, R.layout.item_list_bargain);
         ButterKnife.bind(this, itemView);
     }

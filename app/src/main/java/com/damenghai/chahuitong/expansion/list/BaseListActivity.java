@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.bijection.BeamBaseActivity;
-import com.damenghai.chahuitong.widget.DividerItemDecoration;
 import com.jude.easyrecyclerview.EasyRecyclerView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 

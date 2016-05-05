@@ -1,5 +1,7 @@
 package com.damenghai.chahuitong.model.bean;
 
+import android.os.Parcel;
+
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
@@ -14,6 +16,37 @@ public class Recommend extends Goods {
     private String recommend_aroma;
 
     private String recommend_leaf;
+
+    protected Recommend(Parcel in) {
+        super(in);
+        recommend_score = in.readString();
+        recommend_taste = in.readString();
+        recommend_light = in.readString();
+        recommend_aroma = in.readString();
+        recommend_leaf = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        super.writeToParcel(dest, flags);
+        dest.writeString(recommend_score);
+        dest.writeString(recommend_taste);
+        dest.writeString(recommend_light);
+        dest.writeString(recommend_aroma);
+        dest.writeString(recommend_leaf);
+    }
+
+    public static final Creator<Recommend> CREATOR = new Creator<Recommend>() {
+        @Override
+        public Recommend createFromParcel(Parcel source) {
+            return new Recommend(source);
+        }
+
+        @Override
+        public Recommend[] newArray(int size) {
+            return new Recommend[size];
+        }
+    };
 
     public String getRecommend_score() {
         return recommend_score;

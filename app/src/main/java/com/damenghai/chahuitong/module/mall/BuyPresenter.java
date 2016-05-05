@@ -15,7 +15,7 @@ import com.damenghai.chahuitong.model.bean.OrderInfo;
 import com.damenghai.chahuitong.model.bean.Voucher;
 import com.damenghai.chahuitong.model.service.ServiceClient;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
-import com.damenghai.chahuitong.model.service.ServiceTransform;
+import com.damenghai.chahuitong.model.service.DefaultTransform;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.damenghai.chahuitong.module.user.LoginActivity;
 import com.damenghai.chahuitong.module.common.WebViewActivity;
@@ -77,7 +77,7 @@ public class BuyPresenter extends BaseDataActivityPresenter<BuyActivity, OrderIn
         ServiceClient.getServices().getOrderInfo(API.VERSION, LUtils.getPreferences().getString("key", ""),
                 getView().getIntent().getStringExtra(EXTRA_CART_ID),
                 getView().getIntent().getStringExtra(EXTRA_IF_CART))
-                .compose(new ServiceTransform<>())
+                .compose(new DefaultTransform<>())
                 .subscribe(getDataSubscriber());
     }
 
@@ -111,7 +111,7 @@ public class BuyPresenter extends BaseDataActivityPresenter<BuyActivity, OrderIn
                 getView().getIntent().getStringExtra(EXTRA_IF_CART),
                 getDataSubject().getValue().getAllow_offpay(),
                 mCurVoucher == null ? "" : mCurVoucher.toString())
-                .compose(new ServiceTransform<>())
+                .compose(new DefaultTransform<>())
                 .subscribe(new ServiceResponse<JsonObject>() {
                     @Override
                     public void onNext(JsonObject jsonObject) {
@@ -130,7 +130,7 @@ public class BuyPresenter extends BaseDataActivityPresenter<BuyActivity, OrderIn
         String title = getView().getString(R.string.text_pay_title_prefix) + order.getOrder_sn();
 
         final Bundle bundle = new Bundle();
-        bundle.putSerializable("order", order);
+        bundle.putParcelable("order", order);
 
         Intent intent = new Intent(getView(), WXPayEntryActivity.class);
         intent.putExtra("order", order);
@@ -186,7 +186,7 @@ public class BuyPresenter extends BaseDataActivityPresenter<BuyActivity, OrderIn
                 getDataSubject().getValue().getFreight_hash(),
                 address.getCity_id(),
                 address.getArea_id())
-                .compose(new ServiceTransform<>())
+                .compose(new DefaultTransform<>())
                 .subscribe(new ServiceResponse<JsonObject>() {
                     @Override
                     public void onNext(JsonObject jsonObject) {

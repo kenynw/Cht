@@ -7,8 +7,7 @@ import android.widget.EditText;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.base.BaseActivity;
-import com.damenghai.chahuitong.module.mall.GoodsListActivity;
-import com.damenghai.chahuitong.utils.LUtils;
+import com.damenghai.chahuitong.module.goods.GoodsListActivity;
 import com.damenghai.chahuitong.widget.FlowViewGroup;
 
 import butterknife.Bind;

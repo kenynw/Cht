@@ -14,12 +14,13 @@ import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.expansion.data.BaseDataActivity;
 import com.damenghai.chahuitong.model.bean.Goods;
 import com.damenghai.chahuitong.model.bean.Order;
-import com.damenghai.chahuitong.module.mall.GoodsDetailActivity;
+import com.damenghai.chahuitong.module.goods.GoodsDetailActivity;
 import com.damenghai.chahuitong.utils.DateUtils;
 import com.damenghai.chahuitong.utils.DialogFactory;
 import com.damenghai.chahuitong.widget.WrapHeightListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -80,13 +81,13 @@ public class OrderDetailActivity extends BaseDataActivity<OrderDetailPresenter, 
         if (order != null) {
             mTvState.setText(order.getState_desc());
             mTvStore.setText(order.getStore_name());
-            mTvFreight.setText(String.format(getString(R.string.label_rmb), order.getShipping_fee()));
-            mTvTotal.setText(String.format(getString(R.string.label_rmb), order.getOrder_amount()));
+            mTvFreight.setText(String.format(getString(R.string.text_rmb), order.getShipping_fee()));
+            mTvTotal.setText(String.format(getString(R.string.text_rmb), order.getOrder_amount()));
             mTvOrderNo.setText(String.format(getString(R.string.label_order_num), order.getOrder_sn()));
             mTvPayNo.setText(String.format(getString(R.string.label_pay_num), order.getPay_sn()));
             mTvCreateTime.setText(String.format(getString(R.string.label_time_create), DateUtils.getDateTime(order.getAdd_time())));
 
-            ArrayList<Goods> data = order.getExtend_order_goods();
+            List<Goods> data = order.getExtend_order_goods();
             if (data != null) {
                 GoodsListAdapter adapter = new GoodsListAdapter(this, data, R.layout.item_list_order_goods);
                 mLvGoods.setAdapter(adapter);
@@ -103,17 +104,17 @@ public class OrderDetailActivity extends BaseDataActivity<OrderDetailPresenter, 
                     mBtnRight.setOnClickListener(view -> getPresenter().payOrder());
                     break;
                 case OrderListActivity.STATE_RECEIVE:
-                    mBtnLeft.setText(R.string.btn_view_delivery);
+                    mBtnLeft.setText(R.string.btn_order_delivery);
                     mBtnLeft.setOnClickListener(view -> getPresenter().viewDelivery());
 
-                    mBtnRight.setText(R.string.btn_sure_order);
+                    mBtnRight.setText(R.string.btn_order_sure);
                     mBtnRight.setOnClickListener(view -> sureOrder());
                     break;
                 case OrderListActivity.STATE_UNCOMMENT:
-                    mBtnLeft.setText(R.string.btn_view_delivery);
+                    mBtnLeft.setText(R.string.btn_order_delivery);
                     mBtnLeft.setOnClickListener(view -> getPresenter().viewDelivery());
 
-                    mBtnRight.setText(R.string.btn_comment);
+                    mBtnRight.setText(R.string.btn_order_comment);
                     mBtnRight.setOnClickListener(view -> getPresenter().comment());
                     break;
                 default:

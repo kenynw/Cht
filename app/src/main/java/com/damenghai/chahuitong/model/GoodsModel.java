@@ -1,13 +1,12 @@
 package com.damenghai.chahuitong.model;
 
 import com.damenghai.chahuitong.config.API;
-import com.damenghai.chahuitong.config.Config;
 import com.damenghai.chahuitong.model.bean.BeanList;
 import com.damenghai.chahuitong.model.bean.Category;
 import com.damenghai.chahuitong.model.bean.Goods;
 import com.damenghai.chahuitong.model.bean.GoodsInfo;
 import com.damenghai.chahuitong.model.service.ServiceClient;
-import com.damenghai.chahuitong.model.service.ServiceTransform;
+import com.damenghai.chahuitong.model.service.DefaultTransform;
 import com.damenghai.chahuitong.utils.LUtils;
 
 import java.util.List;
@@ -39,17 +38,17 @@ public class GoodsModel {
                     curPage,
                     gc_id,
                     keyword
-                ).compose(new ServiceTransform<>());
+                ).compose(new DefaultTransform<>());
     }
 
     public Observable<GoodsInfo> getGoodsDetail(String goodsId) {
         return ServiceClient.getServices()
                 .goodsDetail(API.VERSION, goodsId, LUtils.getPreferences().getString("key", ""))
-                .compose(new ServiceTransform<>());
+                .compose(new DefaultTransform<>());
     }
 
     public Observable<List<Category>> getGoodsCategory(int gc_id) {
-        return ServiceClient.getServices().goodsClass(API.VERSION, gc_id).compose(new ServiceTransform<>());
+        return ServiceClient.getServices().goodsClass(API.VERSION, gc_id).compose(new DefaultTransform<>());
     }
 
 }

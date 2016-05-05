@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import com.damenghai.chahuitong.bijection.Presenter;
 import com.damenghai.chahuitong.model.bean.BeanList;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
+import com.damenghai.chahuitong.utils.LUtils;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
@@ -35,7 +36,7 @@ public class BaseListFragmentPresenter<V extends BaseListFragment, M> extends Pr
             mAdapter.clear();
             mAdapter.addAll(beanList.getList());
             if (beanList.isHasmore()) mPage = 2;
-            else if (getView().getLoadMoreRes() > 0) mAdapter.stopMore();
+            else if (getView().getListConfig().mLoadMoreAble) mAdapter.stopMore();
         }
     };
 
@@ -52,6 +53,10 @@ public class BaseListFragmentPresenter<V extends BaseListFragment, M> extends Pr
             mPage++;
         }
     };
+
+    DataAdapter createDataAdapter(){
+        return mAdapter = new DataAdapter(getView().getActivity());
+    }
 
     public DataAdapter getAdapter() {
         if (mAdapter == null) mAdapter = new DataAdapter(getView().getActivity());

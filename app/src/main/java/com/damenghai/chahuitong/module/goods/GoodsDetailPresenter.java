@@ -1,4 +1,4 @@
-package com.damenghai.chahuitong.module.mall;
+package com.damenghai.chahuitong.module.goods;
 
 import android.content.Intent;
 import android.support.v4.app.Fragment;
@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import android.widget.RadioGroup;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.config.API;
 import com.damenghai.chahuitong.expansion.data.BaseDataActivityPresenter;
 import com.damenghai.chahuitong.model.FavoritesModel;
 import com.damenghai.chahuitong.model.GoodsModel;
@@ -15,12 +14,13 @@ import com.damenghai.chahuitong.model.bean.Goods;
 import com.damenghai.chahuitong.model.bean.GoodsInfo;
 import com.damenghai.chahuitong.model.service.ServiceClient;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
-import com.damenghai.chahuitong.model.service.ServiceTransform;
+import com.damenghai.chahuitong.model.service.DefaultTransform;
+import com.damenghai.chahuitong.module.mall.BuyPresenter;
+import com.damenghai.chahuitong.module.mall.CartActivity;
 import com.damenghai.chahuitong.utils.DialogFactory;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.damenghai.chahuitong.module.user.LoginActivity;
 import com.umeng.socialize.ShareAction;
-import com.umeng.socialize.ShareContent;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMImage;
 
@@ -64,7 +64,7 @@ public class GoodsDetailPresenter extends BaseDataActivityPresenter<GoodsDetailA
     public void addFavorites() {
         if (isLogin()) {
             FavoritesModel.getInstance().addFavorites(mGoodsId)
-                    .compose(new ServiceTransform<>())
+                    .compose(new DefaultTransform<>())
                     .subscribe(new ServiceResponse<String>() {
                         @Override
                         public void onNext(String result) {
@@ -77,7 +77,7 @@ public class GoodsDetailPresenter extends BaseDataActivityPresenter<GoodsDetailA
     public void addCart() {
         if (isLogin()) {
             ServiceClient.getServices().cartAdd(LUtils.getPreferences().getString("key", ""), mGoodsId, "1")
-                    .compose(new ServiceTransform<>())
+                    .compose(new DefaultTransform<>())
                     .subscribe(new ServiceResponse<String>() {
                         @Override
                         public void onNext(String s) {

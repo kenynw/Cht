@@ -56,12 +56,13 @@
     <string name="btn_go_pay">去支付</string>
     <string name="btn_add_address">添加地址</string>
     <string name="btn_save_address">保存地址</string>
-    <string name="btn_sure_order">确认订单</string>
-    <string name="btn_cancel_order">取消订单</string>
     <string name="btn_pay">付款</string>
     <string name="btn_repay">重新付款</string>
-    <string name="btn_view_delivery">查看物流</string>
-    <string name="btn_comment">评价</string>
+    <string name="btn_order_sure">确认订单</string>
+    <string name="btn_order_cancel">取消订单</string>
+    <string name="btn_order_delivery">查看物流</string>
+    <string name="btn_order_comment">去评价</string>
+    <string name="btn_order_delete">删除订单</string>
     <string name="btn_check_all">全选</string>
     <string name="btn_go_shopping">去逛逛</string>
     <string name="btn_stay_shopping">再逛逛</string>
@@ -132,6 +133,7 @@
     <string name="text_man">【满%s】</string>
     <string name="text_xianshi_storage">已抢购%1$s份/共%2$s份</string>
     <string name="text_image_indicator">%1$s/%2$s</string>
+    <string name="text_order_count">共%s件商品</string>
 
     <!--标签文字，命名格式为：label_标签文字-->
     <string name="label_home_free">免费茶样领取</string>
@@ -251,6 +253,7 @@
     <!--对话框的文字，命名格式为：dialog_文字-->
     <string name="dialog_cancel_order">确定要取消订单？</string>
     <string name="dialog_sure_order">确定要确认订单吗？</string>
+    <string name="dialog_delete_order">删除订单后订单将不可见且不可恢复！确定要删除订单吗？</string>
     <string name="dialog_delete_address">确认要删除所选中的地址吗？</string>
     <string name="dialog_add_cart_success">添加购物车成功</string>
     <string name="dialog_clean_cache">确认要删除所有缓存吗？（不包括登录信息等数据）</string>

@@ -1,4 +1,4 @@
-package com.damenghai.chahuitong.module.mall;
+package com.damenghai.chahuitong.module.goods;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;

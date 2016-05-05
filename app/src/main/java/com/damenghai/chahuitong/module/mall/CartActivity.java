@@ -19,7 +19,7 @@ import com.damenghai.chahuitong.base.BaseActivity;
 import com.damenghai.chahuitong.model.bean.Goods;
 import com.damenghai.chahuitong.module.special.BargainActivity;
 import com.damenghai.chahuitong.module.user.LoginActivity;
-import com.damenghai.chahuitong.widget.DividerItemDecoration;
+import com.damenghai.chahuitong.expansion.list.DividerItemDecoration;
 
 import java.util.List;
 import java.util.Map;
@@ -182,8 +182,8 @@ public class CartActivity extends BaseActivity implements CartMvpView {
             }
 
             Intent intent = new Intent(this, BuyActivity.class);
-            intent.putExtra("ifcart", "1");
-            intent.putExtra("cart_id", cartId.toString());
+            intent.putExtra(BuyPresenter.EXTRA_IF_CART, "1");
+            intent.putExtra(BuyPresenter.EXTRA_CART_ID, cartId.toString());
             startActivity(intent);
         }
     }

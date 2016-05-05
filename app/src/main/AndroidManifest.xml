@@ -171,10 +171,12 @@
         <activity android:name=".module.personal.VoucherActivity">
         </activity>
         <activity
-            android:name=".module.mall.GoodsDetailActivity"
+            android:name=".module.goods.GoodsDetailActivity"
             android:theme="@style/AppTheme.ItemLineDecoration">
         </activity>
-        <activity android:name=".module.personal.FavoritesActivity">
+        <activity
+            android:name=".module.personal.FavoritesActivity"
+            android:theme="@style/AppTheme.ItemLineDecoration">
         </activity>
         <activity android:name=".module.settings.SettingsActivity">
         </activity>
@@ -191,10 +193,14 @@
         <activity android:name=".module.settings.ChangePasswordActivity">
         </activity>
         <activity
-            android:name=".module.mall.GoodsListActivity"
+            android:name=".module.goods.GoodsListActivity"
             android:windowSoftInputMode="stateUnspecified|adjustPan">
         </activity>
         <activity android:name=".module.common.ImageBrowseActivity">
+        </activity>
+        <activity android:name=".module.order.DeliverActivity">
+        </activity>
+        <activity android:name=".module.order.WriteCommentActivity">
         </activity>
     </application>
 

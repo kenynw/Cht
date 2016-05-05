@@ -41,14 +41,10 @@ public class BannerPagerAdapter extends PagerAdapter {
         ImageView iv = new ImageView(mContext);
         mImageLoader.displayImage(banner.getImage(), iv);
         iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
-
-        iv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext, WebViewActivity.class);
-                intent.putExtra("url", banner.getLink());
-                mContext.startActivity(intent);
-            }
+        iv.setOnClickListener(v -> {
+            Intent intent = new Intent(mContext, WebViewActivity.class);
+            intent.putExtra("url", banner.getLink());
+            mContext.startActivity(intent);
         });
 
         mViews.add(iv);

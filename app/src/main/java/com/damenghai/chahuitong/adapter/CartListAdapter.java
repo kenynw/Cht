@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.model.bean.Goods;
-import com.damenghai.chahuitong.module.mall.GoodsDetailActivity;
+import com.damenghai.chahuitong.module.goods.GoodsDetailActivity;
 import com.damenghai.chahuitong.widget.QuantityView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 

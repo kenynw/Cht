@@ -39,6 +39,7 @@
 
     <!--分割线颜色，添加div前缀-->
     <color name="div_gray">#f3f3f3</color>
+    <color name="div_line">#08000000</color>
 
     <!--区分状态时，默认状态的颜色，添加normal后缀-->
     <color name="circle_indicator_normal">#8affffff</color>

@@ -1,5 +1,7 @@
 package com.damenghai.chahuitong.model.bean;
 
+import android.os.Parcel;
+
 import java.util.ArrayList;
 
 /**
@@ -46,6 +48,42 @@ public class Sample extends Goods {
     private String state_text;
 
     private int allow;
+
+    public static final Creator<Sample> CREATOR = new Creator<Sample>() {
+        @Override
+        public Sample createFromParcel(Parcel source) {
+            return new Sample(source);
+        }
+
+        @Override
+        public Sample[] newArray(int size) {
+            return new Sample[size];
+        }
+    };
+
+    protected Sample(Parcel in) {
+        super(in);
+        sample_id = in.readString();
+        sample_name = in.readString();
+        sample_image = in.createTypedArrayList(Image.CREATOR);
+        sample_origin_place = in.readString();
+        sample_weight = in.readString();
+        sample_correlation_price = in.readString();
+        sample_freight = in.readString();
+        sample_limit_number = in.readString();
+        sample_add_time = in.readString();
+        sample_start_time = in.readString();
+        sample_end_time = in.readString();
+        sample_state = in.readString();
+        sample_received_number = in.readString();
+        sample_link = in.readString();
+        sample_bak_price = in.readString();
+        sample_bak_promotion_price = in.readString();
+        goods_promotion_price = in.readString();
+        sample_goods_price = in.readString();
+        state_text = in.readString();
+        allow = in.readInt();
+    }
 
     public String getSample_id() {
         return sample_id;
@@ -207,4 +245,28 @@ public class Sample extends Goods {
         this.allow = allow;
     }
 
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        super.writeToParcel(dest, flags);
+        dest.writeString(sample_id);
+        dest.writeString(sample_name);
+        dest.writeTypedList(sample_image);
+        dest.writeString(sample_origin_place);
+        dest.writeString(sample_weight);
+        dest.writeString(sample_correlation_price);
+        dest.writeString(sample_freight);
+        dest.writeString(sample_limit_number);
+        dest.writeString(sample_add_time);
+        dest.writeString(sample_start_time);
+        dest.writeString(sample_end_time);
+        dest.writeString(sample_state);
+        dest.writeString(sample_received_number);
+        dest.writeString(sample_link);
+        dest.writeString(sample_bak_price);
+        dest.writeString(sample_bak_promotion_price);
+        dest.writeString(goods_promotion_price);
+        dest.writeString(sample_goods_price);
+        dest.writeString(state_text);
+        dest.writeInt(allow);
+    }
 }

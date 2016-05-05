@@ -1,5 +1,7 @@
 package com.damenghai.chahuitong.model.bean;
 
+import android.os.Parcel;
+
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
@@ -27,6 +29,51 @@ public class Bargain extends Goods {
     private String lower_limit;
 
     private String order;
+
+    protected Bargain(Parcel in) {
+        super(in);
+        xianshi_goods_id = in.readString();
+        xianshi_id = in.readString();
+        xianshi_name = in.readString();
+        xianshi_title = in.readString();
+        xianshi_explain = in.readString();
+        xianshi_price = in.readString();
+        xianshi_recommend = in.readString();
+        image = in.readString();
+        start_time = in.readLong();
+        end_time = in.readLong();
+        lower_limit = in.readString();
+        order = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        super.writeToParcel(dest, flags);
+        dest.writeString(xianshi_goods_id);
+        dest.writeString(xianshi_id);
+        dest.writeString(xianshi_name);
+        dest.writeString(xianshi_title);
+        dest.writeString(xianshi_explain);
+        dest.writeString(xianshi_price);
+        dest.writeString(xianshi_recommend);
+        dest.writeString(image);
+        dest.writeLong(start_time);
+        dest.writeLong(end_time);
+        dest.writeString(lower_limit);
+        dest.writeString(order);
+    }
+
+    public static final Creator<Bargain> CREATOR = new Creator<Bargain>() {
+        @Override
+        public Bargain createFromParcel(Parcel source) {
+            return new Bargain(source);
+        }
+
+        @Override
+        public Bargain[] newArray(int size) {
+            return new Bargain[size];
+        }
+    };
 
     public String getXianshi_goods_id() {
         return xianshi_goods_id;

@@ -2,6 +2,7 @@ package com.damenghai.chahuitong.adapter.viewholder;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.support.annotation.LayoutRes;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
@@ -9,7 +10,7 @@ import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.model.bean.Goods;
-import com.damenghai.chahuitong.module.mall.GoodsDetailActivity;
+import com.damenghai.chahuitong.module.goods.GoodsDetailActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 
@@ -43,9 +44,13 @@ public class GoodsEditableViewHolder extends BaseViewHolder<Goods> {
 
     public static Map<Integer, Boolean> mStates = new HashMap<>();
 
-    public GoodsEditableViewHolder(ViewGroup parent) {
-        super(parent, R.layout.item_list_order_goods);
+    public GoodsEditableViewHolder(ViewGroup parent, @LayoutRes int res) {
+        super(parent, res);
         ButterKnife.bind(this, itemView);
+    }
+
+    public GoodsEditableViewHolder(ViewGroup parent) {
+        this(parent, R.layout.item_list_order_goods);
     }
 
     @Override
@@ -53,7 +58,10 @@ public class GoodsEditableViewHolder extends BaseViewHolder<Goods> {
         mDvThumb.setImageURI(Uri.parse(goods.getGoods_image_url()));
         mTvName.setText(goods.getGoods_name());
         mTvPrice.setText(String.format(getContext().getString(R.string.text_rmb), goods.getGoods_price()));
-        mTvCount.setVisibility(View.GONE);
+        if (goods.getGoods_num() != null && Integer.parseInt(goods.getGoods_num()) > 0) {
+            mTvCount.setVisibility(View.VISIBLE);
+            mTvCount.setText(goods.getGoods_num());
+        }
         if (mEditable) {
             mCbEdit.setVisibility(View.VISIBLE);
             mCbEdit.setChecked(mStates.containsKey(getLayoutPosition()) ? mStates.get(getLayoutPosition()) : false);

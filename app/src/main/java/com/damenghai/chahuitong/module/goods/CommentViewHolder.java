@@ -1,4 +1,4 @@
-package com.damenghai.chahuitong.adapter;
+package com.damenghai.chahuitong.module.goods;
 
 import android.net.Uri;
 import android.support.annotation.LayoutRes;

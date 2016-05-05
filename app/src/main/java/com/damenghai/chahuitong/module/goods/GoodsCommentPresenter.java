@@ -1,9 +1,9 @@
-package com.damenghai.chahuitong.module.mall;
+package com.damenghai.chahuitong.module.goods;
 
 import com.damenghai.chahuitong.expansion.list.BaseListFragmentPresenter;
 import com.damenghai.chahuitong.model.bean.Comment;
 import com.damenghai.chahuitong.model.service.ServiceClient;
-import com.damenghai.chahuitong.model.service.ServiceTransform;
+import com.damenghai.chahuitong.model.service.DefaultTransform;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
@@ -22,7 +22,7 @@ public class GoodsCommentPresenter extends BaseListFragmentPresenter<GoodsCommen
     @Override
     public void onRefresh() {
         ServiceClient.getServices().goodsComments(mGoodsId)
-                .compose(new ServiceTransform<>())
+                .compose(new DefaultTransform<>())
                 .unsafeSubscribe(getRefreshSubscriber());
     }
 

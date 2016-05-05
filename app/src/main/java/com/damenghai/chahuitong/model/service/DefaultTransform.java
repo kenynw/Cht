@@ -10,7 +10,7 @@ import rx.schedulers.Schedulers;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class ServiceTransform<T> implements Observable.Transformer<T, T> {
+public class DefaultTransform<T> implements Observable.Transformer<T, T> {
     @Override
     public Observable<T> call(Observable<T> tObservable) {
         return tObservable

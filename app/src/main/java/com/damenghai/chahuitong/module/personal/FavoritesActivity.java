@@ -12,7 +12,7 @@ import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.adapter.viewholder.GoodsEditableViewHolder;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.expansion.list.BaseListActivity;
-import com.damenghai.chahuitong.module.mall.GoodsListActivity;
+import com.damenghai.chahuitong.module.goods.GoodsListActivity;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 
 import butterknife.Bind;
@@ -82,12 +82,12 @@ public class FavoritesActivity extends BaseListActivity<FavoritesPresenter> {
 
     @Override
     protected int getLoadMoreRes() {
-        return R.layout.footer_load_more;
+        return R.layout.default_footer_load_more;
     }
 
     @Override
     protected int getNoMoreRes() {
-        return R.layout.footer_no_more;
+        return R.layout.default_footer_no_more;
     }
 
     @Override

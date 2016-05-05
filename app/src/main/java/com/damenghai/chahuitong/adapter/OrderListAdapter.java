@@ -4,17 +4,14 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.View;
-import android.widget.AdapterView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.model.bean.Order;
 import com.damenghai.chahuitong.module.order.OrderListPresenter;
 import com.damenghai.chahuitong.utils.DialogFactory;
 import com.damenghai.chahuitong.module.mall.PayActivity;
-import com.damenghai.chahuitong.module.order.OrderDetailActivity;
 import com.damenghai.chahuitong.module.order.OrderListActivity;
 import com.damenghai.chahuitong.module.common.WebViewActivity;
-import com.damenghai.chahuitong.widget.WrapHeightListView;
 
 import java.util.List;
 
@@ -42,20 +39,20 @@ public class OrderListAdapter extends BaseListAdapter<Order> {
                 .setText(R.id.order_tv_count, "共" + order.getExtend_order_goods().size() + "件商品")
                 .setText(R.id.order_tv_total, "￥" + order.getOrder_amount());
 
-        WrapHeightListView goodsListView = holder.getView(R.id.order_lv_goods);
-        if(order.getExtend_order_goods() != null) {
-            GoodsListAdapter goodsListAdapter = new GoodsListAdapter(mContext,
-                    order.getExtend_order_goods(), R.layout.item_list_order_goods);
-            goodsListView.setAdapter(goodsListAdapter);
-            goodsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    Intent intent = new Intent(mContext, OrderDetailActivity.class);
-                    intent.putExtra("order", order);
-                    mContext.startActivity(intent);
-                }
-            });
-        }
+//        WrapHeightListView goodsListView = holder.getView(R.id.order_lv_goods);
+//        if(order.getExtend_order_goods() != null) {
+//            GoodsListAdapter goodsListAdapter = new GoodsListAdapter(mContext,
+//                    order.getExtend_order_goods(), R.layout.item_list_order_goods);
+//            goodsListView.setAdapter(goodsListAdapter);
+//            goodsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                @Override
+//                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                    Intent intent = new Intent(mContext, OrderDetailActivity.class);
+//                    intent.putExtra("order", order);
+//                    mContext.startActivity(intent);
+//                }
+//            });
+//        }
 
         switch (getItemViewType(holder.getPosition())) {
             case OrderListActivity.STATE_UNPAID :
@@ -91,7 +88,7 @@ public class OrderListAdapter extends BaseListAdapter<Order> {
             case OrderListActivity.STATE_RECEIVE :
                 // 待收货 查看物流：http://www.chahuitong.com/wap/tmpl/member/order_delivery.html?order_id=267
                 holder.setVisibility(R.id.order_btn_left, View.GONE)
-                        .setText(R.id.order_btn_left, R.string.btn_view_delivery)
+                        .setText(R.id.order_btn_left, R.string.btn_order_delivery)
                         .setOnClickListener(R.id.order_btn_left, new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -101,7 +98,7 @@ public class OrderListAdapter extends BaseListAdapter<Order> {
                             }
                         })
                         .setVisibility(R.id.order_btn_right, View.VISIBLE)
-                        .setText(R.id.order_btn_right, R.string.btn_sure_order)
+                        .setText(R.id.order_btn_right, R.string.btn_order_sure)
                         .setOnClickListener(R.id.order_btn_right, new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -117,7 +114,7 @@ public class OrderListAdapter extends BaseListAdapter<Order> {
                 break;
             case OrderListActivity.STATE_UNCOMMENT :
                 holder.setVisibility(R.id.order_btn_left, View.GONE)
-                        .setText(R.id.order_btn_left, R.string.btn_view_delivery)
+                        .setText(R.id.order_btn_left, R.string.btn_order_delivery)
                         .setOnClickListener(R.id.order_btn_left, new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -127,7 +124,7 @@ public class OrderListAdapter extends BaseListAdapter<Order> {
                             }
                         })
                         .setVisibility(R.id.order_btn_right, View.VISIBLE)
-                        .setText(R.id.order_btn_right, R.string.btn_comment)
+                        .setText(R.id.order_btn_right, R.string.btn_order_comment)
                         .setOnClickListener(R.id.order_btn_right, new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {

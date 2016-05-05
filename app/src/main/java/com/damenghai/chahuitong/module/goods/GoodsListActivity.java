@@ -1,20 +1,16 @@
-package com.damenghai.chahuitong.module.mall;
+package com.damenghai.chahuitong.module.goods;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.adapter.viewholder.GoodsCartViewHolder;
+import com.damenghai.chahuitong.adapter.viewholder.GoodsCardViewHolder;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.expansion.list.BaseListActivity;
-import com.damenghai.chahuitong.utils.LUtils;
 import com.damenghai.chahuitong.widget.ExpandTabView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 
@@ -58,22 +54,22 @@ public class GoodsListActivity extends BaseListActivity<GoodsListPresenter> {
 
     @Override
     protected int getEmptyRes() {
-        return R.layout.fragment_empty;
+        return R.layout.defalut_view_list_empty;
     }
 
     @Override
     protected int getLoadMoreRes() {
-        return R.layout.footer_load_more;
+        return R.layout.default_footer_load_more;
     }
 
     @Override
     protected int getNoMoreRes() {
-        return R.layout.footer_no_more;
+        return R.layout.default_footer_no_more;
     }
 
     @Override
     protected BaseViewHolder createViewHolder(ViewGroup parent, int viewType) {
-        return new GoodsCartViewHolder(parent);
+        return new GoodsCardViewHolder(parent);
     }
 
     public void setCategory(String[] list) {

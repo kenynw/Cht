@@ -1,12 +1,10 @@
-package com.damenghai.chahuitong.module.mall;
+package com.damenghai.chahuitong.module.goods;
 
 import android.content.Context;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;

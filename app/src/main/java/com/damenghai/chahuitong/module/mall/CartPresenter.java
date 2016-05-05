@@ -8,7 +8,7 @@ import com.damenghai.chahuitong.model.local.PreferenceHelper;
 import com.damenghai.chahuitong.model.repository.CartRepository;
 import com.damenghai.chahuitong.model.repository.FavoritesRepository;
 import com.damenghai.chahuitong.model.service.ServiceClient;
-import com.damenghai.chahuitong.model.service.ServiceTransform;
+import com.damenghai.chahuitong.model.service.DefaultTransform;
 import com.damenghai.chahuitong.presenter.BasePresenter;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.google.gson.Gson;
@@ -61,7 +61,7 @@ public class CartPresenter extends BasePresenter<CartMvpView> {
         }
 
         ServiceClient.getServices().cartList(LUtils.getPreferences().getString("key", ""))
-                .compose(new ServiceTransform<>())
+                .compose(new DefaultTransform<>())
                 .subscribe(cart -> {
                     if (cart.getCart_list().isEmpty()) {
                         getView().showEmpty();

@@ -29,13 +29,4 @@ public class VoucherFragment extends BaseListFragment<VoucherPresenter, Voucher>
         return new VoucherViewHolder(parent);
     }
 
-    @Override
-    public int getLoadMoreRes() {
-        return R.layout.footer_load_more;
-    }
-
-    @Override
-    public int getNoMoreRes() {
-        return R.layout.footer_no_more;
-    }
 }

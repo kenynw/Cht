@@ -5,25 +5,23 @@ import android.content.res.Resources;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.view.ViewGroup;
+
+import com.damenghai.chahuitong.utils.LUtils;
 
 import java.util.List;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class TitlePagerAdapter extends FragmentPagerAdapter {
+public class TitlePagerAdapter extends FragmentStatePagerAdapter {
 
     private Context mContext;
 
     private String[] mTitles;
 
     private List<Fragment> mFragments;
-
-    public TitlePagerAdapter(String[] titles, List<Fragment> fragments, FragmentManager fm) {
-        super(fm);
-        mTitles = titles;
-        mFragments = fragments;
-    }
 
     public TitlePagerAdapter(Context context, int[] resId, List<Fragment> fragments, FragmentManager fm) {
         super(fm);
@@ -43,6 +41,7 @@ public class TitlePagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
+        LUtils.log("position: " + position);
         return mFragments.get(position);
     }
 
@@ -55,4 +54,5 @@ public class TitlePagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         return mTitles[position];
     }
+
 }

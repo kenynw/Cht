@@ -20,7 +20,7 @@ public class OrderDetailPresenter extends BaseDataActivityPresenter<OrderDetailA
     @Override
     protected void onCreateView(OrderDetailActivity view) {
         super.onCreateView(view);
-        mOrder = (Order) getView().getIntent().getSerializableExtra("order");
+        mOrder = getView().getIntent().getParcelableExtra("order");
         getView().setData(mOrder);
         loadData();
     }
@@ -30,27 +30,27 @@ public class OrderDetailPresenter extends BaseDataActivityPresenter<OrderDetailA
     }
 
     public void cancelOrder() {
-        OrderModel.getInstance().cancelOrder(mOrder.getOrder_id())
-                .subscribe(new ServiceResponse<JsonObject>() {
-                    @Override
-                    public void onNext(JsonObject jsonObject) {
-                        super.onNext(jsonObject);
-                        LUtils.log("cancel: " + jsonObject.toString());
-                        loadData();
-                    }
-                });
+//        OrderModel.getInstance().cancelOrder(mOrder.getOrder_id())
+//                .subscribe(new ServiceResponse<JsonObject>() {
+//                    @Override
+//                    public void onNext(JsonObject jsonObject) {
+//                        super.onNext(jsonObject);
+//                        LUtils.log("cancel: " + jsonObject.toString());
+//                        loadData();
+//                    }
+//                });
     }
 
     public void sureOrder() {
-        OrderModel.getInstance().sureOrder(mOrder.getOrder_id())
-                .subscribe(new ServiceResponse<JsonObject>() {
-                    @Override
-                    public void onNext(JsonObject jsonObject) {
-                        super.onNext(jsonObject);
-                        LUtils.log("sure: " + jsonObject.toString());
-                        loadData();
-                    }
-                });
+//        OrderModel.getInstance().sureOrder(mOrder.getOrder_id())
+//                .subscribe(new ServiceResponse<JsonObject>() {
+//                    @Override
+//                    public void onNext(JsonObject jsonObject) {
+//                        super.onNext(jsonObject);
+//                        LUtils.log("sure: " + jsonObject.toString());
+//                        loadData();
+//                    }
+//                });
     }
 
     public void payOrder() {

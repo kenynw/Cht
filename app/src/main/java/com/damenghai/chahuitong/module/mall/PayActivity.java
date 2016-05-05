@@ -37,10 +37,9 @@ public class PayActivity extends BaseActivity {
         setContentView(R.layout.activity_pay);
         setToolbarTitle(R.string.title_activity_pay_order);
         ButterKnife.bind(this);
-        mOrder = (Order) getIntent().getSerializableExtra("order");
+        mOrder = getIntent().getParcelableExtra("order");
         mTvTotal.append(mOrder.getOrder_amount());
     }
-
 
     public void toPay(final View view) {
         if(mOrder == null || mOrder.getExtend_order_goods() == null) return;
@@ -48,7 +47,7 @@ public class PayActivity extends BaseActivity {
         view.setEnabled(false);
 
         final Bundle bundle = new Bundle();
-        bundle.putSerializable("order", mOrder);
+        bundle.putParcelable("order", mOrder);
 
         String title = getResources().getString(R.string.text_pay_title_prefix) + mOrder.getOrder_sn();
         String price = mOrder.getOrder_amount();

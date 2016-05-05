@@ -1,4 +1,4 @@
-package com.damenghai.chahuitong.module.mall;
+package com.damenghai.chahuitong.module.goods;
 
 import android.os.Bundle;
 

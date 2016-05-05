@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.model.bean.Sample;
-import com.damenghai.chahuitong.module.mall.GoodsDetailActivity;
+import com.damenghai.chahuitong.module.goods.GoodsDetailActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;

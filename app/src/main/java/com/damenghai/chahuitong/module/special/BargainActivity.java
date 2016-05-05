@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.adapter.viewholder.BargainGoodsViewHolder;
+import com.damenghai.chahuitong.adapter.viewholder.GoodsBargainViewHolder;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.expansion.list.BaseListActivity;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
@@ -28,17 +28,17 @@ public class BargainActivity extends BaseListActivity<BargainPresenter> {
 
     @Override
     protected BaseViewHolder createViewHolder(ViewGroup parent, int viewType) {
-        return new BargainGoodsViewHolder(parent);
+        return new GoodsBargainViewHolder(parent);
     }
 
     @Override
     public int getNoMoreRes() {
-        return R.layout.footer_no_more;
+        return R.layout.default_footer_no_more;
     }
 
     @Override
     public int getLoadMoreRes() {
-        return R.layout.footer_load_more;
+        return R.layout.default_footer_load_more;
     }
 
     @Override

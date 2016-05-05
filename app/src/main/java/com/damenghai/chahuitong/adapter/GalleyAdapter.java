@@ -15,8 +15,7 @@ import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.model.bean.Goods;
-import com.damenghai.chahuitong.module.mall.GoodsDetailActivity;
-import com.damenghai.chahuitong.utils.LUtils;
+import com.damenghai.chahuitong.module.goods.GoodsDetailActivity;
 
 import java.util.List;
 

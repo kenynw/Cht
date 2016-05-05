@@ -55,7 +55,7 @@ public class OrderListActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_list);
+        setContentView(R.layout.order_activity_list);
         setToolbarTitle(R.string.title_my_order);
         ButterKnife.bind(this);
 
@@ -66,15 +66,14 @@ public class OrderListActivity extends BaseActivity {
 
     private void initTab() {
         List<Fragment> fragments = new ArrayList<>();
-        fragments.add(OrderListFragment.get(STATE_UNPAID + ""));
-        fragments.add(OrderListFragment.get(STATE_PAID + ""));
-        fragments.add(OrderListFragment.get(STATE_RECEIVE + ""));
-        fragments.add(OrderListFragment.get(STATE_UNCOMMENT + ""));
-        fragments.add(OrderListFragment.get(""));
+        fragments.add(OrderListFragment.newInstance(STATE_UNPAID + ""));
+        fragments.add(OrderListFragment.newInstance(STATE_PAID + ""));
+        fragments.add(OrderListFragment.newInstance(STATE_RECEIVE + ""));
+        fragments.add(OrderListFragment.newInstance(STATE_UNCOMMENT + ""));
+        fragments.add(OrderListFragment.newInstance(""));
         TitlePagerAdapter adapter = new TitlePagerAdapter(this, TITLE_RES, fragments, getSupportFragmentManager());
         mPager.setAdapter(adapter);
         mTabLayout.setupWithViewPager(mPager);
-        mTabLayout.setTabsFromPagerAdapter(adapter);
         mPager.setCurrentItem(mPosition, false);
     }
 

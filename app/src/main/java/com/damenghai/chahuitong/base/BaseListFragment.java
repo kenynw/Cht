@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.module.MvpView;
-import com.damenghai.chahuitong.widget.DividerItemDecoration;
+import com.damenghai.chahuitong.expansion.list.DividerItemDecoration;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.

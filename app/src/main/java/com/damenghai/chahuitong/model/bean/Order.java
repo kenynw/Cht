@@ -1,83 +1,182 @@
 package com.damenghai.chahuitong.model.bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class Order implements Serializable {
-    @Expose
-    private String order_id;
-    @Expose
-    private String order_sn;
-    @Expose
-    private String pay_sn;
-    @Expose
-    private String store_id;
-    @Expose
-    private String store_name;
-    @Expose
-    private String buyer_id;
-    @Expose
-    private String buyer_name;
-    private String buyer_email;
-    @Expose
-    private long add_time;
-    private String payment_code;
-    private String payment_time;
-    private String finnshed_time;
-    private String goods_amount;
-    @Expose
-    private String order_amount;
-    private String rcb_amount;
-    private String pd_amount;
-    @Expose
-    private String shipping_fee;
-    private String evaluation_state;
-    @Expose
-    private int order_state;
-    private String refund_state;
-    private String lock_state;
-    private String delete_state;
-    private String refund_amount;
-    private String delay_time;
-    private String order_from;
-    private String shipping_code;
-    @Expose
-    private String state_desc;
-    private String payment_name;
-    @Expose
-    private ArrayList<Goods> extend_order_goods;
+public class Order implements Parcelable {
 
-    /**
-     * 是否显示取消订单
-     */
+    private String order_id;
+
+    private String order_sn;
+
+    private String pay_sn;
+
+    private String store_id;
+
+    private String store_name;
+
+    private String buyer_id;
+
+    private String buyer_name;
+
+    private String buyer_email;
+
+    private long add_time;
+
+    private String payment_code;
+
+    private String payment_time;
+
+    private String finnshed_time;
+
+    private String goods_amount;
+
+    private String order_amount;
+
+    private String rcb_amount;
+
+    private String pd_amount;
+
+    private String shipping_fee;
+
+    private String evaluation_state;
+
+    private int order_state;
+
+    private String refund_state;
+
+    private String lock_state;
+
+    private String delete_state;
+
+    private String refund_amount;
+
+    private String delay_time;
+
+    private String order_from;
+
+    private String shipping_code;
+
+    private String state_desc;
+
+    private String payment_name;
+
+    private List<Goods> extend_order_goods;
+
     private boolean if_cancel;
 
-    /**
-     * 是否显示收货
-     */
     private boolean if_receive;
 
-    /**
-     * 是否显示锁定中
-     */
     private boolean if_lock;
 
-    /**
-     * 是否显示物流跟踪
-     */
     private boolean if_deliver;
 
-    /**
-     * 是否显示评价
-     */
     private boolean if_evaluation;
 
     private double pay_amount;
+
+    protected Order(Parcel in) {
+        order_id = in.readString();
+        order_sn = in.readString();
+        pay_sn = in.readString();
+        store_id = in.readString();
+        store_name = in.readString();
+        buyer_id = in.readString();
+        buyer_name = in.readString();
+        buyer_email = in.readString();
+        add_time = in.readLong();
+        payment_code = in.readString();
+        payment_time = in.readString();
+        finnshed_time = in.readString();
+        goods_amount = in.readString();
+        order_amount = in.readString();
+        rcb_amount = in.readString();
+        pd_amount = in.readString();
+        shipping_fee = in.readString();
+        evaluation_state = in.readString();
+        order_state = in.readInt();
+        refund_state = in.readString();
+        lock_state = in.readString();
+        delete_state = in.readString();
+        refund_amount = in.readString();
+        delay_time = in.readString();
+        order_from = in.readString();
+        shipping_code = in.readString();
+        state_desc = in.readString();
+        payment_name = in.readString();
+        extend_order_goods = in.createTypedArrayList(Goods.CREATOR);
+        if_cancel = in.readByte() != 0;
+        if_receive = in.readByte() != 0;
+        if_lock = in.readByte() != 0;
+        if_deliver = in.readByte() != 0;
+        if_evaluation = in.readByte() != 0;
+        pay_amount = in.readDouble();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(order_id);
+        dest.writeString(order_sn);
+        dest.writeString(pay_sn);
+        dest.writeString(store_id);
+        dest.writeString(store_name);
+        dest.writeString(buyer_id);
+        dest.writeString(buyer_name);
+        dest.writeString(buyer_email);
+        dest.writeLong(add_time);
+        dest.writeString(payment_code);
+        dest.writeString(payment_time);
+        dest.writeString(finnshed_time);
+        dest.writeString(goods_amount);
+        dest.writeString(order_amount);
+        dest.writeString(rcb_amount);
+        dest.writeString(pd_amount);
+        dest.writeString(shipping_fee);
+        dest.writeString(evaluation_state);
+        dest.writeInt(order_state);
+        dest.writeString(refund_state);
+        dest.writeString(lock_state);
+        dest.writeString(delete_state);
+        dest.writeString(refund_amount);
+        dest.writeString(delay_time);
+        dest.writeString(order_from);
+        dest.writeString(shipping_code);
+        dest.writeString(state_desc);
+        dest.writeString(payment_name);
+        dest.writeTypedList(extend_order_goods);
+        dest.writeByte((byte) (if_cancel ? 1 : 0));
+        dest.writeByte((byte) (if_receive ? 1 : 0));
+        dest.writeByte((byte) (if_lock ? 1 : 0));
+        dest.writeByte((byte) (if_deliver ? 1 : 0));
+        dest.writeByte((byte) (if_evaluation ? 1 : 0));
+        dest.writeDouble(pay_amount);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Order> CREATOR = new Creator<Order>() {
+        @Override
+        public Order createFromParcel(Parcel in) {
+            return new Order(in);
+        }
+
+        @Override
+        public Order[] newArray(int size) {
+            return new Order[size];
+        }
+    };
 
     public String getOrder_id() {
         return order_id;
@@ -303,11 +402,11 @@ public class Order implements Serializable {
         this.payment_name = payment_name;
     }
 
-    public ArrayList<Goods> getExtend_order_goods() {
+    public List<Goods> getExtend_order_goods() {
         return extend_order_goods;
     }
 
-    public void setExtend_order_goods(ArrayList<Goods> extend_order_goods) {
+    public void setExtend_order_goods(List<Goods> extend_order_goods) {
         this.extend_order_goods = extend_order_goods;
     }
 
@@ -358,4 +457,5 @@ public class Order implements Serializable {
     public void setPay_amount(double pay_amount) {
         this.pay_amount = pay_amount;
     }
+
 }

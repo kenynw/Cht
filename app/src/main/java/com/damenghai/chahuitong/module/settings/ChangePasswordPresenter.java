@@ -6,7 +6,7 @@ import com.damenghai.chahuitong.bijection.Presenter;
 import com.damenghai.chahuitong.model.bean.response.Response;
 import com.damenghai.chahuitong.model.service.ServiceClient;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
-import com.damenghai.chahuitong.model.service.ServiceTransform;
+import com.damenghai.chahuitong.model.service.DefaultTransform;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.damenghai.chahuitong.module.main.MainActivity;
 
@@ -17,7 +17,7 @@ public class ChangePasswordPresenter extends Presenter<ChangePasswordActivity> {
 
     public void changePassword(CharSequence oldPwd, CharSequence newPwd) {
         ServiceClient.getServices().changePassword(LUtils.getPreferences().getString("key", ""), oldPwd, newPwd)
-                .compose(new ServiceTransform<>())
+                .compose(new DefaultTransform<>())
                 .subscribe(new ServiceResponse<Response>() {
                     @Override
                     public void onNext(Response response) {

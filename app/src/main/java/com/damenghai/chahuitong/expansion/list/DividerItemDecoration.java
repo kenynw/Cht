@@ -1,4 +1,4 @@
-package com.damenghai.chahuitong.widget;
+package com.damenghai.chahuitong.expansion.list;
 
 /*
  * Copyright (C) 2014 The Android Open Source Project

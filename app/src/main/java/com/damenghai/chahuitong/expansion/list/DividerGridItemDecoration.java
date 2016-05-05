@@ -1,4 +1,4 @@
-package com.damenghai.chahuitong.widget;
+package com.damenghai.chahuitong.expansion.list;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.

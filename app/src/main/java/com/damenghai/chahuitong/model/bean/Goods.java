@@ -1,12 +1,15 @@
 package com.damenghai.chahuitong.model.bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Sgun on 15/8/13.
  */
-public class Goods implements Serializable {
+public class Goods implements Parcelable {
     /**
      * 商品id(SKU)
      */
@@ -109,6 +112,63 @@ public class Goods implements Serializable {
     private String recommend_aroma;
 
     private String recommend_leaf;
+
+    protected Goods(Parcel in) {
+        goods_id = in.readString();
+        goods_name = in.readString();
+        goods_num = in.readString();
+        goods_sum = in.readDouble();
+        goods_price = in.readString();
+        goods_marketprice = in.readString();
+        goods_image = in.readString();
+        goods_image_url = in.readString();
+        goods_url = in.readString();
+        goods_vat = in.readString();
+        goods_total = in.readString();
+        goods_freight = in.readString();
+        goods_storage = in.readString();
+        goods_commonid = in.readString();
+        goods_storage_alarm = in.readString();
+        goods_salenum = in.readString();
+        goods_commentnum = in.readString();
+        gc_id = in.readString();
+        state = in.readString();
+        store_id = in.readString();
+        store_name = in.readString();
+        is_fcode = in.readString();
+        transport_id = in.readString();
+        bl_id = in.readString();
+        cart_id = in.readString();
+        buyer_id = in.readString();
+        have_gift = in.readString();
+        storage_state = in.readString();
+        fav = in.readString();
+        fav_id = in.readString();
+        title = in.readString();
+        remark = in.readString();
+        promotion_price = in.readString();
+        down_price = in.readString();
+        group_flag = in.readByte() != 0;
+        xianshi_flag = in.readByte() != 0;
+        origin = in.readString();
+        recommend_score = in.readString();
+        recommend_taste = in.readString();
+        recommend_light = in.readString();
+        recommend_aroma = in.readString();
+        recommend_leaf = in.readString();
+    }
+
+    public static final Creator<Goods> CREATOR = new Creator<Goods>() {
+        @Override
+        public Goods createFromParcel(Parcel in) {
+            return new Goods(in);
+        }
+
+        @Override
+        public Goods[] newArray(int size) {
+            return new Goods[size];
+        }
+    };
 
     public String getGoods_id() {
         return goods_id;
@@ -460,5 +520,56 @@ public class Goods implements Serializable {
 
     public void setRecommend_leaf(String recommend_leaf) {
         this.recommend_leaf = recommend_leaf;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(goods_id);
+        dest.writeString(goods_name);
+        dest.writeString(goods_num);
+        dest.writeDouble(goods_sum);
+        dest.writeString(goods_price);
+        dest.writeString(goods_marketprice);
+        dest.writeString(goods_image);
+        dest.writeString(goods_image_url);
+        dest.writeString(goods_url);
+        dest.writeString(goods_vat);
+        dest.writeString(goods_total);
+        dest.writeString(goods_freight);
+        dest.writeString(goods_storage);
+        dest.writeString(goods_commonid);
+        dest.writeString(goods_storage_alarm);
+        dest.writeString(goods_salenum);
+        dest.writeString(goods_commentnum);
+        dest.writeString(gc_id);
+        dest.writeString(state);
+        dest.writeString(store_id);
+        dest.writeString(store_name);
+        dest.writeString(is_fcode);
+        dest.writeString(transport_id);
+        dest.writeString(bl_id);
+        dest.writeString(cart_id);
+        dest.writeString(buyer_id);
+        dest.writeString(have_gift);
+        dest.writeString(storage_state);
+        dest.writeString(fav);
+        dest.writeString(fav_id);
+        dest.writeString(title);
+        dest.writeString(remark);
+        dest.writeString(promotion_price);
+        dest.writeString(down_price);
+        dest.writeByte((byte) (group_flag ? 1 : 0));
+        dest.writeByte((byte) (xianshi_flag ? 1 : 0));
+        dest.writeString(origin);
+        dest.writeString(recommend_score);
+        dest.writeString(recommend_taste);
+        dest.writeString(recommend_light);
+        dest.writeString(recommend_aroma);
+        dest.writeString(recommend_leaf);
     }
 }

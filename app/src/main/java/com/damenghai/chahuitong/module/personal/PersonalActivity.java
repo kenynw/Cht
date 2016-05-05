@@ -7,7 +7,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -21,8 +20,7 @@ import com.damenghai.chahuitong.module.address.AddressListActivity;
 import com.damenghai.chahuitong.module.order.OrderListActivity;
 import com.damenghai.chahuitong.module.settings.ProfileActivity;
 import com.damenghai.chahuitong.module.settings.SettingsActivity;
-import com.damenghai.chahuitong.utils.LUtils;
-import com.damenghai.chahuitong.widget.DividerGridItemDecoration;
+import com.damenghai.chahuitong.expansion.list.DividerGridItemDecoration;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import butterknife.Bind;
