@@ -208,10 +208,14 @@ public class OrderViewHolder extends BaseViewHolder<Order> {
 //        }
     }
 
-    class OrderGoodsListAdapter extends RecyclerArrayAdapter<Goods> {
+    public static class OrderGoodsListAdapter extends RecyclerArrayAdapter<Goods> {
 
         public OrderGoodsListAdapter(Context context, List<Goods> objects) {
             super(context, objects);
+        }
+
+        public OrderGoodsListAdapter(Context context) {
+            super(context);
         }
 
         @Override

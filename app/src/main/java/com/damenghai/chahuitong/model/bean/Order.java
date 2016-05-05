@@ -3,10 +3,6 @@ package com.damenghai.chahuitong.model.bean;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.google.gson.annotations.Expose;
-
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,73 +11,40 @@ import java.util.List;
 public class Order implements Parcelable {
 
     private String order_id;
-
     private String order_sn;
-
     private String pay_sn;
-
     private String store_id;
-
     private String store_name;
-
     private String buyer_id;
-
     private String buyer_name;
-
     private String buyer_email;
-
     private long add_time;
-
     private String payment_code;
-
     private String payment_time;
-
     private String finnshed_time;
-
     private String goods_amount;
-
     private String order_amount;
-
     private String rcb_amount;
-
     private String pd_amount;
-
     private String shipping_fee;
-
     private String evaluation_state;
-
     private int order_state;
-
     private String refund_state;
-
     private String lock_state;
-
     private String delete_state;
-
     private String refund_amount;
-
     private String delay_time;
-
     private String order_from;
-
     private String shipping_code;
-
     private String state_desc;
-
     private String payment_name;
-
+    private Address address_info;
     private List<Goods> extend_order_goods;
-
     private boolean if_cancel;
-
     private boolean if_receive;
-
     private boolean if_lock;
-
     private boolean if_deliver;
-
     private boolean if_evaluation;
-
     private double pay_amount;
 
     protected Order(Parcel in) {
@@ -113,6 +76,7 @@ public class Order implements Parcelable {
         shipping_code = in.readString();
         state_desc = in.readString();
         payment_name = in.readString();
+        address_info = in.readParcelable(Address.class.getClassLoader());
         extend_order_goods = in.createTypedArrayList(Goods.CREATOR);
         if_cancel = in.readByte() != 0;
         if_receive = in.readByte() != 0;
@@ -120,6 +84,23 @@ public class Order implements Parcelable {
         if_deliver = in.readByte() != 0;
         if_evaluation = in.readByte() != 0;
         pay_amount = in.readDouble();
+    }
+
+    public static final Creator<Order> CREATOR = new Creator<Order>() {
+        @Override
+        public Order createFromParcel(Parcel in) {
+            return new Order(in);
+        }
+
+        @Override
+        public Order[] newArray(int size) {
+            return new Order[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     @Override
@@ -152,6 +133,7 @@ public class Order implements Parcelable {
         dest.writeString(shipping_code);
         dest.writeString(state_desc);
         dest.writeString(payment_name);
+        dest.writeParcelable(address_info, flags);
         dest.writeTypedList(extend_order_goods);
         dest.writeByte((byte) (if_cancel ? 1 : 0));
         dest.writeByte((byte) (if_receive ? 1 : 0));
@@ -160,23 +142,6 @@ public class Order implements Parcelable {
         dest.writeByte((byte) (if_evaluation ? 1 : 0));
         dest.writeDouble(pay_amount);
     }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    public static final Creator<Order> CREATOR = new Creator<Order>() {
-        @Override
-        public Order createFromParcel(Parcel in) {
-            return new Order(in);
-        }
-
-        @Override
-        public Order[] newArray(int size) {
-            return new Order[size];
-        }
-    };
 
     public String getOrder_id() {
         return order_id;
@@ -400,6 +365,14 @@ public class Order implements Parcelable {
 
     public void setPayment_name(String payment_name) {
         this.payment_name = payment_name;
+    }
+
+    public Address getAddress_info() {
+        return address_info;
+    }
+
+    public void setAddress_info(Address address_info) {
+        this.address_info = address_info;
     }
 
     public List<Goods> getExtend_order_goods() {

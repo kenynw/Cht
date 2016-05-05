@@ -17,7 +17,7 @@ public class ListConfig implements Cloneable {
         DEFAULT = config;
     }
 
-    boolean mRefreshAble = false;
+    boolean mRefreshAble = true;
 
     boolean mErrorTouchToResumeAble = false;
 
@@ -30,7 +30,7 @@ public class ListConfig implements Cloneable {
     View mContainerEmptyView;
     int mContainerEmptyRes = R.layout.defalut_view_list_empty;
 
-    boolean mContainerProgressAble = true;
+    boolean mContainerProgressAble = false;
     View mContainerProgressView;
     int mContainerProgressRes = R.layout.default_view_list_progress;
 

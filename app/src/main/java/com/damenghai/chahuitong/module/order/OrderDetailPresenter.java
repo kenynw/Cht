@@ -2,14 +2,15 @@ package com.damenghai.chahuitong.module.order;
 
 import android.content.Intent;
 
+import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.expansion.data.BaseDataActivityPresenter;
 import com.damenghai.chahuitong.model.OrderModel;
 import com.damenghai.chahuitong.model.bean.Order;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
-import com.damenghai.chahuitong.module.mall.PayActivity;
 import com.damenghai.chahuitong.module.common.WebViewActivity;
+import com.damenghai.chahuitong.module.mall.PayActivity;
+import com.damenghai.chahuitong.utils.DialogFactory;
 import com.damenghai.chahuitong.utils.LUtils;
-import com.google.gson.JsonObject;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
@@ -30,27 +31,36 @@ public class OrderDetailPresenter extends BaseDataActivityPresenter<OrderDetailA
     }
 
     public void cancelOrder() {
-//        OrderModel.getInstance().cancelOrder(mOrder.getOrder_id())
-//                .subscribe(new ServiceResponse<JsonObject>() {
-//                    @Override
-//                    public void onNext(JsonObject jsonObject) {
-//                        super.onNext(jsonObject);
-//                        LUtils.log("cancel: " + jsonObject.toString());
-//                        loadData();
-//                    }
-//                });
+        DialogFactory.createGenericDialog(
+                getView(),
+                R.string.dialog_cancel_order,
+                (dialogInterface, which) -> {
+                    OrderModel.getInstance().cancelOrder(mOrder.getOrder_id())
+                            .subscribe(new ServiceResponse<String>() {
+                                @Override
+                                public void onNext(String result) {
+                                    super.onNext(result);
+                                    LUtils.log("cancel: " + result);
+                                    loadData();
+                                }
+                            });
+                }).show();
     }
 
     public void sureOrder() {
-//        OrderModel.getInstance().sureOrder(mOrder.getOrder_id())
-//                .subscribe(new ServiceResponse<JsonObject>() {
-//                    @Override
-//                    public void onNext(JsonObject jsonObject) {
-//                        super.onNext(jsonObject);
-//                        LUtils.log("sure: " + jsonObject.toString());
-//                        loadData();
-//                    }
-//                });
+        DialogFactory.createGenericDialog(
+                getView(), R.string.dialog_sure_order,
+                (dialogInterface, which) -> {
+                    OrderModel.getInstance().sureOrder(mOrder.getOrder_id())
+                            .subscribe(new ServiceResponse<String>() {
+                                @Override
+                                public void onNext(String result) {
+                                    super.onNext(result);
+                                    LUtils.log("sure: " + result);
+                                    loadData();
+                                }
+                            });
+                }).show();
     }
 
     public void payOrder() {

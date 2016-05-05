@@ -29,12 +29,4 @@ public class OrderListFragment extends BaseListFragment<OrderListPresenter, Orde
         return new OrderViewHolder(parent, getPresenter());
     }
 
-    public void cancelSuccess() {
-        LUtils.toast(R.string.toast_cancel_success);
-    }
-
-    public void sureSuccess() {
-        LUtils.toast(R.string.toast_sure_success);
-    }
-
 }

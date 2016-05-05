@@ -3,10 +3,9 @@ package com.damenghai.chahuitong.module.goods;
 import android.os.Bundle;
 import android.view.ViewGroup;
 
-import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.expansion.list.BaseListFragment;
-import com.damenghai.chahuitong.expansion.list.DividerItemDecoration;
+import com.damenghai.chahuitong.expansion.list.ListConfig;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 
 /**
@@ -28,5 +27,10 @@ public class GoodsCommentFragment extends BaseListFragment {
     @Override
     public BaseViewHolder createViewHolder(ViewGroup parent, int viewType) {
         return new CommentViewHolder(parent);
+    }
+
+    @Override
+    public ListConfig getListConfig() {
+        return super.getListConfig().setContainerProgressAble(true).setRefreshAble(false);
     }
 }

@@ -53,14 +53,7 @@
         android:id="@+id/lv_order_goods"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@color/div_gray"
+        android:background="@color/bg_window"
         />
 
     <LinearLayout
@@ -72,6 +65,8 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:paddingTop="8dp"
+        android:layout_marginTop="-2dp"
+        android:background="@color/white"
         >
 
         <TextView

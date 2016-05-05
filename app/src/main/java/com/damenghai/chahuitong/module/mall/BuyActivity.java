@@ -96,8 +96,8 @@ public class BuyActivity extends BaseDataActivity<BuyPresenter, OrderInfo> {
     public void setAddress(Address address) {
         if (address != null) {
             mContainerAddress.setVisibility(View.GONE);
-            mTvConsignee.setText(getString(R.string.label_consignee) + address.getTrue_name() + " " + address.getMob_phone());
-            mTvAddress.setText(getString(R.string.label_address) + address.getArea_info() + " " + address.getAddress());
+            mTvConsignee.setText(String.format(getString(R.string.text_consignee), address.getTrue_name(),address.getMob_phone()));
+            mTvAddress.setText(String.format(getString(R.string.text_address), address.getArea_info(), address.getAddress()));
             mLayoutAddress.setVisibility(View.VISIBLE);
             mLayoutAddress.setOnClickListener(v -> {
                 Intent intent = new Intent(BuyActivity.this, AddressListActivity.class);

@@ -60,7 +60,7 @@ public class GoodsEditableViewHolder extends BaseViewHolder<Goods> {
         mTvPrice.setText(String.format(getContext().getString(R.string.text_rmb), goods.getGoods_price()));
         if (goods.getGoods_num() != null && Integer.parseInt(goods.getGoods_num()) > 0) {
             mTvCount.setVisibility(View.VISIBLE);
-            mTvCount.setText(goods.getGoods_num());
+            mTvCount.setText(String.format(getContext().getString(R.string.text_order_goods_count), goods.getGoods_num()));
         }
         if (mEditable) {
             mCbEdit.setVisibility(View.VISIBLE);

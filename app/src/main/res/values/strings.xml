@@ -94,12 +94,15 @@
     <string name="btn_back_home">返回首页</string>
 
     <!--文本文字，命名格式为：text_按钮事件-->
-    <string name="text_rmb">￥%s</string>
     <string name="text_copyright">©茶信科技</string>
-    <string name="text_freight">运费</string>
-    <string name="text_carriage_free">免运费</string>
+    <string name="text_about_chahuitong">茶汇通APP是茶产业垂直生态平台，整合茶域庞大的生态圈，融合线上线下，提供专家咨询、精华资讯、
+        即时交流、茶圈互动、活动发起、精品购茶等一系列多样化服务。在茶汇通，茶友圈的信息是即时的、直接的、精华的、权威的；茶产品是安全、高质
+        、正品、专享的；茶友圈的社交是个性的、全分享的。</string>
     <string name="text_hotline_counseling">客服/热线咨询：</string>
     <string name="text_phone_number">05925990900</string>
+    <string name="text_rmb">￥%s</string>
+    <string name="text_freight">运费</string>
+    <string name="text_carriage_free">免运费</string>
     <string name="text_sample_notice">申领资格：茶汇通注册会员\r\n申领限额：每月一次\r\n申领流程</string>
     <string name="text_cart_empty">暂无商品</string>
     <string name="text_empty">暂无数据</string>
@@ -113,9 +116,6 @@
     <string name="text_second">秒</string>
     <string name="text_favorites_empty">您还未收藏任何商品哦~</string>
     <string name="text_order_empty">您还没有相关订单，快去看看有什么想买的~</string>
-    <string name="text_about_chahuitong">茶汇通APP是茶产业垂直生态平台，整合茶域庞大的生态圈，融合线上线下，提供专家咨询、精华资讯、
-        即时交流、茶圈互动、活动发起、精品购茶等一系列多样化服务。在茶汇通，茶友圈的信息是即时的、直接的、精华的、权威的；茶产品是安全、高质
-        、正品、专享的；茶友圈的社交是个性的、全分享的。</string>
     <string name="text_valuer_empty">不好意思我们不卖这种茶~</string>
     <string name="text_pay_prepare">正在支付中&#8230;</string>
     <string name="text_pay_success">嗨，你支付成功了！</string>
@@ -134,6 +134,9 @@
     <string name="text_xianshi_storage">已抢购%1$s份/共%2$s份</string>
     <string name="text_image_indicator">%1$s/%2$s</string>
     <string name="text_order_count">共%s件商品</string>
+    <string name="text_order_goods_count">x%s</string>
+    <string name="text_consignee">收件人：%1$s&#160;&#160;%2$s</string>
+    <string name="text_address">收货地址：%1$s&#160;%2$s</string>
 
     <!--标签文字，命名格式为：label_标签文字-->
     <string name="label_home_free">免费茶样领取</string>
@@ -164,8 +167,6 @@
     <string name="label_alipay_desc">支付宝用户使用</string>
     <string name="label_wxpay_desc">微信支付用户使用</string>
     <string name="label_upmp_desc">支持所有银联储蓄卡和信用卡支付</string>
-    <string name="label_consignee">收件人：</string>
-    <string name="label_address">收货地址：</string>
     <string name="label_goods_total">商品总额：</string>
     <string name="label_freight">运&#160;&#160;&#160;&#160;费：</string>
     <string name="label_total">总&#160;&#160;&#160;&#160;计：</string>

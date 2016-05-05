@@ -137,7 +137,7 @@ public class AddAddressFragment extends BaseFragment implements AddAddressMvpVie
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putSerializable(KEY_ADDRESS, mAddress);
+        outState.putParcelable(KEY_ADDRESS, mAddress);
     }
 
     @Override

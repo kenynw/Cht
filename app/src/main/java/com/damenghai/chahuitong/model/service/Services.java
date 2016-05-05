@@ -11,20 +11,16 @@ import com.damenghai.chahuitong.model.bean.GoodsInfo;
 import com.damenghai.chahuitong.model.bean.Home;
 import com.damenghai.chahuitong.model.bean.Order;
 import com.damenghai.chahuitong.model.bean.OrderInfo;
-import com.damenghai.chahuitong.model.bean.OrderList;
 import com.damenghai.chahuitong.model.bean.Sample;
 import com.damenghai.chahuitong.model.bean.Token;
 import com.damenghai.chahuitong.model.bean.User;
-import com.damenghai.chahuitong.model.bean.Valuator;
 import com.damenghai.chahuitong.model.bean.Voucher;
 import com.damenghai.chahuitong.model.bean.response.ListResponse;
 import com.damenghai.chahuitong.model.bean.response.Response;
 import com.google.gson.JsonObject;
-import com.google.gson.internal.Streams;
 
 import java.util.List;
 import java.util.Map;
-import java.util.StringTokenizer;
 
 import okhttp3.RequestBody;
 import retrofit2.http.Field;

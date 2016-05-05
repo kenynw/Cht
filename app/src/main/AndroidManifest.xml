@@ -164,7 +164,9 @@
         </activity>
         <activity android:name=".module.order.OrderListActivity">
         </activity>
-        <activity android:name=".module.order.OrderDetailActivity">
+        <activity
+            android:name=".module.order.OrderDetailActivity"
+            android:theme="@style/AppTheme.ItemLineDecoration">
         </activity>
         <activity android:name=".module.mall.CartActivity">
         </activity>

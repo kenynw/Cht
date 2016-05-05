@@ -1,11 +1,14 @@
 package com.damenghai.chahuitong.model.bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.io.Serializable;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class Address implements Serializable {
+public class Address implements Parcelable {
 
     private String dlyp_id;
 
@@ -28,6 +31,34 @@ public class Address implements Serializable {
     private String area_info;
 
     private String member_id;
+
+    public Address() {}
+
+    protected Address(Parcel in) {
+        dlyp_id = in.readString();
+        city_id = in.readString();
+        area_id = in.readString();
+        address = in.readString();
+        address_id = in.readString();
+        true_name = in.readString();
+        is_default = in.readString();
+        mob_phone = in.readString();
+        tel_phone = in.readString();
+        area_info = in.readString();
+        member_id = in.readString();
+    }
+
+    public static final Creator<Address> CREATOR = new Creator<Address>() {
+        @Override
+        public Address createFromParcel(Parcel in) {
+            return new Address(in);
+        }
+
+        @Override
+        public Address[] newArray(int size) {
+            return new Address[size];
+        }
+    };
 
     public String getMember_id() {
         return member_id;
@@ -117,4 +148,24 @@ public class Address implements Serializable {
         this.dlyp_id = dlyp_id;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
+        dest.writeString(dlyp_id);
+        dest.writeString(city_id);
+        dest.writeString(area_id);
+        dest.writeString(address);
+        dest.writeString(address_id);
+        dest.writeString(true_name);
+        dest.writeString(is_default);
+        dest.writeString(mob_phone);
+        dest.writeString(tel_phone);
+        dest.writeString(area_info);
+        dest.writeString(member_id);
+    }
 }

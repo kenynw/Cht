@@ -52,7 +52,7 @@
                     android:gravity="center"
                     android:paddingTop="8dp"
                     android:singleLine="true"
-                    android:text="@string/label_consignee"
+                    tools:text="@string/text_consignee"
                     />
 
                 <TextView
@@ -62,7 +62,6 @@
                     android:layout_weight="1"
                     android:ellipsize="end"
                     android:paddingBottom="8dp"
-                    android:text="@string/label_address"
                     tools:text="收货地址：收货地址收货地址收货地址收货地址收货地址收货地址"
                     />
 
