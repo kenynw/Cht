@@ -19,6 +19,8 @@ import com.damenghai.chahuitong.model.OrderModel;
 import com.damenghai.chahuitong.model.bean.Goods;
 import com.damenghai.chahuitong.model.bean.Order;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
+import com.damenghai.chahuitong.module.common.WebViewActivity;
+import com.damenghai.chahuitong.module.goods.GoodsListActivity;
 import com.damenghai.chahuitong.module.mall.PayActivity;
 import com.damenghai.chahuitong.utils.DialogFactory;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
@@ -69,14 +71,12 @@ public class OrderViewHolder extends BaseViewHolder<Order> {
         mTvState.setText(order.getState_desc());
         mTvCount.setText(String.format(getContext().getString(R.string.text_order_count), order.getExtend_order_goods().size()));
         mTvTotal.setText(String.format(getContext().getString(R.string.text_rmb), order.getOrder_amount()));
-        mLvGoods.setLayoutManager(new LinearLayoutManager(getContext()));
-        mLvGoods.setAdapter(new OrderGoodsListAdapter(getContext(), order.getExtend_order_goods()));
 
-        itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(getContext(), OrderDetailActivity.class);
-            intent.putExtra("order", order);
-            getContext().startActivity(intent);
-        });
+        OrderGoodsListAdapter adapter = new OrderGoodsListAdapter(getContext(), order.getExtend_order_goods());
+        mLvGoods.setLayoutManager(new LinearLayoutManager(getContext()));
+        mLvGoods.setAdapter(adapter);
+        adapter.setOnItemClickListener(position -> startOrderInfo(order));
+        itemView.setOnClickListener(v -> startOrderInfo(order));
 
         if (order.getPay_amount() > 0) {
             mBtnRight.setVisibility(View.VISIBLE);
@@ -122,8 +122,8 @@ public class OrderViewHolder extends BaseViewHolder<Order> {
             mBtnLeft.setVisibility(View.VISIBLE);
             mBtnLeft.setText(R.string.btn_order_delivery);
             mBtnLeft.setOnClickListener(v -> {
-                Intent intent = new Intent(getContext(), DeliverActivity.class);
-                intent.putExtra("order", order);
+                Intent intent = new Intent(getContext(), WebViewActivity.class);
+                intent.putExtra("url", "http://www.chahuitong.com/wap/tmpl/member/order_delivery.html?order_id=" + order.getOrder_id());
                 getContext().startActivity(intent);
             });
         }
@@ -138,90 +138,37 @@ public class OrderViewHolder extends BaseViewHolder<Order> {
             });
         }
 
-//
-//        switch (order.getOrder_state()) {
-//            case OrderListActivity.STATE_UNPAID:
-//                mBtnLeft.setVisibility(View.VISIBLE);
-//                mBtnLeft.setOnClickListener(v ->
-//                        DialogFactory.createGenericDialog(getContext(), R.string.dialog_cancel_order, ((dialog, which) -> {
-//                            OrderModel.getInstance().cancelOrder(order.getOrder_id())
-//                                    .unsafeSubscribe(new ServiceResponse<String>() {
-//                                        @Override
-//                                        public void onNext(String result) {
-//                                            mListener.onRefresh();
-//                                        }
-//                                    });
-//                        })).show()
-//                );
-//
-//                mBtnRight.setVisibility(View.VISIBLE);
-//                mBtnRight.setOnClickListener(v -> {
-//                    Intent intent = new Intent(getContext(), PayActivity.class);
-//                    intent.putExtra("order", order);
-//                    getContext().startActivity(intent);
-//                });
-//                break;
-//            case OrderListActivity.STATE_RECEIVE:
-//                mBtnLeft.setVisibility(View.VISIBLE);
-//                mBtnLeft.setText(R.string.btn_view_delivery);
-//                mBtnLeft.setOnClickListener(v -> {
-//                    Intent intent = new Intent(getContext(), DeliverActivity.class);
-//                    intent.putExtra("order", order);
-//                    getContext().startActivity(intent);
-//                });
-//
-//                mBtnRight.setVisibility(View.VISIBLE);
-//                mBtnRight.setText(R.string.btn_sure_order);
-//                mBtnRight.setOnClickListener(v ->
-//                        DialogFactory.createGenericDialog(getContext(), R.string.dialog_sure_order, (dialog, which) -> {
-//                            OrderModel.getInstance().sureOrder(order.getOrder_id())
-//                                    .unsafeSubscribe(new ServiceResponse<String>() {
-//                                        @Override
-//                                        public void onNext(String result) {
-//                                            mListener.onRefresh();
-//                                        }
-//                                    });
-//                        }).show()
-//                );
-//                break;
-//            case OrderListActivity.STATE_UNCOMMENT:
-//                mBtnLeft.setVisibility(View.GONE);
-//                mBtnLeft.setText(R.string.btn_view_delivery);
-//                mBtnLeft.setOnClickListener(v -> {
-//                    Intent intent = new Intent(getContext(), DeliverActivity.class);
-//                    intent.putExtra("order", order);
-//                    getContext().startActivity(intent);
-//                });
-//
-//                mBtnRight.setVisibility(View.VISIBLE);
-//                mBtnRight.setText(R.string.btn_comment);
-//                mBtnRight.setOnClickListener(v -> {
-//                    Intent intent = new Intent(getContext(), WriteCommentActivity.class);
-//                    intent.putExtra("order", order);
-//                    getContext().startActivity(intent);
-//                });
-//                break;
-//            default:
-//                mBtnLeft.setVisibility(View.GONE);
-//                mBtnRight.setVisibility(View.GONE);
-//                break;
-//        }
+    }
+
+    private void startOrderInfo(Order order) {
+        Intent intent = new Intent(getContext(), OrderDetailActivity.class);
+        intent.putExtra("order", order);
+        getContext().startActivity(intent);
     }
 
     public static class OrderGoodsListAdapter extends RecyclerArrayAdapter<Goods> {
+
+        private OnItemClickListener mListener;
 
         public OrderGoodsListAdapter(Context context, List<Goods> objects) {
             super(context, objects);
         }
 
-        public OrderGoodsListAdapter(Context context) {
-            super(context);
+        @Override
+        public BaseViewHolder OnCreateViewHolder(ViewGroup parent, int viewType) {
+            GoodsEditableViewHolder viewHolder = new GoodsEditableViewHolder(parent, R.layout.item_list_order_goods);
+            if (mListener != null) {
+                viewHolder.setOnItemClickListener(mListener);
+            }
+            return viewHolder;
         }
 
         @Override
-        public BaseViewHolder OnCreateViewHolder(ViewGroup parent, int viewType) {
-            return new GoodsEditableViewHolder(parent, R.layout.item_list_order_goods);
+        public void setOnItemClickListener(OnItemClickListener listener) {
+            super.setOnItemClickListener(listener);
+            mListener = listener;
         }
+
     }
 
 }

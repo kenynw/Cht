@@ -200,8 +200,6 @@
         </activity>
         <activity android:name=".module.common.ImageBrowseActivity">
         </activity>
-        <activity android:name=".module.order.DeliverActivity">
-        </activity>
         <activity android:name=".module.order.WriteCommentActivity">
         </activity>
     </application>

@@ -13,13 +13,16 @@ import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
+import com.damenghai.chahuitong.config.API;
 import com.damenghai.chahuitong.expansion.data.BaseDataActivity;
 import com.damenghai.chahuitong.expansion.list.DividerItemDecoration;
 import com.damenghai.chahuitong.model.bean.Address;
 import com.damenghai.chahuitong.model.bean.Goods;
 import com.damenghai.chahuitong.model.bean.Order;
+import com.damenghai.chahuitong.model.service.ServiceException;
 import com.damenghai.chahuitong.module.address.AddressListActivity;
 import com.damenghai.chahuitong.utils.DateUtils;
+import com.damenghai.chahuitong.utils.LUtils;
 
 import java.util.List;
 
@@ -129,4 +132,13 @@ public class OrderDetailActivity extends BaseDataActivity<OrderDetailPresenter, 
         }
     }
 
+    @Override
+    public void onError(Throwable e) {
+        if (e.getCause() instanceof ServiceException) {
+            ServiceException s = (ServiceException) e.getCause();
+            LUtils.toast(s.getMsg());
+        } else {
+            LUtils.toast(R.string.toast_network_error);
+        }
+    }
 }

@@ -32,7 +32,7 @@
                 <com.damenghai.chahuitong.widget.HeadViewPager
                     android:id="@+id/pager_goods_image"
                     android:layout_width="match_parent"
-                    android:layout_height="210dp"
+                    android:layout_height="320dp"
                     />
 
                 <com.damenghai.chahuitong.widget.CirclePageIndicator

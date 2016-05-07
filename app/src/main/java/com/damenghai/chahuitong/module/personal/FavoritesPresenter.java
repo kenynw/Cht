@@ -14,7 +14,7 @@ import rx.Observable;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class FavoritesPresenter extends BaseListActivityPresenter<FavoritesActivity, Goods> implements RecyclerArrayAdapter.OnLoadMoreListener {
+public class FavoritesPresenter extends BaseListActivityPresenter<FavoritesActivity, Goods> {
 
     @Override
     protected void onCreateView(FavoritesActivity view) {

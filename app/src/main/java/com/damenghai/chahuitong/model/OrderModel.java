@@ -2,6 +2,7 @@ package com.damenghai.chahuitong.model;
 
 import com.damenghai.chahuitong.config.API;
 import com.damenghai.chahuitong.model.bean.BeanList;
+import com.damenghai.chahuitong.model.bean.Deliver;
 import com.damenghai.chahuitong.model.bean.Order;
 import com.damenghai.chahuitong.model.service.ServiceClient;
 import com.damenghai.chahuitong.model.service.DefaultTransform;

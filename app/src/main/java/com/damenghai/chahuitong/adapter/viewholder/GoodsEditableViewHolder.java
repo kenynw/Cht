@@ -13,6 +13,7 @@ import com.damenghai.chahuitong.model.bean.Goods;
 import com.damenghai.chahuitong.module.goods.GoodsDetailActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
+import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -44,6 +45,8 @@ public class GoodsEditableViewHolder extends BaseViewHolder<Goods> {
 
     public static Map<Integer, Boolean> mStates = new HashMap<>();
 
+    public RecyclerArrayAdapter.OnItemClickListener mListener;
+
     public GoodsEditableViewHolder(ViewGroup parent, @LayoutRes int res) {
         super(parent, res);
         ButterKnife.bind(this, itemView);
@@ -70,10 +73,19 @@ public class GoodsEditableViewHolder extends BaseViewHolder<Goods> {
         } else {
             mCbEdit.setVisibility(View.GONE);
             itemView.setOnClickListener(v -> {
-                Intent intent = new Intent(getContext(), GoodsDetailActivity.class);
-                intent.putExtra("goods_id", goods.getGoods_id());
-                getContext().startActivity(intent);
+                if (mListener != null) {
+                    mListener.onItemClick(getAdapterPosition());
+                } else {
+                    Intent intent = new Intent(getContext(), GoodsDetailActivity.class);
+                    intent.putExtra("goods_id", goods.getGoods_id());
+                    getContext().startActivity(intent);
+                }
             });
         }
     }
+
+    public void setOnItemClickListener(RecyclerArrayAdapter.OnItemClickListener listener) {
+        mListener = listener;
+    }
+
 }
