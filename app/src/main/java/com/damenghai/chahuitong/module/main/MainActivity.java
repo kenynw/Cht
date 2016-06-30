@@ -48,6 +48,8 @@ public class MainActivity extends BaseActivity {
 
         initToolbar();
 
+        initTab();
+
         checkUpdate();
     }
 

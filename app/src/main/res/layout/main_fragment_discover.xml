@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager_discover_ad"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#ccc"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:orientation="horizontal"
+            >
+
+            <LinearLayout
+                android:id="@+id/ll_discover_news"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#999"
+                android:gravity="center"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    style="@style/Base.TextAppearance.AppCompat.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_news"
+                    />
+
+                <TextView
+                    style="@style/Base.TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/text_drawable_padding"
+                    android:text="@string/text_news_caption"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_discover_hill"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#666"
+                android:gravity="center"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    style="@style/Base.TextAppearance.AppCompat.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_hill"
+                    android:textColor="@color/white"
+                    />
+
+                <TextView
+                    style="@style/Base.TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/text_drawable_padding"
+                    android:text="@string/text_hill_caption"
+                    android:textColor="@color/white"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_discover_trace"
+            style="@style/Base.TextAppearance.AppCompat.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:text="@string/text_trace_commend"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rcv_discover_trace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/div_line"/>
+
+        <Button
+            android:id="@+id/btn_discover_trace"
+            style="@style/ButtonBorderless"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/widget_small_height"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="@string/btn_view_trace_commend"
+            android:textColor="@color/text_black_secondary"
+            android:textSize="@dimen/text_size_caption_material"
+            />
+
+        <TextView
+            android:id="@+id/tv_discover_flea"
+            style="@style/Base.TextAppearance.AppCompat.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:text="@string/text_flea_commend"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rcv_discover_flea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingBottom="8dp"
+            android:clipToPadding="false"
+            />
+
+        <TextView
+            android:id="@+id/tv_discover_class"
+            style="@style/Base.TextAppearance.AppCompat.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:text="@string/text_staple_class"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rcv_discover_class"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:background="@color/white"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/div_line"/>
+
+        <Button
+            android:id="@+id/btn_discover_class"
+            style="@style/ButtonBorderless"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/widget_small_height"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="@string/btn_view_all_class"
+            android:textColor="@color/text_black_secondary"
+            android:textSize="@dimen/text_size_caption_material"
+            />
+
+        <TextView
+            android:id="@+id/tv_discover_user"
+            style="@style/Base.TextAppearance.AppCompat.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/widget_small_height"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:text="@string/text_user_commend"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rcv_discover_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingBottom="8dp"
+            />
+
+    </LinearLayout>
+
+</ScrollView>

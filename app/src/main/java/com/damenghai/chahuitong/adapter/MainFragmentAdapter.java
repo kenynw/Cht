@@ -6,8 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.module.main.CartFragment;
-import com.damenghai.chahuitong.module.main.ForumFragment;
+import com.damenghai.chahuitong.module.main.DiscoverFragment;
+import com.damenghai.chahuitong.module.main.TraceFragment;
 import com.damenghai.chahuitong.module.main.HomeFragment;
 import com.damenghai.chahuitong.module.main.PersonalFragment;
 
@@ -21,7 +21,7 @@ public class MainFragmentAdapter extends FragmentStatePagerAdapter {
 
     private final int[] ICON = new int[] {R.drawable.btn_home_mall_selector, R.drawable.btn_home_forum_selector
                                         , R.drawable.btn_home_cart_selector, R.drawable.btn_home_personal_selector};
-    private final String[] TITLE = new String[] {"商城", "论坛", "购物车", "个人中心"};
+    private final String[] TITLE = new String[] {"购茶", "动态", "发现", "我的"};
 
     private Context mContext;
 
@@ -37,8 +37,8 @@ public class MainFragmentAdapter extends FragmentStatePagerAdapter {
     private void initFragments() {
         mFragments = new ArrayList<>();
         mFragments.add(new HomeFragment());
-        mFragments.add(new ForumFragment());
-        mFragments.add(new CartFragment());
+        mFragments.add(new TraceFragment());
+        mFragments.add(new DiscoverFragment());
         mFragments.add(new PersonalFragment());
     }
 

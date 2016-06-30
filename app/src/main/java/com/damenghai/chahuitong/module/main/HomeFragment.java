@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.adapter.BannerPagerAdapter;
@@ -70,7 +71,7 @@ public class HomeFragment extends BeamFragment<HomePresenter> {
     RecyclerView mRvGuess;
 
     @Bind(R.id.btn_goods_list)
-    Button mBtnGoodsList;
+    TextView mBtnGoodsList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

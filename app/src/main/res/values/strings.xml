@@ -23,6 +23,7 @@
     <string name="title_activity_feedback">意见反馈</string>
     <string name="title_activity_goods">商品详情</string>
     <string name="title_my_order">我的订单</string>
+    <string name="title_discover">发现</string>
 
     <!--页面副标题，命名格式为：subhead_页面-->
     <string name="subhead_home_recommend">试茶师推荐 </string>
@@ -92,6 +93,9 @@
     <string name="btn_setting_about_us">关于茶汇通</string>
     <string name="btn_view_order">查看订单</string>
     <string name="btn_back_home">返回首页</string>
+    <string name="btn_view_trace_commend">查看全部精选动态</string>
+    <string name="btn_view_more">查看更多</string>
+    <string name="btn_view_all_class">查看所有品类</string>
 
     <!--文本文字，命名格式为：text_按钮事件-->
     <string name="text_copyright">©茶信科技</string>
@@ -137,6 +141,14 @@
     <string name="text_order_goods_count">x%s</string>
     <string name="text_consignee">收件人：%1$s&#160;&#160;%2$s</string>
     <string name="text_address">收货地址：%1$s&#160;%2$s</string>
+    <string name="text_news">茶资讯</string>
+    <string name="text_news_caption">每日新鲜茶资讯</string>
+    <string name="text_hill">山头</string>
+    <string name="text_hill_caption">名山出名茶</string>
+    <string name="text_trace_commend">精选动态</string>
+    <string name="text_flea_commend">茶市精选</string>
+    <string name="text_staple_class">热门茶类</string>
+    <string name="text_user_commend">推荐用户</string>
 
     <!--标签文字，命名格式为：label_标签文字-->
     <string name="label_home_free">免费茶样领取</string>

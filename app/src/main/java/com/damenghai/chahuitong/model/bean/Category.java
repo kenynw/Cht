@@ -1,9 +1,12 @@
 package com.damenghai.chahuitong.model.bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class Category {
+public class Category implements Parcelable {
     private int gc_id;
 
     private String gc_name;
@@ -29,6 +32,56 @@ public class Category {
     private String image;
 
     private String text;
+
+    protected Category(Parcel in) {
+        gc_id = in.readInt();
+        gc_name = in.readString();
+        type_id = in.readString();
+        type_name = in.readString();
+        gc_parent_id = in.readString();
+        commis_rate = in.readString();
+        gc_sort = in.readString();
+        gc_virtual = in.readString();
+        gc_title = in.readString();
+        gc_keywords = in.readString();
+        gc_description = in.readString();
+        image = in.readString();
+        text = in.readString();
+    }
+
+    public static final Creator<Category> CREATOR = new Creator<Category>() {
+        @Override
+        public Category createFromParcel(Parcel in) {
+            return new Category(in);
+        }
+
+        @Override
+        public Category[] newArray(int size) {
+            return new Category[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(gc_id);
+        dest.writeString(gc_name);
+        dest.writeString(type_id);
+        dest.writeString(type_name);
+        dest.writeString(gc_parent_id);
+        dest.writeString(commis_rate);
+        dest.writeString(gc_sort);
+        dest.writeString(gc_virtual);
+        dest.writeString(gc_title);
+        dest.writeString(gc_keywords);
+        dest.writeString(gc_description);
+        dest.writeString(image);
+        dest.writeString(text);
+    }
 
     public int getGc_id() {
         return gc_id;
