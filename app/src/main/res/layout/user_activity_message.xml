@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".module.message.MessageActivity">
+
+    <include layout="@layout/include_toolbar"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_medium_height"
+        android:background="@color/white"
+        >
+
+        <Button
+            android:id="@+id/btn_msg_fans"
+            style="@style/ButtonBorderless"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/widget_medium_height"
+            android:drawableRight="@mipmap/ic_arrow_more"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:text="@string/btn_message_fans"
+            android:textColor="@color/text_black_secondary"
+            android:textSize="@dimen/text_size_body_material"
+            />
+
+        <TextView
+            android:id="@+id/tv_badge_fans"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginRight="@dimen/larger_horizontal_margin"
+            android:background="@drawable/badge_round_red_shape"
+            android:gravity="center"
+            tools:text="2"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_caption_material"
+            android:visibility="gone"
+            />
+
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/div_line"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_medium_height"
+        android:background="@color/white"
+        >
+        <Button
+            android:id="@+id/btn_msg_comment"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/widget_medium_height"
+            android:drawableRight="@mipmap/ic_arrow_more"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:text="@string/btn_message_comment"
+            android:textColor="@color/text_black_secondary"
+            android:textSize="@dimen/text_size_body_material"
+            style="@style/ButtonBorderless"
+            />
+
+        <TextView
+            android:id="@+id/tv_badge_comment"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginRight="@dimen/larger_horizontal_margin"
+            android:background="@drawable/badge_round_red_shape"
+            android:gravity="center"
+            tools:text="2"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_caption_material"
+            android:visibility="gone"
+            />
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/div_line"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_medium_height"
+        android:background="@color/white"
+        >
+        <Button
+            android:id="@+id/btn_msg_at"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/widget_medium_height"
+            android:drawableRight="@mipmap/ic_arrow_more"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:text="@string/btn_message_at"
+            android:textColor="@color/text_black_secondary"
+            android:textSize="@dimen/text_size_body_material"
+            style="@style/ButtonBorderless"
+            />
+
+        <TextView
+            android:id="@+id/tv_badge_at"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginRight="@dimen/larger_horizontal_margin"
+            android:background="@drawable/badge_round_red_shape"
+            android:gravity="center"
+            tools:text="2"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_caption_material"
+            android:visibility="gone"
+            />
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/div_line"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_medium_height"
+        android:background="@color/white"
+        >
+        <Button
+            android:id="@+id/btn_msg_system"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/widget_medium_height"
+            android:drawableRight="@mipmap/ic_arrow_more"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:text="@string/btn_message_system"
+            android:textColor="@color/text_black_secondary"
+            android:textSize="@dimen/text_size_body_material"
+            style="@style/ButtonBorderless"
+            />
+
+        <TextView
+            android:id="@+id/tv_badge_system"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginRight="@dimen/larger_horizontal_margin"
+            android:background="@drawable/badge_round_red_shape"
+            android:gravity="center"
+            tools:text="2"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_caption_material"
+            android:visibility="gone"
+            />
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/div_line"/>
+
+</LinearLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="@dimen/activity_horizontal_margin"
+    >
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/dv_user_avatar"
+        android:layout_width="@dimen/widget_small_height"
+        android:layout_height="@dimen/widget_small_height"
+        app:actualImageScaleType="centerCrop"
+        app:placeholderImage="@mipmap/def_image_loading"
+        app:placeholderImageScaleType="centerCrop"
+        app:roundAsCircle="true"
+        />
+
+    <TextView
+        android:id="@+id/tv_user_username"
+        style="@style/TextBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_toRightOf="@id/dv_user_avatar"
+        tools:text="茶汇通"
+        />
+
+    <TextView
+        android:id="@+id/tv_user_time"
+        style="@style/TextCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        tools:text="2小时前"
+        />
+
+</RelativeLayout>

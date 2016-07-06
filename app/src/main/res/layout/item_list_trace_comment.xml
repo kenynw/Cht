@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="@dimen/activity_horizontal_margin"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/dv_trace_comment_avatar"
+            android:layout_width="@dimen/widget_tiny_height"
+            android:layout_height="@dimen/widget_tiny_height"
+            app:actualImageScaleType="centerCrop"
+            app:placeholderImage="@mipmap/def_avatar_placeholder"
+            app:placeholderImageScaleType="centerCrop"
+            app:roundAsCircle="true"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            >
+
+            <TextView
+                android:id="@+id/tv_trace_comment_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_black_secondary"
+                android:textSize="@dimen/text_size_body_material"
+                tools:text="头像"
+                />
+
+            <TextView
+                android:id="@+id/tv_trace_comment_time"
+                style="@style/TextCaption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="11小时前"
+                android:layout_marginTop="@dimen/text_drawable_padding"
+                />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_trace_comment_like"
+            style="@style/TextCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点赞"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_trace_comment_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="一位住在“骇客旅社”的内向电脑工程师与他朋友"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        />
+
+</LinearLayout>

@@ -15,7 +15,7 @@ public class GoodsInfo {
 
     private List<Goods> goods_commend_list;
 
-    private List<Comment> goods_evaluate_info;
+    private List<GoodsComment> goods_evaluate_info;
 
     public Goods getGoods_info() {
         return goods_info;
@@ -49,11 +49,11 @@ public class GoodsInfo {
         this.goods_commend_list = goods_commend_list;
     }
 
-    public List<Comment> getGoods_evaluate_info() {
+    public List<GoodsComment> getGoods_evaluate_info() {
         return goods_evaluate_info;
     }
 
-    public void setGoods_evaluate_info(List<Comment> goods_evaluate_info) {
+    public void setGoods_evaluate_info(List<GoodsComment> goods_evaluate_info) {
         this.goods_evaluate_info = goods_evaluate_info;
     }
 }

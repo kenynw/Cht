@@ -1,37 +1,26 @@
 package com.damenghai.chahuitong.module.main;
 
-import android.content.Intent;
-import android.support.design.widget.TabLayout;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
+import android.widget.FrameLayout;
 
-import com.damenghai.chahuitong.adapter.MainFragmentAdapter;
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.base.BaseActivity;
+import com.damenghai.chahuitong.bijection.BeamBaseActivity;
+import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.utils.LUtils;
-import com.damenghai.chahuitong.module.mall.CartActivity;
-import com.damenghai.chahuitong.module.personal.PersonalActivity;
 import com.umeng.update.UmengUpdateAgent;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends BaseActivity {
+@RequiresPresenter(MainPresenter.class)
+public class MainActivity extends BeamBaseActivity<MainPresenter> {
 
-    @Bind(R.id.main_toolbar)
-    Toolbar mToolbar;
-
-    @Bind(R.id.btn_toolbar_search)
-    Button mBtnSearch;
-
-    @Bind(R.id.main_viewpager)
-    ViewPager mViewPager;
+    @Bind(R.id.main_container)
+    FrameLayout mContainer;
 
     @Bind(R.id.main_tab_layout)
     TabLayout mTabLayout;
@@ -42,14 +31,9 @@ public class MainActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity_main);
-
         ButterKnife.bind(this);
-        setSupportActionBar(mToolbar);
-
-        initToolbar();
 
         initTab();
-
         checkUpdate();
     }
 
@@ -59,44 +43,18 @@ public class MainActivity extends BaseActivity {
         UmengUpdateAgent.update(this);
     }
 
-    private void initToolbar() {
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivity(PersonalActivity.class);
-            }
-        });
-        mToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                openActivity(CartActivity.class);
-                return true;
-            }
-        });
-
-        mBtnSearch.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, SearchActivity.class)));
-    }
-
-
     private void initTab() {
-        MainFragmentAdapter adapter = new MainFragmentAdapter(getSupportFragmentManager(), this);
-
-        mViewPager.setAdapter(adapter);
-        mTabLayout.setupWithViewPager(mViewPager);
-        mTabLayout.setTabsFromPagerAdapter(adapter);
-
-        for (int i = 0; i < mTabLayout.getTabCount(); i++) {
-            TabLayout.Tab tab = mTabLayout.getTabAt(i);
-            if (tab != null) tab.setIcon(adapter.getIconResId(i));
+        mTabLayout.setOnTabSelectedListener(getPresenter());
+        for (int i = 0; i < getPresenter().getAdapter().getCount(); i++) {
+            TabLayout.Tab tab = mTabLayout.newTab();
+            mTabLayout.addTab(tab, i == 0);
+            tab.setText(getPresenter().getAdapter().getPageTitle(i));
+            tab.setIcon(getPresenter().getAdapter().getPageIcon(i));
         }
-        mViewPager.setCurrentItem(0);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    public FrameLayout getContainer() {
+        return mContainer;
     }
 
     @Override

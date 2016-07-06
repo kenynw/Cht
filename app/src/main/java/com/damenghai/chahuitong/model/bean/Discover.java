@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.damenghai.chahuitong.model.Flea;
-import com.damenghai.chahuitong.model.Trace;
 
 import java.util.List;
 

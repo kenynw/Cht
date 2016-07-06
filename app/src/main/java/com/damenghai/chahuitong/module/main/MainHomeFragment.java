@@ -5,10 +5,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -40,8 +44,14 @@ import butterknife.OnClick;
  * A simple {@link Fragment} subclass.
  *
  */
-@RequiresPresenter(HomePresenter.class)
-public class HomeFragment extends BeamFragment<HomePresenter> {
+@RequiresPresenter(MainHomePresenter.class)
+public class MainHomeFragment extends BeamFragment<MainHomePresenter> {
+
+    @Bind(R.id.main_toolbar)
+    Toolbar mToolbar;
+
+    @Bind(R.id.btn_toolbar_search)
+    Button mBtnSearch;
 
     @Bind(R.id.home_refresh)
     SwipeRefreshLayout mRefreshLayout;
@@ -64,6 +74,9 @@ public class HomeFragment extends BeamFragment<HomePresenter> {
     @Bind(R.id.ll_home_bargain)
     LinearLayout mLayoutBargain;
 
+    @Bind(R.id.ll_home_commend)
+    LinearLayout mLayoutCommend;
+
     @Bind(R.id.rcv_home_galley)
     RecyclerView mRvGalley;
 
@@ -85,9 +98,24 @@ public class HomeFragment extends BeamFragment<HomePresenter> {
         mRvGuess.addItemDecoration(new DividerGridItemDecoration(getActivity()));
 
         mRefreshLayout.setOnRefreshListener(getPresenter());
-        mBtnGoodsList.setOnClickListener(v -> startActivity(new Intent(getActivity(), GoodsListActivity.class).putExtra("op", "goods_list")));
+        mBtnGoodsList.setOnClickListener(v -> getPresenter().showGoodsList("goods_list"));
+        mLayoutCommend.setOnClickListener(v -> getPresenter().showGoodsList("recommend_list"));
+
+        initToolbar();
 
         return view;
+    }
+
+    private void initToolbar() {
+        setHasOptionsMenu(true);
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        activity.setSupportActionBar(mToolbar);
+        if (activity.getSupportActionBar() != null)activity.getSupportActionBar().setDisplayShowTitleEnabled(false);
+        mToolbar.setOnMenuItemClickListener(item -> {
+            getPresenter().showCart();
+            return true;
+        });
+        mBtnSearch.setOnClickListener(v -> startActivity(new Intent(getActivity(), SearchActivity.class)));
     }
 
     public void setData(Home home) {
@@ -104,13 +132,6 @@ public class HomeFragment extends BeamFragment<HomePresenter> {
         mLayoutBargain.setOnClickListener(v -> startActivity(new Intent(getActivity(), BargainActivity.class)));
     }
 
-    @OnClick({R.id.iv_home_valuer, R.id.ll_home_valuer})
-    void valuerList() {
-        Intent intent = new Intent(getActivity(), GoodsListActivity.class);
-        intent.putExtra("op", "recommend_list");
-        startActivity(intent);
-    }
-
     public void startRefresh() {
         mRefreshLayout.setProgressViewOffset(false, 0, 100);
         mRefreshLayout.setRefreshing(true);
@@ -120,4 +141,17 @@ public class HomeFragment extends BeamFragment<HomePresenter> {
         mRefreshLayout.setRefreshing(false);
     }
 
+    @Override
+    public void setMenuVisibility(boolean menuVisible) {
+        super.setMenuVisibility(menuVisible);
+        if (getView() != null) {
+            getView().setVisibility(menuVisible ? View.VISIBLE : View.GONE);
+        }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_main, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
 }

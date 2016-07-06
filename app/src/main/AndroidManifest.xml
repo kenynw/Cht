@@ -208,11 +208,25 @@
         </activity>
         <activity android:name=".module.mall.CategoryListActivity">
         </activity>
-        <activity android:name=".module.trace.TraceDetailActivity">
+        <activity
+            android:name=".module.trace.TraceDetailActivity"
+            android:windowSoftInputMode="stateUnspecified|adjustPan">
         </activity>
         <activity android:name=".module.flea.FleaDetailActivity">
         </activity>
-        <activity android:name=".module.user.UserDetailActivity">
+        <activity android:name=".module.user.UserInfoActivity">
+        </activity>
+        <activity android:name=".module.article.ArticleListActivity">
+        </activity>
+        <activity android:name=".module.user.PopularListActivity">
+        </activity>
+        <activity android:name=".module.message.MessageActivity">
+        </activity>
+        <activity android:name=".module.message.MessageListActivity">
+        </activity>
+        <activity android:name=".module.trace.TraceAddActivity">
+        </activity>
+        <activity android:name=".module.user.FindUserListActivity">
         </activity>
     </application>
 

@@ -53,21 +53,6 @@ public class GoodsListActivity extends BaseListActivity<GoodsListPresenter> {
     }
 
     @Override
-    protected int getEmptyRes() {
-        return R.layout.defalut_view_list_empty;
-    }
-
-    @Override
-    protected int getLoadMoreRes() {
-        return R.layout.default_footer_load_more;
-    }
-
-    @Override
-    protected int getNoMoreRes() {
-        return R.layout.default_footer_no_more;
-    }
-
-    @Override
     protected BaseViewHolder createViewHolder(ViewGroup parent, int viewType) {
         return new GoodsCardViewHolder(parent);
     }

@@ -37,7 +37,7 @@ public class BaseListActivityPresenter<V extends BaseListActivity, M> extends Pr
             mAdapter.clear();
             mAdapter.addAll(beanList.getList());
             if (beanList.isHasmore()) mPage = 2;
-            else if (getView().getLoadMoreRes() > 0) mAdapter.stopMore();
+//            else if (getView().getLoadMoreRes() > 0) mAdapter.stopMore();
         }
     };
 
@@ -87,6 +87,11 @@ public class BaseListActivityPresenter<V extends BaseListActivity, M> extends Pr
 
         public DataAdapter(Context context) {
             super(context);
+        }
+
+        @Override
+        public int getViewType(int position) {
+            return getView().getViewType(position);
         }
 
         @Override

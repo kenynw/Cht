@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.damenghai.chahuitong.module.user.FindUserListActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/bg_actionbar"
+        app:navigationIcon="@mipmap/ic_toolbar_back"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        >
+
+        <EditText
+            android:id="@+id/et_user_search"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/widget_small_height"
+            android:layout_gravity="center"
+            android:background="@drawable/btn_rectangle_divider_stroke"
+            android:drawableLeft="@mipmap/ic_search"
+            android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:gravity="left|center_vertical"
+            android:hint="@string/hint_user_search"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:textColorHint="@color/text_black_secondary"
+            android:textSize="@dimen/text_size_body_material"
+            />
+
+    </android.support.v7.widget.Toolbar>
+
+    <com.jude.easyrecyclerview.EasyRecyclerView
+        android:id="@+id/recycle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+</LinearLayout>

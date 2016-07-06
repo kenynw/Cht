@@ -7,6 +7,7 @@ import com.damenghai.chahuitong.expansion.data.BaseDataFragmentPresenter;
 import com.damenghai.chahuitong.model.bean.Discover;
 import com.damenghai.chahuitong.model.service.DefaultTransform;
 import com.damenghai.chahuitong.model.service.ServiceClient;
+import com.damenghai.chahuitong.module.article.ArticleListActivity;
 import com.damenghai.chahuitong.module.flea.FleaListActivity;
 import com.damenghai.chahuitong.module.mall.CategoryListActivity;
 import com.damenghai.chahuitong.module.trace.TraceListActivity;
@@ -30,7 +31,7 @@ public class DiscoverPresenter extends BaseDataFragmentPresenter<DiscoverFragmen
 
     public void showNews() {
         if (checkLogin()) {
-            Intent intent = new Intent(getView().getActivity(), TraceListActivity.class);
+            Intent intent = new Intent(getView().getActivity(), ArticleListActivity.class);
             intent.putExtra("commend", 1);
             getView().startActivity(intent);
         }

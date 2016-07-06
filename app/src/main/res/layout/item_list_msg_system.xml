@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <TextView
+        android:id="@+id/tv_system_title"
+        style="@style/TextBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="关于订单：7000000000034001"
+        />
+
+    <TextView
+        android:id="@+id/tv_system_time"
+        style="@style/TextCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        tools:text="2015-11-05 11:32:25"
+        />
+
+    <TextView
+        android:id="@+id/tv_system_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:background="@color/bg_window"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        tools:text="关于订单：7000000000033701的款项已经收到，请留意出库通知。"
+        style="@style/TextCaption"
+        />
+
+</LinearLayout>

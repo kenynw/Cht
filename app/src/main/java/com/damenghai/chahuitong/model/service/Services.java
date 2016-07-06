@@ -1,15 +1,20 @@
 package com.damenghai.chahuitong.model.service;
 
+import com.damenghai.chahuitong.model.bean.Popular;
+import com.damenghai.chahuitong.model.bean.Trace;
 import com.damenghai.chahuitong.model.bean.Account;
+import com.damenghai.chahuitong.model.bean.Article;
 import com.damenghai.chahuitong.model.bean.Bargain;
 import com.damenghai.chahuitong.model.bean.BeanList;
 import com.damenghai.chahuitong.model.bean.Cart;
 import com.damenghai.chahuitong.model.bean.Category;
-import com.damenghai.chahuitong.model.bean.Comment;
+import com.damenghai.chahuitong.model.bean.GoodsComment;
 import com.damenghai.chahuitong.model.bean.Discover;
 import com.damenghai.chahuitong.model.bean.Goods;
 import com.damenghai.chahuitong.model.bean.GoodsInfo;
 import com.damenghai.chahuitong.model.bean.Home;
+import com.damenghai.chahuitong.model.bean.Message;
+import com.damenghai.chahuitong.model.bean.MessageCount;
 import com.damenghai.chahuitong.model.bean.Order;
 import com.damenghai.chahuitong.model.bean.OrderInfo;
 import com.damenghai.chahuitong.model.bean.Sample;
@@ -103,7 +108,7 @@ public interface Services {
     );
 
     @GET("?act=goods&op=comments_list")
-    Observable<BeanList<Comment>> goodsComments(
+    Observable<BeanList<GoodsComment>> goodsComments(
             @Query("goods_id") String goodsId
     );
 
@@ -119,7 +124,7 @@ public interface Services {
     //--------------------------登录注册--------------------------
     @FormUrlEncoded
     @POST("?act=login")
-    Observable<Response<Account>> login(
+    Observable<User> login(
             @Field("username") String username,
             @Field("password") String password,
             @Field("client") String client
@@ -375,7 +380,6 @@ public interface Services {
     );
 
     //--------------------------我的优惠券--------------------------
-
     /**
      * @param version 版本号
      * @param key 当前登录令牌
@@ -390,9 +394,188 @@ public interface Services {
             @Field("voucher_state") int state
     );
 
-    //--------------------------我的优惠券--------------------------
+    //--------------------------我的消息--------------------------
 
+    @GET("?act=member_message&op=new_count")
+    Observable<MessageCount> newMsgCount(
+            @Query("key") String key
+    );
+
+    /**
+     * @param key 登录令牌
+     * @param type 消息类型 0为私信、1为系统消息、2为留言、3为新的粉丝、4为评论和赞、5为@我
+     * @return 消息列表
+     */
+    @FormUrlEncoded
+    @POST("?act=member_message&op=message_list")
+    Observable<BeanList<Message>> msgList(
+            @Field("key") String key,
+            @Field("type") int type,
+            @Query("curpage") int page
+    );
+
+    /**
+     * 发现首页
+     */
     @GET("?act=discover")
     Observable<Discover> discover();
+
+    /**
+     * 文章列表
+     * @param key 登录令牌
+     * @param curPage 当前页
+     * @return 文章列表
+     */
+    @GET("?act=article&op=article_list")
+    Observable<BeanList<Article>> articleList(
+            @Query("key") String key,
+            @Query("curpage") int curPage
+    );
+
+    //////////////////////////茶友圈/////////////////////////
+
+    /**
+     * 好友动态列表
+     * @param key 登录令牌
+     * @param curPage 当前页数
+     * @return
+     */
+    @GET("?act=member_sns_trace&op=trace_list")
+    Observable<BeanList<Trace>> friendTraceList(
+            @Query("key") String key,
+            @Query("curpage") int curPage
+    );
+
+    /**
+     * 动态详情
+     * @param key 登录令牌
+     * @param traceId 当前页数
+     * @return 动态详情
+     */
+    @GET("?act=member_sns_trace&op=trace_detail")
+    Observable<Trace> traceDetail(
+            @Query("key") String key,
+            @Query("id") int traceId
+    );
+
+    /**
+     * 删除动态
+     * @param key 当前登录令牌
+     * @param traceId 动态id
+     */
+    @GET("?act=member_sns_trace&op=trace_del")
+    Observable<String> traceDel(
+            @Query("key") String key,
+            @Query("id") int traceId
+    );
+
+    /**
+     * 添加动态评论
+     * @param key 当前登录令牌
+     * @param traceId 动态id
+     * @param content 评论内容
+     */
+    @FormUrlEncoded
+    @POST("?act=member_sns_trace&op=comment_add")
+    Observable<String> addTraceComment(
+            @Field("key") String key,
+            @Field("id") int traceId,
+            @Field("content") String content
+    );
+
+    /**
+     * 删除动态评论
+     * @param key 当前登录令牌
+     * @param traceId 动态id
+     */
+    @GET("?act=member_sns_trace&op=comment_del")
+    Observable<String> delTraceComment(
+            @Query("key") String key,
+            @Query("id") int traceId
+    );
+
+    /**
+     * 动态和评论点赞
+     * @param key 当前登录令牌
+     * @param id 动态或评论id
+     * @param type 原帖类型 0表示动态 1表示分享商品 2表示评论 默认为0
+     */
+    @GET("?act=member_sns_trace&op=like_add")
+    Observable<String> addLike(
+            @Query("key") String key,
+            @Query("id") int id,
+            @Query("type") int type
+    );
+
+    /**
+     * 用户主页
+     * @param key 当前登录令牌
+     * @param mid 主页用户ID
+     * @param relation 登录用户和主人关系 0表示未登录 1表示未关注 2表示互相关注 3表示自己 4表示已关注
+     * @return
+     */
+    @GET("?act=member_sns_home")
+    Observable<BeanList<Trace>> userHome(
+            @Query("key") String key,
+            @Query("mid") int mid,
+            @Query("relation") int relation
+    );
+
+    /**
+     * 全部动态列表
+     * @param key
+     * @param curPage
+     * @return
+     */
+    @GET("?act=member_sns_home&op=trace_list")
+    Observable<BeanList<Trace>> traceList(
+            @Query("key") String key,
+            @Query("curpage") int curPage
+    );
+
+    /**
+     * @param key 登录令牌
+     * @return 社区达人列表
+     */
+    @GET("?act=member_sns_friend&op=popular_list")
+    Observable<BeanList<Popular>> popularList(
+            @Query("key") String key,
+            @Query("curpage") int page
+    );
+
+    /**
+     * @param key 登录令牌
+     * @return 社区达人列表
+     */
+    @GET("?act=member_sns_friend&op=find_list")
+    Observable<BeanList<User>> findList(
+            @Query("key") String key,
+            @Query("name") String name,
+            @Query("curpage") int page
+    );
+
+    /**
+     * 添加关注
+     * @param key 登录令牌
+     * @param uid 用户ID
+     * @return 成功ID
+     */
+    @GET("?act=member_sns_friend&op=add_follow")
+    Observable<Integer> addFollow(
+            @Query("key") String key,
+            @Query("mid") int uid
+    );
+
+    /**
+     * 添加关注
+     * @param key 登录令牌
+     * @param uid 用户ID
+     * @return 成功ID
+     */
+    @GET("?act=member_sns_friend&op=del_follow")
+    Observable<Integer> delFollow(
+            @Query("key") String key,
+            @Query("mid") int uid
+    );
 
 }

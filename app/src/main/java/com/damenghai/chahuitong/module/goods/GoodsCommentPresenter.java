@@ -1,14 +1,14 @@
 package com.damenghai.chahuitong.module.goods;
 
 import com.damenghai.chahuitong.expansion.list.BaseListFragmentPresenter;
-import com.damenghai.chahuitong.model.bean.Comment;
+import com.damenghai.chahuitong.model.bean.GoodsComment;
 import com.damenghai.chahuitong.model.service.ServiceClient;
 import com.damenghai.chahuitong.model.service.DefaultTransform;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class GoodsCommentPresenter extends BaseListFragmentPresenter<GoodsCommentFragment, Comment> {
+public class GoodsCommentPresenter extends BaseListFragmentPresenter<GoodsCommentFragment, GoodsComment> {
 
     private String mGoodsId;
 

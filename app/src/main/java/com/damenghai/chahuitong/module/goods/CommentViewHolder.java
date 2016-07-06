@@ -1,13 +1,11 @@
 package com.damenghai.chahuitong.module.goods;
 
 import android.net.Uri;
-import android.support.annotation.LayoutRes;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.model.bean.Comment;
+import com.damenghai.chahuitong.model.bean.GoodsComment;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 
@@ -17,7 +15,7 @@ import butterknife.ButterKnife;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class CommentViewHolder extends BaseViewHolder<Comment> {
+public class CommentViewHolder extends BaseViewHolder<GoodsComment> {
 
     @Bind(R.id.dv_comment_avatar)
     SimpleDraweeView mDvAvatar;
@@ -37,7 +35,7 @@ public class CommentViewHolder extends BaseViewHolder<Comment> {
     }
 
     @Override
-    public void setData(Comment comment) {
+    public void setData(GoodsComment comment) {
         mDvAvatar.setImageURI(Uri.parse(comment.getGeval_frommemberavatar()));
         mTvName.setText(comment.getGeval_frommembername());
         mTvTime.setText(comment.getAdd_time_text());

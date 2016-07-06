@@ -6,7 +6,7 @@ import android.os.Parcelable;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class Comment implements Parcelable {
+public class GoodsComment implements Parcelable {
 
     private String geval_id;
 
@@ -231,7 +231,7 @@ public class Comment implements Parcelable {
     public final static Creator CREATOR = new Creator() {
         @Override
         public Object createFromParcel(Parcel source) {
-            Comment comment = new Comment();
+            GoodsComment comment = new GoodsComment();
             comment.geval_id = source.readString();
             comment.geval_orderid = source.readString();
             comment.geval_orderno = source.readString();

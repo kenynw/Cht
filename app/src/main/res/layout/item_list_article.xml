@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="144dp"
+    android:orientation="horizontal"
+    android:background="@color/white"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:gravity="center_vertical"
+        >
+
+        <LinearLayout
+            android:id="@+id/layout_article_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/dv_article_avatar"
+                android:layout_width="@dimen/widget_small_height"
+                android:layout_height="@dimen/widget_small_height"
+                app:actualImageScaleType="centerCrop"
+                app:roundAsCircle="true"
+                />
+
+            <TextView
+                android:id="@+id/tv_article_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:ems="8"
+                android:gravity="center_vertical"
+                android:textColor="@color/text_black_primary"
+                android:textSize="@dimen/text_size_caption_material"
+                tools:text="用户名"
+                android:paddingBottom="2dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_article_time"
+                style="@style/TextCaption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                tools:text="4小时前"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_article_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TextBody"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            tools:text="这里是标题标题标题题这里是标题标题标题这里是标题标题标题"
+            />
+
+        <TextView
+            android:id="@+id/tv_article_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="4阅读 · 123评论"
+            style="@style/TextCaption"
+            android:text="@string/btn_view_more"
+            />
+
+    </LinearLayout>
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/dv_article_image"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_gravity="center_vertical"
+        />
+
+</LinearLayout>

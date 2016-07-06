@@ -46,4 +46,11 @@ public class PersonalFragment extends BaseFragment {
         openActivity(RegisterActivity.class);
     }
 
+    @Override
+    public void setMenuVisibility(boolean menuVisible) {
+        super.setMenuVisibility(menuVisible);
+        if (getView() != null) {
+            getView().setVisibility(menuVisible ? View.VISIBLE : View.GONE);
+        }
+    }
 }

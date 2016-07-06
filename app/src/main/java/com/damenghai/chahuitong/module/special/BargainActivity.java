@@ -31,19 +31,4 @@ public class BargainActivity extends BaseListActivity<BargainPresenter> {
         return new GoodsBargainViewHolder(parent);
     }
 
-    @Override
-    public int getNoMoreRes() {
-        return R.layout.default_footer_no_more;
-    }
-
-    @Override
-    public int getLoadMoreRes() {
-        return R.layout.default_footer_load_more;
-    }
-
-    @Override
-    public int getEmptyRes() {
-        return R.layout.empty_favorites_list;
-    }
-
 }

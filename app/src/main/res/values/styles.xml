@@ -68,4 +68,13 @@
         <item name="android:textSize">@dimen/text_size_subhead_material</item>
     </style>
 
+    <style name="MediumAvatar">
+        <item name="android:layout_width">@dimen/widget_medium_height</item>
+        <item name="android:layout_height">@dimen/widget_medium_height</item>
+        <item name="com.damenghai.chahuitong:roundAsCircle">true</item>
+        <item name="com.damenghai.chahuitong:actualImageScaleType">centerCrop</item>
+        <item name="com.damenghai.chahuitong:placeholderImageScaleType">centerCrop</item>
+        <item name="com.damenghai.chahuitong:placeholderImage">@mipmap/def_image_loading</item>
+    </style>
+    
 </resources>

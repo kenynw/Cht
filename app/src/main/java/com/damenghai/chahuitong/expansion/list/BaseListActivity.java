@@ -3,6 +3,7 @@ package com.damenghai.chahuitong.expansion.list;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.damenghai.chahuitong.R;
@@ -14,11 +15,15 @@ import com.jude.easyrecyclerview.adapter.BaseViewHolder;
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
 public abstract class BaseListActivity<P extends BaseListActivityPresenter> extends BeamBaseActivity<P> {
+
     private EasyRecyclerView mListView;
+
+    private ListConfig mListConfig;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mListConfig = getListConfig();
         setContentView();
         initRecycle();
         initAdapter();
@@ -38,19 +43,56 @@ public abstract class BaseListActivity<P extends BaseListActivityPresenter> exte
     private void initRecycle() {
         if (mListView == null) mListView = (EasyRecyclerView) findViewById(R.id.recycle);
         if (mListView == null) throw new RuntimeException("No found RecycleView with id 'recycle'");
+
         mListView.setLayoutManager(new LinearLayoutManager(this));
-        mListView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
-        mListView.setRefreshListener(getPresenter());
-        if (getProgressRes() != 0) mListView.setProgressView(getProgressRes());
-        if (getErrorRes() != 0) mListView.setErrorView(getErrorRes());
-        if (getEmptyRes() != 0) mListView.setEmptyView(getEmptyRes());
+
+        if (mListConfig.mRefreshAble) mListView.setRefreshListener(getPresenter());
+        if (mListConfig.mHasItemDecoration) {
+            if (mListConfig.mItemDecoration != null) {
+                mListView.addItemDecoration(mListConfig.mItemDecoration, mListConfig.mDecorationOrientation);
+            } else {
+                mListView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
+            }
+        }
+        if (mListConfig.mContainerProgressAble) {
+            if (mListConfig.mContainerProgressView != null) mListView.setProgressView(mListConfig.mContainerProgressView);
+            else if (mListConfig.mContainerProgressRes != 0) mListView.setProgressView(mListConfig.mContainerProgressRes);
+        }
+        if (mListConfig.mContainerErrorAble) {
+            if (mListConfig.mContainerErrorView != null) mListView.setProgressView(mListConfig.mContainerErrorView);
+            else if (mListConfig.mContainerErrorRes != 0) mListView.setProgressView(mListConfig.mContainerErrorRes);
+        }
+        if (mListConfig.mContainerEmptyAble) {
+            if (mListConfig.mContainerEmptyView != null) mListView.setProgressView(mListConfig.mContainerEmptyView);
+            else if (mListConfig.mContainerEmptyRes != 0) mListView.setProgressView(mListConfig.mContainerEmptyRes);
+        }
     }
 
     private void initAdapter() {
         BaseListActivityPresenter.DataAdapter adapter = getPresenter().getAdapter();
         mListView.setAdapterWithProgress(adapter);
-        if (getLoadMoreRes() != 0) adapter.setMore(getLoadMoreRes(), getPresenter());
-        if (getNoMoreRes() != 0) adapter.setNoMore(getNoMoreRes());
+
+        if (mListConfig.mFooterErrorAble) {
+            View errorView = null;
+            if (mListConfig.mFooterErrorView != null) errorView = adapter.setError(mListConfig.mFooterErrorView);
+            else if (mListConfig.mFooterErrorRes > 0) errorView = adapter.setError(mListConfig.mFooterErrorRes);
+            if (mListConfig.mErrorTouchToResumeAble && errorView != null) {
+                errorView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        adapter.resumeMore();
+                    }
+                });
+            }
+        }
+        if (mListConfig.mLoadMoreAble) {
+            if (mListConfig.mFooterMoreView != null) adapter.setMore(mListConfig.mFooterMoreView, getPresenter());
+            else if (mListConfig.mFooterMoreRes > 0) adapter.setMore(mListConfig.mFooterMoreRes, getPresenter());
+        }
+        if (mListConfig.mNoMoreAble) {
+            if (mListConfig.mFooterNoMoreView != null) adapter.setNoMore(mListConfig.mFooterNoMoreView);
+            else if (mListConfig.mFooterNoMoreRes > 0) adapter.setNoMore(mListConfig.mFooterNoMoreRes);
+        }
     }
 
     public void stopRefresh() {
@@ -65,28 +107,16 @@ public abstract class BaseListActivity<P extends BaseListActivityPresenter> exte
         return 0;
     }
 
-    protected int getProgressRes() {
-        return 0;
-    }
-
-    protected int getErrorRes() {
-        return 0;
-    }
-
-    protected int getEmptyRes() {
-        return 0;
-    }
-
-    protected int getLoadMoreRes() {
-        return 0;
-    }
-
-    protected int getNoMoreRes() {
-        return 0;
+    public ListConfig getListConfig() {
+        return ListConfig.DEFAULT.clone();
     }
 
     public EasyRecyclerView getListView() {
         return mListView;
+    }
+
+    public int getViewType(int position){
+        return 0;
     }
 
     protected abstract BaseViewHolder createViewHolder(ViewGroup parent, int viewType);

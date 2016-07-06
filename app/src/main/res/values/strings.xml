@@ -13,6 +13,7 @@
     <string name="title_activity_order_detail">订单详情</string>
     <string name="title_activity_voucher">我的优惠券</string>
     <string name="title_activity_favorites">我的收藏夹</string>
+    <string name="title_activity_message">我的消息</string>
     <string name="title_activity_settings">设置</string>
     <string name="title_activity_about">关于茶汇通</string>
     <string name="title_activity_profile">我的资料</string>
@@ -22,8 +23,10 @@
     <string name="title_activity_pay_order">订单支付</string>
     <string name="title_activity_feedback">意见反馈</string>
     <string name="title_activity_goods">商品详情</string>
+    <string name="title_activity_article">茶资讯</string>
     <string name="title_my_order">我的订单</string>
     <string name="title_discover">发现</string>
+    <string name="title_trace_detail">动态详情</string>
 
     <!--页面副标题，命名格式为：subhead_页面-->
     <string name="subhead_home_recommend">试茶师推荐 </string>
@@ -35,7 +38,8 @@
     <string name="btn_cancel">取 消</string>
     <string name="btn_home_apply">点击领取</string>
     <string name="btn_home_buy">点击抢购</string>
-    <string name="btn_apply">申    领</string>
+    <string name="btn_apply">申&#160;&#160;领</string>
+    <string name="btn_publish">发&#160;&#160;布</string>
     <string name="btn_read_comment">看评价</string>
     <string name="btn_to_buy">去购买</string>
     <string name="btn_login_register">注册帐号</string>
@@ -96,6 +100,15 @@
     <string name="btn_view_trace_commend">查看全部精选动态</string>
     <string name="btn_view_more">查看更多</string>
     <string name="btn_view_all_class">查看所有品类</string>
+    <string name="btn_trace_comment">评价%s</string>
+    <string name="btn_trace_like">赞%s</string>
+    <string name="btn_add_follow">+关注</string>
+    <string name="btn_relation_friend">互相关注</string>
+    <string name="btn_followed">已关注</string>
+    <string name="btn_message_fans">新的粉丝</string>
+    <string name="btn_message_comment">评论和赞</string>
+    <string name="btn_message_at">\@我</string>
+    <string name="btn_message_system">系统通知</string>
 
     <!--文本文字，命名格式为：text_按钮事件-->
     <string name="text_copyright">©茶信科技</string>
@@ -149,6 +162,7 @@
     <string name="text_flea_commend">茶市精选</string>
     <string name="text_staple_class">热门茶类</string>
     <string name="text_user_commend">推荐用户</string>
+    <string name="text_article_heat">%1$s阅读 · %2$s评论</string>
 
     <!--标签文字，命名格式为：label_标签文字-->
     <string name="label_home_free">免费茶样领取</string>
@@ -201,6 +215,7 @@
     <string name="label_password_confirm">重复输入：</string>
     <string name="label_load_more">正在加载下一页</string>
     <string name="label_no_more">已经到最后一页</string>
+    <string name="label_comment">评论</string>
 
     <!--选项卡文字，命名格式为：tab_选项卡文字-->
     <string name="tab_home_mall">商城</string>
@@ -258,6 +273,8 @@
     <string name="hint_detail_address">请输入详细地址</string>
     <string name="hint_true_name">不少于2个字符</string>
     <string name="hint_search">搜索商品名称、店铺等</string>
+    <string name="hint_new_content">说点什么吧&#8230;</string>
+    <string name="hint_user_search">搜索好友、达人</string>
 
     <!--图片的描述文字，命名格式为：desc_图片文字-->
     <string name="desc_cart_empty">购物车暂无商品</string>
@@ -278,6 +295,7 @@
     <string name="action_done">完成</string>
     <string name="action_delete">删除</string>
     <string name="action_settings">设置</string>
+    <string name="action_search">搜索</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

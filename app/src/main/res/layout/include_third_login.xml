@@ -41,38 +41,38 @@
         android:layout_margin="@dimen/text_margin"
         >
 
-        <TextView
+        <Button
             android:id="@+id/tv_login_qq"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:drawableTop="@mipmap/ic_login_qq"
             android:text="@string/btn_login_qq"
-            style="@style/TextBody"
+            style="@style/ButtonBorderless"
             android:drawablePadding="8dp"
             android:gravity="center_horizontal"
             />
 
-        <TextView
+        <Button
             android:id="@+id/tv_login_weibo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:drawableTop="@mipmap/ic_login_weibo"
             android:text="@string/btn_login_weibo"
-            style="@style/TextBody"
+            style="@style/ButtonBorderless"
             android:drawablePadding="8dp"
             android:gravity="center_horizontal"
             />
 
-        <TextView
+        <Button
             android:id="@+id/tv_login_weixin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:drawableTop="@mipmap/ic_login_weixin"
             android:text="@string/btn_login_wechat"
-            style="@style/TextBody"
+            style="@style/ButtonBorderless"
             android:drawablePadding="8dp"
             android:gravity="center_horizontal"
             />

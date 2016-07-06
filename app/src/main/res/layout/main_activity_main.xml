@@ -9,36 +9,8 @@
     tools:context=".module.main.MainActivity"
     >
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/main_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/bg_actionbar"
-        app:navigationIcon="@mipmap/ic_home_personal_navigation"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        >
-
-        <Button
-            android:id="@+id/btn_toolbar_search"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/widget_small_height"
-            android:layout_gravity="center"
-            android:background="@drawable/btn_rectangle_divider_stroke"
-            android:drawableLeft="@mipmap/ic_search"
-            android:drawablePadding="@dimen/activity_horizontal_margin"
-            android:gravity="left|center_vertical"
-            android:hint="@string/hint_search"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:singleLine="true"
-            android:textColorHint="@color/text_black_secondary"
-            android:textSize="@dimen/text_size_body_material"
-            />
-
-    </android.support.v7.widget.Toolbar>
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/main_viewpager"
+    <FrameLayout
+        android:id="@+id/main_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -58,9 +30,10 @@
         app:tabIndicatorColor="@color/colorPrimaryDark"
         app:tabIndicatorHeight="0dp"
         app:tabMode="fixed"
+        app:tabPaddingBottom="2dp"
         app:tabPaddingTop="6dp"
         app:tabSelectedTextColor="@color/colorPrimary"
-        app:tabTextAppearance="@style/TextBody"
+        app:tabTextAppearance="@style/TextCaption"
         app:tabTextColor="@color/text_black_disable"
         />
 

@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.adapter.FleaGalleyAdapter;
-import com.damenghai.chahuitong.adapter.TraceGridAdapter;
+import com.damenghai.chahuitong.adapter.TraceImageAdapter;
 import com.damenghai.chahuitong.adapter.UserGridAdapter;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.expansion.data.BaseDataFragment;
@@ -93,9 +93,16 @@ public class DiscoverFragment extends BaseDataFragment<DiscoverPresenter, Discov
 
     @Override
     public void setData(Discover discover) {
-        mRcvTrace.setAdapter(new TraceGridAdapter(getActivity(), discover.getTrace_list()));
+        mRcvTrace.setAdapter(new TraceImageAdapter(getActivity(), discover.getTrace_list()));
         mRcvFlea.setAdapter(new FleaGalleyAdapter(getActivity(), discover.getFlea_list()));
         mRcvUser.setAdapter(new UserGridAdapter(getActivity(), discover.getMember_list()));
     }
 
+    @Override
+    public void setMenuVisibility(boolean menuVisible) {
+        super.setMenuVisibility(menuVisible);
+        if (getView() != null) {
+            getView().setVisibility(menuVisible ? View.VISIBLE : View.GONE);
+        }
+    }
 }

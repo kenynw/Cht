@@ -140,6 +140,12 @@ public class ListConfig implements Cloneable {
         this.mContainerErrorRes = mContainerErrorRes;
         return this;
     }
+
+    public ListConfig setContainerEmptyAble(boolean containerEmptyAble) {
+        mContainerEmptyAble = containerEmptyAble;
+        return this;
+    }
+
     public ListConfig setContainerProgressAble(boolean mContainerProgressAble) {
         this.mContainerProgressAble = mContainerProgressAble;
         return this;

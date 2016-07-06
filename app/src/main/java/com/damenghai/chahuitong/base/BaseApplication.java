@@ -1,11 +1,9 @@
 package com.damenghai.chahuitong.base;
 
 import android.app.Application;
-import android.content.Context;
 
 import com.damenghai.chahuitong.config.Config;
 import com.damenghai.chahuitong.utils.ImageOptHelper;
-import com.damenghai.chahuitong.utils.L;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;

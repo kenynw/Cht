@@ -76,21 +76,6 @@ public class FavoritesActivity extends BaseListActivity<FavoritesPresenter> {
     }
 
     @Override
-    protected int getEmptyRes() {
-        return R.layout.empty_favorites_list;
-    }
-
-    @Override
-    protected int getLoadMoreRes() {
-        return R.layout.default_footer_load_more;
-    }
-
-    @Override
-    protected int getNoMoreRes() {
-        return R.layout.default_footer_no_more;
-    }
-
-    @Override
     protected void onDestroy() {
         super.onDestroy();
         GoodsEditableViewHolder.mEditable = false;

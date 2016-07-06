@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/dv_msg_avatar"
+            android:layout_width="@dimen/widget_small_height"
+            android:layout_height="@dimen/widget_small_height"
+            app:actualImageScaleType="centerCrop"
+            app:placeholderImage="@mipmap/def_avatar_placeholder"
+            app:placeholderImageScaleType="centerCrop"
+            app:roundAsCircle="true"
+            />
+
+        <TextView
+            android:id="@+id/tv_msg_username"
+            style="@style/TextBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            tools:text="茶汇通"
+            />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tv_msg_time"
+            style="@style/TextCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="2小时前"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_msg_content"
+        style="@style/TextBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        tools:text="赞了你"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/div_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/dv_msg_trace_image"
+            android:layout_width="@dimen/widget_medium_height"
+            android:layout_height="@dimen/widget_medium_height"
+            app:actualImageScaleType="centerCrop"
+            app:placeholderImage="@mipmap/def_image_loading"
+            app:placeholderImageScaleType="centerCrop"
+            />
+
+        <TextView
+            android:id="@+id/tv_msg_trace_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textSize="@dimen/text_size_body_material"
+            android:textColor="@color/text_black_secondary"
+            tools:text="茶人只谈茶 爱喝茶，爱藏茶，更爱博大精深的茶文化 ..."
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

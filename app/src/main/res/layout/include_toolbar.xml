@@ -9,16 +9,18 @@
     app:navigationIcon="@mipmap/ic_toolbar_back"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
     app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+    xmlns:tools="http://schemas.android.com/tools"
     >
 
     <TextView
         android:id="@+id/toolbar_title"
-        style="@style/TextTitle"
+        android:textSize="@dimen/text_size_subhead_material"
+        android:textColor="@color/text_black_primary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:singleLine="true"
-        android:paddingRight="@dimen/activity_horizontal_margin"
+        tools:text="标题"
         />
 
 </android.support.v7.widget.Toolbar>
