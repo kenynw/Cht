@@ -135,6 +135,11 @@
         <activity
             android:name=".module.personal.FeedbackActivity"
             android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.damenghai.chahuitong.Feedback" />
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
         </activity>
         <activity
             android:name=".module.user.RegisterActivity"
@@ -153,12 +158,12 @@
             android:name=".module.common.WebViewActivity"
             android:screenOrientation="portrait">
         </activity>
-        <activity
-            android:name=".module.personal.PersonalActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.ItemLineDecoration">
-        </activity>
         <activity android:name=".module.address.AddressListActivity">
+            <intent-filter>
+                <action android:name="com.damenghai.chahuitong.Address" />
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
         </activity>
         <activity android:name=".module.address.AreaActivity">
         </activity>
@@ -171,6 +176,11 @@
         <activity android:name=".module.mall.CartActivity">
         </activity>
         <activity android:name=".module.personal.VoucherActivity">
+            <intent-filter>
+                <action android:name="com.damenghai.chahuitong.Voucher" />
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
         </activity>
         <activity
             android:name=".module.goods.GoodsDetailActivity"
@@ -179,10 +189,20 @@
         <activity
             android:name=".module.personal.FavoritesActivity"
             android:theme="@style/AppTheme.ItemLineDecoration">
+            <intent-filter>
+                <action android:name="com.damenghai.chahuitong.Favorites" />
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
         </activity>
         <activity android:name=".module.settings.SettingsActivity">
         </activity>
         <activity android:name=".module.settings.ProfileActivity">
+            <intent-filter>
+                <action android:name="com.damenghai.chahuitong.Profile" />
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
         </activity>
         <activity android:name=".module.settings.ShareActivity">
         </activity>
@@ -205,6 +225,11 @@
         <activity android:name=".module.trace.TraceListActivity">
         </activity>
         <activity android:name=".module.flea.FleaListActivity">
+            <intent-filter>
+                <action android:name="com.damenghai.chahuitong.Flea" />
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
         </activity>
         <activity android:name=".module.mall.CategoryListActivity">
         </activity>

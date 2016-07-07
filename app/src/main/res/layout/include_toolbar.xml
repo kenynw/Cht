@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.Toolbar
-    android:id="@+id/toolbar"
+    style="@style/TitleToolbar"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
-    android:background="@color/bg_actionbar"
-    app:navigationIcon="@mipmap/ic_toolbar_back"
-    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-    app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
     xmlns:tools="http://schemas.android.com/tools"
+    app:navigationIcon="@mipmap/ic_toolbar_back"
     >
 
     <TextView
         android:id="@+id/toolbar_title"
-        android:textSize="@dimen/text_size_subhead_material"
-        android:textColor="@color/text_black_primary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:singleLine="true"
+        android:textColor="@color/text_black_primary"
+        android:textSize="@dimen/text_size_subhead_material"
         tools:text="标题"
         />
 

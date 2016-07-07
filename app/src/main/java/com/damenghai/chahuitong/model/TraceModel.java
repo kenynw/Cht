@@ -28,10 +28,10 @@ public class TraceModel {
                 .compose(new DefaultTransform<>());
     }
 
-    public Observable<BeanList<Trace>> getTraceCommendList() {
-        return ServiceClient.getServices().traceList(LUtils.getPreferences().getString("key", ""), 1)
-                .compose(new DefaultTransform<>());
-    }
+//    public Observable<BeanList<Trace>> getTraceCommendList() {
+////        return ServiceClient.getServices().(LUtils.getPreferences().getString("key", ""), 1)
+////                .compose(new DefaultTransform<>());
+//    }
 
     public Observable<Trace> getTraceDetail(int traceId) {
         return ServiceClient.getServices().traceDetail(LUtils.getPreferences().getString("key", ""), traceId)
@@ -63,8 +63,8 @@ public class TraceModel {
                 .compose(new DefaultTransform<>());
     }
 
-    public Observable<BeanList<Trace>> getTraceList(int curPage) {
-        return ServiceClient.getServices().traceList(LUtils.getPreferences().getString("key", ""), curPage)
+    public Observable<BeanList<Trace>> getTraceList(int mid, int curPage) {
+        return ServiceClient.getServices().traceList(mid, curPage)
                 .compose(new DefaultTransform<>());
     }
 

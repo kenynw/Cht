@@ -1,5 +1,6 @@
 package com.damenghai.chahuitong.module.user;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -55,6 +56,7 @@ public class LoginPresenter extends Presenter<LoginActivity> implements UMAuthLi
                         editor.putString("key", user.getKey());
                         editor.putString("avatar", user.getMember_avatar());
                         editor.apply();
+                        getView().setResult(Activity.RESULT_OK);
                         getView().finish();
                     }
                 });

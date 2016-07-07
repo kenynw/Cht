@@ -48,7 +48,15 @@ public class BeamBaseActivity<P extends Presenter> extends BeamAppCompatActivity
             return;
         }
         TextView tvTitle = (TextView) findViewById(R.id.toolbar_title);
-        tvTitle.setText(title);
+        if (tvTitle != null) tvTitle.setText(title);
+    }
+
+    public void setToolbarTitle(String title) {
+        if (mToolbar == null) {
+            return;
+        }
+        TextView tvTitle = (TextView) findViewById(R.id.toolbar_title);
+        if (tvTitle != null) tvTitle.setText(title);
     }
 
     public FrameLayout getContent() {

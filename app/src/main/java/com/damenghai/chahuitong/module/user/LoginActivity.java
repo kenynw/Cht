@@ -54,7 +54,7 @@ public class LoginActivity extends BeamBaseActivity<LoginPresenter> {
         setToolbarTitle(R.string.title_activity_login);
         ButterKnife.bind(this);
 
-        mEtUsername.setText(LUtils.getPreferences().getString("key", ""));
+        mEtUsername.setText(LUtils.getPreferences().getString("username", ""));
         mBtnLogin.setOnClickListener(v -> getPresenter().login());
         mBtnRegister.setOnClickListener(v -> startActivity(new Intent(this, RegisterActivity.class)));
         mBtnForgot.setOnClickListener(v -> startActivity(new Intent(this, ForgotActivity.class)));

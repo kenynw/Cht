@@ -2,9 +2,9 @@ package com.damenghai.chahuitong.expansion.list;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.bijection.BeamBaseActivity;
@@ -25,6 +25,7 @@ public abstract class BaseListActivity<P extends BaseListActivityPresenter> exte
         super.onCreate(savedInstanceState);
         mListConfig = getListConfig();
         setContentView();
+        findRecycleView();
         initRecycle();
         initAdapter();
     }
@@ -32,21 +33,38 @@ public abstract class BaseListActivity<P extends BaseListActivityPresenter> exte
     private void setContentView() {
         if (getLayout() != 0) {
             setContentView(getLayout());
+        } else if (mListConfig.mContainerProgressRes > 0) {
+            setContentView(mListConfig.mContainerLayoutRes);
+        } else if (mListConfig.mContainerLayoutView != null) {
+            setContentView(mListConfig.mContainerLayoutView);
         } else {
             mListView = new EasyRecyclerView(this);
             mListView.setId(R.id.recycle);
-            mListView.setLayoutParams(new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, RecyclerView.LayoutParams.MATCH_PARENT));
+            mListView.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
             setContentView(mListView);
         }
     }
 
-    private void initRecycle() {
+    private void findRecycleView() {
         if (mListView == null) mListView = (EasyRecyclerView) findViewById(R.id.recycle);
         if (mListView == null) throw new RuntimeException("No found RecycleView with id 'recycle'");
-
         mListView.setLayoutManager(new LinearLayoutManager(this));
+    }
 
+    private void initRecycle() {
         if (mListConfig.mRefreshAble) mListView.setRefreshListener(getPresenter());
+        if (mListConfig.mContainerProgressAble) {
+            if (mListConfig.mContainerProgressView != null) mListView.setProgressView(mListConfig.mContainerProgressView);
+            else if (mListConfig.mContainerProgressRes > 0) mListView.setProgressView(mListConfig.mContainerProgressRes);
+        }
+        if (mListConfig.mContainerErrorAble) {
+            if (mListConfig.mContainerErrorView != null) mListView.setErrorView(mListConfig.mContainerErrorView);
+            else if (mListConfig.mContainerErrorRes > 0) mListView.setErrorView(mListConfig.mContainerErrorRes);
+        }
+        if (mListConfig.mContainerEmptyAble) {
+            if (mListConfig.mContainerEmptyView != null) mListView.setEmptyView(mListConfig.mContainerEmptyView);
+            else if (mListConfig.mContainerEmptyRes > 0) mListView.setEmptyView(mListConfig.mContainerEmptyRes);
+        }
         if (mListConfig.mHasItemDecoration) {
             if (mListConfig.mItemDecoration != null) {
                 mListView.addItemDecoration(mListConfig.mItemDecoration, mListConfig.mDecorationOrientation);
@@ -54,24 +72,11 @@ public abstract class BaseListActivity<P extends BaseListActivityPresenter> exte
                 mListView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
             }
         }
-        if (mListConfig.mContainerProgressAble) {
-            if (mListConfig.mContainerProgressView != null) mListView.setProgressView(mListConfig.mContainerProgressView);
-            else if (mListConfig.mContainerProgressRes != 0) mListView.setProgressView(mListConfig.mContainerProgressRes);
-        }
-        if (mListConfig.mContainerErrorAble) {
-            if (mListConfig.mContainerErrorView != null) mListView.setProgressView(mListConfig.mContainerErrorView);
-            else if (mListConfig.mContainerErrorRes != 0) mListView.setProgressView(mListConfig.mContainerErrorRes);
-        }
-        if (mListConfig.mContainerEmptyAble) {
-            if (mListConfig.mContainerEmptyView != null) mListView.setProgressView(mListConfig.mContainerEmptyView);
-            else if (mListConfig.mContainerEmptyRes != 0) mListView.setProgressView(mListConfig.mContainerEmptyRes);
-        }
     }
 
     private void initAdapter() {
-        BaseListActivityPresenter.DataAdapter adapter = getPresenter().getAdapter();
+        BaseListActivityPresenter.DataAdapter adapter = getPresenter().createAdapter();
         mListView.setAdapterWithProgress(adapter);
-
         if (mListConfig.mFooterErrorAble) {
             View errorView = null;
             if (mListConfig.mFooterErrorView != null) errorView = adapter.setError(mListConfig.mFooterErrorView);

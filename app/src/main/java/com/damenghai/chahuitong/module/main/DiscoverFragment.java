@@ -30,6 +30,9 @@ import butterknife.ButterKnife;
 @RequiresPresenter(DiscoverPresenter.class)
 public class DiscoverFragment extends BaseDataFragment<DiscoverPresenter, Discover> {
 
+    @Bind(R.id.toolbar_title)
+    TextView mTvTitle;
+
     @Bind(R.id.pager_discover_ad)
     ViewPager mPagerAd;
 
@@ -75,6 +78,7 @@ public class DiscoverFragment extends BaseDataFragment<DiscoverPresenter, Discov
         View view = inflater.inflate(R.layout.main_fragment_discover, container, false);
         ButterKnife.bind(this, view);
 
+        mTvTitle.setText(R.string.title_discover);
         mLlNews.setOnClickListener(v -> getPresenter().showNews());
         mLlHill.setOnClickListener(v -> getPresenter().showHill());
         mTvTrace.setOnClickListener(v -> getPresenter().showTraceCommend());

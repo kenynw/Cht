@@ -12,6 +12,7 @@ import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.adapter.viewholder.GoodsEditableViewHolder;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.expansion.list.BaseListActivity;
+import com.damenghai.chahuitong.expansion.list.ListConfig;
 import com.damenghai.chahuitong.module.goods.GoodsListActivity;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 
@@ -73,6 +74,11 @@ public class FavoritesActivity extends BaseListActivity<FavoritesPresenter> {
     @Override
     protected int getLayout() {
         return R.layout.user_activity_favorites;
+    }
+
+    @Override
+    public ListConfig getListConfig() {
+        return super.getListConfig().setContainerEmptyRes(R.layout.empty_favorites_list);
     }
 
     @Override

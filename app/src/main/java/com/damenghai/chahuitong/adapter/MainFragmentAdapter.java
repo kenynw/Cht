@@ -8,7 +8,7 @@ import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.module.main.DiscoverFragment;
 import com.damenghai.chahuitong.module.main.MainHomeFragment;
 import com.damenghai.chahuitong.module.main.MainTraceFragment;
-import com.damenghai.chahuitong.module.main.PersonalFragment;
+import com.damenghai.chahuitong.module.main.MainPersonalFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +34,7 @@ public class MainFragmentAdapter extends FragmentPagerAdapter {
         mFragments.add(new MainHomeFragment());
         mFragments.add(new MainTraceFragment());
         mFragments.add(new DiscoverFragment());
-        mFragments.add(new PersonalFragment());
+        mFragments.add(new MainPersonalFragment());
     }
 
     @Override

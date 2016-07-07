@@ -511,25 +511,23 @@ public interface Services {
      * 用户主页
      * @param key 当前登录令牌
      * @param mid 主页用户ID
-     * @param relation 登录用户和主人关系 0表示未登录 1表示未关注 2表示互相关注 3表示自己 4表示已关注
      * @return
      */
     @GET("?act=member_sns_home")
-    Observable<BeanList<Trace>> userHome(
+    Observable<User> userHome(
             @Query("key") String key,
-            @Query("mid") int mid,
-            @Query("relation") int relation
+            @Query("mid") int mid
     );
 
     /**
      * 全部动态列表
-     * @param key
+     * @param mid
      * @param curPage
      * @return
      */
     @GET("?act=member_sns_home&op=trace_list")
     Observable<BeanList<Trace>> traceList(
-            @Query("key") String key,
+            @Query("mid") int mid,
             @Query("curpage") int curPage
     );
 

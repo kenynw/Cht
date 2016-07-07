@@ -36,11 +36,24 @@
     <style name="TextSubhead" parent="TextAppearance.AppCompat.Subhead" /><!-- 副标题文本 -->
     <style name="TextBody" parent="TextAppearance.AppCompat.Body1" /><!--主体文本-->
     <style name="TextCaption" parent="TextAppearance.AppCompat.Caption" /><!--说明文本-->
-
     <style name="ButtonNormal" parent="Widget.AppCompat.Button" />
     <style name="ButtonBorderless" parent="Widget.AppCompat.Button.Borderless" />
     <style name="ButtonBorderlessColored" parent="Widget.AppCompat.Button.Borderless.Colored" />
     <style name="ButtonSmall" parent="Widget.AppCompat.Button.Small" />
+    <style name="ButtonAddFollow">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/widget_small_height</item>
+        <item name="android:text">@string/btn_add_follow</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Caption</item>
+    </style>
+    <style name="TitleToolbar" parent="Base.TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
+        <item name="android:id">@+id/toolbar</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">@color/bg_actionbar</item>
+        <item name="com.damenghai.chahuitong:popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="com.damenghai.chahuitong:theme">@style/ThemeOverlay.AppCompat.ActionBar</item>
+    </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
@@ -68,13 +81,26 @@
         <item name="android:textSize">@dimen/text_size_subhead_material</item>
     </style>
 
-    <style name="MediumAvatar">
-        <item name="android:layout_width">@dimen/widget_medium_height</item>
-        <item name="android:layout_height">@dimen/widget_medium_height</item>
+    <style name="UserAvatar">
         <item name="com.damenghai.chahuitong:roundAsCircle">true</item>
         <item name="com.damenghai.chahuitong:actualImageScaleType">centerCrop</item>
         <item name="com.damenghai.chahuitong:placeholderImageScaleType">centerCrop</item>
         <item name="com.damenghai.chahuitong:placeholderImage">@mipmap/def_image_loading</item>
     </style>
-    
+
+    <style name="SmallAvatar" parent="UserAvatar">
+        <item name="android:layout_width">@dimen/widget_small_height</item>
+        <item name="android:layout_height">@dimen/widget_small_height</item>
+    </style>
+
+    <style name="MediumAvatar" parent="UserAvatar">
+        <item name="android:layout_width">@dimen/widget_medium_height</item>
+        <item name="android:layout_height">@dimen/widget_medium_height</item>
+    </style>
+
+    <style name="MaxAvatar" parent="UserAvatar">
+        <item name="android:layout_width">@dimen/widget_max_height</item>
+        <item name="android:layout_height">@dimen/widget_max_height</item>
+    </style>
+
 </resources>

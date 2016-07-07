@@ -37,7 +37,7 @@ public class BaseListActivityPresenter<V extends BaseListActivity, M> extends Pr
             mAdapter.clear();
             mAdapter.addAll(beanList.getList());
             if (beanList.isHasmore()) mPage = 2;
-//            else if (getView().getLoadMoreRes() > 0) mAdapter.stopMore();
+            else if (getView().getListConfig().mLoadMoreAble) mAdapter.stopMore();
         }
     };
 
@@ -51,8 +51,7 @@ public class BaseListActivityPresenter<V extends BaseListActivity, M> extends Pr
         @Override
         public void onNext(BeanList<M> beanList) {
             mAdapter.addAll(beanList.getList());
-            if (beanList.isHasmore()) mPage++;
-            else mAdapter.stopMore();
+            mPage++;
         }
     };
 
@@ -62,6 +61,10 @@ public class BaseListActivityPresenter<V extends BaseListActivity, M> extends Pr
 
     public Subscriber<BeanList<M>> getMoreSubscriber() {
         return mMoreSubscriber;
+    }
+
+    public DataAdapter createAdapter() {
+        return mAdapter = new DataAdapter(getView());
     }
 
     public DataAdapter getAdapter() {
