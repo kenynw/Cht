@@ -1,13 +1,11 @@
-package com.damenghai.chahuitong.module.message;
+package com.damenghai.chahuitong.module.personal;
 
 import android.content.Intent;
 
 import com.damenghai.chahuitong.expansion.data.BaseDataActivityPresenter;
-import com.damenghai.chahuitong.model.bean.Message;
 import com.damenghai.chahuitong.model.bean.MessageCount;
 import com.damenghai.chahuitong.model.service.DefaultTransform;
 import com.damenghai.chahuitong.model.service.ServiceClient;
-import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.utils.LUtils;
 
 /**

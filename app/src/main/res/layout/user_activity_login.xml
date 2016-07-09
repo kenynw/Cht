@@ -73,7 +73,6 @@
             style="@style/ButtonBorderlessColored"
             android:textColor="@color/text_black_secondary"
             android:text="@string/btn_forgot_password"
-            android:onClick="toSetPassword"
             />
 
     </LinearLayout>
@@ -87,7 +86,6 @@
         android:text="@string/btn_ok"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_subhead_material"
-        android:onClick="toLogin"
         />
 
     <Button

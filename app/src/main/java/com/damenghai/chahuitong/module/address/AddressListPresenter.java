@@ -1,94 +1,81 @@
 package com.damenghai.chahuitong.module.address;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
 
-import com.damenghai.chahuitong.model.bean.response.ListResponse;
-import com.damenghai.chahuitong.model.bean.response.Response;
-import com.damenghai.chahuitong.model.local.PreferenceHelper;
-import com.damenghai.chahuitong.model.repository.AddressRepository;
-import com.damenghai.chahuitong.presenter.BasePresenter;
+import com.damenghai.chahuitong.R;
+import com.damenghai.chahuitong.adapter.viewholder.AddressViewHolder;
+import com.damenghai.chahuitong.expansion.list.BaseListActivityPresenter;
+import com.damenghai.chahuitong.model.AddressModel;
+import com.damenghai.chahuitong.model.bean.Address;
+import com.damenghai.chahuitong.model.bean.Area;
+import com.damenghai.chahuitong.model.service.DefaultTransform;
+import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.utils.LUtils;
-import com.google.gson.JsonObject;
 
-import java.util.List;
-
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
-import rx.schedulers.Schedulers;
+import de.greenrobot.event.EventBus;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class AddressListPresenter extends BasePresenter<AddressListMvpView> {
+public class AddressListPresenter extends BaseListActivityPresenter<AddressListActivity, Address> implements AddressViewHolder.OnOperationListener {
 
-    private AddressRepository mRepository;
+    private String mState;
 
-    private PreferenceHelper mHelper;
-
-    private String mKey;
-
-    public AddressListPresenter(Context context) {
-        mRepository = mRetrofit.create(AddressRepository.class);
-        mHelper = new PreferenceHelper(context);
-        mKey = mHelper.readSession();
+    @Override
+    protected void onCreate(AddressListActivity view, Bundle saveState) {
+        super.onCreate(view, saveState);
+        mState = getView().getIntent().getStringExtra("state");
+        EventBus.getDefault().register(this);
     }
 
-    public void showList() {
-        if (TextUtils.isEmpty(mKey)) {
-            return;
-        }
+    @Override
+    protected void onCreateView(AddressListActivity view) {
+        super.onCreateView(view);
+        onRefresh();
+    }
 
-        mRepository.addressList(mKey)
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<Response<ListResponse>>() {
+    @Override
+    public void onRefresh() {
+        AddressModel.getInstance().getAddressList().unsafeSubscribe(getRefreshSubscriber());
+    }
 
+    @Override
+    public void onDelete(Address address) {
+        AddressModel.getInstance().delAddress(address.getAddress_id())
+                .subscribe(new ServiceResponse<Boolean>() {
                     @Override
-                    public void onStart() {
-                        getView().showLoading();
-                    }
-
-                    @Override
-                    public void onCompleted() {
-                        getView().hideLoading();
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        getView().showError(e.getMessage());
-                        LUtils.log(e.getLocalizedMessage());
-                    }
-
-                    @Override
-                    public void onNext(Response<ListResponse> jsonObject) {
-                        ListResponse data = jsonObject.getDatas();
-                        if (data.isError()) {
-                            getView().showError(data.getError());
-                        } else {
-                            getView().showList(data.getAddress_list());
-                        }
+                    public void onNext(Boolean result) {
+                        LUtils.toast(R.string.toast_del_success);
+                        getAdapter().remove(address);
                     }
                 });
     }
 
-    public void delete() {
-        List<String> list = getView().getSelectedItems();
-
-        if (list != null && list.size() > 0) {
-            for (String id : list) {
-                mRepository.del(mKey, id)
-                        .subscribeOn(Schedulers.newThread())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(new Action1<JsonObject>() {
-                            @Override
-                            public void call(JsonObject jsonObject) {
-                                showList();
-                            }
-                        });
-            }
-        }
+    @Override
+    public void onSetDefault(Address address) {
+        AddressModel.getInstance().setDefault(address.getAddress_id())
+                .subscribe(new ServiceResponse<Boolean>() {
+                    @Override
+                    public void onNext(Boolean result) {
+                        onRefresh();
+                    }
+                });
     }
 
+    public void showEditAddress() {
+        Intent intent = new Intent(getView(), AddressEditActivity.class);
+        getView().startActivityForResult(intent, 0);
+    }
+
+    public void onEvent(Integer result) {
+        onRefresh();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
 }

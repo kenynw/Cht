@@ -12,17 +12,17 @@ public class Address implements Parcelable {
 
     private String dlyp_id;
 
-    private String city_id;
+    private int city_id;
 
-    private String area_id;
+    private int area_id;
 
     private String address;
 
-    private String address_id;
+    private int address_id;
 
     private String true_name;
 
-    private String is_default;
+    private int is_default;
 
     private String mob_phone;
 
@@ -30,22 +30,22 @@ public class Address implements Parcelable {
 
     private String area_info;
 
-    private String member_id;
+    private int member_id;
 
     public Address() {}
 
     protected Address(Parcel in) {
         dlyp_id = in.readString();
-        city_id = in.readString();
-        area_id = in.readString();
+        city_id = in.readInt();
+        area_id = in.readInt();
         address = in.readString();
-        address_id = in.readString();
+        address_id = in.readInt();
         true_name = in.readString();
-        is_default = in.readString();
+        is_default = in.readInt();
         mob_phone = in.readString();
         tel_phone = in.readString();
         area_info = in.readString();
-        member_id = in.readString();
+        member_id = in.readInt();
     }
 
     public static final Creator<Address> CREATOR = new Creator<Address>() {
@@ -60,11 +60,11 @@ public class Address implements Parcelable {
         }
     };
 
-    public String getMember_id() {
+    public int getMember_id() {
         return member_id;
     }
 
-    public void setMember_id(String member_id) {
+    public void setMember_id(int member_id) {
         this.member_id = member_id;
     }
 
@@ -92,11 +92,11 @@ public class Address implements Parcelable {
         this.mob_phone = mob_phone;
     }
 
-    public String getIs_default() {
+    public int getIs_default() {
         return is_default;
     }
 
-    public void setIs_default(String is_default) {
+    public void setIs_default(int is_default) {
         this.is_default = is_default;
     }
 
@@ -108,11 +108,11 @@ public class Address implements Parcelable {
         this.true_name = true_name;
     }
 
-    public String getAddress_id() {
+    public int getAddress_id() {
         return address_id;
     }
 
-    public void setAddress_id(String address_id) {
+    public void setAddress_id(int address_id) {
         this.address_id = address_id;
     }
 
@@ -124,19 +124,19 @@ public class Address implements Parcelable {
         this.address = address;
     }
 
-    public String getArea_id() {
+    public int getArea_id() {
         return area_id;
     }
 
-    public void setArea_id(String area_id) {
+    public void setArea_id(int area_id) {
         this.area_id = area_id;
     }
 
-    public String getCity_id() {
+    public int getCity_id() {
         return city_id;
     }
 
-    public void setCity_id(String city_id) {
+    public void setCity_id(int city_id) {
         this.city_id = city_id;
     }
 
@@ -157,15 +157,15 @@ public class Address implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
 
         dest.writeString(dlyp_id);
-        dest.writeString(city_id);
-        dest.writeString(area_id);
+        dest.writeInt(city_id);
+        dest.writeInt(area_id);
         dest.writeString(address);
-        dest.writeString(address_id);
+        dest.writeInt(address_id);
         dest.writeString(true_name);
-        dest.writeString(is_default);
+        dest.writeInt(is_default);
         dest.writeString(mob_phone);
         dest.writeString(tel_phone);
         dest.writeString(area_info);
-        dest.writeString(member_id);
+        dest.writeInt(member_id);
     }
 }

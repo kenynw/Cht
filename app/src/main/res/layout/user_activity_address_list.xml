@@ -14,23 +14,20 @@
         android:orientation="vertical"
         >
 
-        <ListView
-            android:id="@+id/lv_address_list"
+        <com.jude.easyrecyclerview.EasyRecyclerView
+            android:id="@+id/recycle"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:divider="@color/div_gray"
-            android:dividerHeight="1dp"
             />
 
         <Button
-            android:id="@+id/address_list_add"
+            android:id="@+id/btn_address_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_horizontal_margin"
             android:layout_marginTop="2dp"
             android:background="@drawable/btn_radius_primary2dark_selector"
-            android:onClick="toAddAddress"
             android:text="@string/btn_add_address"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_subhead_material"

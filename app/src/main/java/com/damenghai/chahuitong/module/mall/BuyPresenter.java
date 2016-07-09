@@ -102,7 +102,7 @@ public class BuyPresenter extends BaseDataActivityPresenter<BuyActivity, OrderIn
         ServiceClient.getServices().genOrder(
                 LUtils.getPreferences().getString("key", ""),
                 getCartId(),
-                getDataSubject().getValue().getAddress_info().getAddress_id(),
+                getDataSubject().getValue().getAddress_info().getAddress_id() + "",
                 getDataSubject().getValue().getVat_hash(),
                 getDataSubject().getValue().getFreight_hash(),
                 getDataSubject().getValue().getOffpay_hash(),

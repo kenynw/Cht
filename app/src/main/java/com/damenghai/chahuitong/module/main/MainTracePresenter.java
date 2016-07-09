@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 
 import com.damenghai.chahuitong.bijection.Presenter;
-import com.damenghai.chahuitong.module.message.MessageActivity;
+import com.damenghai.chahuitong.module.personal.MessageActivity;
 import com.damenghai.chahuitong.module.user.PopularListActivity;
 import com.damenghai.chahuitong.module.user.LoginActivity;
 import com.damenghai.chahuitong.utils.LUtils;

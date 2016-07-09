@@ -18,7 +18,7 @@ import rx.Subscription;
  */
 public abstract class BasePresenter<ViewType extends MvpView> implements IPresenter<ViewType> {
 
-    protected static final String ENDPOINT = "http://www.chahuitong.com";
+    protected static final String ENDPOINT = "http://120.25.216.71/";
 
     private ViewType mMvpView;
 

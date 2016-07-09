@@ -1,5 +1,7 @@
 package com.damenghai.chahuitong.model.service;
 
+import com.damenghai.chahuitong.model.bean.Address;
+import com.damenghai.chahuitong.model.bean.Area;
 import com.damenghai.chahuitong.model.bean.Popular;
 import com.damenghai.chahuitong.model.bean.Trace;
 import com.damenghai.chahuitong.model.bean.Account;
@@ -190,7 +192,7 @@ public interface Services {
 
     @FormUrlEncoded
     @POST("?act=member_index&op=get_member_info")
-    Observable<Response<User>> getUserInfo(
+    Observable<User> getUserInfo(
             @Field("key") String key
     );
 
@@ -237,8 +239,8 @@ public interface Services {
     Observable<JsonObject> changeAddress(
             @Field("key") String key,
             @Field("freight_hash") String freight_hash,
-            @Field("city_id") String city_id,
-            @Field("area_id") String area_id
+            @Field("city_id") int city_id,
+            @Field("area_id") int area_id
     );
 
     //--------------------------我的购物车--------------------------
@@ -299,47 +301,56 @@ public interface Services {
     //--------------------------我的地址--------------------------
     @FormUrlEncoded
     @POST("?act=member_address&op=address_list")
-    Observable<Response<ListResponse>> addressList(
+    Observable<BeanList<Address>> addressList(
             @Field("key") String key
     );
 
     @FormUrlEncoded
     @POST("?act=member_address&op=address_add")
-    Observable<JsonObject> addressAdd(
+    Observable<Integer> addressAdd(
             @Field("key") String key,
             @Field("true_name") String name,
             @Field("mob_phone") String mobile,
-            @Field("city_id") String cityId,
-            @Field("area_id") String areaId,
+            @Field("city_id") int cityId,
+            @Field("area_id") int areaId,
             @Field("area_info") String area_info,
-            @Field("address") String address
+            @Field("address") String address,
+            @Field("is_default") int isDefault
     );
 
     @FormUrlEncoded
     @POST("?act=member_address&op=address_del")
-    Observable<JsonObject> addressDel(
+    Observable<Boolean> addressDel(
             @Field("key") String key,
-            @Field("address_id") String addressId
+            @Field("address_id") int addressId
     );
 
     @FormUrlEncoded
     @POST("?act=member_address&op=address_edit")
-    Observable<JsonObject> addressEdit(
+    Observable<Integer> addressEdit(
             @Field("key") String key,
-            @Field("address_id") String addressId,
+            @Field("address_id") int addressId,
             @Field("true_name") String name,
             @Field("mob_phone") String mobile,
-            @Field("city_id") String cityId,
-            @Field("area_id") String areaId,
+            @Field("city_id") int cityId,
+            @Field("area_id") int areaId,
             @Field("area_info") String area_info,
-            @Field("address") String address
+            @Field("address") String address,
+            @Field("is_default") int isDefault
+    );
+
+    @FormUrlEncoded
+    @POST("?act=member_address&op=set_default")
+    Observable<Boolean> addressSetDefault(
+            @Field("key") String key,
+            @Field("address_id") int id
     );
 
     @FormUrlEncoded
     @POST("?act=member_address&op=area_list")
-    Observable<Response<ListResponse>> areaList(
+    Observable<BeanList<Area>> areaList(
             @Field("key") String key,
-            @Field("area_id") String areaId
+            @Field("area_id") int areaId
     );
 
     //--------------------------我的订单--------------------------
@@ -574,6 +585,14 @@ public interface Services {
     Observable<Integer> delFollow(
             @Query("key") String key,
             @Query("mid") int uid
+    );
+
+    @FormUrlEncoded
+    @POST("?act=member_feedback&op=feedback_add")
+    Observable<Integer> feedbackAdd(
+            @Field("key") String key,
+            @Field("feedback") String feedback,
+            @Field("contact") String contact
     );
 
 }

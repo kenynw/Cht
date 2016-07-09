@@ -1,37 +1,43 @@
 package com.damenghai.chahuitong.module.personal;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.base.BaseActivity;
-import com.damenghai.chahuitong.utils.LUtils;
-import com.umeng.fb.fragment.FeedbackFragment;
+import com.damenghai.chahuitong.bijection.BeamBaseActivity;
+import com.damenghai.chahuitong.bijection.RequiresPresenter;
 
-public class FeedbackActivity extends BaseActivity {
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
-    private FeedbackFragment mFeedbackFragment;
+@RequiresPresenter(FeedbackPresenter.class)
+public class FeedbackActivity extends BeamBaseActivity<FeedbackPresenter> {
+
+    @Bind(R.id.et_feedback_content)
+    EditText mEtContent;
+
+    @Bind(R.id.et_feedback_contact)
+    EditText mEtContact;
+
+    @Bind(R.id.btn_feedback_submit)
+    Button mBtnSubmit;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_activity_feedback);
+        ButterKnife.bind(this);
         setToolbarTitle(R.string.title_activity_feedback);
-
-        if (savedInstanceState == null) {
-            String conversation_id = getIntent().getStringExtra(FeedbackFragment.BUNDLE_KEY_CONVERSATION_ID);
-            LUtils.log("conversation_id: " + conversation_id);
-            mFeedbackFragment = FeedbackFragment.newInstance(conversation_id);
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .add(R.id.feedback_container, mFeedbackFragment)
-                    .commit();
-        }
+        mBtnSubmit.setOnClickListener(v -> getPresenter().submit());
     }
 
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        mFeedbackFragment.onRefresh();
+    public String getFeedback() {
+        return mEtContent.getText().toString();
     }
+
+    public String getContact() {
+        return mEtContact.getText().toString();
+    }
+
 }

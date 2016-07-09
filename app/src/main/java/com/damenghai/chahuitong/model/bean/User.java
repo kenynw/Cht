@@ -18,7 +18,7 @@ public class User implements Parcelable {
 
     private String member_avatar;
 
-    private int member_sex;
+    private String member_sex;
 
     private String member_birthday;
 
@@ -131,7 +131,7 @@ public class User implements Parcelable {
         member_name = in.readString();
         member_truename = in.readString();
         member_avatar = in.readString();
-        member_sex = in.readInt();
+        member_sex = in.readString();
         member_birthday = in.readString();
         member_passwd = in.readString();
         member_paypwd = in.readString();
@@ -211,7 +211,7 @@ public class User implements Parcelable {
         dest.writeString(member_name);
         dest.writeString(member_truename);
         dest.writeString(member_avatar);
-        dest.writeInt(member_sex);
+        dest.writeString(member_sex);
         dest.writeString(member_birthday);
         dest.writeString(member_passwd);
         dest.writeString(member_paypwd);
@@ -299,11 +299,11 @@ public class User implements Parcelable {
         this.member_avatar = member_avatar;
     }
 
-    public int getMember_sex() {
+    public String getMember_sex() {
         return member_sex;
     }
 
-    public void setMember_sex(int member_sex) {
+    public void setMember_sex(String member_sex) {
         this.member_sex = member_sex;
     }
 

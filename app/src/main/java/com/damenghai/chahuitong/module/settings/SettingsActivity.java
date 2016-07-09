@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.base.BaseActivity;
 import com.damenghai.chahuitong.model.local.PreferenceHelper;
+import com.damenghai.chahuitong.module.personal.ProfileActivity;
 import com.damenghai.chahuitong.utils.DataCleanManager;
 import com.damenghai.chahuitong.utils.DialogFactory;
 import com.damenghai.chahuitong.utils.LUtils;

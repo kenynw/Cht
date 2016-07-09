@@ -4,6 +4,11 @@
     <!--页面标题，命名格式为：title_页面-->
     <string name="title_valuator_recommend">试茶师推荐</string>
     <string name="title_goods_list">商品列表</string>
+    <string name="title_activity_about">关于茶汇通</string>
+    <string name="title_activity_address">管理收货地址</string>
+    <string name="title_activity_edit_address">修改地址</string>
+    <string name="title_activity_add_address">添加新地址</string>
+    <string name="title_activity_article">茶资讯</string>
     <string name="title_activity_sample">本期免费茶样</string>
     <string name="title_activity_bargain">限时抢购</string>
     <string name="title_activity_login">登录</string>
@@ -15,7 +20,6 @@
     <string name="title_activity_favorites">我的收藏夹</string>
     <string name="title_activity_message">我的消息</string>
     <string name="title_activity_settings">设置</string>
-    <string name="title_activity_about">关于茶汇通</string>
     <string name="title_activity_profile">我的资料</string>
     <string name="title_activity_change_password">修改密码</string>
     <string name="title_activity_reset_password">重置密码</string>
@@ -23,7 +27,6 @@
     <string name="title_activity_pay_order">订单支付</string>
     <string name="title_activity_feedback">意见反馈</string>
     <string name="title_activity_goods">商品详情</string>
-    <string name="title_activity_article">茶资讯</string>
     <string name="title_my_order">我的订单</string>
     <string name="title_discover">发现</string>
     <string name="title_trace_detail">动态详情</string>
@@ -34,8 +37,9 @@
     <string name="subhead_search_history">历史搜索</string>
 
     <!--按钮文字，命名格式为：btn_按钮事件-->
-    <string name="btn_ok">确 定</string>
-    <string name="btn_cancel">取 消</string>
+    <string name="btn_ok">确&#160;定</string>
+    <string name="btn_cancel">取&#160;消</string>
+    <string name="btn_submit">提&#160;交</string>
     <string name="btn_home_apply">点击领取</string>
     <string name="btn_home_buy">点击抢购</string>
     <string name="btn_apply">申&#160;&#160;领</string>
@@ -103,6 +107,7 @@
     <string name="btn_message_comment">评论和赞</string>
     <string name="btn_message_at">\@我</string>
     <string name="btn_message_system">系统通知</string>
+    <string name="btn_address_set_default">设为默认</string>
 
     <!--文本文字，命名格式为：text_按钮事件-->
     <string name="text_copyright">©茶信科技</string>
@@ -116,7 +121,7 @@
     <string name="text_carriage_free">免运费</string>
     <string name="text_sample_notice">申领资格：茶汇通注册会员\r\n申领限额：每月一次\r\n申领流程</string>
     <string name="text_cart_empty">暂无商品</string>
-    <string name="text_empty">暂无数据</string>
+    <string name="text_empty">这里空空如也，快去逛逛吧~~</string>
     <string name="text_goods_quality">正品保证</string>
     <string name="text_goods_delivery_today">12小时发货</string>
     <string name="text_goods_spot">实地认证</string>
@@ -157,6 +162,9 @@
     <string name="text_staple_class">热门茶类</string>
     <string name="text_user_commend">推荐用户</string>
     <string name="text_article_heat">%1$s阅读 · %2$s评论</string>
+    <string name="text_feedback_wb">微博@茶汇通APP</string>
+    <string name="text_feedback_qq">客服QQ 3319703576</string>
+    <string name="text_edit">编辑</string>
 
     <!--标签文字，命名格式为：label_标签文字-->
     <string name="label_home_free">免费茶样领取</string>
@@ -175,7 +183,7 @@
     <string name="label_register_notice">*未注册用户先注册</string>
     <string name="label_login_third">第三方登录</string>
     <string name="label_username">用户名 : </string>
-    <string name="label_mobile_number">手机号 : </string>
+    <string name="label_mobile_number">手机号 </string>
     <string name="label_captcha">验证码 : </string>
     <string name="label_password">密&#160;&#160;&#160;&#160;码 : </string>
     <string name="label_bargain_buy">马上抢</string>
@@ -191,7 +199,7 @@
     <string name="label_freight">运&#160;&#160;&#160;&#160;费：</string>
     <string name="label_total">总&#160;&#160;&#160;&#160;计：</string>
     <string name="label_total_pay">合计：</string>
-    <string name="label_consignee_name">收件人姓名</string>
+    <string name="label_consignee_name">收件人</string>
     <string name="label_area">省市区</string>
     <string name="label_detail_address">详细地址</string>
     <string name="label_tea_name">品名</string>
@@ -236,6 +244,7 @@
 
     <!--消息框文字，命名格式为：toast_消息-->
     <string name="toast_exit">再按一次退出茶汇通</string>
+    <string name="toast_del_success">删除成功</string>
     <string name="toast_network_error">网络连接错误</string>
     <string name="toast_network_timeout">网络连接超时</string>
     <string name="toast_logout_success">退出成功</string>
@@ -255,6 +264,9 @@
     <string name="toast_invalid_confirm">两次输入的密码不一致</string>
     <string name="toast_old_password">旧密码不能为空</string>
     <string name="toast_new_password">请输入大于8位的新密码</string>
+    <string name="toast_null_content">内容不能为空</string>
+    <string name="toast_invalid_content">不少于五个汉字</string>
+    <string name="toast_feedback_success">感谢您的反馈</string>
 
     <!--编辑框的提示文字，命名格式为：hint_提示信息-->
     <string name="hint_login_username">请您输入手机号/用户名</string>
@@ -267,11 +279,13 @@
     <string name="hint_limit_name">最少2个字</string>
     <string name="hint_limit_mobile">11位手机号</string>
     <string name="hint_please_choose">请选择</string>
-    <string name="hint_detail_address">请输入详细地址</string>
+    <string name="hint_detail_address">请输入详细地址(支持中英文、空格、下划线)</string>
     <string name="hint_true_name">不少于2个字符</string>
     <string name="hint_search">搜索商品名称、店铺等</string>
     <string name="hint_new_content">说点什么吧&#8230;</string>
     <string name="hint_user_search">搜索好友、达人</string>
+    <string name="hint_feedback_content">您的每一次建议都是我们前进的动力，心情的吐槽吧~~</string>
+    <string name="hint_feedback_contact">QQ或者邮箱(选填)</string>
 
     <!--图片的描述文字，命名格式为：desc_图片文字-->
     <string name="desc_cart_empty">购物车暂无商品</string>

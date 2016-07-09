@@ -1,4 +1,4 @@
-package com.damenghai.chahuitong.module.message;
+package com.damenghai.chahuitong.module.personal;
 
 import android.os.Bundle;
 

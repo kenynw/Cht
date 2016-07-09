@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.damenghai.chahuitong.module.settings.ProfileActivity">
+    tools:context=".module.personal.ProfileActivity">
 
     <include layout="@layout/include_toolbar"/>
 
@@ -18,16 +18,16 @@
         >
 
         <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/sdv_profile_avatar"
+            android:id="@+id/dv_profile_avatar"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_centerInParent="true"
             android:onClick="toPickPicture"
-            fresco:roundAsCircle="true"
-            fresco:roundingBorderWidth="4dp"
             fresco:actualImageScaleType="centerCrop"
             fresco:placeholderImage="@mipmap/def_image_loading"
+            fresco:roundAsCircle="true"
             fresco:roundingBorderColor="@color/colorPrimary"
+            fresco:roundingBorderWidth="4dp"
             />
 
     </RelativeLayout>
@@ -84,19 +84,19 @@
 
         <Button
             style="@style/ListItemDetailButton"
-            android:text="@string/btn_gender"
             android:onClick="toChangeGender"
+            android:text="@string/btn_gender"
             />
 
         <TextView
             android:id="@+id/tv_profile_gender"
+            style="@style/TextBody"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="男"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="40dp"
-            style="@style/TextBody"
+            tools:text="男"
             />
 
     </RelativeLayout>
@@ -109,19 +109,19 @@
 
         <Button
             style="@style/ListItemDetailButton"
-            android:text="@string/btn_born"
             android:onClick="toChangeBorn"
+            android:text="@string/btn_born"
             />
 
         <TextView
             android:id="@+id/tv_profile_born"
+            style="@style/TextBody"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1991-06-11"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="40dp"
-            style="@style/TextBody"
+            android:text="1991-06-11"
             />
 
     </RelativeLayout>
@@ -129,19 +129,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:background="@color/white"
+        android:orientation="vertical"
         >
 
         <Button
             style="@style/ListItemDetailButton"
-            android:text="@string/btn_change_password"
             android:onClick="toChangePassword"
+            android:text="@string/btn_change_password"
             />
 
     </LinearLayout>
 
     <Button
+        android:id="@+id/btn_profile_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_vertical_margin"
@@ -149,7 +150,6 @@
         android:text="@string/btn_ok"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_subhead_material"
-        android:onClick="toSave"
         />
 
 </LinearLayout>
