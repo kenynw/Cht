@@ -14,13 +14,8 @@ public class DefaultTransform<T> implements Observable.Transformer<T, T> {
     @Override
     public Observable<T> call(Observable<T> tObservable) {
         return tObservable
-                .doOnError(new Action1<Throwable>() {
-                    @Override
-                    public void call(Throwable throwable) {
-                        LUtils.log(throwable.getLocalizedMessage());
-                    }
-                })
-                .subscribeOn(Schedulers.newThread())
+                .doOnError(throwable -> LUtils.log(throwable.getLocalizedMessage()))
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
 }

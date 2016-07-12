@@ -43,4 +43,11 @@ public abstract class BaseRecycleListAdapter<BeanType, VHType extends RecyclerVi
         }
     }
 
+    public void add(int position, BeanType bean) {
+        if (bean != null && mData != null && !mData.contains(bean)) {
+            mData.add(position, bean);
+            notifyItemInserted(position);
+        }
+    }
+
 }

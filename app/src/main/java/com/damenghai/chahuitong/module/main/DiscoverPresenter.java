@@ -39,8 +39,7 @@ public class DiscoverPresenter extends BaseDataFragmentPresenter<DiscoverFragmen
 
     public void showHill() {
         if (checkLogin()) {
-            Intent intent = new Intent(getView().getActivity(), TraceListActivity.class);
-            intent.putExtra("commend", 1);
+            Intent intent = new Intent(getView().getActivity(), FleaListActivity.class);
             getView().startActivity(intent);
         }
     }

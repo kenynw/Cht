@@ -6,30 +6,33 @@
     <string name="title_goods_list">商品列表</string>
     <string name="title_activity_about">关于茶汇通</string>
     <string name="title_activity_address">管理收货地址</string>
-    <string name="title_activity_edit_address">修改地址</string>
     <string name="title_activity_add_address">添加新地址</string>
     <string name="title_activity_article">茶资讯</string>
-    <string name="title_activity_sample">本期免费茶样</string>
     <string name="title_activity_bargain">限时抢购</string>
+    <string name="title_activity_change_password">修改密码</string>
+    <string name="title_activity_detail">详情</string>
+    <string name="title_activity_edit_address">修改地址</string>
+    <string name="title_activity_favorites">我的收藏夹</string>
+    <string name="title_activity_feedback">意见反馈</string>
+    <string name="title_activity_flea">茶市</string>
+    <string name="title_activity_goods">商品详情</string>
     <string name="title_activity_login">登录</string>
-    <string name="title_activity_register">注册</string>
-    <string name="title_activity_personal">个人中心</string>
+    <string name="title_activity_message">我的消息</string>
     <string name="title_activity_order">确认订单</string>
     <string name="title_activity_order_detail">订单详情</string>
-    <string name="title_activity_voucher">我的优惠券</string>
-    <string name="title_activity_favorites">我的收藏夹</string>
-    <string name="title_activity_message">我的消息</string>
-    <string name="title_activity_settings">设置</string>
-    <string name="title_activity_profile">我的资料</string>
-    <string name="title_activity_change_password">修改密码</string>
-    <string name="title_activity_reset_password">重置密码</string>
     <string name="title_activity_pay_result">支付详情</string>
     <string name="title_activity_pay_order">订单支付</string>
-    <string name="title_activity_feedback">意见反馈</string>
-    <string name="title_activity_goods">商品详情</string>
+    <string name="title_activity_personal">个人中心</string>
+    <string name="title_activity_profile">我的资料</string>
+    <string name="title_activity_register">注册</string>
+    <string name="title_activity_reset_password">重置密码</string>
+    <string name="title_activity_sample">本期免费茶样</string>
+    <string name="title_activity_settings">设置</string>
+    <string name="title_activity_voucher">我的优惠券</string>
     <string name="title_my_order">我的订单</string>
     <string name="title_discover">发现</string>
     <string name="title_trace_detail">动态详情</string>
+    <string name="title_publish">发布</string>
 
     <!--页面副标题，命名格式为：subhead_页面-->
     <string name="subhead_home_recommend">试茶师推荐 </string>
@@ -108,6 +111,10 @@
     <string name="btn_message_at">\@我</string>
     <string name="btn_message_system">系统通知</string>
     <string name="btn_address_set_default">设为默认</string>
+    <string name="btn_phone">电话</string>
+    <string name="btn_message">咨询</string>
+    <string name="btn_consult">留言</string>
+    <string name="btn_no_price">不供价</string>
 
     <!--文本文字，命名格式为：text_按钮事件-->
     <string name="text_copyright">©茶信科技</string>
@@ -122,6 +129,7 @@
     <string name="text_sample_notice">申领资格：茶汇通注册会员\r\n申领限额：每月一次\r\n申领流程</string>
     <string name="text_cart_empty">暂无商品</string>
     <string name="text_empty">这里空空如也，快去逛逛吧~~</string>
+    <string name="text_empty_comment">还没有任何评论，快来抢沙发吧~~</string>
     <string name="text_goods_quality">正品保证</string>
     <string name="text_goods_delivery_today">12小时发货</string>
     <string name="text_goods_spot">实地认证</string>
@@ -165,6 +173,8 @@
     <string name="text_feedback_wb">微博@茶汇通APP</string>
     <string name="text_feedback_qq">客服QQ 3319703576</string>
     <string name="text_edit">编辑</string>
+    <string name="text_flea_click">%s次浏览</string>
+    <string name="text_flea_unit">元/斤</string>
 
     <!--标签文字，命名格式为：label_标签文字-->
     <string name="label_home_free">免费茶样领取</string>
@@ -210,17 +220,27 @@
     <string name="label_order_num">订单编号：%s</string>
     <string name="label_pay_num">支付编号：%s</string>
     <string name="label_time_create">创建时间：%s</string>
+    <string name="label_title">标&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;题</string>
     <string name="label_rmb">￥</string>
     <string name="label_yuan">元</string>
     <string name="label_true_name">真实姓名</string>
     <string name="label_new_password">新的密码：</string>
     <string name="label_password_confirm">重复输入：</string>
     <string name="label_load_more">正在加载下一页</string>
+    <string name="label_location">我的位置</string>
     <string name="label_no_more">已经到最后一页</string>
     <string name="label_comment">评论</string>
+    <string name="label_tag">标&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;签</string>
     <string name="label_trace">动态</string>
     <string name="label_following">关注</string>
     <string name="label_followers">粉丝</string>
+    <string name="label_flea_cate">所属分类</string>
+    <string name="label_flea_consult">留言</string>
+    <string name="label_flea_contacts">联&#160;&#160;系&#160;&#160;人</string>
+    <string name="label_flea_detail">详细描述</string>
+    <string name="label_flea_price">单&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;价</string>
+    <string name="label_flea_notice">购买前请充分和卖家沟通，避免交易中产生纠纷。</string>
+    <string name="label_flea_phone">联系电话</string>
 
     <!--选项卡文字，命名格式为：tab_选项卡文字-->
     <string name="tab_home_mall">商城</string>
@@ -286,6 +306,9 @@
     <string name="hint_user_search">搜索好友、达人</string>
     <string name="hint_feedback_content">您的每一次建议都是我们前进的动力，心情的吐槽吧~~</string>
     <string name="hint_feedback_contact">QQ或者邮箱(选填)</string>
+    <string name="hint_flea_title">一句话描述你的茶叶吧</string>
+    <string name="hint_flea_detail">详细介绍一下其他特点吧</string>
+    <string name="hint_flea_tag">填写标签提高曝光率，用逗号分开</string>
 
     <!--图片的描述文字，命名格式为：desc_图片文字-->
     <string name="desc_cart_empty">购物车暂无商品</string>
@@ -309,6 +332,7 @@
     <string name="action_delete">删除</string>
     <string name="action_settings">设置</string>
     <string name="action_search">搜索</string>
+    <string name="action_publish">发布</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

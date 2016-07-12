@@ -3,8 +3,6 @@ package com.damenghai.chahuitong.model.bean;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.damenghai.chahuitong.model.Flea;
-
 import java.util.List;
 
 /**

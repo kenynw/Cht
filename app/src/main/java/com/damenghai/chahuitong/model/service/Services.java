@@ -2,6 +2,9 @@ package com.damenghai.chahuitong.model.service;
 
 import com.damenghai.chahuitong.model.bean.Address;
 import com.damenghai.chahuitong.model.bean.Area;
+import com.damenghai.chahuitong.model.bean.Consult;
+import com.damenghai.chahuitong.model.bean.Flea;
+import com.damenghai.chahuitong.model.bean.FleaImage;
 import com.damenghai.chahuitong.model.bean.Popular;
 import com.damenghai.chahuitong.model.bean.Trace;
 import com.damenghai.chahuitong.model.bean.Account;
@@ -30,12 +33,14 @@ import com.google.gson.JsonObject;
 import java.util.List;
 import java.util.Map;
 
+import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.PartMap;
 import retrofit2.http.Query;
 import rx.Observable;
@@ -585,6 +590,117 @@ public interface Services {
     Observable<Integer> delFollow(
             @Query("key") String key,
             @Query("mid") int uid
+    );
+
+    /**
+     * @param key 登录令牌
+     * @return 茶市列表
+     */
+    @FormUrlEncoded
+    @POST("?act=member_flea&op=flea_list")
+    Observable<BeanList<Flea>> fleaList(
+            @Field("key") String key
+    );
+
+    /**
+     * 茶市详情
+     * @param key 登录令牌
+     * @return 茶市列表
+     */
+    @FormUrlEncoded
+    @POST("?act=member_flea&op=flea_detail")
+    Observable<Flea> fleaDetail(
+            @Field("key") String key,
+            @Field("goods_id") int goodsId
+    );
+
+    /**
+     * 发布茶市上传图片
+     * @param key 登录令牌
+     * @return 茶市列表
+     */
+    @Multipart
+    @POST("?act=member_flea&op=image_upload")
+    Observable<FleaImage> uploadFleaImage(
+            @PartMap Map<String, RequestBody> params
+    );
+
+    /**
+     * 发布茶市保存文字
+     * @param key 登录令牌
+     * @return 茶市列表
+     */
+    @FormUrlEncoded
+    @POST("?act=member_flea&op=save_goods")
+    Observable<Flea> fleaSave(
+            @Field("key") String key,
+            @Field("goods_file_id") int image_id,
+            @Field("cate_id") int cate_id,
+            @Field("cate_name") String cate_name,
+            @Field("flea_pname") String flea_pname,
+            @Field("area_id") int area_id,
+            @Field("area_info") String area_info,
+            @Field("flea_pphone") String flea_pphone,
+            @Field("price") String price,
+            @Field("g_body") String g_body
+    );
+
+    /**
+     * 茶市商品留言
+     * @param key 登录令牌
+     * @return 操作结果
+     */
+    @FormUrlEncoded
+    @POST("?act=member_flea&op=consult_list")
+    Observable<BeanList<Consult>> fleaConsultList(
+            @Field("key") String key,
+            @Field("curpage") int page,
+            @Field("goods_id") int goods_id
+    );
+
+    /**
+     * 茶市商品留言
+     * @param key 登录令牌
+     * @return 操作结果
+     */
+    @FormUrlEncoded
+    @POST("?act=member_flea&op=save_consult")
+    Observable<Consult> addFleaConsult(
+            @Field("key") String key,
+            @Field("content") String content,
+            @Field("goods_id") int goods_id
+    );
+
+    /**
+     * @param key 登录令牌
+     * @return 茶市列表
+     */
+    @FormUrlEncoded
+    @POST("?act=member_flea&op=drop_goods")
+    Observable<Integer> fleaDel(
+            @Field("key") String key,
+            @Field("goods_id") int goods_id
+    );
+
+    /**
+     * @param key 登录令牌
+     * @return 茶市列表
+     */
+    @FormUrlEncoded
+    @POST("?act=member_flea&op=edit_goods")
+    Observable<Integer> fleaEdit(
+            @Field("key") String key,
+            @Field("goods_id") int goodsId,
+            @Field("goods_file_id") int imageId,
+            @Field("cate_id") int cateId,
+            @Field("cate_name") String cateName,
+            @Field("flea_pname") String name,
+            @Field("area_id") int areaId,
+            @Field("area_info") int areaInfo,
+            @Field("flea_pphone") String Phone,
+            @Field("goods_tag") String goodsTag,
+            @Field("price") String price,
+            @Field("g_body") String body
     );
 
     @FormUrlEncoded

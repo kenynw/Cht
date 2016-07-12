@@ -255,6 +255,8 @@
         </activity>
         <activity android:name=".module.address.AddressEditActivity">
         </activity>
+        <activity android:name=".module.flea.FleaAddActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.damenghai.chahuitong.module.flea.FleaAddActivity">
+
+    <include layout="@layout/include_toolbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/tv_flea_title"
+                style="@style/TextBody"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/widget_medium_height"
+                android:background="@color/white"
+                android:gravity="center"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:text="@string/label_title"
+                />
+
+            <EditText
+                android:id="@+id/et_flea_title"
+                style="@style/MediumEditText"
+                android:layout_toRightOf="@id/tv_flea_title"
+                android:hint="@string/hint_flea_title"
+                />
+
+            <EditText
+                android:id="@+id/et_flea_detail"
+                style="@style/TextBody"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:layout_below="@id/tv_flea_title"
+                android:background="@color/white"
+                android:gravity="left"
+                android:hint="@string/hint_flea_detail"
+                android:inputType="textMultiLine"
+                android:padding="@dimen/activity_vertical_margin"
+                android:textColorHint="@color/text_hint"
+                />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_flea_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_flea_detail"
+                android:background="@color/white"
+                />
+
+            <TextView
+                android:id="@+id/tv_flea_cate"
+                style="@style/TextBody"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/widget_medium_height"
+                android:layout_below="@id/rv_flea_image"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:text="@string/label_flea_cate"
+                />
+
+            <EditText
+                android:id="@+id/et_flea_cate"
+                style="@style/MediumEditText"
+                android:layout_below="@id/rv_flea_image"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_toRightOf="@id/tv_flea_cate"
+                />
+
+            <LinearLayout
+                android:id="@+id/ll_flea_cate"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/widget_medium_height"
+                android:layout_below="@id/et_flea_cate"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                >
+
+                <TextView
+                    android:id="@+id/tv_flea_price"
+                    style="@style/TextBody"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:text="@string/label_flea_price"
+                    />
+
+                <EditText
+                    android:id="@+id/et_flea_price"
+                    style="@style/MediumEditText"
+                    android:layout_width="88dp"
+                    android:inputType="number"
+                    />
+
+                <EditText
+                    android:id="@+id/et_flea_unit"
+                    style="@style/MediumEditText"
+                    android:layout_width="@dimen/widget_max_height"
+                    android:text="@string/text_flea_unit"
+                    />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    />
+
+                <CheckBox
+                    android:id="@+id/check_flea_no_price"
+                    style="@style/TextBody"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:button="@drawable/rbtn_primary2white_sel"
+                    android:gravity="right|center_vertical"
+                    android:paddingLeft="8dp"
+                    android:text="@string/btn_no_price"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/et_flea_cate"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@color/div_line"
+                />
+
+            <TextView
+                android:id="@+id/tv_flea_tag"
+                style="@style/TextBody"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/widget_medium_height"
+                android:layout_below="@id/ll_flea_cate"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:text="@string/label_tag"
+                />
+
+            <EditText
+                android:id="@+id/et_flea_tag"
+                style="@style/MediumEditText"
+                android:layout_below="@id/ll_flea_cate"
+                android:layout_toRightOf="@id/tv_flea_tag"
+                android:hint="@string/hint_flea_tag"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/ll_flea_cate"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@color/div_line"
+                />
+
+            <TextView
+                android:id="@+id/tv_flea_phone"
+                style="@style/TextBody"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/widget_medium_height"
+                android:layout_below="@id/tv_flea_tag"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:text="@string/label_flea_phone"
+                />
+
+            <EditText
+                android:id="@+id/et_flea_phone"
+                style="@style/MediumEditText"
+                android:layout_below="@id/et_flea_tag"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_toRightOf="@id/tv_flea_phone"
+                android:hint="@string/hint_mobile_number"
+                android:inputType="phone"
+                />
+
+            <TextView
+                android:id="@+id/tv_flea_contact"
+                style="@style/TextBody"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/widget_medium_height"
+                android:layout_below="@id/tv_flea_phone"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:text="@string/label_flea_contacts"
+                />
+
+            <EditText
+                android:id="@+id/et_flea_contact"
+                style="@style/MediumEditText"
+                android:layout_below="@id/et_flea_phone"
+                android:layout_toRightOf="@id/tv_flea_contact"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tv_flea_phone"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@color/div_line"
+                />
+
+            <TextView
+                android:id="@+id/tv_flea_location"
+                style="@style/TextBody"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/widget_medium_height"
+                android:layout_below="@id/tv_flea_contact"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:text="@string/label_location"
+                />
+
+            <Button
+                android:id="@+id/btn_flea_location"
+                style="@style/ButtonBorderless"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/et_flea_contact"
+                android:layout_toRightOf="@id/tv_flea_location"
+                android:background="@color/white"
+                android:drawableRight="@mipmap/ic_arrow_more"
+                android:gravity="left|center_vertical"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tv_flea_contact"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@color/div_line"
+                />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_flea_publish"
+        style="@style/ButtonBorderless"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_medium_height"
+        android:background="@drawable/btn_radius_primary2dark_selector"
+        android:text="@string/btn_publish"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_subhead_material"
+        />
+
+</LinearLayout>

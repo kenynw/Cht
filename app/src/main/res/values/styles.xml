@@ -103,4 +103,13 @@
         <item name="android:layout_height">@dimen/widget_max_height</item>
     </style>
 
+    <style name="MediumEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/widget_medium_height</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+        <item name="android:textAppearance">@style/TextBody</item>
+        <item name="android:inputType">text</item>
+    </style>
+
 </resources>
