@@ -28,7 +28,7 @@ public class WebViewOB {
 
     @JavascriptInterface
     public void showToast(String message) {
-        T.showShort(mContext, message);
+        LUtils.toast(message);
     }
 
     @JavascriptInterface

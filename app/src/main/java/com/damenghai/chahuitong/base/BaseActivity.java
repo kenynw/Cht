@@ -15,7 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.utils.T;
+import com.damenghai.chahuitong.utils.LUtils;
 import com.damenghai.chahuitong.module.MvpView;
 import com.damenghai.chahuitong.module.user.LoginActivity;
 import com.umeng.analytics.MobclickAgent;
@@ -202,12 +202,11 @@ public abstract class BaseActivity extends AppCompatActivity implements MvpView 
     }
 
     protected void showShort(String message) {
-        T.showShort(this, message);
+        LUtils.toast(message);
     }
 
     protected void showShort(@StringRes int res) {
-        String message = getResources().getString(res);
-        T.showShort(this, message);
+        LUtils.toast(res);
     }
 
     @Override

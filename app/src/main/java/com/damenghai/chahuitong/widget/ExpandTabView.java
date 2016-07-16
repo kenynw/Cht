@@ -18,12 +18,9 @@ import android.widget.RelativeLayout;
 import android.widget.ToggleButton;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.utils.L;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.

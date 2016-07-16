@@ -7,25 +7,16 @@ import android.os.Bundle;
 
 import com.damenghai.chahuitong.bijection.Presenter;
 import com.damenghai.chahuitong.config.Config;
-import com.damenghai.chahuitong.model.bean.Account;
 import com.damenghai.chahuitong.model.bean.User;
-import com.damenghai.chahuitong.model.bean.Token;
 import com.damenghai.chahuitong.model.service.DefaultTransform;
 import com.damenghai.chahuitong.model.service.ServiceClient;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
-import com.damenghai.chahuitong.utils.L;
 import com.damenghai.chahuitong.utils.LUtils;
-import com.google.gson.JsonObject;
 import com.umeng.socialize.UMAuthListener;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 
 import java.util.Map;
-
-import de.greenrobot.event.EventBus;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.

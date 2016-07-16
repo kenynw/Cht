@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    >
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/dv_flea_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="8dp"
+        app:actualImageScaleType="centerCrop"
+        app:placeholderImage="@mipmap/def_image_loading"
+        app:placeholderImageScaleType="centerCrop"
+        />
+
+    <TextView
+        android:id="@+id/tv_flea_title"
+        style="@style/TextSubhead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="4dp"
+        android:layout_toRightOf="@id/dv_flea_image"
+        android:ellipsize="end"
+        android:maxLines="2"
+        tools:text="滇臻號 古韵 熟茶 357g 2014年 古树头春滇臻號 古韵 熟茶 357g 2014年 古树头春"
+        />
+
+    <TextView
+        android:id="@+id/tv_flea_heat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/tv_flea_title"
+        android:layout_below="@id/tv_flea_title"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="@string/text_flea_heat"
+        android:textColor="@color/text_black_primary"
+        android:textSize="@dimen/text_size_caption_material"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/tv_flea_time"
+        style="@style/TextCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tv_flea_title"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        tools:text="发布于16.07.14"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_max_height"
+        android:layout_below="@id/dv_flea_image"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:gravity="right|center_vertical"
+        android:orientation="horizontal"
+        android:paddingRight="8dp"
+        >
+
+        <Button
+            android:id="@+id/btn_flea_my_share"
+            style="?android:buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/widget_medium_height"
+            android:text="@string/btn_share"
+            />
+
+        <Button
+            android:id="@+id/btn_flea_my_edit"
+            style="?android:buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_edit"
+            />
+
+        <Button
+            android:id="@+id/btn_flea_my_del"
+            style="?android:buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_delete"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/dv_flea_image"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@color/div_line"
+        />
+
+</RelativeLayout>

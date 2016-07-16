@@ -3,12 +3,8 @@ package com.damenghai.chahuitong.model.service;
 import android.text.TextUtils;
 
 import com.damenghai.chahuitong.config.API;
-import com.damenghai.chahuitong.model.bean.Home;
-import com.damenghai.chahuitong.utils.L;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.google.gson.TypeAdapter;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,12 +20,6 @@ import retrofit2.Converter;
  */
 final class WrapperResponseBodyConverter<T> implements Converter<ResponseBody, T> {
     private static final String TAG = "WrapperResponseBodyConverter";
-
-//    private final TypeAdapter<T> adapter;
-//
-//    WrapperResponseBodyConverter(TypeAdapter<T> adapter) {
-//        this.adapter = adapter;
-//    }
 
     private final Type mType;
 

@@ -99,7 +99,7 @@ public class OrderDetailActivity extends BaseDataActivity<OrderDetailPresenter, 
             mTvTotal.setText(String.format(getString(R.string.text_rmb), order.getOrder_amount()));
             mTvOrderNo.setText(String.format(getString(R.string.label_order_num), order.getOrder_sn()));
             mTvPayNo.setText(String.format(getString(R.string.label_pay_num), order.getPay_sn()));
-            mTvCreateTime.setText(String.format(getString(R.string.label_time_create), DateUtils.getDateTime(order.getAdd_time())));
+            mTvCreateTime.setText(String.format(getString(R.string.label_time_create), order.getAdd_time()));
 
             List<Goods> data = order.getExtend_order_goods();
             if (data != null) {

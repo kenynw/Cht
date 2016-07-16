@@ -2,45 +2,43 @@ package com.damenghai.chahuitong.model.service;
 
 import com.damenghai.chahuitong.model.bean.Address;
 import com.damenghai.chahuitong.model.bean.Area;
-import com.damenghai.chahuitong.model.bean.Consult;
-import com.damenghai.chahuitong.model.bean.Flea;
-import com.damenghai.chahuitong.model.bean.FleaImage;
-import com.damenghai.chahuitong.model.bean.Popular;
-import com.damenghai.chahuitong.model.bean.Trace;
-import com.damenghai.chahuitong.model.bean.Account;
 import com.damenghai.chahuitong.model.bean.Article;
 import com.damenghai.chahuitong.model.bean.Bargain;
 import com.damenghai.chahuitong.model.bean.BeanList;
 import com.damenghai.chahuitong.model.bean.Cart;
 import com.damenghai.chahuitong.model.bean.Category;
-import com.damenghai.chahuitong.model.bean.GoodsComment;
+import com.damenghai.chahuitong.model.bean.Consult;
 import com.damenghai.chahuitong.model.bean.Discover;
+import com.damenghai.chahuitong.model.bean.Flea;
+import com.damenghai.chahuitong.model.bean.FleaCate;
+import com.damenghai.chahuitong.model.bean.FleaImage;
 import com.damenghai.chahuitong.model.bean.Goods;
+import com.damenghai.chahuitong.model.bean.GoodsComment;
 import com.damenghai.chahuitong.model.bean.GoodsInfo;
 import com.damenghai.chahuitong.model.bean.Home;
 import com.damenghai.chahuitong.model.bean.Message;
 import com.damenghai.chahuitong.model.bean.MessageCount;
 import com.damenghai.chahuitong.model.bean.Order;
 import com.damenghai.chahuitong.model.bean.OrderInfo;
+import com.damenghai.chahuitong.model.bean.Popular;
 import com.damenghai.chahuitong.model.bean.Sample;
 import com.damenghai.chahuitong.model.bean.Token;
+import com.damenghai.chahuitong.model.bean.Trace;
 import com.damenghai.chahuitong.model.bean.User;
 import com.damenghai.chahuitong.model.bean.Voucher;
-import com.damenghai.chahuitong.model.bean.response.ListResponse;
 import com.damenghai.chahuitong.model.bean.response.Response;
 import com.google.gson.JsonObject;
 
 import java.util.List;
 import java.util.Map;
 
-import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
-import retrofit2.http.Part;
 import retrofit2.http.PartMap;
 import retrofit2.http.Query;
 import rx.Observable;
@@ -594,12 +592,23 @@ public interface Services {
 
     /**
      * @param key 登录令牌
+     * @return 我发布的茶市列表
+     */
+    @FormUrlEncoded
+    @POST("?act=member_flea")
+    Observable<BeanList<Flea>> myFleaList(
+            @Field("key") String key
+    );
+
+    /**
+     * @param key 登录令牌
      * @return 茶市列表
      */
     @FormUrlEncoded
     @POST("?act=member_flea&op=flea_list")
     Observable<BeanList<Flea>> fleaList(
-            @Field("key") String key
+            @Field("key") String key,
+            @Query("curpage") int page
     );
 
     /**
@@ -616,33 +625,46 @@ public interface Services {
 
     /**
      * 发布茶市上传图片
-     * @param key 登录令牌
      * @return 茶市列表
      */
     @Multipart
     @POST("?act=member_flea&op=image_upload")
-    Observable<FleaImage> uploadFleaImage(
+    Call<FleaImage> uploadFleaImage(
             @PartMap Map<String, RequestBody> params
     );
 
     /**
      * 发布茶市保存文字
      * @param key 登录令牌
-     * @return 茶市列表
+     * @return 茶市ID
      */
     @FormUrlEncoded
     @POST("?act=member_flea&op=save_goods")
-    Observable<Flea> fleaSave(
+    Observable<Integer> saveFlea(
             @Field("key") String key,
-            @Field("goods_file_id") int image_id,
-            @Field("cate_id") int cate_id,
-            @Field("cate_name") String cate_name,
-            @Field("flea_pname") String flea_pname,
-            @Field("area_id") int area_id,
-            @Field("area_info") String area_info,
-            @Field("flea_pphone") String flea_pphone,
+            @Field("goods_name") String title,
+            @Field("g_body") String body,
+            @Field("goods_file_id") int image_ids,
+            @Field("cate_id") int cateId,
+            @Field("cate_name") String cateName,
             @Field("price") String price,
-            @Field("g_body") String g_body
+            @Field("goods_tag") String tag,
+            @Field("flea_pname") String pName,
+            @Field("flea_pphone") String pPhone,
+            @Field("area_id") int areaId,
+            @Field("area_info") String areaInfo
+    );
+
+    /**
+     * 茶市商品留言
+     * @param key 登录令牌
+     * @return 操作结果
+     */
+    @FormUrlEncoded
+    @POST("?act=member_flea&op=class_list")
+    Observable<List<FleaCate>> fleaCateList(
+            @Field("key") String key,
+            @Field("class_id") int cateId
     );
 
     /**
@@ -677,7 +699,7 @@ public interface Services {
      */
     @FormUrlEncoded
     @POST("?act=member_flea&op=drop_goods")
-    Observable<Integer> fleaDel(
+    Observable<Boolean> fleaDel(
             @Field("key") String key,
             @Field("goods_id") int goods_id
     );
@@ -701,6 +723,18 @@ public interface Services {
             @Field("goods_tag") String goodsTag,
             @Field("price") String price,
             @Field("g_body") String body
+    );
+
+    /**
+     * 删除茶市图片
+     * @param key 登录令牌
+     * @return 茶市列表
+     */
+    @FormUrlEncoded
+    @POST("?act=member_flea&op=drop_goods")
+    Observable<Integer> fleaImageDel(
+            @Field("key") String key,
+            @Field("upload_id") int goods_id
     );
 
     @FormUrlEncoded

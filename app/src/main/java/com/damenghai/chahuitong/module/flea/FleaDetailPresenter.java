@@ -1,5 +1,6 @@
 package com.damenghai.chahuitong.module.flea;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,8 +14,10 @@ import com.damenghai.chahuitong.model.bean.BeanList;
 import com.damenghai.chahuitong.model.bean.Consult;
 import com.damenghai.chahuitong.model.bean.Flea;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
+import com.damenghai.chahuitong.module.user.UserInfoActivity;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
+import com.tencent.connect.UserInfo;
 
 import java.util.List;
 
@@ -89,4 +92,9 @@ public class FleaDetailPresenter extends BaseDataActivityPresenter<FleaDetailAct
 
     }
 
+    public void showUser(int member_id) {
+        Intent intent = new Intent(getView(), UserInfoActivity.class);
+        intent.putExtra("user_id", member_id);
+        getView().startActivity(intent);
+    }
 }

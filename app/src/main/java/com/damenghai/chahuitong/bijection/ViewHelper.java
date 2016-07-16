@@ -67,4 +67,8 @@ public class ViewHelper<PresenterType extends Presenter> {
         mPresenter.onResult(requestCode, resultCode, data);
     }
 
+    public void onNewIntent(Intent intent) {
+        mPresenter.onNewIntent(intent);
+    }
+
 }

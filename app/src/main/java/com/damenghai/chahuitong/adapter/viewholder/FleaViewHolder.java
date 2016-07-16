@@ -2,6 +2,7 @@ package com.damenghai.chahuitong.adapter.viewholder;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.support.annotation.LayoutRes;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -35,7 +36,11 @@ public class FleaViewHolder extends BaseViewHolder<Flea> {
     TextView mTvTime;
 
     public FleaViewHolder(ViewGroup parent) {
-        super(parent, R.layout.item_list_flea);
+        this(parent, R.layout.item_list_flea);
+    }
+
+    public FleaViewHolder(ViewGroup parent, @LayoutRes int res) {
+        super(parent, res);
         ButterKnife.bind(this, itemView);
     }
 

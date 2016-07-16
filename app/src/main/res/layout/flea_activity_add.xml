@@ -54,12 +54,13 @@
                 android:textColorHint="@color/text_hint"
                 />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rv_flea_image"
+            <com.jude.exgridview.PieceViewGroup
+                android:id="@+id/pv_flea_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/et_flea_detail"
                 android:background="@color/white"
+                android:padding="@dimen/activity_horizontal_margin"
                 />
 
             <TextView
@@ -67,7 +68,7 @@
                 style="@style/TextBody"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/widget_medium_height"
-                android:layout_below="@id/rv_flea_image"
+                android:layout_below="@id/pv_flea_image"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:background="@color/white"
                 android:gravity="center_vertical"
@@ -76,19 +77,26 @@
                 android:text="@string/label_flea_cate"
                 />
 
-            <EditText
-                android:id="@+id/et_flea_cate"
-                style="@style/MediumEditText"
-                android:layout_below="@id/rv_flea_image"
+            <Button
+                android:id="@+id/btn_flea_cate"
+                style="@style/ButtonBorderless"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/pv_flea_image"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_toRightOf="@id/tv_flea_cate"
+                android:background="@color/white"
+                android:drawableRight="@mipmap/ic_arrow_more"
+                android:gravity="left|center_vertical"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:singleLine="true"
                 />
 
             <LinearLayout
                 android:id="@+id/ll_flea_cate"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/widget_medium_height"
-                android:layout_below="@id/et_flea_cate"
+                android:layout_below="@id/btn_flea_cate"
                 android:background="@color/white"
                 android:orientation="horizontal"
                 android:paddingRight="@dimen/activity_horizontal_margin"
@@ -142,7 +150,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_below="@id/et_flea_cate"
+                android:layout_below="@id/btn_flea_cate"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:background="@color/div_line"

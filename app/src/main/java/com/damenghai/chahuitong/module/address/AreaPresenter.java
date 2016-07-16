@@ -1,31 +1,17 @@
 package com.damenghai.chahuitong.module.address;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
-import android.text.TextUtils;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.expansion.list.BaseListFragmentPresenter;
 import com.damenghai.chahuitong.model.AddressModel;
 import com.damenghai.chahuitong.model.bean.Area;
-import com.damenghai.chahuitong.model.bean.response.ListResponse;
-import com.damenghai.chahuitong.model.bean.response.Response;
-import com.damenghai.chahuitong.model.local.PreferenceHelper;
-import com.damenghai.chahuitong.model.repository.AddressRepository;
-import com.damenghai.chahuitong.presenter.BasePresenter;
-import com.damenghai.chahuitong.utils.L;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
-import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import de.greenrobot.event.EventBus;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
@@ -57,40 +43,6 @@ public class AreaPresenter extends BaseListFragmentPresenter<AreaFragment, Area>
     @Override
     public void onRefresh() {
         AddressModel.getInstance().getAreaList(mAreaId).unsafeSubscribe(getRefreshSubscriber());
-    }
-
-    public void showAreaList() {
-//        mRepository.areaList(getToken(), getView().getAreaId())
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(new Subscriber<Response<ListResponse>>() {
-//
-//                    @Override
-//                    public void onStart() {
-//                        getView().showLoading();
-//                    }
-//
-//                    @Override
-//                    public void onCompleted() {
-//                        getView().hideLoading();
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//                        getView().showError(e.getMessage());
-//                        L.d(e.getMessage());
-//                    }
-//
-//                    @Override
-//                    public void onNext(Response<ListResponse> jsonObject) {
-//                        ListResponse response = jsonObject.getDatas();
-//                        if (response.isError()) {
-//                            getView().showError(response.getError());
-//                        } else {
-//                            getView().setAreaList(response.getArea_list());
-//                        }
-//                    }
-//                });
     }
 
     public static class AreaViewHolder extends BaseViewHolder<Area> {

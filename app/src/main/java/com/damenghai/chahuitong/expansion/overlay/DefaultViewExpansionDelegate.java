@@ -1,5 +1,6 @@
 package com.damenghai.chahuitong.expansion.overlay;
 
+import android.app.ProgressDialog;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,7 @@ import me.zhanghai.android.materialprogressbar.IndeterminateProgressDrawable;
  */
 public class DefaultViewExpansionDelegate extends ViewExpansionDelegate {
 
-    private ProgressBar mProgressBar;
+    private ProgressDialog mProgressDialog;
 
     private TextView mTvEmpty;
 
@@ -29,19 +30,23 @@ public class DefaultViewExpansionDelegate extends ViewExpansionDelegate {
 
     @Override
     public void showProgressBar() {
-        if (mProgressBar == null) {
-            mContent = getContainer().findViewById(R.id.layout_content);
-            if (mContent != null) mContent.setVisibility(View.INVISIBLE);
-
-            mProgressBar = new ProgressBar(getActivity());
-            mProgressBar.setIndeterminateDrawable(new IndeterminateProgressDrawable(getActivity()));
-            getContainer().addView(mProgressBar, getLayoutParams());
+        if (mProgressDialog != null && mProgressDialog.isShowing()) {
+            mProgressDialog.dismiss();
         }
+
+        mContent = getContainer().findViewById(R.id.layout_content);
+        if (mContent != null) mContent.setVisibility(View.INVISIBLE);
+        mProgressDialog = new ProgressDialog(getActivity());
+        mProgressDialog.setCancelable(false);
+        mProgressDialog.setMessage("请稍等");
+        mProgressDialog.show();
+//            mProgressDialog.setIndeterminateDrawable(new IndeterminateProgressDrawable(getActivity()));
+//            getContainer().addView(mProgressDialog, getLayoutParams());
     }
 
     @Override
     public void hideProgressBar() {
-        if (mProgressBar != null) mProgressBar.setVisibility(View.GONE);
+        if (mProgressDialog != null) mProgressDialog.dismiss();
         if (mContent != null) mContent.setVisibility(View.VISIBLE);
     }
 

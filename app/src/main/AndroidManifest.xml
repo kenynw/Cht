@@ -255,7 +255,20 @@
         </activity>
         <activity android:name=".module.address.AddressEditActivity">
         </activity>
-        <activity android:name=".module.flea.FleaAddActivity">
+        <activity
+            android:name=".module.flea.FleaAddActivity"
+            android:launchMode="singleTop">
+        </activity>
+        <activity android:name=".module.flea.FleaCateActivity">
+        </activity>
+        <activity android:name=".module.flea.MyFleaActivity">
+            <intent-filter>
+                <action android:name="com.damenghai.chahuitong.MyFlea"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".module.flea.FleaEditActivity">
         </activity>
     </application>
 

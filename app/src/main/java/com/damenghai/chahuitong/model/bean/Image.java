@@ -12,10 +12,10 @@ public class Image implements Parcelable {
         @Override
         public Image createFromParcel(Parcel source) {
             Image image = new Image();
-            image.image_tiny = source.readString();
-            image.image_small = source.readString();
-            image.image_mid = source.readString();
-            image.image_max = source.readString();
+            image.thumb_tiny = source.readString();
+            image.thumb_small = source.readString();
+            image.thumb_mid = source.readString();
+            image.thumb_max = source.readString();
             image.image_original = source.readString();
             return image;
         }
@@ -28,54 +28,54 @@ public class Image implements Parcelable {
     /**
      * 尺寸为60*60的图片
      */
-    private String image_tiny;
+    private String thumb_tiny;
     /**
      * 尺寸为240*240的图片
      */
-    private String image_small;
+    private String thumb_small;
     /**
      * 360*360
      */
-    private String image_mid;
+    private String thumb_mid;
     /**
      * 1280*1280
      */
-    private String image_max;
+    private String thumb_max;
     /**
      * 原始图片
      */
     private String image_original;
 
-    public String getImage_tiny() {
-        return image_tiny;
+    public String getThumb_tiny() {
+        return thumb_tiny;
     }
 
-    public void setImage_tiny(String image_tiny) {
-        this.image_tiny = image_tiny;
+    public void setThumb_tiny(String thumb_tiny) {
+        this.thumb_tiny = thumb_tiny;
     }
 
-    public String getImage_small() {
-        return image_small;
+    public String getThumb_small() {
+        return thumb_small;
     }
 
-    public void setImage_small(String image_small) {
-        this.image_small = image_small;
+    public void setThumb_small(String thumb_small) {
+        this.thumb_small = thumb_small;
     }
 
-    public String getImage_mid() {
-        return image_mid;
+    public String getThumb_mid() {
+        return thumb_mid;
     }
 
-    public void setImage_mid(String image_mid) {
-        this.image_mid = image_mid;
+    public void setThumb_mid(String thumb_mid) {
+        this.thumb_mid = thumb_mid;
     }
 
-    public String getImage_max() {
-        return image_max;
+    public String getThumb_max() {
+        return thumb_max;
     }
 
-    public void setImage_max(String image_max) {
-        this.image_max = image_max;
+    public void setThumb_max(String thumb_max) {
+        this.thumb_max = thumb_max;
     }
 
     public String getImage_original() {
@@ -93,10 +93,10 @@ public class Image implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(image_tiny);
-        dest.writeString(image_small);
-        dest.writeString(image_mid);
-        dest.writeString(image_max);
+        dest.writeString(thumb_tiny);
+        dest.writeString(thumb_small);
+        dest.writeString(thumb_mid);
+        dest.writeString(thumb_max);
         dest.writeString(image_original);
     }
 

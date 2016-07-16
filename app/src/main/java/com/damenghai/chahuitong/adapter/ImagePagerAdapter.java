@@ -45,7 +45,7 @@ public class ImagePagerAdapter extends PagerAdapter {
                 .build();
         SimpleDraweeView dv = new SimpleDraweeView(mContext);
         dv.setHierarchy(hierarchy);
-        dv.setImageURI(Uri.parse(mList.get(position).getImage_mid()));
+        dv.setImageURI(Uri.parse(mList.get(position).getThumb_mid()));
         dv.setOnClickListener(v -> {
             Intent imageIntent = new Intent(mContext, ImageBrowseActivity.class);
             imageIntent.putParcelableArrayListExtra("images", mList);

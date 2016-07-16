@@ -15,6 +15,7 @@
     <string name="title_activity_favorites">我的收藏夹</string>
     <string name="title_activity_feedback">意见反馈</string>
     <string name="title_activity_flea">茶市</string>
+    <string name="title_activity_flea_my">我的茶市</string>
     <string name="title_activity_goods">商品详情</string>
     <string name="title_activity_login">登录</string>
     <string name="title_activity_message">我的消息</string>
@@ -80,6 +81,7 @@
     <string name="btn_stay_shopping">再逛逛</string>
     <string name="btn_balance">结算</string>
     <string name="btn_delete">删除</string>
+    <string name="btn_edit">编辑</string>
     <string name="btn_move_favorites">移入收藏夹</string>
     <string name="btn_voucher_order">选择优惠券</string>
     <string name="btn_favorites">收藏</string>
@@ -145,6 +147,7 @@
     <string name="text_pay_success">嗨，你支付成功了！</string>
     <string name="text_pay_fail">哦额，您的订单支付失败了！</string>
     <string name="text_pay_title_prefix">茶汇通-订单编号</string>
+    <string name="text_publish_time">发布于%s</string>
     <string name="text_alipay">支付宝</string>
     <string name="text_alipay_body">支付宝用户使用</string>
     <string name="text_wxpay">微信支付</string>
@@ -170,6 +173,7 @@
     <string name="text_staple_class">热门茶类</string>
     <string name="text_user_commend">推荐用户</string>
     <string name="text_article_heat">%1$s阅读 · %2$s评论</string>
+    <string name="text_flea_heat">%1$s浏览&#160;&#160;%2$s留言&#160;&#160;%3$s收藏</string>
     <string name="text_feedback_wb">微博@茶汇通APP</string>
     <string name="text_feedback_qq">客服QQ 3319703576</string>
     <string name="text_edit">编辑</string>
@@ -264,7 +268,7 @@
 
     <!--消息框文字，命名格式为：toast_消息-->
     <string name="toast_exit">再按一次退出茶汇通</string>
-    <string name="toast_del_success">删除成功</string>
+    <string name="toast_del_success">删除成功,如数据未更新请手动刷新</string>
     <string name="toast_network_error">网络连接错误</string>
     <string name="toast_network_timeout">网络连接超时</string>
     <string name="toast_logout_success">退出成功</string>
@@ -321,6 +325,7 @@
     <string name="dialog_sure_order">确定要确认订单吗？</string>
     <string name="dialog_delete_order">删除订单后订单将不可见且不可恢复！确定要删除订单吗？</string>
     <string name="dialog_delete_address">确认要删除所选中的地址吗？</string>
+    <string name="dialog_delete_flea">删除商品后将无法恢复！确认要删除吗？</string>
     <string name="dialog_add_cart_success">添加购物车成功</string>
     <string name="dialog_clean_cache">确认要删除所有缓存吗？（不包括登录信息等数据）</string>
     <string name="dialog_logout">确定要退出登录吗？</string>

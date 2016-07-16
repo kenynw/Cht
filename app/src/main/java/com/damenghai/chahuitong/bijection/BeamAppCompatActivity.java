@@ -59,6 +59,12 @@ public class BeamAppCompatActivity<PresenterType extends Presenter> extends AppC
         mHelper.onResult(requestCode, resultCode, data);
     }
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        mHelper.onNewIntent(intent);
+    }
+
     public PresenterType getPresenter() {
         return mHelper.getPresenter();
     }

@@ -98,16 +98,18 @@
             </RelativeLayout>
 
             <LinearLayout
+                android:id="@+id/ll_flea_user"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:orientation="horizontal"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:padding="@dimen/activity_vertical_margin"
                 >
 
                 <com.facebook.drawee.view.SimpleDraweeView
                     android:id="@+id/dv_flea_avatar"
-                    style="@style/MediumAvatar"
+                    style="@style/SmallAvatar"
                     />
 
                 <TextView

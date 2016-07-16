@@ -111,7 +111,7 @@ public class GoodsDetailActivity extends BaseDataActivity<GoodsDetailPresenter, 
             final ArrayList<Image> imageList = new ArrayList<>();
             for (String imageStr : images) {
                 Image image = new Image();
-                image.setImage_mid(imageStr);
+                image.setThumb_mid(imageStr);
                 imageList.add(image);
             }
             mPagerImage.setAdapter(new ImagePagerAdapter(this, imageList));

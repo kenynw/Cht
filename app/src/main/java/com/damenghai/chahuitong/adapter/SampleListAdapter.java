@@ -45,7 +45,7 @@ public class SampleListAdapter extends RecyclerView.Adapter<SampleListAdapter.Sa
     public void onBindViewHolder(final SampleViewHolder holder, int position) {
         final Sample sample = holder.mItem = mData.get(position);
 
-        holder.mDvImage.setImageURI(Uri.parse(sample.getSampleImages().get(0).getImage_mid()));
+        holder.mDvImage.setImageURI(Uri.parse(sample.getSampleImages().get(0).getThumb_mid()));
         holder.mTvTitle.setText(sample.getSample_name());
         holder.mTvPrice.setText("￥" + sample.getSample_goods_price());
         holder.mTvLocation.setText(sample.getSample_origin_place());

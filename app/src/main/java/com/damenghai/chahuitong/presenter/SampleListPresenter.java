@@ -3,7 +3,6 @@ package com.damenghai.chahuitong.presenter;
 import com.damenghai.chahuitong.model.bean.Sample;
 import com.damenghai.chahuitong.model.bean.response.Response;
 import com.damenghai.chahuitong.model.repository.SampleRepository;
-import com.damenghai.chahuitong.utils.L;
 import com.damenghai.chahuitong.module.special.SampleListMvpView;
 
 import java.util.List;
@@ -43,14 +42,11 @@ public class SampleListPresenter extends BasePresenter<SampleListMvpView> {
 
                     @Override
                     public void onError(Throwable e) {
-                        L.d(TAG, "error: " + e.getMessage());
                         getView().hideLoading();
                     }
 
                     @Override
                     public void onNext(Response<List<Sample>> listResponse) {
-                        L.d("msg: " + listResponse.getMsg() + ", name: " + listResponse.getContent().get(0).getSample_name());
-
                         if (listResponse.isSuccess()) {
                             getView().showList(listResponse.getContent());
                         } else {

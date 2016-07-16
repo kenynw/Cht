@@ -28,12 +28,12 @@ public class FleaListPresenter extends BaseListActivityPresenter<FleaListActivit
 
     @Override
     public void onRefresh() {
-        FleaModel.getInstance().getFleaList().unsafeSubscribe(getRefreshSubscriber());
+        FleaModel.getInstance().getFleaList(0).unsafeSubscribe(getRefreshSubscriber());
     }
 
     @Override
     public void onLoadMore() {
-        FleaModel.getInstance().getFleaList().unsafeSubscribe(getMoreSubscriber());
+        FleaModel.getInstance().getFleaList(getCurPage()).unsafeSubscribe(getMoreSubscriber());
     }
 
 }

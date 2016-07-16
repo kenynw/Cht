@@ -57,4 +57,8 @@ public class Presenter<ViewType> {
     protected void onResult(int requestCode, int resultCode, Intent data) {
     }
 
+    protected void onNewIntent(Intent intent) {
+
+    }
+
 }

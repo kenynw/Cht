@@ -14,6 +14,10 @@ public class Flea implements Parcelable {
 
     private String goods_name;
 
+    private int gc_id;
+
+    private String gc_name;
+
     private int member_id;
 
     private String member_name;
@@ -21,6 +25,8 @@ public class Flea implements Parcelable {
     private String member_avatar;
 
     private String goods_image;
+
+    private List<FleaImage> desc_image;
 
     private String goods_tag;
 
@@ -30,9 +36,13 @@ public class Flea implements Parcelable {
 
     private int goods_click;
 
+    private int flea_collect_num;
+
     private String goods_add_time;
 
     private String goods_body;
+
+    private int commentnum;
 
     private String flea_pname;
 
@@ -57,16 +67,21 @@ public class Flea implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(this.goods_id);
         dest.writeString(this.goods_name);
+        dest.writeInt(this.gc_id);
+        dest.writeString(this.gc_name);
         dest.writeInt(this.member_id);
         dest.writeString(this.member_name);
         dest.writeString(this.member_avatar);
         dest.writeString(this.goods_image);
+        dest.writeTypedList(this.desc_image);
         dest.writeString(this.goods_tag);
         dest.writeString(this.goods_store_price);
         dest.writeInt(this.goods_show);
         dest.writeInt(this.goods_click);
+        dest.writeInt(this.flea_collect_num);
         dest.writeString(this.goods_add_time);
         dest.writeString(this.goods_body);
+        dest.writeInt(this.commentnum);
         dest.writeString(this.flea_pname);
         dest.writeString(this.flea_pphone);
         dest.writeInt(this.flea_area_id);
@@ -82,16 +97,21 @@ public class Flea implements Parcelable {
     protected Flea(Parcel in) {
         this.goods_id = in.readInt();
         this.goods_name = in.readString();
+        this.gc_id = in.readInt();
+        this.gc_name = in.readString();
         this.member_id = in.readInt();
         this.member_name = in.readString();
         this.member_avatar = in.readString();
         this.goods_image = in.readString();
+        this.desc_image = in.createTypedArrayList(FleaImage.CREATOR);
         this.goods_tag = in.readString();
         this.goods_store_price = in.readString();
         this.goods_show = in.readInt();
         this.goods_click = in.readInt();
+        this.flea_collect_num = in.readInt();
         this.goods_add_time = in.readString();
         this.goods_body = in.readString();
+        this.commentnum = in.readInt();
         this.flea_pname = in.readString();
         this.flea_pphone = in.readString();
         this.flea_area_id = in.readInt();
@@ -129,6 +149,22 @@ public class Flea implements Parcelable {
         this.goods_name = goods_name;
     }
 
+    public int getGc_id() {
+        return gc_id;
+    }
+
+    public void setGc_id(int gc_id) {
+        this.gc_id = gc_id;
+    }
+
+    public String getGc_name() {
+        return gc_name;
+    }
+
+    public void setGc_name(String gc_name) {
+        this.gc_name = gc_name;
+    }
+
     public int getMember_id() {
         return member_id;
     }
@@ -159,6 +195,14 @@ public class Flea implements Parcelable {
 
     public void setGoods_image(String goods_image) {
         this.goods_image = goods_image;
+    }
+
+    public List<FleaImage> getDesc_image() {
+        return desc_image;
+    }
+
+    public void setDesc_image(List<FleaImage> desc_image) {
+        this.desc_image = desc_image;
     }
 
     public String getGoods_tag() {
@@ -193,6 +237,14 @@ public class Flea implements Parcelable {
         this.goods_click = goods_click;
     }
 
+    public int getFlea_collect_num() {
+        return flea_collect_num;
+    }
+
+    public void setFlea_collect_num(int flea_collect_num) {
+        this.flea_collect_num = flea_collect_num;
+    }
+
     public String getGoods_add_time() {
         return goods_add_time;
     }
@@ -207,6 +259,14 @@ public class Flea implements Parcelable {
 
     public void setGoods_body(String goods_body) {
         this.goods_body = goods_body;
+    }
+
+    public int getCommentnum() {
+        return commentnum;
+    }
+
+    public void setCommentnum(int commentnum) {
+        this.commentnum = commentnum;
     }
 
     public String getFlea_pname() {
