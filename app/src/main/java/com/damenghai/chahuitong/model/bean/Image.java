@@ -8,23 +8,6 @@ import android.os.Parcelable;
  */
 public class Image implements Parcelable {
 
-    public static final Parcelable.Creator<Image> CREATOR = new Creator<Image>() {
-        @Override
-        public Image createFromParcel(Parcel source) {
-            Image image = new Image();
-            image.thumb_tiny = source.readString();
-            image.thumb_small = source.readString();
-            image.thumb_mid = source.readString();
-            image.thumb_max = source.readString();
-            image.image_original = source.readString();
-            return image;
-        }
-
-        @Override
-        public Image[] newArray(int size) {
-            return new Image[size];
-        }
-    };
     /**
      * 尺寸为60*60的图片
      */
@@ -45,6 +28,43 @@ public class Image implements Parcelable {
      * 原始图片
      */
     private String image_original;
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.thumb_tiny);
+        dest.writeString(this.thumb_small);
+        dest.writeString(this.thumb_mid);
+        dest.writeString(this.thumb_max);
+        dest.writeString(this.image_original);
+    }
+
+    public Image() {
+    }
+
+    protected Image(Parcel in) {
+        this.thumb_tiny = in.readString();
+        this.thumb_small = in.readString();
+        this.thumb_mid = in.readString();
+        this.thumb_max = in.readString();
+        this.image_original = in.readString();
+    }
+
+    public static final Creator<Image> CREATOR = new Creator<Image>() {
+        @Override
+        public Image createFromParcel(Parcel source) {
+            return new Image(source);
+        }
+
+        @Override
+        public Image[] newArray(int size) {
+            return new Image[size];
+        }
+    };
 
     public String getThumb_tiny() {
         return thumb_tiny;
@@ -85,19 +105,4 @@ public class Image implements Parcelable {
     public void setImage_original(String image_original) {
         this.image_original = image_original;
     }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(thumb_tiny);
-        dest.writeString(thumb_small);
-        dest.writeString(thumb_mid);
-        dest.writeString(thumb_max);
-        dest.writeString(image_original);
-    }
-
 }

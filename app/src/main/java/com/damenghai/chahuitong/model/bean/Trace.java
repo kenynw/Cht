@@ -3,16 +3,121 @@ package com.damenghai.chahuitong.model.bean;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
 public class Trace implements Parcelable {
+
+    private int trace_id;
+
+    private int trace_originalid;
+
+    private int trace_originalmemberid;
+
+    private int trace_originalstate;
+
+    private int trace_memberid;
+
+    private String trace_membername;
+
+    private String trace_memberavatar;
+
+    private String trace_title;
+
+    private String trace_content;
+
+    private String trace_image;
+
+    private String trace_addtime;
+
+    private String trace_state;
+
+    private String trace_privacy;
+
+    private int trace_commentcount;
+
+    private int trace_likecount;
+
+    private int trace_copycount;
+
+    private int trace_orgcommentcount;
+
+    private int trace_orgcopycount;
+
+    private int trace_commend_flag;
+
+    private int relation;
+
+    private List<TraceComment> comment_list;
+
+    private ArrayList<AlbumImage> trace_image_list;
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.trace_id);
+        dest.writeInt(this.trace_originalid);
+        dest.writeInt(this.trace_originalmemberid);
+        dest.writeInt(this.trace_originalstate);
+        dest.writeInt(this.trace_memberid);
+        dest.writeString(this.trace_membername);
+        dest.writeString(this.trace_memberavatar);
+        dest.writeString(this.trace_title);
+        dest.writeString(this.trace_content);
+        dest.writeString(this.trace_image);
+        dest.writeString(this.trace_addtime);
+        dest.writeString(this.trace_state);
+        dest.writeString(this.trace_privacy);
+        dest.writeInt(this.trace_commentcount);
+        dest.writeInt(this.trace_likecount);
+        dest.writeInt(this.trace_copycount);
+        dest.writeInt(this.trace_orgcommentcount);
+        dest.writeInt(this.trace_orgcopycount);
+        dest.writeInt(this.trace_commend_flag);
+        dest.writeInt(this.relation);
+        dest.writeTypedList(this.comment_list);
+        dest.writeTypedList(this.trace_image_list);
+    }
+
+    public Trace() {
+    }
+
+    protected Trace(Parcel in) {
+        this.trace_id = in.readInt();
+        this.trace_originalid = in.readInt();
+        this.trace_originalmemberid = in.readInt();
+        this.trace_originalstate = in.readInt();
+        this.trace_memberid = in.readInt();
+        this.trace_membername = in.readString();
+        this.trace_memberavatar = in.readString();
+        this.trace_title = in.readString();
+        this.trace_content = in.readString();
+        this.trace_image = in.readString();
+        this.trace_addtime = in.readString();
+        this.trace_state = in.readString();
+        this.trace_privacy = in.readString();
+        this.trace_commentcount = in.readInt();
+        this.trace_likecount = in.readInt();
+        this.trace_copycount = in.readInt();
+        this.trace_orgcommentcount = in.readInt();
+        this.trace_orgcopycount = in.readInt();
+        this.trace_commend_flag = in.readInt();
+        this.relation = in.readInt();
+        this.comment_list = in.createTypedArrayList(TraceComment.CREATOR);
+        this.trace_image_list = in.createTypedArrayList(AlbumImage.CREATOR);
+    }
+
     public static final Creator<Trace> CREATOR = new Creator<Trace>() {
         @Override
-        public Trace createFromParcel(Parcel in) {
-            return new Trace(in);
+        public Trace createFromParcel(Parcel source) {
+            return new Trace(source);
         }
 
         @Override
@@ -20,81 +125,6 @@ public class Trace implements Parcelable {
             return new Trace[size];
         }
     };
-    private int trace_id;
-    private int trace_originalid;
-    private int trace_originalmemberid;
-    private int trace_originalstate;
-    private int trace_memberid;
-    private String trace_membername;
-    private String trace_memberavatar;
-    private String trace_title;
-    private String trace_content;
-    private String trace_image;
-    private String trace_addtime;
-    private String trace_state;
-    private String trace_privacy;
-    private int trace_commentcount;
-    private int trace_likecount;
-    private int trace_copycount;
-    private int trace_orgcommentcount;
-    private int trace_orgcopycount;
-    private int trace_commend_flag;
-    private int relation;
-    private List<TraceComment> comment_list;
-
-    protected Trace(Parcel in) {
-        trace_id = in.readInt();
-        trace_originalid = in.readInt();
-        trace_originalmemberid = in.readInt();
-        trace_originalstate = in.readInt();
-        trace_memberid = in.readInt();
-        trace_membername = in.readString();
-        trace_memberavatar = in.readString();
-        trace_title = in.readString();
-        trace_content = in.readString();
-        trace_image = in.readString();
-        trace_addtime = in.readString();
-        trace_state = in.readString();
-        trace_privacy = in.readString();
-        trace_commentcount = in.readInt();
-        trace_likecount = in.readInt();
-        trace_copycount = in.readInt();
-        trace_orgcommentcount = in.readInt();
-        trace_orgcopycount = in.readInt();
-        trace_commend_flag = in.readInt();
-        relation = in.readInt();
-        comment_list = in.createTypedArrayList(TraceComment.CREATOR);
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(trace_id);
-        dest.writeInt(trace_originalid);
-        dest.writeInt(trace_originalmemberid);
-        dest.writeInt(trace_originalstate);
-        dest.writeInt(trace_memberid);
-        dest.writeString(trace_membername);
-        dest.writeString(trace_memberavatar);
-        dest.writeString(trace_title);
-        dest.writeString(trace_content);
-        dest.writeString(trace_image);
-        dest.writeString(trace_addtime);
-        dest.writeString(trace_state);
-        dest.writeString(trace_privacy);
-        dest.writeInt(trace_commentcount);
-        dest.writeInt(trace_likecount);
-        dest.writeInt(trace_copycount);
-        dest.writeInt(trace_orgcommentcount);
-        dest.writeInt(trace_orgcopycount);
-        dest.writeInt(trace_commend_flag);
-        dest.writeInt(relation);
-        dest.writeTypedList(comment_list);
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
 
     public int getTrace_id() {
         return trace_id;
@@ -262,5 +292,13 @@ public class Trace implements Parcelable {
 
     public void setComment_list(List<TraceComment> comment_list) {
         this.comment_list = comment_list;
+    }
+
+    public ArrayList<AlbumImage> getTrace_image_list() {
+        return trace_image_list;
+    }
+
+    public void setTrace_image_list(ArrayList<AlbumImage> trace_image_list) {
+        this.trace_image_list = trace_image_list;
     }
 }

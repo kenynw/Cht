@@ -13,9 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
         android:clipToPadding="false"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
         >
 
         <LinearLayout
@@ -23,6 +23,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             >
+
+            <include layout="@layout/include_trace_user"/>
 
             <include layout="@layout/include_trace" />
 
@@ -75,10 +77,10 @@
             style="@style/ButtonBorderless"
             android:layout_width="@dimen/button_min_width"
             android:layout_height="match_parent"
+            android:enabled="false"
             android:text="@string/btn_publish"
             android:textColor="@color/text_color_primary_disable_selector"
             android:textSize="@dimen/text_size_title_material"
-            android:enabled="false"
             />
 
     </LinearLayout>

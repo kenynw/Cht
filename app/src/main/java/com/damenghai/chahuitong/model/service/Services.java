@@ -20,7 +20,7 @@ import com.damenghai.chahuitong.model.bean.Message;
 import com.damenghai.chahuitong.model.bean.MessageCount;
 import com.damenghai.chahuitong.model.bean.Order;
 import com.damenghai.chahuitong.model.bean.OrderInfo;
-import com.damenghai.chahuitong.model.bean.Popular;
+import com.damenghai.chahuitong.model.bean.People;
 import com.damenghai.chahuitong.model.bean.Sample;
 import com.damenghai.chahuitong.model.bean.Token;
 import com.damenghai.chahuitong.model.bean.Trace;
@@ -473,6 +473,28 @@ public interface Services {
     );
 
     /**
+     * 动态上传图片
+     */
+    @Multipart
+    @POST("?act=member_sns_trace&op=trace_image_upload")
+    Call<Integer> traceUploadImage(
+            @PartMap Map<String, RequestBody> params
+    );
+
+    /**
+     * 删除动态
+     * @param key 当前登录令牌
+     * @param content 内容
+     */
+    @FormUrlEncoded
+    @POST("?act=member_sns_trace&op=trace_add")
+    Observable<Integer> traceAdd(
+            @Field("key") String key,
+            @Field("content") String content,
+            @Field("image_id") int imageId
+    );
+
+    /**
      * 删除动态
      * @param key 当前登录令牌
      * @param traceId 动态id
@@ -528,7 +550,7 @@ public interface Services {
      * @return
      */
     @GET("?act=member_sns_home")
-    Observable<User> userHome(
+    Observable<People> userHome(
             @Query("key") String key,
             @Query("mid") int mid
     );
@@ -550,7 +572,7 @@ public interface Services {
      * @return 社区达人列表
      */
     @GET("?act=member_sns_friend&op=popular_list")
-    Observable<BeanList<Popular>> popularList(
+    Observable<BeanList<People>> popularList(
             @Query("key") String key,
             @Query("curpage") int page
     );

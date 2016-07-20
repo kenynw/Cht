@@ -12,8 +12,11 @@ import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.model.bean.Image;
+import com.damenghai.chahuitong.utils.LUtils;
 import com.damenghai.chahuitong.widget.DraweePhotoView;
+import com.google.gson.Gson;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -35,6 +38,8 @@ public class ImageBrowseActivity extends AppCompatActivity implements ViewPager.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_browse);
         ButterKnife.bind(this);
+
+        LUtils.log(new Gson().toJson(getIntent().getParcelableArrayListExtra("images")));
 
         mViewPager.setAdapter(new ImagePagerAdapter(getIntent().getParcelableArrayListExtra("images")));
         mViewPager.addOnPageChangeListener(this);

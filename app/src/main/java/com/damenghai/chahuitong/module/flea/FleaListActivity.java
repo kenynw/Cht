@@ -31,7 +31,7 @@ public class FleaListActivity extends BaseListActivity<FleaListPresenter> {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_flea, menu);
+        getMenuInflater().inflate(R.menu.menu_publish, menu);
         return super.onCreateOptionsMenu(menu);
     }
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <TextView
+        android:id="@+id/tv_trace_time"
+        style="@style/TextCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        tools:text="2015.10.20 10:06"
+        />
+
+    <TextView
+        android:id="@+id/tv_trace_more"
+        style="@style/ButtonBorderless"
+        android:layout_width="@dimen/widget_medium_height"
+        android:layout_height="@dimen/widget_medium_height"
+        android:layout_gravity="right"
+        android:gravity="center"
+        android:text=". . ."
+        android:textSize="@dimen/text_size_subhead_material"
+        android:textStyle="bold"
+        />
+
+</FrameLayout>

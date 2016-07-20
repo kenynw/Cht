@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/dv_trace_avatar"
+        android:layout_width="@dimen/widget_medium_height"
+        android:layout_height="@dimen/widget_medium_height"
+        app:actualImageScaleType="centerCrop"
+        app:roundAsCircle="true"
+        />
+
+    <TextView
+        android:id="@+id/tv_trace_username"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:textColor="@color/text_black_primary"
+        android:textSize="@dimen/text_size_body_material"
+        tools:text="用户名"
+        />
+
+    <TextView
+        android:id="@+id/tv_trace_time"
+        style="@style/TextCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        tools:text="2015.10.20 10:06"
+        />
+
+    <Button
+        android:id="@+id/btn_trace_follow"
+        style="@style/ButtonSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_add_follow"
+        android:textColor="@color/text_black_secondary"
+        android:visibility="gone"
+        />
+
+    <Button
+        style="@style/ButtonBorderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="more"
+        android:visibility="gone"
+        />
+
+</LinearLayout>

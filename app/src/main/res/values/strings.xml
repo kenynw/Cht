@@ -29,6 +29,7 @@
     <string name="title_activity_reset_password">重置密码</string>
     <string name="title_activity_sample">本期免费茶样</string>
     <string name="title_activity_settings">设置</string>
+    <string name="title_activity_trace_add">发表动态</string>
     <string name="title_activity_voucher">我的优惠券</string>
     <string name="title_my_order">我的订单</string>
     <string name="title_discover">发现</string>
@@ -132,6 +133,7 @@
     <string name="text_cart_empty">暂无商品</string>
     <string name="text_empty">这里空空如也，快去逛逛吧~~</string>
     <string name="text_empty_comment">还没有任何评论，快来抢沙发吧~~</string>
+    <string name="text_empty_trace">还未发表过任何动态</string>
     <string name="text_goods_quality">正品保证</string>
     <string name="text_goods_delivery_today">12小时发货</string>
     <string name="text_goods_spot">实地认证</string>
@@ -307,6 +309,7 @@
     <string name="hint_true_name">不少于2个字符</string>
     <string name="hint_search">搜索商品名称、店铺等</string>
     <string name="hint_new_content">说点什么吧&#8230;</string>
+    <string name="hint_new_trace">说说你此刻的心情吧&#8230;</string>
     <string name="hint_user_search">搜索好友、达人</string>
     <string name="hint_feedback_content">您的每一次建议都是我们前进的动力，心情的吐槽吧~~</string>
     <string name="hint_feedback_contact">QQ或者邮箱(选填)</string>
@@ -321,14 +324,15 @@
     <string name="desc_more">查看更多</string>
 
     <!--对话框的文字，命名格式为：dialog_文字-->
-    <string name="dialog_cancel_order">确定要取消订单？</string>
-    <string name="dialog_sure_order">确定要确认订单吗？</string>
-    <string name="dialog_delete_order">删除订单后订单将不可见且不可恢复！确定要删除订单吗？</string>
-    <string name="dialog_delete_address">确认要删除所选中的地址吗？</string>
-    <string name="dialog_delete_flea">删除商品后将无法恢复！确认要删除吗？</string>
     <string name="dialog_add_cart_success">添加购物车成功</string>
+    <string name="dialog_cancel_order">确定要取消订单？</string>
     <string name="dialog_clean_cache">确认要删除所有缓存吗？（不包括登录信息等数据）</string>
+    <string name="dialog_delete_address">确认要删除所选中的地址吗？</string>
+    <string name="dialog_delete_trace">确认要删除这条动态吗？删除后将无法恢复</string>
+    <string name="dialog_delete_flea">删除商品后将无法恢复！确认要删除吗？</string>
+    <string name="dialog_delete_order">删除订单后订单将不可见且不可恢复！确定要删除订单吗？</string>
     <string name="dialog_logout">确定要退出登录吗？</string>
+    <string name="dialog_sure_order">确定要确认订单吗？</string>
 
     <!--menu的item文字，命名格式为：action_文字-->
     <string name="action_main_cart">购物车</string>
@@ -337,6 +341,8 @@
     <string name="action_delete">删除</string>
     <string name="action_settings">设置</string>
     <string name="action_search">搜索</string>
+    <string name="action_share">分享</string>
+    <string name="action_report">举报</string>
     <string name="action_publish">发布</string>
 
     <!-- TODO: Remove or change this placeholder text -->

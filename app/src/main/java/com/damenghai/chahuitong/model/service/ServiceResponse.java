@@ -25,7 +25,7 @@ public class ServiceResponse<T> extends Subscriber<T> {
 
     @Override
     public void onNext(T t) {
-        if (t == null) return;
+
     }
 
     private void serviceError(ServiceException e) {

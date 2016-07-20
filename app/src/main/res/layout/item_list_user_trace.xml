@@ -6,8 +6,8 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <include layout="@layout/include_trace_user" />
+    <include layout="@layout/include_trace_time"/>
 
-    <include layout="@layout/include_trace" />
+    <include layout="@layout/include_trace"/>
 
 </LinearLayout>

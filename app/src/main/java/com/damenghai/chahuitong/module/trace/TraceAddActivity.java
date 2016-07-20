@@ -1,15 +1,62 @@
 package com.damenghai.chahuitong.module.trace;
 
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.view.Menu;
+import android.widget.EditText;
 
 import com.damenghai.chahuitong.R;
+import com.damenghai.chahuitong.bijection.BeamBaseActivity;
+import com.damenghai.chahuitong.bijection.RequiresPresenter;
+import com.damenghai.chahuitong.utils.LUtils;
+import com.jude.exgridview.ImagePieceView;
+import com.jude.exgridview.PieceViewGroup;
 
-public class TraceAddActivity extends AppCompatActivity {
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
+@RequiresPresenter(TraceAddPresenter.class)
+public class TraceAddActivity extends BeamBaseActivity<TraceAddPresenter> {
+
+    @Bind(R.id.et_trace_content)
+    EditText mEtContent;
+
+    @Bind(R.id.pv_trace_image)
+    PieceViewGroup mPvImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trace_activity_add);
+        ButterKnife.bind(this);
+        setToolbarTitle(R.string.title_activity_trace_add);
+        getToolbar().setOnMenuItemClickListener(item -> {
+            getPresenter().save(mEtContent.getText().toString().trim());
+            return true;
+        });
+
+        mPvImage.setOnViewDeleteListener(getPresenter());
+        mPvImage.setOnAskViewListener(this::showSelectorDialog);
+    }
+
+    public void showSelectorDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle("选择图片来源")
+                .setItems(new String[]{"拍照", "相册"}, (dialog, which) -> {
+                    getPresenter().editFace(which);
+                }).show();
+    }
+
+    public void addImage(Bitmap bitmap) {
+        ImagePieceView pieceView = new ImagePieceView(this);
+        pieceView.setImageBitmap(bitmap);
+        mPvImage.addView(pieceView);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_publish, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }

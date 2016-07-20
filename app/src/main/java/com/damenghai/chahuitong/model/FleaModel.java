@@ -61,7 +61,6 @@ public class FleaModel {
                 .map(image -> {
                     if (image.getUri() != null) {
                         File file = new File(image.getUri().getPath());
-                        LUtils.log("uri: " + image.getUri().toString());
                         RequestBody photo = RequestBody.create(MediaType.parse("multipart/form-data"), file);
                         Map<String, RequestBody> photos = new HashMap<>();
                         photos.put("image\"; filename=\"" + file.getName() + "\"", photo);

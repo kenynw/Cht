@@ -75,20 +75,17 @@ public class CartActivity extends BaseActivity implements CartMvpView {
 
     private void init() {
         setToolbarTitle(R.string.tab_home_cart);
-        getToolbar().setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.action_edit:
-                        changeMode(MODE_EDIT);
-                        break;
-                    case R.id.action_done:
-                        changeMode(MODE_NORMAL);
-                        mPresenter.editQuantity();
-                        break;
-                }
-                return true;
+        getToolbar().setOnMenuItemClickListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.action_edit:
+                    changeMode(MODE_EDIT);
+                    break;
+                case R.id.action_done:
+                    changeMode(MODE_NORMAL);
+                    mPresenter.editQuantity();
+                    break;
             }
+            return true;
         });
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);

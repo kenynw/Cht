@@ -3,6 +3,10 @@ package com.damenghai.chahuitong.module.trace;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +17,7 @@ import com.damenghai.chahuitong.adapter.TraceCommentAdapter;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.expansion.data.BaseDataActivity;
 import com.damenghai.chahuitong.model.bean.Trace;
+import com.damenghai.chahuitong.utils.LUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.jude.easyrecyclerview.EasyRecyclerView;
 
@@ -34,11 +39,14 @@ public class TraceDetailActivity extends BaseDataActivity<TraceDetailPresenter, 
     @Bind(R.id.tv_trace_time)
     TextView mTvTime;
 
-    @Bind(R.id.tv_trace_content)
+    @Bind(R.id.et_trace_content)
     TextView mTvContent;
 
     @Bind(R.id.dv_trace_image)
     SimpleDraweeView mDvImage;
+
+    @Bind(R.id.tv_trace_img_count)
+    TextView mTvImgNum;
 
     @Bind(R.id.rcv_trace_comment)
     EasyRecyclerView mRcvComment;
@@ -63,7 +71,8 @@ public class TraceDetailActivity extends BaseDataActivity<TraceDetailPresenter, 
         ButterKnife.bind(this);
 
         mRcvComment.setLayoutManager(new LinearLayoutManager(this));
-        mRcvComment.setEmptyView(R.layout.defalut_view_list_empty);
+        mRcvComment.setEmptyView(R.layout.empty_list_comment);
+
         mEtComment.addTextChangedListener(getPresenter());
         mBtnAddComment.setOnClickListener(v -> getPresenter().addComment(mEtComment.getText().toString()));
     }
@@ -74,13 +83,19 @@ public class TraceDetailActivity extends BaseDataActivity<TraceDetailPresenter, 
         mDvAvatar.setOnClickListener(v -> getPresenter().showUserInfo(trace.getTrace_memberid()));
         mTvUsername.setText(trace.getTrace_membername());
         mTvUsername.setOnClickListener(v -> getPresenter().showUserInfo(trace.getTrace_memberid()));
-        mTvContent.setText(trace.getTrace_title());
+        mTvContent.setText(Html.fromHtml(trace.getTrace_title()));
+        mTvContent.setClickable(true);
+        mTvContent.setMovementMethod(LinkMovementMethod.getInstance());
         mDvImage.setImageURI(Uri.parse(trace.getTrace_image()));
+        mDvImage.setOnClickListener(v -> getPresenter().showImageDetail(trace.getTrace_image_list()));
+        mTvImgNum.setText(String.valueOf(trace.getTrace_image_list().size()));
         mBtnComment.setText(String.format(getString(R.string.btn_trace_comment), trace.getTrace_commentcount() > 0 ? trace.getTrace_commentcount() : ""));
         mBtnLike.setText(String.format(getString(R.string.btn_trace_like), trace.getTrace_likecount() > 0 ? trace.getTrace_likecount() : ""));
         mBtnLike.setOnClickListener(v -> getPresenter().addLike());
-        mRcvComment.setAdapter(new TraceCommentAdapter(this, trace.getComment_list()));
         mTvTime.setText(trace.getTrace_addtime());
+        if (trace.getComment_list() != null && trace.getComment_list().size() > 0) {
+            mRcvComment.setAdapter(new TraceCommentAdapter(this, trace.getComment_list()));
+        }
         setRelation(trace);
     }
 
@@ -102,17 +117,34 @@ public class TraceDetailActivity extends BaseDataActivity<TraceDetailPresenter, 
                 mBtnFollow.setText(R.string.btn_relation_friend);
                 mBtnFollow.setOnClickListener(v -> getPresenter().delFollow());
                 break;
+            case 3 :
+                supportInvalidateOptionsMenu();
+                mTvTime.setVisibility(View.VISIBLE);
+                mBtnFollow.setVisibility(View.GONE);
+                getToolbar().getMenu().findItem(R.id.action_delete).setVisible(true).setOnMenuItemClickListener(item -> {
+                    getPresenter().delTrace();
+                    return true;
+                });
+                break;
             case 4:
                 mTvTime.setVisibility(View.GONE);
                 mBtnFollow.setVisibility(View.VISIBLE);
                 mBtnFollow.setText(R.string.btn_followed);
                 mBtnFollow.setOnClickListener(v -> getPresenter().delFollow());
                 break;
-            default :
-                mTvTime.setVisibility(View.VISIBLE);
-                mBtnFollow.setVisibility(View.GONE);
-                break;
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_trace, menu);
+        MenuItem item = menu.findItem(R.id.action_delete);
+        if (getPresenter().getDataSubject().getValue() != null && getPresenter().getDataSubject().getValue().getRelation() == 3) {
+            item.setVisible(true).setOnMenuItemClickListener(menuItem -> {
+                getPresenter().delTrace();
+                return true;
+            });
+        }
+        return super.onCreateOptionsMenu(menu);
+    }
 }

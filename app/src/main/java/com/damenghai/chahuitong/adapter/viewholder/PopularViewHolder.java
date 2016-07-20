@@ -6,14 +6,14 @@ import android.view.ViewGroup;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.adapter.TraceImageAdapter;
-import com.damenghai.chahuitong.model.bean.Popular;
+import com.damenghai.chahuitong.model.bean.People;
 
 import butterknife.Bind;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class PopularViewHolder extends UserViewHolder<Popular> {
+public class PopularViewHolder extends UserViewHolder<People> {
 
     @Bind(R.id.rcv_popular_list)
     RecyclerView mTraceList;
@@ -23,7 +23,7 @@ public class PopularViewHolder extends UserViewHolder<Popular> {
     }
 
     @Override
-    public void setData(Popular data) {
+    public void setData(People data) {
         super.setData(data);
 
         mTraceList.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));

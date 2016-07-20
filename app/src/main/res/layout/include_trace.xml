@@ -1,89 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<merge
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="@dimen/activity_horizontal_margin"
-        >
-
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/dv_trace_avatar"
-            android:layout_width="@dimen/widget_medium_height"
-            android:layout_height="@dimen/widget_medium_height"
-            app:actualImageScaleType="centerCrop"
-            app:roundAsCircle="true"
-            />
-
-        <TextView
-            android:id="@+id/tv_trace_username"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:textColor="@color/text_black_primary"
-            android:textSize="@dimen/text_size_body_material"
-            tools:text="用户名"
-            android:gravity="center_vertical"
-            />
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-
-
-        <TextView
-            android:id="@+id/tv_trace_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="2015.10.20 10:06"
-            style="@style/TextCaption"
-            />
-
-        <Button
-            android:id="@+id/btn_trace_follow"
-            style="@style/ButtonSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_add_follow"
-            android:textColor="@color/text_black_secondary"
-            android:visibility="gone"
-            />
-
-    </LinearLayout>
-
-
     <TextView
-        android:id="@+id/tv_trace_content"
+        android:id="@+id/et_trace_content"
         style="@style/TextBody"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:background="@color/white"
         android:padding="@dimen/activity_horizontal_margin"
         tools:text="在这我老表美的秋天，在这般清好的下午，煮一壶水，烹一盏茶等一个共话收获之秋，体悟品之美"
         />
 
-    <com.facebook.drawee.view.SimpleDraweeView
-        android:id="@+id/dv_trace_image"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="320dp"
-        app:actualImageScaleType="centerCrop"
-        app:placeholderImage="@mipmap/def_image_loading"
-        app:placeholderImageScaleType="centerCrop"
-        />
+        >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/dv_trace_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:actualImageScaleType="centerCrop"
+            app:placeholderImage="@mipmap/def_image_loading"
+            app:placeholderImageScaleType="centerCrop"
+            />
+
+        <TextView
+            android:id="@+id/tv_trace_img_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:background="@color/text_black_secondary"
+            android:gravity="center"
+            android:padding="2dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_caption_material"
+            tools:text="2"
+            />
+
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/widget_small_height"
+        android:background="@color/white"
         android:gravity="center"
         android:orientation="horizontal"
         >
@@ -138,4 +106,4 @@
 
     </LinearLayout>
 
-</LinearLayout>
+</merge>

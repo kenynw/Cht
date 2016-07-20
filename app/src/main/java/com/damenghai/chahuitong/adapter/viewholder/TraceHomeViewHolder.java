@@ -3,6 +3,7 @@ package com.damenghai.chahuitong.adapter.viewholder;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.LayoutRes;
+import android.support.v7.app.AlertDialog;
 import android.text.Html;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,37 +17,38 @@ import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.module.common.ImageBrowseActivity;
 import com.damenghai.chahuitong.module.trace.TraceDetailActivity;
 import com.damenghai.chahuitong.module.user.UserInfoActivity;
+import com.damenghai.chahuitong.utils.DialogFactory;
+import com.damenghai.chahuitong.utils.LUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class TraceViewHolder extends TraceCommonViewHolder {
+public class TraceHomeViewHolder extends TraceCommonViewHolder{
 
-    @Bind(R.id.dv_trace_avatar)
-    SimpleDraweeView mDvAvatar;
+    @Bind(R.id.tv_trace_more)
+    TextView mTvMore;
 
-    @Bind(R.id.tv_trace_username)
-    TextView mTvUsername;
-
-    public TraceViewHolder(ViewGroup parent) {
-        super(parent, R.layout.item_list_trace);
+    public TraceHomeViewHolder(ViewGroup parent) {
+        super(parent, R.layout.item_list_user_trace);
     }
 
     @Override
     public void setData(Trace trace) {
         super.setData(trace);
-        mDvAvatar.setImageURI(Uri.parse(trace.getTrace_memberavatar()));
-        mTvUsername.setText(trace.getTrace_membername());
-        mDvAvatar.setOnClickListener(v -> {
-            Intent i = new Intent(getContext(), UserInfoActivity.class);
-            i.putExtra("user_id", trace.getTrace_memberid());
-            getContext().startActivity(i);
-        });
+        mTvMore.setOnClickListener(v -> new AlertDialog.Builder(getContext())
+                .setItems(new String[]{"删除", "举报"}, (dialog, which) -> {
+                    switch (which) {
+                        case 0 :
+                            LUtils.toast("删除动态");
+                            break;
+                        case 1 :
+                            LUtils.toast("举报动态");
+                            break;
+                    }
+                }).show());
     }
-
 }
