@@ -46,6 +46,12 @@ public class UserInfoActivity extends BaseDataActivity<UserInfoPresenter, People
             @Override
             public View onCreateView(ViewGroup parent) {
                 View view = LayoutInflater.from(UserInfoActivity.this).inflate(R.layout.header_user_traces, parent, false);
+
+                return view;
+            }
+
+            @Override
+            public void onBindView(View view) {
                 SimpleDraweeView avatar = (SimpleDraweeView) view.findViewById(R.id.dv_user_avatar);
                 TextView username = (TextView) view.findViewById(R.id.tv_user_username);
                 TextView tvTraces = (TextView) view.findViewById(R.id.tv_user_traces);
@@ -64,11 +70,6 @@ public class UserInfoActivity extends BaseDataActivity<UserInfoPresenter, People
                     tvIntro.setVisibility(View.VISIBLE);
                     tvIntro.setText(people.getMember_intro());
                 }
-                return view;
-            }
-
-            @Override
-            public void onBindView(View headerView) {
             }
         });
     }

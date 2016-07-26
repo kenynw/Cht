@@ -11,6 +11,7 @@ import com.damenghai.chahuitong.module.article.ArticleListActivity;
 import com.damenghai.chahuitong.module.flea.FleaListActivity;
 import com.damenghai.chahuitong.module.mall.CategoryListActivity;
 import com.damenghai.chahuitong.module.trace.TraceListActivity;
+import com.damenghai.chahuitong.module.user.FindUserListActivity;
 import com.damenghai.chahuitong.utils.LUtils;
 
 /**
@@ -20,9 +21,7 @@ public class DiscoverPresenter extends BaseDataFragmentPresenter<DiscoverFragmen
     @Override
     protected void onCreateView(DiscoverFragment view) {
         super.onCreateView(view);
-        ServiceClient.getServices().discover()
-                .compose(new DefaultTransform<>())
-                .subscribe(getSubscriber());
+        ServiceClient.getServices().discover().compose(new DefaultTransform<>()).subscribe(getSubscriber());
     }
 
     private boolean checkLogin() {
@@ -68,7 +67,7 @@ public class DiscoverPresenter extends BaseDataFragmentPresenter<DiscoverFragmen
 
     public void showUserList() {
         if (checkLogin()) {
-            Intent intent = new Intent(getView().getActivity(), CategoryListActivity.class);
+            Intent intent = new Intent(getView().getActivity(), FindUserListActivity.class);
             getView().startActivity(intent);
         }
     }

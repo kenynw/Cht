@@ -101,6 +101,20 @@ public class FleaModel {
                 .compose(new DefaultTransform<>());
     }
 
+    public Observable<List<Flea>> favorites() {
+        return ServiceClient.getServices().fleaFavorites(LUtils.getPreferences().getString("key", "")).compose(new DefaultTransform<>());
+    }
+
+    public Observable<Boolean> addFavorite(int goodsId) {
+        return ServiceClient.getServices().fleaAddFavorite(LUtils.getPreferences().getString("key", ""), goodsId)
+                .compose(new DefaultTransform<>());
+    }
+
+    public Observable<Boolean> delFavorite(int goodsId) {
+        return ServiceClient.getServices().fleaDelFavorite(LUtils.getPreferences().getString("key", ""), goodsId)
+                .compose(new DefaultTransform<>());
+    }
+
     public Observable<List<FleaCate>> cateList(int cateId) {
         return ServiceClient.getServices().fleaCateList(LUtils.getPreferences().getString("key", ""), cateId)
                 .compose(new DefaultTransform<>());

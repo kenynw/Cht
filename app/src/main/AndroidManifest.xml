@@ -197,7 +197,10 @@
         </activity>
         <activity android:name=".module.settings.SettingsActivity">
         </activity>
-        <activity android:name=".module.personal.ProfileActivity">
+        <activity
+            android:name=".module.personal.ProfileActivity"
+            android:launchMode="singleTop"
+            >
             <intent-filter>
                 <action android:name="com.damenghai.chahuitong.Profile"/>
 
@@ -240,15 +243,20 @@
         <activity android:name=".module.flea.FleaDetailActivity">
         </activity>
         <activity android:name=".module.user.UserInfoActivity">
-            <!-- ATTENTION: This intent was auto-generated. Follow instructions at
-  https://g.co/AppIndexing/AndroidStudio to publish your URLs. -->
+
+            <!--
+  ATTENTION: This intent was auto-generated. Follow instructions at
+  https://g.co/AppIndexing/AndroidStudio to publish your URLs.
+            -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <!-- ATTENTION: This data URL was auto-generated. We recommend that you use the HTTP scheme.
-                  TODO: Change the host or pathPrefix as necessary. -->
+                <!--
+                  ATTENTION: This data URL was auto-generated. We recommend that you use the HTTP scheme.
+                  TODO: Change the host or pathPrefix as necessary.
+                -->
                 <data android:scheme="com.cht.user"/>
             </intent-filter>
         </activity>

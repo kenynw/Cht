@@ -26,6 +26,16 @@ public class GoodsListPresenter extends BaseListActivityPresenter<GoodsListActiv
     @Override
     protected void onCreate(GoodsListActivity view, Bundle saveState) {
         super.onCreate(view, saveState);
+    }
+
+    @Override
+    protected void onCreateView(GoodsListActivity view) {
+        super.onCreateView(view);
+        if (getView().getIntent().getParcelableExtra("category") != null) {
+            Category category = getView().getIntent().getParcelableExtra("category");
+            mGcID = category.getGc_id();
+            getView().setTabText(0, category.getGc_name());
+        }
         onRefresh();
         loadCategory();
     }

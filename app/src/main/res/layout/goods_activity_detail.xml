@@ -318,16 +318,20 @@
             android:layout_height="match_parent"
             android:background="@color/div_gray"/>
 
-        <Button
+        <ToggleButton
             android:id="@+id/btn_goods_detail_favorites"
             style="@style/TextCaption"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/white"
-            android:drawableTop="@drawable/icon_btn_favorites_selector"
+            android:button="@null"
+            android:drawablePadding="8dp"
+            android:drawableTop="@drawable/check_favorites_selector"
+            android:gravity="center_horizontal"
             android:paddingTop="8dp"
-            android:text="@string/btn_favorites"
+            android:textOff="@string/btn_favorites"
+            android:textOn="@string/btn_has_favorite"
             />
 
         <View

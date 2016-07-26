@@ -84,11 +84,11 @@ public class User implements Parcelable {
 
     private String member_snsvisitnum;
 
-    private String member_areaid;
+    private int member_areaid;
 
-    private String member_cityid;
+    private int member_cityid;
 
-    private String member_provinceid;
+    private int member_provinceid;
 
     private String member_areainfo;
 
@@ -164,9 +164,9 @@ public class User implements Parcelable {
         dest.writeInt(this.is_allowtalk);
         dest.writeInt(this.member_state);
         dest.writeString(this.member_snsvisitnum);
-        dest.writeString(this.member_areaid);
-        dest.writeString(this.member_cityid);
-        dest.writeString(this.member_provinceid);
+        dest.writeInt(this.member_areaid);
+        dest.writeInt(this.member_cityid);
+        dest.writeInt(this.member_provinceid);
         dest.writeString(this.member_areainfo);
         dest.writeString(this.member_privacy);
         dest.writeString(this.member_quicklink);
@@ -225,9 +225,9 @@ public class User implements Parcelable {
         this.is_allowtalk = in.readInt();
         this.member_state = in.readInt();
         this.member_snsvisitnum = in.readString();
-        this.member_areaid = in.readString();
-        this.member_cityid = in.readString();
-        this.member_provinceid = in.readString();
+        this.member_areaid = in.readInt();
+        this.member_cityid = in.readInt();
+        this.member_provinceid = in.readInt();
         this.member_areainfo = in.readString();
         this.member_privacy = in.readString();
         this.member_quicklink = in.readString();
@@ -541,27 +541,27 @@ public class User implements Parcelable {
         this.member_snsvisitnum = member_snsvisitnum;
     }
 
-    public String getMember_areaid() {
+    public int getMember_areaid() {
         return member_areaid;
     }
 
-    public void setMember_areaid(String member_areaid) {
+    public void setMember_areaid(int member_areaid) {
         this.member_areaid = member_areaid;
     }
 
-    public String getMember_cityid() {
+    public int getMember_cityid() {
         return member_cityid;
     }
 
-    public void setMember_cityid(String member_cityid) {
+    public void setMember_cityid(int member_cityid) {
         this.member_cityid = member_cityid;
     }
 
-    public String getMember_provinceid() {
+    public int getMember_provinceid() {
         return member_provinceid;
     }
 
-    public void setMember_provinceid(String member_provinceid) {
+    public void setMember_provinceid(int member_provinceid) {
         this.member_provinceid = member_provinceid;
     }
 

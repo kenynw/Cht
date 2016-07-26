@@ -3,6 +3,6 @@
 
     <solid android:color="@color/bg_window" />
 
-    <size android:height="4dp" android:width="4dp" />
+    <size android:height="8dp" android:width="4dp" />
 
 </shape>

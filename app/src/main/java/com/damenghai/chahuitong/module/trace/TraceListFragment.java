@@ -12,8 +12,8 @@ import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-@RequiresPresenter(TraceListPresenter.class)
-public class TraceListFragment extends BaseListFragment<TraceListPresenter, Trace> {
+@RequiresPresenter(TraceListFragmentPresenter.class)
+public class TraceListFragment extends BaseListFragment<TraceListFragmentPresenter, Trace> {
 
     @Override
     public BaseViewHolder<Trace> createViewHolder(ViewGroup parent, int viewType) {

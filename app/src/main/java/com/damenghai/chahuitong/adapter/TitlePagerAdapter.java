@@ -1,4 +1,4 @@
-package com.damenghai.chahuitong.base;
+package com.damenghai.chahuitong.adapter;
 
 import android.content.Context;
 import android.content.res.Resources;

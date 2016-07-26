@@ -4,7 +4,10 @@ import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
+import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.RadioGroup;
+import android.widget.ToggleButton;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.expansion.data.BaseDataActivityPresenter;
@@ -30,7 +33,8 @@ import java.util.List;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class GoodsDetailPresenter extends BaseDataActivityPresenter<GoodsDetailActivity, GoodsInfo> implements RadioGroup.OnCheckedChangeListener {
+public class GoodsDetailPresenter extends BaseDataActivityPresenter<GoodsDetailActivity, GoodsInfo>
+        implements RadioGroup.OnCheckedChangeListener, CompoundButton.OnCheckedChangeListener {
 
     private String mGoodsId;
 
@@ -62,16 +66,7 @@ public class GoodsDetailPresenter extends BaseDataActivityPresenter<GoodsDetailA
     }
 
     public void addFavorites() {
-        if (isLogin()) {
-            FavoritesModel.getInstance().addFavorites(mGoodsId)
-                    .compose(new DefaultTransform<>())
-                    .subscribe(new ServiceResponse<String>() {
-                        @Override
-                        public void onNext(String result) {
-                            LUtils.toast("操作成功");
-                        }
-                    });
-        }
+
     }
 
     public void addCart() {
@@ -129,4 +124,30 @@ public class GoodsDetailPresenter extends BaseDataActivityPresenter<GoodsDetailA
         }
         transaction.commit();
     }
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        if (isLogin()) {
+            if (b) {
+                FavoritesModel.getInstance().addFavorites(mGoodsId)
+                        .compose(new DefaultTransform<>())
+                        .subscribe(new ServiceResponse<String>() {
+                            @Override
+                            public void onNext(String result) {
+                                LUtils.toast("收藏成功");
+                            }
+                        });
+            } else {
+                FavoritesModel.getInstance().deleteFavorites(mGoodsId)
+                        .compose(new DefaultTransform<>())
+                        .subscribe(new ServiceResponse<String>() {
+                            @Override
+                            public void onNext(String result) {
+                                LUtils.toast("删除成功");
+                            }
+                        });
+            }
+        }
+    }
+
 }

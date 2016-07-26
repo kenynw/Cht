@@ -78,6 +78,8 @@ public class Goods implements Parcelable {
 
     private String fav_id;
 
+    private boolean is_favorite;
+
     private List<Attribute> goods_attr;
 
     private String title;
@@ -144,6 +146,7 @@ public class Goods implements Parcelable {
         storage_state = in.readString();
         fav = in.readString();
         fav_id = in.readString();
+        is_favorite = in.readByte() != 0;
         title = in.readString();
         remark = in.readString();
         promotion_price = in.readString();
@@ -418,6 +421,14 @@ public class Goods implements Parcelable {
         this.fav_id = fav_id;
     }
 
+    public boolean is_favorite() {
+        return is_favorite;
+    }
+
+    public void setIs_favorite(boolean is_favorite) {
+        this.is_favorite = is_favorite;
+    }
+
     public List<Attribute> getGoods_attr() {
         return goods_attr;
     }
@@ -559,6 +570,7 @@ public class Goods implements Parcelable {
         dest.writeString(storage_state);
         dest.writeString(fav);
         dest.writeString(fav_id);
+        dest.writeByte((byte) (is_favorite ? 1 : 0));
         dest.writeString(title);
         dest.writeString(remark);
         dest.writeString(promotion_price);

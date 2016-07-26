@@ -94,7 +94,12 @@ public class TraceModel {
     }
 
     public Observable<BeanList<Trace>> getTraceList(int mid, int curPage) {
-        return ServiceClient.getServices().traceList(mid, curPage)
+        return ServiceClient.getServices().traceList(mid, 0, curPage)
+                .compose(new DefaultTransform<>());
+    }
+
+    public Observable<BeanList<Trace>> getCommendTraceList(int curPage) {
+        return ServiceClient.getServices().traceList(0, 1, curPage)
                 .compose(new DefaultTransform<>());
     }
 

@@ -10,6 +10,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.adapter.BaseListAdapter;
@@ -72,7 +73,7 @@ public class GoodsDetailActivity extends BaseDataActivity<GoodsDetailPresenter, 
     Button mBtnShare;
 
     @Bind(R.id.btn_goods_detail_favorites)
-    Button mBtnFavorites;
+    ToggleButton mBtnFav;
 
     @Bind(R.id.btn_goods_detail_service)
     Button mBtnService;
@@ -93,6 +94,11 @@ public class GoodsDetailActivity extends BaseDataActivity<GoodsDetailPresenter, 
             getPresenter().toCart();
             return true;
         });
+
+        mTabDetail.setOnCheckedChangeListener(getPresenter());
+        mBtnService.setOnClickListener(v -> LUtils.toast("客服系统正在完善中..."));
+        mBtnAddCart.setOnClickListener(v -> getPresenter().addCart());
+        mBtnBuy.setOnClickListener(v -> getPresenter().toBuy());
     }
 
     @Override
@@ -119,12 +125,10 @@ public class GoodsDetailActivity extends BaseDataActivity<GoodsDetailPresenter, 
         mIndicator.setViewPager(mPagerImage);
         mGridAttrs.setAdapter(new AttrsGridAdapter(this, goods.getGoods_attr(), R.layout.item_grid_attrs));
 
-        mTabDetail.setOnCheckedChangeListener(getPresenter());
         mBtnShare.setOnClickListener(v -> getPresenter().share(goods));
-        mBtnFavorites.setOnClickListener(v -> getPresenter().addFavorites());
-        mBtnService.setOnClickListener(v -> LUtils.toast("客服系统正在完善中..."));
-        mBtnAddCart.setOnClickListener(v -> getPresenter().addCart());
-        mBtnBuy.setOnClickListener(v -> getPresenter().toBuy());
+
+        mBtnFav.setChecked(goods.is_favorite());
+        mBtnFav.setOnCheckedChangeListener(getPresenter());
     }
 
     @Override

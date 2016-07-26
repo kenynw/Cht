@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    >
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/dv_cate_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:actualImageScaleType="centerCrop"
+        app:placeholderImage="@mipmap/def_image_loading"
+        app:placeholderImageScaleType="centerCrop"
+        app:roundedCornerRadius="4dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_cate_name"
+        style="@style/TextBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/bg_white_secondary"
+        android:gravity="center"
+        android:padding="8dp"
+        tools:text="普洱茶"
+        />
+
+</FrameLayout>

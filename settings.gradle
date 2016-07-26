@@ -1,1 +1,1 @@
-include ':app', ':umenglibrary', ':paylibrary', ':pulltorefresh'
+include ':app', ':umenglibrary', ':paylibrary'

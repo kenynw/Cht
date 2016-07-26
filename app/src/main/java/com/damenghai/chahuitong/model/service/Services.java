@@ -34,6 +34,7 @@ import java.util.Map;
 
 import okhttp3.RequestBody;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -100,7 +101,7 @@ public interface Services {
             @Query("keyword") CharSequence keyword
     );
 
-    @GET("?act=goods&op=goods_detail_api")
+    @GET("?act=goods&op=goods_detail")
     Observable<GoodsInfo> goodsDetail(
             @Query("version") String version,
             @Query("goods_id") String goods_id,
@@ -124,7 +125,7 @@ public interface Services {
     );
 
     @GET("?act=goods&op=hot_search")
-    Observable<List<String>> hotSearch();
+    Observable<String[]> hotSearch();
 
     //--------------------------登录注册--------------------------
     @FormUrlEncoded
@@ -132,6 +133,13 @@ public interface Services {
     Observable<User> login(
             @Field("username") String username,
             @Field("password") String password,
+            @Field("client") String client
+    );
+
+    @FormUrlEncoded
+    @POST("?act=logout")
+    Observable<String> logout(
+            @Field("mobile") String mobile,
             @Field("client") String client
     );
 
@@ -194,15 +202,21 @@ public interface Services {
     );
 
     @FormUrlEncoded
-    @POST("?act=member_index&op=get_member_info")
+    @POST("?act=member_index&op=member_info")
     Observable<User> getUserInfo(
             @Field("key") String key
     );
 
     @Multipart
-    @POST("?act=member_index&op=update_member_info")
-    Observable<JsonObject> updateUserInfo(
+    @POST("?act=member_index&op=upload_avatar")
+    Observable<Boolean> uploadAvatar(
             @PartMap Map<String, RequestBody> params
+    );
+
+    @POST("?act=member_index&op=update_member_info")
+    Observable<Boolean> updateUserInfo(
+            @Body User user,
+            @Query("key") String key
     );
 
     //--------------------------购买--------------------------
@@ -557,13 +571,15 @@ public interface Services {
 
     /**
      * 全部动态列表
-     * @param mid
-     * @param curPage
+     * @param mid 指定某用户
+     * @param isCommend 是否推荐 0-否 1-推荐
+     * @param curPage 当前页
      * @return
      */
     @GET("?act=member_sns_home&op=trace_list")
     Observable<BeanList<Trace>> traceList(
             @Query("mid") int mid,
+            @Query("commend") int isCommend,
             @Query("curpage") int curPage
     );
 
@@ -675,6 +691,41 @@ public interface Services {
             @Field("flea_pphone") String pPhone,
             @Field("area_id") int areaId,
             @Field("area_info") String areaInfo
+    );
+
+    /**
+     * 茶市收藏列表
+     * @param key 登录令牌
+     * @return 操作结果
+     */
+    @FormUrlEncoded
+    @POST("?act=member_flea&op=class_list")
+    Observable<List<Flea>> fleaFavorites(
+            @Field("key") String key
+    );
+
+    /**
+     * 茶市收藏列表
+     * @param key 登录令牌
+     * @return 操作结果
+     */
+    @FormUrlEncoded
+    @POST("?act=member_flea&op=add_favorites")
+    Observable<Boolean> fleaAddFavorite(
+            @Field("key") String key,
+            @Field("goods_id") int goodsId
+    );
+
+    /**
+     * 茶市收藏列表
+     * @param key 登录令牌
+     * @return 操作结果
+     */
+    @FormUrlEncoded
+    @POST("?act=member_flea&op=del_favorites")
+    Observable<Boolean> fleaDelFavorite(
+            @Field("key") String key,
+            @Field("goods_id") int goodsId
     );
 
     /**

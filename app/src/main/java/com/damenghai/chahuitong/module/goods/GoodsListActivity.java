@@ -62,4 +62,8 @@ public class GoodsListActivity extends BaseListActivity<GoodsListPresenter> {
         mTabView.setOnItemSelectedListener(getPresenter());
     }
 
+    public void setTabText(int position, String text) {
+        mTabView.setText(position, text);
+    }
+
 }

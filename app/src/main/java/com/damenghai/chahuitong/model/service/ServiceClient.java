@@ -1,7 +1,7 @@
 package com.damenghai.chahuitong.model.service;
 
 import okhttp3.OkHttpClient;
-import retrofit2.GsonConverterFactory;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.RxJavaCallAdapterFactory;
 
@@ -20,8 +20,11 @@ public class ServiceClient {
     }
 
     private static OkHttpClient createClient() {
-        if (okHttpClient == null)
-            okHttpClient = new OkHttpClient();
+        if (okHttpClient == null) {
+            OkHttpClient.Builder builder = new OkHttpClient.Builder();
+            builder.addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY));
+            okHttpClient = builder.build();
+        }
         return okHttpClient;
     }
 

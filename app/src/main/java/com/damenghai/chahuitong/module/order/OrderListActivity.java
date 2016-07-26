@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.base.BaseActivity;
-import com.damenghai.chahuitong.base.TitlePagerAdapter;
+import com.damenghai.chahuitong.adapter.TitlePagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

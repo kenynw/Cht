@@ -15,7 +15,6 @@ import android.webkit.WebViewClient;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.base.BaseActivity;
-import com.damenghai.chahuitong.model.local.PreferenceHelper;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.damenghai.chahuitong.utils.WebViewOB;
 import com.damenghai.chahuitong.module.mall.BuyActivity;
@@ -35,8 +34,6 @@ public class WebViewActivity extends BaseActivity {
 
     private WebSettings mSettings;
 
-    private PreferenceHelper mPreferenceHelper;
-
     @Bind(R.id.web_view)
     WebView mWebView;
 
@@ -47,8 +44,6 @@ public class WebViewActivity extends BaseActivity {
         ButterKnife.bind(this);
 
         mUrl = getIntent().getStringExtra("url");
-
-        mPreferenceHelper = new PreferenceHelper(this);
 
         LUtils.log(mUrl);
 
@@ -175,7 +170,7 @@ public class WebViewActivity extends BaseActivity {
             hideLoadding();
 
             CookieManager cm = CookieManager.getInstance();
-            cm.setCookie(url, "key=" + mPreferenceHelper.readSession());
+            cm.setCookie(url, "key=" + LUtils.getPreferences().getString("key", ""));
         }
 
     }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,135 +10,176 @@
     <include layout="@layout/include_toolbar"/>
 
     <RelativeLayout
-        android:id="@+id/profile_avatar_layout"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="@mipmap/bg_profile_avatar"
-        >
-
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/dv_profile_avatar"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_centerInParent="true"
-            android:onClick="toPickPicture"
-            fresco:actualImageScaleType="centerCrop"
-            fresco:placeholderImage="@mipmap/def_image_loading"
-            fresco:roundAsCircle="true"
-            fresco:roundingBorderColor="@color/colorPrimary"
-            fresco:roundingBorderWidth="4dp"
-            />
-
-    </RelativeLayout>
-
-    <TextView
-        android:id="@+id/tv_profile_username"
-        style="@style/TextSubhead"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/widget_medium_height"
-        android:background="@color/white"
-        android:gravity="left|center_vertical"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:text="@string/label_account"
-        />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/div_gray"/>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/widget_medium_height"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:background="@color/white"
         >
 
-        <Button
-            style="@style/ListItemDetailButton"
-            android:text="@string/label_true_name"
+        <LinearLayout
+            android:id="@+id/ly_profile_avatar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/activity_horizontal_margin"
+            >
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/dv_profile_avatar"
+                style="@style/MediumAvatar"
+                />
+
+            <TextView
+                android:id="@+id/tv_profile_upload"
+                style="@style/TextBody"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:gravity="center_vertical"
+                android:text="@string/text_upload_avatar"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_profile_username"
+            style="@style/LabelSecondaryMedium"
+            android:layout_below="@id/ly_profile_avatar"
+            android:text="@string/label_nickname"
             />
 
         <EditText
-            android:id="@+id/et_profile_truename"
-            style="@style/Base.TextAppearance.AppCompat.Body1"
-            android:layout_width="160dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="40dp"
-            android:background="@null"
-            android:gravity="right|center_vertical"
-            android:hint="@string/hint_true_name"
-            android:inputType="textPersonName"
+            android:id="@+id/et_profile_name"
+            style="@style/TextBody"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/widget_medium_height"
+            android:layout_below="@id/ly_profile_avatar"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_toRightOf="@id/tv_profile_username"
+            android:background="@color/white"
+            android:hint="@string/hint_nickname"
+            android:inputType="text"
+            android:textColorHint="@color/text_hint"
             />
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        >
-
-        <Button
-            style="@style/ListItemDetailButton"
-            android:onClick="toChangeGender"
-            android:text="@string/btn_gender"
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/ly_profile_avatar"
+            android:background="@color/div_gray"
             />
 
         <TextView
-            android:id="@+id/tv_profile_gender"
-            style="@style/TextBody"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:id="@+id/tv_profile_sex"
+            style="@style/LabelSecondaryMedium"
+            android:layout_below="@id/tv_profile_username"
+            android:text="@string/label_sex"
+            />
+
+        <Button
+            android:id="@+id/btn_profile_gender"
+            style="@style/ButtonBodyBorderless"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/widget_medium_height"
+            android:layout_below="@id/tv_profile_username"
             android:layout_centerVertical="true"
             android:layout_marginRight="40dp"
+            android:layout_toRightOf="@id/tv_profile_sex"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
             tools:text="男"
             />
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        >
-
-        <Button
-            style="@style/ListItemDetailButton"
-            android:onClick="toChangeBorn"
-            android:text="@string/btn_born"
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/tv_profile_username"
+            android:background="@color/div_gray"
             />
 
         <TextView
             android:id="@+id/tv_profile_born"
+            style="@style/LabelSecondaryMedium"
+            android:layout_below="@id/tv_profile_sex"
+            android:text="@string/btn_born"
+            />
+
+        <Button
+            android:id="@+id/btn_profile_born"
+            style="@style/ButtonBodyBorderless"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/widget_medium_height"
+            android:layout_below="@id/tv_profile_sex"
+            android:layout_toRightOf="@id/tv_profile_born"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            tools:text="1991-06-11"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/tv_profile_sex"
+            android:background="@color/div_gray"
+            />
+
+        <TextView
+            android:id="@+id/tv_profile_area"
+            style="@style/LabelSecondaryMedium"
+            android:layout_below="@id/tv_profile_born"
+            android:text="@string/label_profile_area"
+            />
+
+        <Button
+            android:id="@+id/btn_profile_area"
+            style="@style/ButtonBodyBorderless"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/widget_medium_height"
+            android:layout_below="@id/tv_profile_born"
+            android:layout_toRightOf="@id/tv_profile_area"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            tools:text="福建厦门"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/tv_profile_born"
+            android:background="@color/div_gray"
+            />
+
+        <TextView
+            android:id="@+id/tv_profile_intro"
+            style="@style/LabelSecondaryMedium"
+            android:layout_below="@id/tv_profile_area"
+            android:text="@string/label_introduction"
+            />
+
+        <EditText
+            android:id="@+id/et_profile_intro"
             style="@style/TextBody"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="40dp"
-            android:text="1991-06-11"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_below="@id/btn_profile_area"
+            android:layout_toRightOf="@id/tv_profile_intro"
+            android:background="@color/white"
+            android:gravity="left"
+            android:hint="@string/hint_introduction"
+            android:inputType="textMultiLine"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:textColorHint="@color/text_hint"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/btn_profile_area"
+            android:background="@color/div_gray"
             />
 
     </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:orientation="vertical"
-        >
-
-        <Button
-            style="@style/ListItemDetailButton"
-            android:onClick="toChangePassword"
-            android:text="@string/btn_change_password"
-            />
-
-    </LinearLayout>
 
     <Button
         android:id="@+id/btn_profile_save"

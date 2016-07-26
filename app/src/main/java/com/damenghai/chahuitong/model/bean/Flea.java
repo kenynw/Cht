@@ -56,7 +56,13 @@ public class Flea implements Parcelable {
 
     private String goods_abstract;
 
+    private boolean belong_me;
+
+    private boolean favorite;
+
     private List<Consult> consult_list;
+
+    private String fav_time;
 
     @Override
     public int describeContents() {
@@ -88,7 +94,10 @@ public class Flea implements Parcelable {
         dest.writeString(this.flea_area_name);
         dest.writeString(this.goods_image_url);
         dest.writeString(this.goods_abstract);
+        dest.writeByte(this.belong_me ? (byte) 1 : (byte) 0);
+        dest.writeByte(this.favorite ? (byte) 1 : (byte) 0);
         dest.writeTypedList(this.consult_list);
+        dest.writeString(this.fav_time);
     }
 
     public Flea() {
@@ -118,7 +127,10 @@ public class Flea implements Parcelable {
         this.flea_area_name = in.readString();
         this.goods_image_url = in.readString();
         this.goods_abstract = in.readString();
+        this.belong_me = in.readByte() != 0;
+        this.favorite = in.readByte() != 0;
         this.consult_list = in.createTypedArrayList(Consult.CREATOR);
+        this.fav_time = in.readString();
     }
 
     public static final Creator<Flea> CREATOR = new Creator<Flea>() {
@@ -317,11 +329,35 @@ public class Flea implements Parcelable {
         this.goods_abstract = goods_abstract;
     }
 
+    public boolean isBelong_me() {
+        return belong_me;
+    }
+
+    public void setBelong_me(boolean belong_me) {
+        this.belong_me = belong_me;
+    }
+
+    public boolean isFavorite() {
+        return favorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
+    }
+
     public List<Consult> getConsult_list() {
         return consult_list;
     }
 
     public void setConsult_list(List<Consult> consult_list) {
         this.consult_list = consult_list;
+    }
+
+    public String getFav_time() {
+        return fav_time;
+    }
+
+    public void setFav_time(String fav_time) {
+        this.fav_time = fav_time;
     }
 }

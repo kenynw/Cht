@@ -51,4 +51,8 @@ public class GoodsModel {
         return ServiceClient.getServices().goodsClass(API.VERSION, gc_id).compose(new DefaultTransform<>());
     }
 
+    public Observable<String[]> getHotSearch() {
+        return ServiceClient.getServices().hotSearch().compose(new DefaultTransform<>());
+    }
+
 }

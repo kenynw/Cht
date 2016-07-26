@@ -17,7 +17,7 @@
         <!--<item name="android:textColorPrimary">@color/text_black_primary</item>-->
         <!--<item name="android:textColorSecondary">@color/text_black_secondary</item>-->
 
-        <item name="android:listDivider">@drawable/decoration_medium</item>
+        <item name="android:listDivider">@drawable/decoration_small</item>
     </style>
 
     <style name="AppTheme.ItemLineDecoration">
@@ -29,25 +29,43 @@
     </style>
 
     <!-- 黑色标题文本 -->
-    <style name="TextTitle" parent="TextAppearance.AppCompat.Title" />
+    <style name="TextTitle" parent="TextAppearance.AppCompat.Title"/>
+
     <style name="TextPrimaryTitle" parent="TextTitle">
         <item name="android:textColor">@color/colorPrimary</item><!--主色标题文本-->
     </style>
-    <style name="TextSubhead" parent="TextAppearance.AppCompat.Subhead" /><!-- 副标题文本 -->
-    <style name="TextBody" parent="TextAppearance.AppCompat.Body1" /><!--主体文本-->
-    <style name="TextCaption" parent="TextAppearance.AppCompat.Caption" /><!--说明文本-->
-    <style name="ButtonNormal" parent="Widget.AppCompat.Button" />
-    <style name="ButtonBorderless" parent="Widget.AppCompat.Button.Borderless" />
-    <style name="ButtonBorderlessColored" parent="Widget.AppCompat.Button.Borderless.Colored" />
-    <style name="ButtonSmall" parent="Widget.AppCompat.Button.Small" />
+
+    <style name="TextSubhead" parent="TextAppearance.AppCompat.Subhead"/><!-- 副标题文本 -->
+    <style name="TextBody" parent="TextAppearance.AppCompat.Body1"/><!--主体文本-->
+    <style name="TextCaption" parent="TextAppearance.AppCompat.Caption"/><!--说明文本-->
+    <style name="ButtonNormal" parent="Widget.AppCompat.Button"/>
+
+    <style name="ButtonBorderless" parent="Widget.AppCompat.Button.Borderless"/>
+
+    <style name="ButtonSubheadBorderless" parent="ButtonBorderless">
+        <item name="android:textAppearance">@style/TextSubhead</item>
+    </style>
+
+    <style name="ButtonBodyBorderless" parent="ButtonBorderless">
+        <item name="android:textAppearance">@style/TextBody</item>
+    </style>
+
+    <style name="ButtonCaptionBorderless" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textAppearance">@style/TextCaption</item>
+    </style>
+
+    <style name="ButtonBorderlessColored" parent="Widget.AppCompat.Button.Borderless.Colored"/>
+
+    <style name="ButtonSmall" parent="Widget.AppCompat.Button.Small"/>
+
     <style name="ButtonAddFollow">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">@dimen/widget_small_height</item>
         <item name="android:text">@string/btn_add_follow</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Caption</item>
     </style>
+
     <style name="TitleToolbar" parent="Base.TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
-        <item name="android:id">@+id/toolbar</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">?attr/actionBarSize</item>
         <item name="android:background">@color/bg_actionbar</item>
@@ -56,6 +74,7 @@
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
     <style name="PopupWindowPushUpAnimation">
@@ -79,6 +98,15 @@
         <item name="android:paddingLeft">@dimen/activity_horizontal_margin</item>
         <item name="android:paddingRight">@dimen/activity_horizontal_margin</item>
         <item name="android:textSize">@dimen/text_size_subhead_material</item>
+    </style>
+
+    <style name="LabelSecondaryMedium">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/widget_medium_height</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:textSize">@dimen/text_size_body_material</item>
+        <item name="android:textColor">@color/text_black_secondary</item>
     </style>
 
     <style name="UserAvatar">

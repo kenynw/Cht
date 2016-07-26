@@ -9,14 +9,11 @@ import com.damenghai.chahuitong.model.TraceModel;
 import com.damenghai.chahuitong.model.bean.BeanList;
 import com.damenghai.chahuitong.model.bean.People;
 import com.damenghai.chahuitong.model.bean.Trace;
-import com.damenghai.chahuitong.model.bean.User;
 import com.damenghai.chahuitong.model.service.DefaultTransform;
 import com.damenghai.chahuitong.model.service.ServiceClient;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
-
-import java.util.List;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.

@@ -57,7 +57,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/subhead_search_history"
+        android:text="@string/subhead_search_hot"
         android:textSize="@dimen/text_size_subhead_material"
         android:textColor="@color/text_black_secondary"
         android:background="@color/white"

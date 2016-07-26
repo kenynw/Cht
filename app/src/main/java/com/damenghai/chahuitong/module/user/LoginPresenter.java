@@ -43,7 +43,7 @@ public class LoginPresenter extends Presenter<LoginActivity> implements UMAuthLi
                     public void onNext(User user) {
                         super.onNext(user);
                         SharedPreferences.Editor editor = LUtils.getPreferences().edit();
-                        editor.putString("username", username);
+                        editor.putString("mobile", username);
                         editor.putString("key", user.getKey());
                         editor.putString("avatar", user.getMember_avatar());
                         editor.apply();
@@ -63,39 +63,6 @@ public class LoginPresenter extends Presenter<LoginActivity> implements UMAuthLi
         // 使用SSO授权必须添加如下代码
         mShareApi.onActivityResult(requestCode, resultCode, data);
     }
-
-//    private void thirdLogin(String type, String openId) {
-//        mRepository.thirdLogin(Config.MD5_KEY, Config.CLIENT_TYPE, type, openId)
-//                    .subscribeOn(Schedulers.io())
-//                    .observeOn(AndroidSchedulers.mainThread())
-//                    .subscribe(new Subscriber<JsonObject>() {
-//                        @Override
-//                        public void onStart() {
-//                            getView().hideLoading();
-//                        }
-//
-//                        @Override
-//                        public void onCompleted() {
-//                            getView().showLoading();
-//                        }
-//
-//                        @Override
-//                        public void onError(Throwable e) {
-//                            getView().showError("error" + e.getMessage());
-//                        }
-//
-//                        @Override
-//                        public void onNext(JsonObject userResponse) {
-//                            LUtils.log("response: " + userResponse);
-//                            JsonObject data = userResponse.getAsJsonObject("data");
-//                            Account user = new Account();
-//                            user.setMobile(getView().getUsername());
-//                            user.setKey(data.get("key").toString());
-//                            getView().loginSuccess(user);
-//                        }
-//
-//                    });
-//    }
 
     @Override
     public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {

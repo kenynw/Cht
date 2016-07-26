@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -74,13 +76,13 @@ public class FleaDetailActivity extends BaseDataActivity<FleaDetailPresenter, Fl
     @Bind(R.id.tv_flea_p_name)
     TextView mTvName;
 
-    @Bind(R.id.btn_flea_call)
-    Button mBtnCall;
+    @Bind(R.id.btn_flea_favorites)
+    CheckBox mCbFav;
 
     @Bind(R.id.btn_flea_consult)
     Button mBtnConsult;
 
-    @Bind(R.id.btn_flea_chat)
+    @Bind(R.id.btn_flea_share)
     Button mBtnChat;
 
     @Bind(R.id.layout_flea_publish)
@@ -104,6 +106,7 @@ public class FleaDetailActivity extends BaseDataActivity<FleaDetailPresenter, Fl
 
         mRvConsult.setLayoutManager(new LinearLayoutManager(this));
         mRvConsult.setEmptyView(R.layout.empty_list_comment);
+
         mBtnConsult.setOnClickListener(v -> showPublish());
         mIvBack.setOnClickListener(v -> showContact());
         mBtnPublish.setOnClickListener(v -> getPresenter().publishConsult(mEtConsult.getText().toString()));
@@ -137,6 +140,8 @@ public class FleaDetailActivity extends BaseDataActivity<FleaDetailPresenter, Fl
         mTvDetail.setText(flea.getGoods_body());
         mTvPhone.setText(flea.getFlea_pphone());
         mTvName.setText(flea.getFlea_pname());
+        mCbFav.setChecked(flea.isFavorite());
+        mCbFav.setOnCheckedChangeListener(getPresenter());
     }
 
     private void showPublish() {

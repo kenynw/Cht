@@ -171,6 +171,10 @@ public class ExpandTabView extends LinearLayout implements OnCheckedChangeListen
         adapter.notifyDataSetChanged();
     }
 
+    public void setText(int position, String text) {
+        mToggleBtnList.get(position).setText(text);
+    }
+
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         dismissMenu();

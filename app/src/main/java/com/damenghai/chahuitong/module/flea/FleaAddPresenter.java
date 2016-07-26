@@ -66,11 +66,6 @@ public class FleaAddPresenter extends BaseDataActivityPresenter<FleaAddActivity,
         flea.setGc_name(mCate != null ? mCate.getGc_name().replace(">", " ") : "");
 
         if (mUriList.size() > 0) {
-            File[] files = new File[mUriList.size()];
-            for (int i = 0; i < mUriList.size(); i++) {
-                files[i] = new File(mUriList.get(i).getUri().getPath());
-            }
-
             FleaModel.getInstance().uploadImage(mUriList)
                     .doOnError(throwable -> {
                         getView().getExpansionDelegate().hideProgressBar();

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.widget.CompoundButton;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.adapter.FleaConsultAdapter;
@@ -24,7 +25,8 @@ import java.util.List;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class FleaDetailPresenter extends BaseDataActivityPresenter<FleaDetailActivity, Flea> implements TextWatcher {
+public class FleaDetailPresenter extends BaseDataActivityPresenter<FleaDetailActivity, Flea>
+        implements TextWatcher, CompoundButton.OnCheckedChangeListener {
 
     private int mFleaId;
 
@@ -96,5 +98,38 @@ public class FleaDetailPresenter extends BaseDataActivityPresenter<FleaDetailAct
         Intent intent = new Intent(getView(), UserInfoActivity.class);
         intent.putExtra("user_id", member_id);
         getView().startActivity(intent);
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        if (b) {
+            FleaModel.getInstance().addFavorite(mFleaId).subscribe(new ServiceResponse<Boolean>() {
+                @Override
+                public void onError(Throwable e) {
+                    super.onError(e);
+                    compoundButton.setChecked(false);
+                }
+
+                @Override
+                public void onNext(Boolean aBoolean) {
+                    LUtils.toast("收藏成功");
+                }
+            });
+
+        } else {
+            FleaModel.getInstance().delFavorite(mFleaId).subscribe(new ServiceResponse<Boolean>() {
+
+                @Override
+                public void onError(Throwable e) {
+                    super.onError(e);
+                    compoundButton.setChecked(true);
+                }
+
+                @Override
+                public void onNext(Boolean aBoolean) {
+                    LUtils.toast("删除成功");
+                }
+            });
+        }
     }
 }

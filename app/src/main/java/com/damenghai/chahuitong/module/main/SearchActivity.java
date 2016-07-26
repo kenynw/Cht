@@ -7,13 +7,16 @@ import android.widget.EditText;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.base.BaseActivity;
+import com.damenghai.chahuitong.bijection.RequiresPresenter;
+import com.damenghai.chahuitong.expansion.data.BaseDataActivity;
 import com.damenghai.chahuitong.module.goods.GoodsListActivity;
 import com.damenghai.chahuitong.widget.FlowViewGroup;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class SearchActivity extends BaseActivity {
+@RequiresPresenter(SearchPresenter.class)
+public class SearchActivity extends BaseDataActivity<SearchPresenter, String[]> {
 
     String[] mRecently = new String[] {"普洱茶", "黄茶", "铁观音", "云顶","普洱茶", "黄茶", "铁观音", "云顶"};
 
@@ -32,17 +35,16 @@ public class SearchActivity extends BaseActivity {
         setContentView(R.layout.main_activity_search);
         ButterKnife.bind(this);
 
-        mFlvRecently.setText(mRecently);
-        mFlvRecently.setOnTextClickListener(text -> startActivity(new Intent(this, GoodsListActivity.class)
-                .putExtra("keyword", text).putExtra("op", "goods_list")));
-        mBtnDone.setOnClickListener(v ->
-            startActivity(new Intent(this, GoodsListActivity.class)
-                    .putExtra("keyword", mEtSearch.getText()).putExtra("op", "goods_list")));
-
+        mFlvRecently.setOnTextClickListener(text -> getPresenter().showGoodsList(text));
+        mBtnDone.setOnClickListener(v ->getPresenter().showGoodsList(mEtSearch.getText().toString().trim()));
         mEtSearch.setOnEditorActionListener((v, actionId, event) -> {
-            startActivity(new Intent(this, GoodsListActivity.class)
-                    .putExtra("keyword", mEtSearch.getText()).putExtra("op", "goods_list"));
+            getPresenter().showGoodsList(mEtSearch.getText().toString().trim());
             return false;
         });
+    }
+
+    @Override
+    public void setData(String[] strings) {
+        mFlvRecently.setText(strings);
     }
 }

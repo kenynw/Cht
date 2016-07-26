@@ -29,7 +29,7 @@ public class Category implements Parcelable {
 
     private String gc_description;
 
-    private String image;
+    private String gc_thumb;
 
     private String text;
 
@@ -45,7 +45,7 @@ public class Category implements Parcelable {
         gc_title = in.readString();
         gc_keywords = in.readString();
         gc_description = in.readString();
-        image = in.readString();
+        gc_thumb = in.readString();
         text = in.readString();
     }
 
@@ -79,7 +79,7 @@ public class Category implements Parcelable {
         dest.writeString(gc_title);
         dest.writeString(gc_keywords);
         dest.writeString(gc_description);
-        dest.writeString(image);
+        dest.writeString(gc_thumb);
         dest.writeString(text);
     }
 
@@ -171,12 +171,12 @@ public class Category implements Parcelable {
         this.gc_description = gc_description;
     }
 
-    public String getImage() {
-        return image;
+    public String getGc_thumb() {
+        return gc_thumb;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setGc_thumb(String gc_thumb) {
+        this.gc_thumb = gc_thumb;
     }
 
     public String getText() {

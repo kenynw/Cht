@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.damenghai.chahuitong.model.bean.Goods;
-import com.damenghai.chahuitong.model.local.PreferenceHelper;
 import com.damenghai.chahuitong.model.repository.CartRepository;
 import com.damenghai.chahuitong.model.repository.FavoritesRepository;
 import com.damenghai.chahuitong.model.service.ServiceClient;
@@ -32,12 +31,9 @@ public class CartPresenter extends BasePresenter<CartMvpView> {
 
     FavoritesRepository mFavoritesRep;
 
-    private String mKey;
-
     public CartPresenter(Context context) {
         mCartRep = mRetrofit.create(CartRepository.class);
         mFavoritesRep = mRetrofit.create(FavoritesRepository.class);
-        mKey = new PreferenceHelper(context).readSession();
     }
 
     @Override
@@ -55,7 +51,7 @@ public class CartPresenter extends BasePresenter<CartMvpView> {
     }
 
     public void onRefresh() {
-        if (TextUtils.isEmpty(mKey)) {
+        if (TextUtils.isEmpty(LUtils.getPreferences().getString("key", ""))) {
             getView().showLogin();
             return;
         }
@@ -79,8 +75,8 @@ public class CartPresenter extends BasePresenter<CartMvpView> {
                 .flatMap(new Func1<Goods, Observable<JsonObject>>() {
                     @Override
                     public Observable<JsonObject> call(Goods goods) {
-                        mCartRep.delete(mKey, goods.getCart_id()).subscribe();
-                        return mFavoritesRep.add(mKey, goods.getGoods_id());
+                        mCartRep.delete(LUtils.getPreferences().getString("key", ""), goods.getCart_id()).subscribe();
+                        return mFavoritesRep.add(LUtils.getPreferences().getString("key", ""), goods.getGoods_id());
                     }
                 })
                 .subscribeOn(Schedulers.io())
@@ -94,7 +90,7 @@ public class CartPresenter extends BasePresenter<CartMvpView> {
                 .flatMap(new Func1<Goods, Observable<JsonObject>>() {
                     @Override
                     public Observable<JsonObject> call(Goods goods) {
-                        return mCartRep.delete(mKey, goods.getCart_id());
+                        return mCartRep.delete(LUtils.getPreferences().getString("key", ""), goods.getCart_id());
                     }
                 })
                 .subscribeOn(Schedulers.io())
@@ -108,7 +104,7 @@ public class CartPresenter extends BasePresenter<CartMvpView> {
                 .flatMap(new Func1<Goods, Observable<JsonObject>>() {
                     @Override
                     public Observable<JsonObject> call(Goods goods) {
-                        return mCartRep.editQuantity(mKey, goods.getCart_id(), goods.getGoods_num());
+                        return mCartRep.editQuantity(LUtils.getPreferences().getString("key", ""), goods.getCart_id(), goods.getGoods_num());
                     }
                 })
                 .subscribeOn(Schedulers.io())

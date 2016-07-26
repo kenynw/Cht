@@ -16,40 +16,74 @@
         android:orientation="vertical"
         >
 
-
         <Button
-            android:id="@+id/btn_setting_profile"
+            android:id="@+id/btn_setting_feedback"
             style="@style/ListItemDetailButton"
-            android:onClick="toProfile"
-            android:text="@string/btn_setting_profile"
+            android:drawableRight="@mipmap/ic_arrow_more"
+            android:text="@string/btn_login_feedback"
             />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/div_gray"/>
-
-        <RelativeLayout
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/bg_vetical_bottom_divider"
             >
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/div_gray"/>
+
             <Button
-                style="@style/ListItemDetailButton"
-                android:onClick="toCleanCache"
+                android:id="@+id/btn_setting_cache"
+                style="@style/ButtonBorderless"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/widget_medium_height"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
                 android:text="@string/btn_setting_clean_cache"
+                android:textSize="@dimen/text_size_subhead_material"
                 />
 
             <TextView
                 android:id="@+id/tv_setting_cache"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="32dp"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:drawablePadding="8dp"
+                android:textColor="@color/text_black_secondary"
+                android:textSize="@dimen/text_size_body_material"
+                tools:text="10kb"
                 />
 
-        </RelativeLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <Button
+                android:id="@+id/btn_setting_update"
+                style="@style/ListItemDetailButton"
+                android:text="@string/btn_setting_check_update"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_setting_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:textColor="@color/text_black_secondary"
+                android:textSize="@dimen/text_size_body_material"
+                tools:text="3.0"
+                />
+
+        </FrameLayout>
 
         <View
             android:layout_width="match_parent"
@@ -57,30 +91,20 @@
             android:background="@color/div_gray"/>
 
         <Button
+            android:id="@+id/btn_setting_about"
             style="@style/ListItemDetailButton"
-            android:onClick="toCheckUpdate"
-            android:text="@string/btn_setting_check_update"
-            />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/div_gray"/>
-
-        <Button
-            style="@style/ListItemDetailButton"
-            android:onClick="toAboutUs"
+            android:drawableRight="@mipmap/ic_arrow_more"
             android:text="@string/btn_setting_about_us"
             />
 
     </LinearLayout>
 
     <Button
+        android:id="@+id/btn_setting_logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_horizontal_margin"
         android:background="@drawable/btn_radius_primary2dark_selector"
-        android:onClick="toLogout"
         android:text="@string/btn_logout"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_subhead_material"

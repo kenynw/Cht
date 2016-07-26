@@ -14,6 +14,8 @@ public class Area implements Parcelable {
 
     private int area_parent_id;
 
+    private String area_parent_name;
+
     private int area_sort;
 
     private int area_deep;
@@ -30,6 +32,7 @@ public class Area implements Parcelable {
         dest.writeInt(this.area_id);
         dest.writeString(this.area_name);
         dest.writeInt(this.area_parent_id);
+        dest.writeString(this.area_parent_name);
         dest.writeInt(this.area_sort);
         dest.writeInt(this.area_deep);
         dest.writeString(this.area_region);
@@ -42,6 +45,7 @@ public class Area implements Parcelable {
         this.area_id = in.readInt();
         this.area_name = in.readString();
         this.area_parent_id = in.readInt();
+        this.area_parent_name = in.readString();
         this.area_sort = in.readInt();
         this.area_deep = in.readInt();
         this.area_region = in.readString();
@@ -81,6 +85,14 @@ public class Area implements Parcelable {
 
     public void setArea_parent_id(int area_parent_id) {
         this.area_parent_id = area_parent_id;
+    }
+
+    public String getArea_parent_name() {
+        return area_parent_name;
+    }
+
+    public void setArea_parent_name(String area_parent_name) {
+        this.area_parent_name = area_parent_name;
     }
 
     public int getArea_sort() {

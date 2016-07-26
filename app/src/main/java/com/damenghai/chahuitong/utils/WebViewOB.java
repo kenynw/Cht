@@ -8,7 +8,6 @@ import android.support.v7.app.AlertDialog;
 import android.webkit.JavascriptInterface;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.model.local.PreferenceHelper;
 import com.damenghai.chahuitong.module.mall.CartActivity;
 import com.damenghai.chahuitong.module.user.LoginActivity;
 
@@ -19,11 +18,8 @@ public class WebViewOB {
 
     private Context mContext;
 
-    private PreferenceHelper mHelper;
-
     public WebViewOB(Context context) {
         mContext = context;
-        mHelper = new PreferenceHelper(context);
     }
 
     @JavascriptInterface
@@ -33,7 +29,7 @@ public class WebViewOB {
 
     @JavascriptInterface
     public String getToken() {
-        return mHelper.readSession();
+        return LUtils.getPreferences().getString("key", "");
     }
 
     @JavascriptInterface

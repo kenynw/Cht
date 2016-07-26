@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import com.damenghai.chahuitong.config.API;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.google.gson.Gson;
+import com.google.gson.TypeAdapter;
 
 import org.json.JSONException;
 import org.json.JSONObject;

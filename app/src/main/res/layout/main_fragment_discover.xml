@@ -8,6 +8,7 @@
     >
 
     <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         style="@style/TitleToolbar"
         >
         <TextView
@@ -120,8 +121,8 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:paddingBottom="8dp"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
                 />
 
             <View
@@ -179,8 +180,10 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rcv_discover_class"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="wrap_content"
                 android:background="@color/white"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
                 />
 
             <View
