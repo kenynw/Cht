@@ -1,6 +1,7 @@
 package com.damenghai.chahuitong.adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,8 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.imageaware.ImageAware;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 /**
  * 用于ListView复用视图控件的辅助类
@@ -43,8 +43,6 @@ public class ViewHolder {
 	 */
 	private ViewGroup mParent;
 
-    private ImageLoader mImageLoader;
-
 	public ViewHolder(Context context, int resId, ViewGroup parent, int position) {
 		mPosition = position;
 		mContext = context;
@@ -52,7 +50,6 @@ public class ViewHolder {
 		mConvertView = LayoutInflater.from(context).inflate(resId, parent, false);
 		mViews = new SparseArray<View>();
 		mConvertView.setTag(this);
-        mImageLoader = ImageLoader.getInstance();
 	}
 	
 	/**
@@ -147,8 +144,8 @@ public class ViewHolder {
 	}
 
     public ViewHolder displayImage(int resId, String url) {
-        ImageView imageView = getView(resId);
-        mImageLoader.displayImage(url, imageView);
+        SimpleDraweeView dv = getView(resId);
+        dv.setImageURI(Uri.parse(url));
         return this;
     }
 

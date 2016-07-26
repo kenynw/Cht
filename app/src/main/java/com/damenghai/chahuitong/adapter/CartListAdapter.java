@@ -2,13 +2,13 @@ package com.damenghai.chahuitong.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -16,7 +16,7 @@ import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.model.bean.Goods;
 import com.damenghai.chahuitong.module.goods.GoodsDetailActivity;
 import com.damenghai.chahuitong.widget.QuantityView;
-import com.nostra13.universalimageloader.core.ImageLoader;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,8 +37,6 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.CartVi
 
     private Map<Integer, Boolean> mStates;
 
-    private ImageLoader mImageLoader;
-
     private boolean mIsEdit;
 
     private OnSelectedItemChangedListener mListener;
@@ -47,7 +45,6 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.CartVi
         mContext = context;
         mData = data;
         mStates = new HashMap<>();
-        mImageLoader = ImageLoader.getInstance();
         initSelected();
     }
 
@@ -81,7 +78,7 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.CartVi
 
         holder.mCb.setVisibility(View.VISIBLE);
         holder.mCb.setChecked(mStates.get(position));
-        mImageLoader.displayImage(goods.getGoods_image_url(), holder.mIvThumb);
+        holder.mDvThumb.setImageURI(Uri.parse(goods.getGoods_image_url()));
         holder.mTvName.setText(goods.getGoods_name());
 
         if (mIsEdit) {
@@ -159,7 +156,7 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.CartVi
         CheckBox mCb;
 
         @Bind(R.id.iv_cart_thumb)
-        ImageView mIvThumb;
+        SimpleDraweeView mDvThumb;
 
         @Bind(R.id.tv_cart_name)
         TextView mTvName;

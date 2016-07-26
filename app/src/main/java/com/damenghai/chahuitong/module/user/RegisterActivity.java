@@ -7,7 +7,6 @@ import android.widget.EditText;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.base.BaseActivity;
-import com.damenghai.chahuitong.presenter.RegisterPresenter;
 import com.damenghai.chahuitong.module.personal.FeedbackActivity;
 import com.umeng.fb.FeedbackAgent;
 import com.umeng.fb.fragment.FeedbackFragment;

@@ -1,4 +1,4 @@
-package com.damenghai.chahuitong.presenter;
+package com.damenghai.chahuitong.module.user;
 
 import android.text.TextUtils;
 
@@ -7,6 +7,7 @@ import com.damenghai.chahuitong.model.bean.response.Response;
 import com.damenghai.chahuitong.model.bean.Token;
 import com.damenghai.chahuitong.model.repository.RegisterRepository;
 import com.damenghai.chahuitong.module.user.RegisterMvpView;
+import com.damenghai.chahuitong.presenter.BasePresenter;
 
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;

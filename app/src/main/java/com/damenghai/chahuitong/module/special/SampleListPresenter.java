@@ -1,9 +1,10 @@
-package com.damenghai.chahuitong.presenter;
+package com.damenghai.chahuitong.module.special;
 
 import com.damenghai.chahuitong.model.bean.Sample;
 import com.damenghai.chahuitong.model.bean.response.Response;
 import com.damenghai.chahuitong.model.repository.SampleRepository;
 import com.damenghai.chahuitong.module.special.SampleListMvpView;
+import com.damenghai.chahuitong.presenter.BasePresenter;
 
 import java.util.List;
 

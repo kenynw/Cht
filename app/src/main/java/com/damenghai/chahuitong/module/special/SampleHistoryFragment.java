@@ -5,7 +5,6 @@ import android.content.Context;
 import com.damenghai.chahuitong.adapter.SampleListAdapter;
 import com.damenghai.chahuitong.base.BaseListFragment;
 import com.damenghai.chahuitong.model.bean.Sample;
-import com.damenghai.chahuitong.presenter.SampleListPresenter;
 
 import java.util.List;
 

@@ -16,20 +16,20 @@ import com.jude.exgridview.PieceView;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class SimpleDraweePieceView extends PieceView {
+public class DraweePieceView extends PieceView {
     private SimpleDraweeView mSimpleDraweeView;
 
-    public SimpleDraweePieceView(Context context) {
+    public DraweePieceView(Context context) {
         super(context);
         init();
     }
 
-    public SimpleDraweePieceView(Context context, AttributeSet attrs) {
+    public DraweePieceView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public SimpleDraweePieceView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public DraweePieceView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
@@ -57,7 +57,7 @@ public class SimpleDraweePieceView extends PieceView {
         addView(layout);
     }
 
-    public void setImageUri(Uri uri){
+    public void setImageURI(Uri uri){
         mSimpleDraweeView.setImageURI(uri);
     }
 

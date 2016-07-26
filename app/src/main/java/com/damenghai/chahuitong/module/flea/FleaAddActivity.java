@@ -9,18 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.expansion.data.BaseDataActivity;
 import com.damenghai.chahuitong.model.bean.Flea;
-import com.damenghai.chahuitong.model.bean.FleaCate;
 import com.damenghai.chahuitong.model.bean.FleaImage;
-import com.damenghai.chahuitong.utils.ImageUtils;
 import com.damenghai.chahuitong.utils.LUtils;
-import com.damenghai.chahuitong.utils.SimpleDraweePieceView;
-import com.facebook.drawee.view.SimpleDraweeView;
+import com.damenghai.chahuitong.utils.DraweePieceView;
 import com.jude.exgridview.ImagePieceView;
 import com.jude.exgridview.PieceViewGroup;
 
@@ -157,8 +153,8 @@ public class FleaAddActivity extends BaseDataActivity<FleaAddPresenter, Flea> {
     }
 
     public void addImage(Uri uri) {
-        SimpleDraweePieceView pieceView = new SimpleDraweePieceView(this);
-        pieceView.setImageUri(uri);
+        DraweePieceView pieceView = new DraweePieceView(this);
+        pieceView.setImageURI(uri);
         mPvImage.addView(pieceView);
     }
 

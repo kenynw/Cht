@@ -1,12 +1,11 @@
 package com.damenghai.chahuitong.module.flea;
 
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.damenghai.chahuitong.model.bean.Flea;
 import com.damenghai.chahuitong.model.bean.FleaImage;
-import com.damenghai.chahuitong.utils.SimpleDraweePieceView;
+import com.damenghai.chahuitong.utils.DraweePieceView;
 
 public class FleaEditActivity extends FleaAddActivity {
 
@@ -35,8 +34,8 @@ public class FleaEditActivity extends FleaAddActivity {
     }
 
     public void addImage(Uri uri) {
-        SimpleDraweePieceView pieceView = new SimpleDraweePieceView(this);
-        pieceView.setImageUri(uri);
+        DraweePieceView pieceView = new DraweePieceView(this);
+        pieceView.setImageURI(uri);
         mPvImage.addView(pieceView);
     }
 
