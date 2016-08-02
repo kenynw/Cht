@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.adapter.CateImageAdapter;
 import com.damenghai.chahuitong.adapter.FleaGalleyAdapter;
+import com.damenghai.chahuitong.adapter.TraceAdapter;
 import com.damenghai.chahuitong.adapter.TraceImageAdapter;
 import com.damenghai.chahuitong.adapter.UserGridAdapter;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
@@ -94,12 +95,14 @@ public class DiscoverFragment extends BaseDataFragment<DiscoverPresenter, Discov
         mBtnClass.setOnClickListener(v -> getPresenter().showCategoryList());
         mTvUser.setOnClickListener(v -> getPresenter().showUserList());
 
-        SpaceDecoration decoration = new SpaceDecoration(LUtils.dp2px(8));
         mRcvTrace.setLayoutManager(new GridLayoutManager(getActivity(), 3));
-        mRcvTrace.addItemDecoration(decoration);
+        mRcvTrace.addItemDecoration(new DividerGridItemDecoration(getActivity()));
+
         mRcvFlea.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         mRcvFlea.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.HORIZONTAL_LIST));
+
         mRcvUser.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+
         mRcvClass.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         mRcvClass.addItemDecoration(new SpaceDecoration(LUtils.dp2px(8)));
 

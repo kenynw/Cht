@@ -5,32 +5,23 @@ import android.view.ViewGroup;
 
 import com.damenghai.chahuitong.adapter.viewholder.TraceImageViewHolder;
 import com.damenghai.chahuitong.model.bean.Trace;
+import com.jude.easyrecyclerview.adapter.BaseViewHolder;
+import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
 import java.util.List;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class TraceImageAdapter extends BaseRecycleListAdapter<Trace, TraceImageViewHolder>  {
+public class TraceImageAdapter extends RecyclerArrayAdapter<Trace> {
 
-    public TraceImageAdapter(Context context, List<Trace> data) {
-        super(context, data);
+    public TraceImageAdapter(Context context, List<Trace> objects) {
+        super(context, objects);
     }
 
     @Override
-    public TraceImageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public BaseViewHolder OnCreateViewHolder(ViewGroup parent, int viewType) {
         return new TraceImageViewHolder(parent);
-    }
-
-    @Override
-    public void onBindViewHolder(TraceImageViewHolder holder, int position) {
-        Trace trace = mData.get(position);
-        holder.setData(trace);
-    }
-
-    @Override
-    public int getItemCount() {
-        return mData.size();
     }
 
 }

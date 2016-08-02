@@ -68,6 +68,7 @@
         android:background="@color/div_line"/>
 
     <LinearLayout
+        android:id="@+id/ly_msg_trace"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"

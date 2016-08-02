@@ -4,6 +4,10 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.annotation.StringRes;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
@@ -24,10 +28,10 @@ public class LUtils {
 
     private static Toast toast;
 
-    private static Context applicationContext;
+    private static Context sContext;
 
     public static void initialize(Application app) {
-        applicationContext = app.getApplicationContext();
+        sContext = app.getApplicationContext();
     }
 
     // 下面四个是默认tag的函数
@@ -43,7 +47,7 @@ public class LUtils {
 
     public static void toast(CharSequence text) {
         if (toast == null) {
-            toast = Toast.makeText(applicationContext, text, Toast.LENGTH_SHORT);
+            toast = Toast.makeText(sContext, text, Toast.LENGTH_SHORT);
         } else {
             toast.setText(text);
         }
@@ -51,12 +55,12 @@ public class LUtils {
     }
 
     public static void toast(@StringRes int resId) {
-        toast(applicationContext.getString(resId));
+        toast(sContext.getString(resId));
     }
 
     public static void toastLong(CharSequence text) {
         if (toast == null) {
-            toast = Toast.makeText(applicationContext, text, Toast.LENGTH_LONG);
+            toast = Toast.makeText(sContext, text, Toast.LENGTH_LONG);
         } else {
             toast.setText(text);
         }
@@ -64,7 +68,7 @@ public class LUtils {
     }
 
     public static void toastLong(@StringRes int resId) {
-        toastLong(applicationContext.getString(resId));
+        toastLong(sContext.getString(resId));
     }
 
     public static SharedPreferences getPreferences() {
@@ -76,7 +80,7 @@ public class LUtils {
     }
 
     public static SharedPreferences getPreferences(String name, int mode) {
-        return applicationContext.getSharedPreferences(name, mode);
+        return sContext.getSharedPreferences(name, mode);
     }
 
     /**
@@ -85,7 +89,7 @@ public class LUtils {
      * @return
      */
     public static int getScreenWidth() {
-        WindowManager wm = (WindowManager) applicationContext.getSystemService(Context.WINDOW_SERVICE);
+        WindowManager wm = (WindowManager) sContext.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics outMetrics = new DisplayMetrics();
         wm.getDefaultDisplay().getMetrics(outMetrics);
         return outMetrics.widthPixels;
@@ -97,7 +101,7 @@ public class LUtils {
      * @return
      */
     public static int getScreenHeight() {
-        WindowManager wm = (WindowManager) applicationContext.getSystemService(Context.WINDOW_SERVICE);
+        WindowManager wm = (WindowManager) sContext.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics outMetrics = new DisplayMetrics();
         wm.getDefaultDisplay().getMetrics(outMetrics);
         return outMetrics.heightPixels;
@@ -111,7 +115,7 @@ public class LUtils {
      */
     public static int dp2px(float dpVal) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                dpVal, applicationContext.getResources().getDisplayMetrics());
+                dpVal, sContext.getResources().getDisplayMetrics());
     }
 
     /**
@@ -120,7 +124,7 @@ public class LUtils {
      * @param editText 输入框
      */
     public static void openKeyboard(EditText editText) {
-        InputMethodManager imm = (InputMethodManager) applicationContext.getSystemService(Context.INPUT_METHOD_SERVICE);
+        InputMethodManager imm = (InputMethodManager) sContext.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showSoftInput(editText, InputMethodManager.RESULT_SHOWN);
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
     }
@@ -131,7 +135,51 @@ public class LUtils {
      * @param editText 输入框
      */
     public static void closeKeyboard(EditText editText) {
-        InputMethodManager imm = (InputMethodManager) applicationContext.getSystemService(Context.INPUT_METHOD_SERVICE);
+        InputMethodManager imm = (InputMethodManager) sContext.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
     }
+
+    /**
+     * 是否有网络
+     * @return
+     */
+    public static boolean isNetWorkAvilable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) sContext
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
+        if (activeNetInfo == null || !activeNetInfo.isAvailable()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    /**
+     * 取APP版本号
+     * @return
+     */
+    public static int getAppVersionCode(){
+        try {
+            PackageManager mPackageManager = sContext.getPackageManager();
+            PackageInfo _info = mPackageManager.getPackageInfo(sContext.getPackageName(),0);
+            return _info.versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            return 0;
+        }
+    }
+
+    /**
+     * 取APP版本名
+     * @return
+     */
+    public static String getAppVersionName(){
+        try {
+            PackageManager mPackageManager = sContext.getPackageManager();
+            PackageInfo _info = mPackageManager.getPackageInfo(sContext.getPackageName(),0);
+            return _info.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            return null;
+        }
+    }
+
 }

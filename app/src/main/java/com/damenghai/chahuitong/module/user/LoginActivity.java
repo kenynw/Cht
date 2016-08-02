@@ -2,6 +2,7 @@ package com.damenghai.chahuitong.module.user;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -54,8 +55,8 @@ public class LoginActivity extends BeamBaseActivity<LoginPresenter> {
         setToolbarTitle(R.string.title_activity_login);
         ButterKnife.bind(this);
 
-        mEtUsername.setText(LUtils.getPreferences().getString("username", ""));
-        mBtnLogin.setOnClickListener(v -> getPresenter().login());
+        mEtUsername.setText(LUtils.getPreferences().getString("mobile", ""));
+        mBtnLogin.setOnClickListener(v -> checkInput());
         mBtnRegister.setOnClickListener(v -> startActivity(new Intent(this, RegisterActivity.class)));
         mBtnForgot.setOnClickListener(v -> startActivity(new Intent(this, ForgotActivity.class)));
         mBtnFeedback.setOnClickListener(v -> startActivity(new Intent(this, FeedbackActivity.class)));
@@ -64,11 +65,24 @@ public class LoginActivity extends BeamBaseActivity<LoginPresenter> {
         mBtnWeixin.setOnClickListener(v -> getPresenter().doOauthVerify(SHARE_MEDIA.WEIXIN));
     }
 
-    public String getUsername() {
-        return mEtUsername.getText().toString();
+    public void checkInput() {
+        if (TextUtils.isEmpty(mEtUsername.getText().toString().trim())) {
+            LUtils.toast(R.string.toast_null_mobile);
+            return;
+        }
+        if (mEtUsername.getText().toString().trim().length() != 11) {
+            LUtils.toast(R.string.toast_invalid_mobile);
+            return;
+        }
+        if (TextUtils.isEmpty(mEtPassword.getText().toString().trim())) {
+            LUtils.toast(R.string.toast_null_password);
+            return;
+        }
+        if (mEtPassword.getText().toString().length() < 6) {
+            LUtils.toast(R.string.toast_invalid_password);
+            return;
+        }
+        getPresenter().login(mEtUsername.getText().toString().trim(), mEtPassword.getText().toString().trim());
     }
 
-    public String getPassword() {
-        return mEtPassword.getText().toString();
-    }
 }

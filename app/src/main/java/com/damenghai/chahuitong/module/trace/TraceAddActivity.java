@@ -9,7 +9,6 @@ import android.widget.EditText;
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.bijection.BeamBaseActivity;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
-import com.damenghai.chahuitong.utils.LUtils;
 import com.jude.exgridview.ImagePieceView;
 import com.jude.exgridview.PieceViewGroup;
 
@@ -19,7 +18,7 @@ import butterknife.ButterKnife;
 @RequiresPresenter(TraceAddPresenter.class)
 public class TraceAddActivity extends BeamBaseActivity<TraceAddPresenter> {
 
-    @Bind(R.id.et_trace_content)
+    @Bind(R.id.tv_trace_content)
     EditText mEtContent;
 
     @Bind(R.id.pv_trace_image)

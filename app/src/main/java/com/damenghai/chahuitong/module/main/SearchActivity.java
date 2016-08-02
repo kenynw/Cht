@@ -18,8 +18,6 @@ import butterknife.ButterKnife;
 @RequiresPresenter(SearchPresenter.class)
 public class SearchActivity extends BaseDataActivity<SearchPresenter, String[]> {
 
-    String[] mRecently = new String[] {"普洱茶", "黄茶", "铁观音", "云顶","普洱茶", "黄茶", "铁观音", "云顶"};
-
     @Bind(R.id.et_search_content)
     EditText mEtSearch;
 

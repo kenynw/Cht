@@ -14,7 +14,7 @@ public class Message implements Parcelable {
 
     private int from_member_id;
 
-    private int to_member_id;
+    private String to_member_id;
 
     private String message_title;
 
@@ -42,37 +42,7 @@ public class Message implements Parcelable {
 
     private String from_member_avatar;
 
-    protected Message(Parcel in) {
-        message_id = in.readInt();
-        message_parent_id = in.readInt();
-        from_member_id = in.readInt();
-        to_member_id = in.readInt();
-        message_title = in.readString();
-        message_body = in.readString();
-        message_time = in.readString();
-        message_update_time = in.readString();
-        message_open = in.readInt();
-        message_state = in.readInt();
-        message_type = in.readInt();
-        read_member_id = in.readString();
-        del_member_id = in.readString();
-        message_ismore = in.readInt();
-        from_member_name = in.readString();
-        to_member_name = in.readString();
-        from_member_avatar = in.readString();
-    }
-
-    public static final Creator<Message> CREATOR = new Creator<Message>() {
-        @Override
-        public Message createFromParcel(Parcel in) {
-            return new Message(in);
-        }
-
-        @Override
-        public Message[] newArray(int size) {
-            return new Message[size];
-        }
-    };
+    private Trace trace_info;
 
     @Override
     public int describeContents() {
@@ -81,24 +51,61 @@ public class Message implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(message_id);
-        dest.writeInt(message_parent_id);
-        dest.writeInt(from_member_id);
-        dest.writeInt(to_member_id);
-        dest.writeString(message_title);
-        dest.writeString(message_body);
-        dest.writeString(message_time);
-        dest.writeString(message_update_time);
-        dest.writeInt(message_open);
-        dest.writeInt(message_state);
-        dest.writeInt(message_type);
-        dest.writeString(read_member_id);
-        dest.writeString(del_member_id);
-        dest.writeInt(message_ismore);
-        dest.writeString(from_member_name);
-        dest.writeString(to_member_name);
-        dest.writeString(from_member_avatar);
+        dest.writeInt(this.message_id);
+        dest.writeInt(this.message_parent_id);
+        dest.writeInt(this.from_member_id);
+        dest.writeString(this.to_member_id);
+        dest.writeString(this.message_title);
+        dest.writeString(this.message_body);
+        dest.writeString(this.message_time);
+        dest.writeString(this.message_update_time);
+        dest.writeInt(this.message_open);
+        dest.writeInt(this.message_state);
+        dest.writeInt(this.message_type);
+        dest.writeString(this.read_member_id);
+        dest.writeString(this.del_member_id);
+        dest.writeInt(this.message_ismore);
+        dest.writeString(this.from_member_name);
+        dest.writeString(this.to_member_name);
+        dest.writeString(this.from_member_avatar);
+        dest.writeParcelable(this.trace_info, flags);
     }
+
+    public Message() {
+    }
+
+    protected Message(Parcel in) {
+        this.message_id = in.readInt();
+        this.message_parent_id = in.readInt();
+        this.from_member_id = in.readInt();
+        this.to_member_id = in.readString();
+        this.message_title = in.readString();
+        this.message_body = in.readString();
+        this.message_time = in.readString();
+        this.message_update_time = in.readString();
+        this.message_open = in.readInt();
+        this.message_state = in.readInt();
+        this.message_type = in.readInt();
+        this.read_member_id = in.readString();
+        this.del_member_id = in.readString();
+        this.message_ismore = in.readInt();
+        this.from_member_name = in.readString();
+        this.to_member_name = in.readString();
+        this.from_member_avatar = in.readString();
+        this.trace_info = in.readParcelable(Trace.class.getClassLoader());
+    }
+
+    public static final Creator<Message> CREATOR = new Creator<Message>() {
+        @Override
+        public Message createFromParcel(Parcel source) {
+            return new Message(source);
+        }
+
+        @Override
+        public Message[] newArray(int size) {
+            return new Message[size];
+        }
+    };
 
     public int getMessage_id() {
         return message_id;
@@ -124,11 +131,11 @@ public class Message implements Parcelable {
         this.from_member_id = from_member_id;
     }
 
-    public int getTo_member_id() {
+    public String getTo_member_id() {
         return to_member_id;
     }
 
-    public void setTo_member_id(int to_member_id) {
+    public void setTo_member_id(String to_member_id) {
         this.to_member_id = to_member_id;
     }
 
@@ -234,5 +241,13 @@ public class Message implements Parcelable {
 
     public void setFrom_member_avatar(String from_member_avatar) {
         this.from_member_avatar = from_member_avatar;
+    }
+
+    public Trace getTrace_info() {
+        return trace_info;
+    }
+
+    public void setTrace_info(Trace trace_info) {
+        this.trace_info = trace_info;
     }
 }

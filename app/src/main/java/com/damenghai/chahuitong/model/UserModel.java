@@ -1,5 +1,6 @@
 package com.damenghai.chahuitong.model;
 
+import com.damenghai.chahuitong.config.API;
 import com.damenghai.chahuitong.model.bean.BeanList;
 import com.damenghai.chahuitong.model.bean.People;
 import com.damenghai.chahuitong.model.bean.User;
@@ -31,12 +32,17 @@ public class UserModel {
         return mInstance;
     }
 
+    public Observable<User> getUserInfo() {
+        return ServiceClient.getServices().getUser(API.VERSION, LUtils.getPreferences().getString("key", ""))
+                .compose(new DefaultTransform<>());
+    }
+
     /**
-     * 我的
+     * 我的资料
      * @return 我的页面
      */
-    public Observable<User> getMemberInfo() {
-        return ServiceClient.getServices().getUserInfo(LUtils.getPreferences().getString("key", "")).compose(new DefaultTransform<>());
+    public Observable<User> getProfile() {
+        return ServiceClient.getServices().profile(LUtils.getPreferences().getString("key", "")).compose(new DefaultTransform<>());
     }
 
     /**
@@ -53,8 +59,9 @@ public class UserModel {
      * @param userID 用户ID
      * @return 用户列表
      */
-    public Observable<BeanList<User>> getFollowList(int userID, int type) {
-        return ServiceClient.getServices().followList(LUtils.getPreferences().getString("key", ""), userID, type).compose(new DefaultTransform<>());
+    public Observable<BeanList<User>> getFollowList(int curPage, int userID, int type) {
+        return ServiceClient.getServices().followList(LUtils.getPreferences().getString("key", ""), curPage, userID, type)
+                .compose(new DefaultTransform<>());
     }
 
     /**

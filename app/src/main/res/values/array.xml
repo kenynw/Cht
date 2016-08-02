@@ -27,6 +27,21 @@
         <item>意见反馈</item>
     </string-array>
 
+    <string-array name="inform">
+        <item>举报</item>
+    </string-array>
+
+    <string-array name="delete">
+        <item>删除</item>
+    </string-array>
+
+    <string-array name="inform_content">
+        <item>广告、营销</item>
+        <item>不友善内容(色情、谩骂等)</item>
+        <item>违法违规</item>
+        <item>其他</item>
+    </string-array>
+
     <string-array name="personal_action_list">
         <item>com.damenghai.chahuitong.Favorites</item>
         <item>com.damenghai.chahuitong.MyFlea</item>

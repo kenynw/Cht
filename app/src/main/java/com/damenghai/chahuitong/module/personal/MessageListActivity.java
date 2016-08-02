@@ -20,6 +20,7 @@ public class MessageListActivity extends BaseListActivity<MessageListPresenter> 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
+        setToolbarTitle(getIntent().getStringExtra("title"));
     }
 
     @Override

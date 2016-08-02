@@ -1,6 +1,10 @@
 package com.damenghai.chahuitong.adapter.viewholder;
 
 import android.support.annotation.LayoutRes;
+import android.text.Html;
+import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -32,8 +36,13 @@ public class MsgSystemViewHolder extends BaseViewHolder<Message> {
 
     @Override
     public void setData(Message data) {
-        mTvTitle.setText(data.getMessage_title());
+        if (!TextUtils.isEmpty(data.getMessage_title())) {
+            mTvTitle.setText(data.getMessage_title());
+            mTvTitle.setVisibility(View.VISIBLE);
+        }
         mTvTime.setText(data.getMessage_time());
-        mTvContent.setText(data.getMessage_body());
+        mTvContent.setText(Html.fromHtml(data.getMessage_body()));
+        mTvContent.setClickable(true);
+        mTvContent.setMovementMethod(LinkMovementMethod.getInstance());
     }
 }

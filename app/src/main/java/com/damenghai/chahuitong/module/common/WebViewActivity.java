@@ -45,10 +45,17 @@ public class WebViewActivity extends BaseActivity {
 
         mUrl = getIntent().getStringExtra("url");
 
-        LUtils.log(mUrl);
+        handleIntent();
 
 		initWebView();
 	}
+
+    private void handleIntent() {
+        if (getIntent().getData() != null) {
+            Uri uri = getIntent().getData();
+            mUrl = uri.toString().replace("cht", "http");
+        }
+    }
 
     @SuppressLint({ "JavascriptInterface", "SetJavaScriptEnabled" })
     protected void initWebView() {

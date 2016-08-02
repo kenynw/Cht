@@ -16,7 +16,7 @@ public class PopularListPresenter extends BaseListActivityPresenter<PopularListA
 
     @Override
     public void onRefresh() {
-        FriendModel.getInstance().popularList(1).unsafeSubscribe(getMoreSubscriber());
+        FriendModel.getInstance().popularList(1).unsafeSubscribe(getRefreshSubscriber());
     }
 
     @Override

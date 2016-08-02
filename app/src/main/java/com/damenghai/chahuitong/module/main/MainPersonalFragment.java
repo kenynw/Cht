@@ -24,6 +24,7 @@ import com.damenghai.chahuitong.expansion.data.BaseDataFragment;
 import com.damenghai.chahuitong.model.bean.User;
 import com.damenghai.chahuitong.module.settings.SettingsActivity;
 import com.damenghai.chahuitong.module.user.UserInfoActivity;
+import com.damenghai.chahuitong.utils.LUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import butterknife.Bind;
@@ -89,6 +90,11 @@ public class MainPersonalFragment extends BaseDataFragment<MainPersonalPresenter
     @Bind(R.id.tv_uncomment_tips)
     TextView mTvUncomment;
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -99,7 +105,6 @@ public class MainPersonalFragment extends BaseDataFragment<MainPersonalPresenter
 
         mGridItem.setLayoutManager(new GridLayoutManager(getActivity(), 3));
         mGridItem.setAdapter(new PersonalAdapter(getActivity()));
-//        mGridItem.addItemDecoration(new DividerGridItemDecoration(getActivity()));
 
         mLayoutHead.setOnClickListener(v -> getPresenter().isLogin());
         mBtnUnpaid.setOnClickListener(v -> getPresenter().showOrder(0));
@@ -155,11 +160,11 @@ public class MainPersonalFragment extends BaseDataFragment<MainPersonalPresenter
     }
 
     private void initToolbar() {
-        mTvTitle.setText(R.string.title_activity_personal);
         setHasOptionsMenu(true);
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         activity.setSupportActionBar(mToolbar);
         if (activity.getSupportActionBar() != null)activity.getSupportActionBar().setDisplayShowTitleEnabled(false);
+        mTvTitle.setText(R.string.title_activity_personal);
         mToolbar.setOnMenuItemClickListener(item -> {
             startActivity(new Intent(getActivity(), SettingsActivity.class));
             return true;
@@ -168,9 +173,9 @@ public class MainPersonalFragment extends BaseDataFragment<MainPersonalPresenter
 
     @Override
     public void setMenuVisibility(boolean menuVisible) {
-        super.setMenuVisibility(menuVisible);
         if (getView() != null) {
             getView().setVisibility(menuVisible ? View.VISIBLE : View.GONE);
         }
+        super.setMenuVisibility(menuVisible);
     }
 }

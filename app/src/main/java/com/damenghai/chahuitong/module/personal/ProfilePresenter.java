@@ -4,31 +4,21 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.View;
 import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.expansion.data.BaseDataActivityPresenter;
-import com.damenghai.chahuitong.model.MemberModel;
+import com.damenghai.chahuitong.model.UserModel;
 import com.damenghai.chahuitong.model.bean.Area;
 import com.damenghai.chahuitong.model.bean.User;
-import com.damenghai.chahuitong.model.service.DefaultTransform;
-import com.damenghai.chahuitong.model.service.ServiceClient;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.module.address.AreaActivity;
 import com.damenghai.chahuitong.utils.DateUtils;
 import com.damenghai.chahuitong.utils.LUtils;
-import com.google.gson.Gson;
 import com.jude.library.imageprovider.ImageProvider;
 import com.jude.library.imageprovider.OnImageSelectListener;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
-
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
@@ -46,11 +36,11 @@ public class ProfilePresenter extends BaseDataActivityPresenter<ProfileActivity,
     @Override
     protected void onCreateView(ProfileActivity view) {
         super.onCreateView(view);
-        MemberModel.getInstance().getMemberInfo().subscribe(getDataSubscriber());
+        UserModel.getInstance().getProfile().subscribe(getDataSubscriber());
     }
 
     public void save(User user) {
-        MemberModel.getInstance().updateProfile(user).subscribe(new ServiceResponse<Boolean>() {
+        UserModel.getInstance().updateProfile(user).subscribe(new ServiceResponse<Boolean>() {
             @Override
             public void onNext(Boolean aBoolean) {
                 getView().finish();
@@ -123,7 +113,7 @@ public class ProfilePresenter extends BaseDataActivityPresenter<ProfileActivity,
     public void onImageLoaded(Uri uri) {
         getView().getExpansionDelegate().showProgressBar();
 
-        MemberModel.getInstance().uploadAvatar(new File(uri.getPath()))
+        UserModel.getInstance().uploadAvatar(new File(uri.getPath()))
                 .finallyDo(() -> getView().getExpansionDelegate().hideProgressBar())
                 .subscribe(new ServiceResponse<Boolean>() {
                     @Override

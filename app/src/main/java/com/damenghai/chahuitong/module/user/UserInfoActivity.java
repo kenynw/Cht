@@ -2,10 +2,14 @@ package com.damenghai.chahuitong.module.user;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
@@ -45,9 +49,7 @@ public class UserInfoActivity extends BaseDataActivity<UserInfoPresenter, People
         getPresenter().getAdapter().addHeader(new RecyclerArrayAdapter.ItemView() {
             @Override
             public View onCreateView(ViewGroup parent) {
-                View view = LayoutInflater.from(UserInfoActivity.this).inflate(R.layout.header_user_traces, parent, false);
-
-                return view;
+                return LayoutInflater.from(UserInfoActivity.this).inflate(R.layout.header_user_traces, parent, false);
             }
 
             @Override
@@ -55,11 +57,15 @@ public class UserInfoActivity extends BaseDataActivity<UserInfoPresenter, People
                 SimpleDraweeView avatar = (SimpleDraweeView) view.findViewById(R.id.dv_user_avatar);
                 TextView username = (TextView) view.findViewById(R.id.tv_user_username);
                 TextView tvTraces = (TextView) view.findViewById(R.id.tv_user_traces);
+                LinearLayout lyFollowing = (LinearLayout) view.findViewById(R.id.ly_user_following);
                 TextView tvFollowing = (TextView) view.findViewById(R.id.tv_user_following);
+                LinearLayout lyFollowers = (LinearLayout) view.findViewById(R.id.ly_user_followers);
                 TextView tvFollowers = (TextView) view.findViewById(R.id.tv_user_followers);
                 TextView tvArea = (TextView) view.findViewById(R.id.tv_user_area);
                 TextView tvIntro = (TextView) view.findViewById(R.id.tv_user_introduction);
 
+                lyFollowing.setOnClickListener(v -> getPresenter().showUserList(0));
+                lyFollowers.setOnClickListener(v -> getPresenter().showUserList(1));
                 avatar.setImageURI(Uri.parse(people.getMember_avatar()));
                 username.setText(people.getMember_name());
                 tvTraces.setText(String.valueOf(people.getTrace_count()));
@@ -72,5 +78,27 @@ public class UserInfoActivity extends BaseDataActivity<UserInfoPresenter, People
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_inform :
+                new AlertDialog.Builder(this)
+                        .setItems(R.array.inform_content, (d, p) -> {
+                            getPresenter().inform(getResources().getStringArray(R.array.inform_content)[p]);
+                        }).show();
+                break;
+            case R.id.action_block :
+
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_user, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }

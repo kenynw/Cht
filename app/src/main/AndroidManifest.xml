@@ -110,6 +110,10 @@
             android:name=".module.main.LaunchActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        </activity>
+        <activity
+            android:name=".module.main.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -117,12 +121,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".module.main.MainActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
             android:name=".module.user.LoginActivity"
             android:label="@string/title_activity_login">
+            <intent-filter>
+                <action android:name="com.cht.login"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
         </activity>
         <activity
             android:name=".module.special.SampleActivity"
@@ -157,6 +162,17 @@
         <activity
             android:name=".module.common.WebViewActivity"
             android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data
+                    android:host="www.chahuitong.com"
+                    android:pathPrefix="/shop"
+                    android:scheme="cht"/>
+            </intent-filter>
         </activity>
         <activity android:name=".module.address.AddressListActivity">
             <intent-filter>
@@ -199,8 +215,7 @@
         </activity>
         <activity
             android:name=".module.personal.ProfileActivity"
-            android:launchMode="singleTop"
-            >
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="com.damenghai.chahuitong.Profile"/>
 
@@ -238,6 +253,7 @@
         </activity>
         <activity
             android:name=".module.trace.TraceDetailActivity"
+            android:theme="@style/AppTheme.ItemLineDecoration"
             android:windowSoftInputMode="stateUnspecified|adjustPan">
         </activity>
         <activity android:name=".module.flea.FleaDetailActivity">
@@ -289,6 +305,16 @@
         </activity>
         <activity android:name=".module.flea.FleaEditActivity">
         </activity>
+        <activity
+            android:name=".module.user.FollowUserListActivity"
+            android:theme="@style/AppTheme.ItemLineDecoration">
+        </activity>
+
+        <service
+            android:name=".module.settings.UpdateService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
     </application>
 
 </manifest>

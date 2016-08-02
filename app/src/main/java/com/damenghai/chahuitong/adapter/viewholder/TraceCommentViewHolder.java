@@ -1,6 +1,9 @@
 package com.damenghai.chahuitong.adapter.viewholder;
 
+import android.content.DialogInterface;
 import android.net.Uri;
+import android.support.v7.app.AlertDialog;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -34,6 +37,9 @@ public class TraceCommentViewHolder extends BaseViewHolder<TraceComment> {
     @Bind(R.id.tv_trace_comment_content)
     TextView mTvContent;
 
+    @Bind(R.id.tv_comment_original)
+    TextView mTvOriginal;
+
     public TraceCommentViewHolder(ViewGroup parent) {
         super(parent, R.layout.item_list_trace_comment);
         ButterKnife.bind(this, itemView);
@@ -44,7 +50,18 @@ public class TraceCommentViewHolder extends BaseViewHolder<TraceComment> {
         mDvAvatar.setImageURI(Uri.parse(comment.getComment_memberavatar()));
         mTvUsername.setText(comment.getComment_membername());
         mTvTime.setText(comment.getComment_addtime());
-        mTvLike.setOnClickListener(v -> TraceModel.getInstance().addCommentLike(comment.getComment_id()).subscribe(new ServiceResponse<>()));
         mTvContent.setText(comment.getComment_content());
+        if (comment.is_like()) {
+            mTvLike.setTextColor(getContext().getResources().getColor(R.color.colorPrimary));
+        } else {
+            mTvLike.setOnClickListener(v -> TraceModel.getInstance().addCommentLike(comment.getComment_id())
+                    .subscribe(new ServiceResponse<>()));
+        }
+        mTvLike.setText(String.valueOf(comment.getLike_count()));
+
+        if (comment.getComment_reply() != null) {
+            mTvOriginal.setVisibility(View.VISIBLE);
+            mTvOriginal.setText(String.format(getContext().getString(R.string.text_original_comment), comment.getComment_reply().getComment_membername(), comment.getComment_reply().getComment_content()));
+        }
     }
 }

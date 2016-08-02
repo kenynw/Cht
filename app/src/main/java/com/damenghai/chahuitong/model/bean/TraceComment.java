@@ -22,36 +22,21 @@ public class TraceComment implements Parcelable {
 
     private String comment_content;
 
+    private int comment_reply_id;
+
     private String comment_addtime;
 
     private String comment_ip;
 
     private String comment_state;
 
-    protected TraceComment(Parcel in) {
-        comment_id = in.readInt();
-        comment_memberid = in.readInt();
-        comment_membername = in.readString();
-        comment_memberavatar = in.readString();
-        comment_originalid = in.readInt();
-        comment_originaltype = in.readInt();
-        comment_content = in.readString();
-        comment_addtime = in.readString();
-        comment_ip = in.readString();
-        comment_state = in.readString();
-    }
+    private TraceComment comment_reply;
 
-    public static final Creator<TraceComment> CREATOR = new Creator<TraceComment>() {
-        @Override
-        public TraceComment createFromParcel(Parcel in) {
-            return new TraceComment(in);
-        }
+    private boolean is_like;
 
-        @Override
-        public TraceComment[] newArray(int size) {
-            return new TraceComment[size];
-        }
-    };
+    private int like_count;
+
+    private int relation;
 
     @Override
     public int describeContents() {
@@ -60,17 +45,55 @@ public class TraceComment implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(comment_id);
-        dest.writeInt(comment_memberid);
-        dest.writeString(comment_membername);
-        dest.writeString(comment_memberavatar);
-        dest.writeInt(comment_originalid);
-        dest.writeInt(comment_originaltype);
-        dest.writeString(comment_content);
-        dest.writeString(comment_addtime);
-        dest.writeString(comment_ip);
-        dest.writeString(comment_state);
+        dest.writeInt(this.comment_id);
+        dest.writeInt(this.comment_memberid);
+        dest.writeString(this.comment_membername);
+        dest.writeString(this.comment_memberavatar);
+        dest.writeInt(this.comment_originalid);
+        dest.writeInt(this.comment_originaltype);
+        dest.writeString(this.comment_content);
+        dest.writeInt(this.comment_reply_id);
+        dest.writeString(this.comment_addtime);
+        dest.writeString(this.comment_ip);
+        dest.writeString(this.comment_state);
+        dest.writeParcelable(this.comment_reply, flags);
+        dest.writeByte(this.is_like ? (byte) 1 : (byte) 0);
+        dest.writeInt(this.like_count);
+        dest.writeInt(this.relation);
     }
+
+    public TraceComment() {
+    }
+
+    protected TraceComment(Parcel in) {
+        this.comment_id = in.readInt();
+        this.comment_memberid = in.readInt();
+        this.comment_membername = in.readString();
+        this.comment_memberavatar = in.readString();
+        this.comment_originalid = in.readInt();
+        this.comment_originaltype = in.readInt();
+        this.comment_content = in.readString();
+        this.comment_reply_id = in.readInt();
+        this.comment_addtime = in.readString();
+        this.comment_ip = in.readString();
+        this.comment_state = in.readString();
+        this.comment_reply = in.readParcelable(TraceComment.class.getClassLoader());
+        this.is_like = in.readByte() != 0;
+        this.like_count = in.readInt();
+        this.relation = in.readInt();
+    }
+
+    public static final Creator<TraceComment> CREATOR = new Creator<TraceComment>() {
+        @Override
+        public TraceComment createFromParcel(Parcel source) {
+            return new TraceComment(source);
+        }
+
+        @Override
+        public TraceComment[] newArray(int size) {
+            return new TraceComment[size];
+        }
+    };
 
     public int getComment_id() {
         return comment_id;
@@ -128,6 +151,14 @@ public class TraceComment implements Parcelable {
         this.comment_content = comment_content;
     }
 
+    public int getComment_reply_id() {
+        return comment_reply_id;
+    }
+
+    public void setComment_reply_id(int comment_reply_id) {
+        this.comment_reply_id = comment_reply_id;
+    }
+
     public String getComment_addtime() {
         return comment_addtime;
     }
@@ -150,5 +181,37 @@ public class TraceComment implements Parcelable {
 
     public void setComment_state(String comment_state) {
         this.comment_state = comment_state;
+    }
+
+    public TraceComment getComment_reply() {
+        return comment_reply;
+    }
+
+    public void setComment_reply(TraceComment comment_reply) {
+        this.comment_reply = comment_reply;
+    }
+
+    public boolean is_like() {
+        return is_like;
+    }
+
+    public void setIs_like(boolean is_like) {
+        this.is_like = is_like;
+    }
+
+    public int getLike_count() {
+        return like_count;
+    }
+
+    public void setLike_count(int like_count) {
+        this.like_count = like_count;
+    }
+
+    public int getRelation() {
+        return relation;
+    }
+
+    public void setRelation(int relation) {
+        this.relation = relation;
     }
 }

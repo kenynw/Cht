@@ -21,9 +21,10 @@ public class MessagePresenter extends BaseDataActivityPresenter<MessageActivity,
                 .subscribe(getDataSubscriber());
     }
 
-    public void showMsgList(int type) {
+    public void showMsgList(int type, CharSequence title) {
         Intent i = new Intent(getView(), MessageListActivity.class);
         i.putExtra("type", type);
+        i.putExtra("title", title);
         getView().startActivity(i);
     }
 

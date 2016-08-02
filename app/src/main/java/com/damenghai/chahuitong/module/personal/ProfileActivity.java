@@ -1,12 +1,8 @@
 package com.damenghai.chahuitong.module.personal;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -15,10 +11,11 @@ import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.expansion.data.BaseDataActivity;
 import com.damenghai.chahuitong.model.bean.User;
-import com.damenghai.chahuitong.module.settings.ChangePasswordActivity;
-import com.damenghai.chahuitong.utils.ImageUtils;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -61,7 +58,7 @@ public class ProfileActivity extends BaseDataActivity<ProfilePresenter, User> {
         mBtnGender.setOnClickListener(v -> getPresenter().showGender());
         mBtnBorn.setOnClickListener(v -> getPresenter().showBorn(mBtnBorn));
         mBtnArea.setOnClickListener(v -> getPresenter().showArea());
-        mBtnSave.setOnClickListener(v -> save());
+        mBtnSave.setOnClickListener(v -> checkInput());
     }
 
     @Override
@@ -74,7 +71,21 @@ public class ProfileActivity extends BaseDataActivity<ProfilePresenter, User> {
         mEtIntro.setText(user.getMember_intro());
     }
 
-    private void save() {
+    private void checkInput() {
+        if (mEtName.getText().toString().isEmpty()) {
+            LUtils.toast("昵称不能为空");
+            return;
+        }
+        if (mEtName.getText().length() < 3 || mEtName.getText().length() > 15) {
+            LUtils.toast("昵称长度在3-15之间");
+            return;
+        }
+        Pattern pattern = Pattern.compile("[a-zA-Z0-9_\\u4e00-\\u9fa5]+$");
+        if (!pattern.matcher(mEtName.getText().toString().trim()).matches()) {
+            LUtils.toast("昵称不能含有特殊字符");
+            return;
+        }
+
         User user = getPresenter().getDataSubject().getValue();
         user.setMember_name(mEtName.getText().toString().trim());
         user.setMember_birthday(mBtnBorn.getText().toString().trim());

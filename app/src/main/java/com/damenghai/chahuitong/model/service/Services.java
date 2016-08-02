@@ -24,6 +24,8 @@ import com.damenghai.chahuitong.model.bean.People;
 import com.damenghai.chahuitong.model.bean.Sample;
 import com.damenghai.chahuitong.model.bean.Token;
 import com.damenghai.chahuitong.model.bean.Trace;
+import com.damenghai.chahuitong.model.bean.TraceComment;
+import com.damenghai.chahuitong.model.bean.UpdateInfo;
 import com.damenghai.chahuitong.model.bean.User;
 import com.damenghai.chahuitong.model.bean.Voucher;
 import com.damenghai.chahuitong.model.bean.response.Response;
@@ -139,6 +141,7 @@ public interface Services {
     @FormUrlEncoded
     @POST("?act=logout")
     Observable<String> logout(
+            @Field("key") String key,
             @Field("mobile") String mobile,
             @Field("client") String client
     );
@@ -154,11 +157,10 @@ public interface Services {
 
     @FormUrlEncoded
     @POST("?act=login&op=register_api")
-    Observable<Response<Token>> register(
+    Observable<User> register(
             @Field("mobile") String mobile,
             @Field("password") String password,
             @Field("verificode") String code,
-            @Field("label") String label,
             @Field("client") String client
     );
 
@@ -203,7 +205,7 @@ public interface Services {
 
     @FormUrlEncoded
     @POST("?act=member_index&op=member_info")
-    Observable<User> getUserInfo(
+    Observable<User> profile(
             @Field("key") String key
     );
 
@@ -461,6 +463,22 @@ public interface Services {
     );
 
     //////////////////////////茶友圈/////////////////////////
+    ;
+
+    /**
+     * 用户关注列表
+     * @param key 当前登录令牌
+     * @param mid 主页用户ID
+     * @param type 列表类型 0-关注列表 1-粉丝列表
+     * @return 用户列表
+     */
+    @GET("?act=member_sns_friend&op=follow_list")
+    Observable<BeanList<User>> followList(
+            @Query("key") String key,
+            @Query("curpage") int curPage,
+            @Query("mid") int mid,
+            @Query("type") int type
+    );
 
     /**
      * 好友动态列表
@@ -527,21 +545,35 @@ public interface Services {
      */
     @FormUrlEncoded
     @POST("?act=member_sns_trace&op=comment_add")
-    Observable<String> addTraceComment(
+    Observable<TraceComment> addTraceComment(
             @Field("key") String key,
             @Field("id") int traceId,
             @Field("content") String content
     );
 
     /**
+     * 添加动态评论
+     * @param key 当前登录令牌
+     * @param commentId 评论ID
+     * @param content 评论内容
+     */
+    @FormUrlEncoded
+    @POST("?act=member_sns_trace&op=comment_reply")
+    Observable<TraceComment> replyTraceComment(
+            @Field("key") String key,
+            @Field("id") int commentId,
+            @Field("content") String content
+    );
+
+    /**
      * 删除动态评论
      * @param key 当前登录令牌
-     * @param traceId 动态id
+     * @param id 评论ID
      */
     @GET("?act=member_sns_trace&op=comment_del")
     Observable<String> delTraceComment(
             @Query("key") String key,
-            @Query("id") int traceId
+            @Query("id") int id
     );
 
     /**
@@ -550,11 +582,12 @@ public interface Services {
      * @param id 动态或评论id
      * @param type 原帖类型 0表示动态 1表示分享商品 2表示评论 默认为0
      */
-    @GET("?act=member_sns_trace&op=like_add")
+    @FormUrlEncoded
+    @POST("?act=member_sns_trace&op=like_add")
     Observable<String> addLike(
-            @Query("key") String key,
-            @Query("id") int id,
-            @Query("type") int type
+            @Field("key") String key,
+            @Field("id") int id,
+            @Field("type") int type
     );
 
     /**
@@ -626,6 +659,40 @@ public interface Services {
     Observable<Integer> delFollow(
             @Query("key") String key,
             @Query("mid") int uid
+    );
+
+    /**
+     *
+     * @param key 登录信息
+     * @param traceID 动态ID
+     * @param replyID 评论ID
+     * @param content 举报内容
+     * @param type 类型 0-动态 1-评论
+     * @return 操作结果
+     */
+    @FormUrlEncoded
+    @POST("?act=member_sns_inform&op=inform_trace")
+    Observable<Boolean> informTrace(
+            @Field("key") String key,
+            @Field("trace_id") int traceID,
+            @Field("reply_id") int replyID,
+            @Field("inform_content") String content,
+            @Field("type") int type
+    );
+
+    /**
+     *
+     * @param key 登录信息
+     * @param mid 举报用户的ID
+     * @param content 举报内容
+     * @return 操作结果
+     */
+    @FormUrlEncoded
+    @POST("?act=member_sns_inform&op=inform_home")
+    Observable<Boolean> informHome(
+            @Field("key") String key,
+            @Field("mid") int mid,
+            @Field("inform_content") String content
     );
 
     /**
@@ -816,6 +883,11 @@ public interface Services {
             @Field("key") String key,
             @Field("feedback") String feedback,
             @Field("contact") String contact
+    );
+
+    @GET("?act=index&op=apk_version")
+    Observable<UpdateInfo> checkUpdate(
+            @Query("version") String version
     );
 
 }

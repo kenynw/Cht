@@ -1,6 +1,7 @@
 package com.damenghai.chahuitong.module.personal;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -46,10 +47,10 @@ public class MessageActivity extends BaseDataActivity<MessagePresenter, MessageC
         setToolbarTitle(R.string.title_activity_message);
         ButterKnife.bind(this);
 
-        mBtnFans.setOnClickListener(v -> getPresenter().showMsgList(MessageListPresenter.TYPE_FANS));
-        mBtnComment.setOnClickListener(v -> getPresenter().showMsgList(MessageListPresenter.TYPE_COMMENT));
-        mBtnAt.setOnClickListener(v -> getPresenter().showMsgList(MessageListPresenter.TYPE_AT));
-        mBtnSystem.setOnClickListener(v -> getPresenter().showMsgList(MessageListPresenter.TYPE_SYSTEM));
+        mBtnFans.setOnClickListener(v -> getPresenter().showMsgList(MessageListPresenter.TYPE_FANS, mBtnFans.getText()));
+        mBtnComment.setOnClickListener(v -> getPresenter().showMsgList(MessageListPresenter.TYPE_COMMENT, mBtnComment.getText()));
+        mBtnAt.setOnClickListener(v -> getPresenter().showMsgList(MessageListPresenter.TYPE_AT, mBtnAt.getText()));
+        mBtnSystem.setOnClickListener(v -> getPresenter().showMsgList(MessageListPresenter.TYPE_SYSTEM, mBtnSystem.getText()));
     }
 
     @Override
@@ -57,15 +58,19 @@ public class MessageActivity extends BaseDataActivity<MessagePresenter, MessageC
         if (count.getCount_new_msg() > 0) {
             if (count.getNew_fans() > 0) {
                 mTvFansNum.setText(String.valueOf(count.getNew_fans()));
+                mTvFansNum.setVisibility(View.VISIBLE);
             }
             if (count.getNew_comment() > 0) {
                 mTvCommentNum.setText(String.valueOf(count.getNew_comment()));
+                mTvCommentNum.setVisibility(View.VISIBLE);
             }
             if (count.getNew_at() > 0) {
                 mTvAtNum.setText(String.valueOf(count.getNew_at()));
+                mTvAtNum.setVisibility(View.VISIBLE);
             }
             if (count.getNew_system() > 0) {
                 mTvSystemNum.setText(String.valueOf(count.getNew_system()));
+                mTvSystemNum.setVisibility(View.VISIBLE);
             }
         }
     }

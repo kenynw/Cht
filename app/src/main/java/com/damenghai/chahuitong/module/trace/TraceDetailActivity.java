@@ -2,6 +2,7 @@ package com.damenghai.chahuitong.module.trace;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
@@ -10,13 +11,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.adapter.TraceCommentAdapter;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.expansion.data.BaseDataActivity;
+import com.damenghai.chahuitong.expansion.list.DividerItemDecoration;
 import com.damenghai.chahuitong.model.bean.Trace;
+import com.damenghai.chahuitong.model.bean.TraceComment;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.jude.easyrecyclerview.EasyRecyclerView;
@@ -39,7 +42,7 @@ public class TraceDetailActivity extends BaseDataActivity<TraceDetailPresenter, 
     @Bind(R.id.tv_trace_time)
     TextView mTvTime;
 
-    @Bind(R.id.et_trace_content)
+    @Bind(R.id.tv_trace_content)
     TextView mTvContent;
 
     @Bind(R.id.dv_trace_image)
@@ -57,11 +60,14 @@ public class TraceDetailActivity extends BaseDataActivity<TraceDetailPresenter, 
     @Bind(R.id.btn_trace_add_comment)
     Button mBtnAddComment;
 
+    @Bind(R.id.btn_trace_share)
+    Button mBtnShare;
+
     @Bind(R.id.btn_trace_comment)
     Button mBtnComment;
 
     @Bind(R.id.btn_trace_like)
-    Button mBtnLike;
+    RadioButton mBtnLike;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,9 +78,10 @@ public class TraceDetailActivity extends BaseDataActivity<TraceDetailPresenter, 
 
         mRcvComment.setLayoutManager(new LinearLayoutManager(this));
         mRcvComment.setEmptyView(R.layout.empty_list_comment);
+        mRcvComment.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
 
         mEtComment.addTextChangedListener(getPresenter());
-        mBtnAddComment.setOnClickListener(v -> getPresenter().addComment(mEtComment.getText().toString()));
+        mBtnAddComment.setOnClickListener(v -> getPresenter().addComment(mEtComment.getText().toString().trim()));
     }
 
     @Override
@@ -90,13 +97,26 @@ public class TraceDetailActivity extends BaseDataActivity<TraceDetailPresenter, 
         mDvImage.setOnClickListener(v -> getPresenter().showImageDetail(trace.getTrace_image_list()));
         mTvImgNum.setText(String.valueOf(trace.getTrace_image_list().size()));
         mBtnComment.setText(String.format(getString(R.string.btn_trace_comment), trace.getTrace_commentcount() > 0 ? trace.getTrace_commentcount() : ""));
+        mBtnShare.setOnClickListener(v -> getPresenter().share());
         mBtnLike.setText(String.format(getString(R.string.btn_trace_like), trace.getTrace_likecount() > 0 ? trace.getTrace_likecount() : ""));
         mBtnLike.setOnClickListener(v -> getPresenter().addLike());
+        mBtnLike.setChecked(trace.is_like());
         mTvTime.setText(trace.getTrace_addtime());
-        if (trace.getComment_list() != null && trace.getComment_list().size() > 0) {
-            mRcvComment.setAdapter(new TraceCommentAdapter(this, trace.getComment_list()));
-        }
+
         setRelation(trace);
+        mRcvComment.setAdapter(getPresenter().getAdapter());
+        getPresenter().getAdapter().addAll(trace.getComment_list());
+    }
+
+    public void setReplay(TraceComment comment) {
+        mEtComment.setHint(String.format(getString(R.string.hint_trace_comment_replay), comment.getComment_membername()));
+        mBtnAddComment.setOnClickListener(v -> getPresenter().replyComment(comment, mEtComment.getText().toString().trim()));
+    }
+
+    public void clearEditText() {
+        LUtils.closeKeyboard(mEtComment);
+        mEtComment.setText("");
+        mBtnComment.setOnClickListener(v -> mEtComment.setHint(getString(R.string.hint_new_content)));
     }
 
     public Button getSubmitBtn() {
@@ -121,10 +141,6 @@ public class TraceDetailActivity extends BaseDataActivity<TraceDetailPresenter, 
                 supportInvalidateOptionsMenu();
                 mTvTime.setVisibility(View.VISIBLE);
                 mBtnFollow.setVisibility(View.GONE);
-                getToolbar().getMenu().findItem(R.id.action_delete).setVisible(true).setOnMenuItemClickListener(item -> {
-                    getPresenter().delTrace();
-                    return true;
-                });
                 break;
             case 4:
                 mTvTime.setVisibility(View.GONE);
@@ -136,14 +152,27 @@ public class TraceDetailActivity extends BaseDataActivity<TraceDetailPresenter, 
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_delete :
+                getPresenter().delTrace();
+                break;
+            case R.id.action_inform:
+                new AlertDialog.Builder(this)
+                        .setItems(R.array.inform_content, (d, p) -> {
+                            getPresenter().inform(getResources().getStringArray(R.array.inform_content)[p]);
+                        }).show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_trace, menu);
-        MenuItem item = menu.findItem(R.id.action_delete);
         if (getPresenter().getDataSubject().getValue() != null && getPresenter().getDataSubject().getValue().getRelation() == 3) {
-            item.setVisible(true).setOnMenuItemClickListener(menuItem -> {
-                getPresenter().delTrace();
-                return true;
-            });
+            menu.findItem(R.id.action_delete).setVisible(true);
+            menu.findItem(R.id.action_inform).setVisible(false);
         }
         return super.onCreateOptionsMenu(menu);
     }

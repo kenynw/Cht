@@ -6,6 +6,8 @@ import android.view.View;
 
 import com.damenghai.chahuitong.R;
 
+import java.util.List;
+
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
@@ -168,6 +170,11 @@ public class ListConfig implements Cloneable {
 
     public ListConfig setHasItemDecoration(boolean hasItemDecoration) {
         mHasItemDecoration = hasItemDecoration;
+        return this;
+    }
+
+    public ListConfig setItemDecoration(RecyclerView.ItemDecoration itemDecoration) {
+        this.mItemDecoration= itemDecoration;
         return this;
     }
 

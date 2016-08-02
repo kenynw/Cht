@@ -1,17 +1,12 @@
 package com.damenghai.chahuitong.module.main;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.text.TextUtils;
 
 import com.damenghai.chahuitong.adapter.MainFragmentAdapter;
 import com.damenghai.chahuitong.bijection.Presenter;
-import com.damenghai.chahuitong.module.mall.CartActivity;
-import com.damenghai.chahuitong.module.user.LoginActivity;
-import com.damenghai.chahuitong.presenter.BasePresenter;
-import com.damenghai.chahuitong.utils.LUtils;
+import com.damenghai.chahuitong.model.CommonModel;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
@@ -24,6 +19,12 @@ public class MainPresenter extends Presenter<MainActivity> implements TabLayout.
     protected void onCreate(MainActivity view, Bundle saveState) {
         super.onCreate(view, saveState);
         mAdapter = new MainFragmentAdapter(getView().getSupportFragmentManager());
+    }
+
+    @Override
+    protected void onCreateView(MainActivity view) {
+        super.onCreateView(view);
+        CommonModel.getInstance().update(view);
     }
 
     public MainFragmentAdapter getAdapter() {
@@ -46,4 +47,5 @@ public class MainPresenter extends Presenter<MainActivity> implements TabLayout.
     public void onTabReselected(TabLayout.Tab tab) {
 
     }
+
 }

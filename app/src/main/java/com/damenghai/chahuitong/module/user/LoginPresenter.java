@@ -7,6 +7,8 @@ import android.os.Bundle;
 
 import com.damenghai.chahuitong.bijection.Presenter;
 import com.damenghai.chahuitong.config.Config;
+import com.damenghai.chahuitong.model.AccountModel;
+import com.damenghai.chahuitong.model.UserModel;
 import com.damenghai.chahuitong.model.bean.User;
 import com.damenghai.chahuitong.model.service.DefaultTransform;
 import com.damenghai.chahuitong.model.service.ServiceClient;
@@ -32,12 +34,8 @@ public class LoginPresenter extends Presenter<LoginActivity> implements UMAuthLi
         mShareApi = UMShareAPI.get(getView());
     }
 
-    public void login() {
-        final String username = getView().getUsername();
-        final String password = getView().getPassword();
-
-        ServiceClient.getServices().login(username, password, Config.CLIENT_TYPE)
-                .compose(new DefaultTransform<>())
+    public void login(String username, String password) {
+        AccountModel.getInstance().login(username, password)
                 .subscribe(new ServiceResponse<User>(){
                     @Override
                     public void onNext(User user) {

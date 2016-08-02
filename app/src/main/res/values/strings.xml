@@ -170,6 +170,7 @@
     <string name="text_image_indicator">%1$s/%2$s</string>
     <string name="text_order_count">共%s件商品</string>
     <string name="text_order_goods_count">x%s</string>
+    <string name="text_original_comment">%1$s:&#160;%2$s</string>
     <string name="text_consignee">收件人：%1$s&#160;&#160;%2$s</string>
     <string name="text_address">收货地址：%1$s&#160;%2$s</string>
     <string name="text_news">茶资讯</string>
@@ -298,11 +299,13 @@
     <string name="toast_login_success">登录成功</string>
     <string name="toast_invalid_mobile">请输入正确的手机号码</string>
     <string name="toast_invalid_code">请输入6位验证码</string>
-    <string name="toast_invalid_password">请输入大于8位的密码</string>
+    <string name="toast_invalid_password">请输入大于6位的密码</string>
     <string name="toast_invalid_confirm">两次输入的密码不一致</string>
     <string name="toast_old_password">旧密码不能为空</string>
     <string name="toast_new_password">请输入大于8位的新密码</string>
     <string name="toast_null_content">内容不能为空</string>
+    <string name="toast_null_mobile">手机号不能为空</string>
+    <string name="toast_null_password">密码不能为空</string>
     <string name="toast_invalid_content">不少于五个汉字</string>
 
     <!--编辑框的提示文字，命名格式为：hint_提示信息-->
@@ -320,6 +323,7 @@
     <string name="hint_introduction">有趣的个人介绍会吸引更多粉丝哦</string>
     <string name="hint_nickname">支持2&#8211;20个中英文、数字、下划线</string>
     <string name="hint_search">搜索商品名称、店铺等</string>
+    <string name="hint_trace_comment_replay">回复%s:</string>
     <string name="hint_new_content">说点什么吧&#8230;</string>
     <string name="hint_new_trace">说说你此刻的心情吧&#8230;</string>
     <string name="hint_user_search">搜索好友、达人</string>
@@ -336,6 +340,7 @@
     <string name="desc_more">查看更多</string>
 
     <!--对话框的文字，命名格式为：dialog_文字-->
+    <string name="dialog_title_delete_trace">添加购物车成功</string>
     <string name="dialog_add_cart_success">添加购物车成功</string>
     <string name="dialog_cancel_order">确定要取消订单？</string>
     <string name="dialog_delete_address">确认要删除所选中的地址吗？</string>
@@ -353,10 +358,8 @@
     <string name="action_settings">设置</string>
     <string name="action_search">搜索</string>
     <string name="action_share">分享</string>
-    <string name="action_report">举报</string>
+    <string name="action_inform">举报</string>
+    <string name="action_block">拉黑</string>
     <string name="action_publish">发布</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

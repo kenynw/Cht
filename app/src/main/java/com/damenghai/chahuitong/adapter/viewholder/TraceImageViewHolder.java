@@ -2,9 +2,7 @@ package com.damenghai.chahuitong.adapter.viewholder;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.LayoutRes;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.model.bean.Trace;
@@ -26,11 +24,9 @@ public class TraceImageViewHolder extends BaseViewHolder<Trace> {
 
     public TraceImageViewHolder(ViewGroup parent) {
         super(parent, R.layout.item_trace_image);
+        int itemSize = (LUtils.getScreenWidth() - (parent.getPaddingLeft() + parent.getPaddingRight()) * 2) / 3;
+        itemView.setLayoutParams(new ViewGroup.LayoutParams(itemSize, itemSize));
         ButterKnife.bind(this, itemView);
-
-        // 重新设置图片尺寸
-        int itemSize = (LUtils.getScreenWidth() - parent.getPaddingLeft() - parent.getPaddingRight()) / 3;
-        mDvImage.setLayoutParams(new LinearLayout.LayoutParams(itemSize, itemSize));
     }
 
     @Override

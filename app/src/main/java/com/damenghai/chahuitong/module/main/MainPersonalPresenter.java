@@ -6,9 +6,11 @@ import android.text.TextUtils;
 
 import com.damenghai.chahuitong.config.API;
 import com.damenghai.chahuitong.expansion.data.BaseDataFragmentPresenter;
+import com.damenghai.chahuitong.model.UserModel;
 import com.damenghai.chahuitong.model.bean.User;
 import com.damenghai.chahuitong.model.service.DefaultTransform;
 import com.damenghai.chahuitong.model.service.ServiceClient;
+import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.module.order.OrderListActivity;
 import com.damenghai.chahuitong.module.user.LoginActivity;
 import com.damenghai.chahuitong.utils.LUtils;
@@ -21,21 +23,13 @@ public class MainPersonalPresenter extends BaseDataFragmentPresenter<MainPersona
     private final int REQUEST_CODE = 0;
 
     @Override
-    protected void onCreate(MainPersonalFragment view, Bundle saveState) {
-        super.onCreate(view, saveState);
-    }
-
-    @Override
     protected void onCreateView(MainPersonalFragment view) {
         super.onCreateView(view);
         loadData();
     }
 
     public void loadData() {
-        if (TextUtils.isEmpty(LUtils.getPreferences().getString("key", ""))) return;
-        ServiceClient.getServices().getUser(API.VERSION, LUtils.getPreferences().getString("key", ""))
-                .compose(new DefaultTransform<>())
-                .subscribe(getSubscriber());
+        UserModel.getInstance().getUserInfo().subscribe(getSubscriber());
     }
 
     public void showOrder(int position) {
@@ -57,6 +51,14 @@ public class MainPersonalPresenter extends BaseDataFragmentPresenter<MainPersona
     @Override
     protected void onResult(int requestCode, int resultCode, Intent data) {
         super.onResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE) loadData();
+        if (requestCode == REQUEST_CODE) {
+            LUtils.toast("login");
+            UserModel.getInstance().getUserInfo().unsafeSubscribe(new ServiceResponse<User>() {
+                @Override
+                public void onNext(User user) {
+                    getView().setData(user);
+                }
+            });
+        }
     }
 }

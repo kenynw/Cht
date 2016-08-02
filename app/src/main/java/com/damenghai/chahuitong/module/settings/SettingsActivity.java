@@ -2,12 +2,16 @@ package com.damenghai.chahuitong.module.settings;
 
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.bijection.BeamBaseActivity;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
+import com.damenghai.chahuitong.model.CommonModel;
+import com.damenghai.chahuitong.utils.LUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -46,18 +50,14 @@ public class SettingsActivity extends BeamBaseActivity<SettingPresenter> {
         mBtnFeedback.setOnClickListener(v -> getPresenter().showFeedback());
         mBtnAbout.setOnClickListener(v -> getPresenter().showAboutUs());
         mBtnCache.setOnClickListener(v -> getPresenter().clearCache());
-        mBtnUpdate.setOnClickListener(v -> getPresenter().checkUpdate());
+        mBtnUpdate.setOnClickListener(v -> CommonModel.getInstance().checkUpdate(this));
         mBtnLogout.setOnClickListener(v -> getPresenter().logout());
-
-        setVersion("");
+        mTvVersion.setText(String.format("当前版本v%s", LUtils.getAppVersionName()));
+        if (TextUtils.isEmpty(LUtils.getPreferences().getString("key", ""))) mBtnLogout.setVisibility(View.GONE);
     }
 
     public void setCache(String s) {
         mTvCache.setText(s);
-    }
-
-    public void setVersion(String s) {
-        mTvVersion.setText(s);
     }
 
 }

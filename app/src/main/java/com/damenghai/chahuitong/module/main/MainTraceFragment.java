@@ -11,14 +11,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.adapter.TraceFragmentAdapter;
 import com.damenghai.chahuitong.bijection.BeamFragment;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
+import com.damenghai.chahuitong.expansion.data.BaseDataActivity;
+import com.damenghai.chahuitong.expansion.data.BaseDataFragment;
+import com.damenghai.chahuitong.model.bean.MessageCount;
 import com.damenghai.chahuitong.module.trace.TraceAddActivity;
+import com.damenghai.chahuitong.utils.LUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -27,7 +33,7 @@ import butterknife.ButterKnife;
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
 @RequiresPresenter(MainTracePresenter.class)
-public class MainTraceFragment extends BeamFragment<MainTracePresenter> {
+public class MainTraceFragment extends BaseDataFragment<MainTracePresenter, MessageCount> {
 
     @Bind(R.id.toolbar_main_trace)
     Toolbar mToolbar;
@@ -40,6 +46,12 @@ public class MainTraceFragment extends BeamFragment<MainTracePresenter> {
 
     @Bind(R.id.fbtn_main_trace_add)
     FloatingActionButton mBtnAdd;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
     @Nullable
     @Override
@@ -55,6 +67,11 @@ public class MainTraceFragment extends BeamFragment<MainTracePresenter> {
         return view;
     }
 
+    @Override
+    public void setData(MessageCount messageCount) {
+
+    }
+
     private void initTab() {
         TraceFragmentAdapter adapter = new TraceFragmentAdapter(getFragmentManager());
         mPager.setAdapter(adapter);
@@ -65,7 +82,6 @@ public class MainTraceFragment extends BeamFragment<MainTracePresenter> {
     }
 
     private void initToolbar() {
-        setHasOptionsMenu(true);
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         activity.setSupportActionBar(mToolbar);
         if (activity.getSupportActionBar() != null)activity.getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -79,6 +95,9 @@ public class MainTraceFragment extends BeamFragment<MainTracePresenter> {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_main_trace, menu);
+//        MenuItem item = menu.findItem(R.id.action_message);
+//        TextView tv = (TextView) item.getActionView().findViewById(R.id.tv_action_msg);
+//        tv.setOnClickListener(v -> getPresenter().showUserMessage());
         super.onCreateOptionsMenu(menu, inflater);
     }
 

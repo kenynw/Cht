@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.text.TextUtils;
 
 import com.damenghai.chahuitong.bijection.Presenter;
+import com.damenghai.chahuitong.expansion.data.BaseDataActivityPresenter;
+import com.damenghai.chahuitong.expansion.data.BaseDataFragmentPresenter;
+import com.damenghai.chahuitong.model.bean.MessageCount;
 import com.damenghai.chahuitong.module.personal.MessageActivity;
 import com.damenghai.chahuitong.module.user.PopularListActivity;
 import com.damenghai.chahuitong.module.user.LoginActivity;
@@ -12,7 +15,9 @@ import com.damenghai.chahuitong.utils.LUtils;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class MainTracePresenter extends Presenter<MainTraceFragment> {
+public class MainTracePresenter extends BaseDataFragmentPresenter<MainTraceFragment, MessageCount> {
+
+
 
     public void showFindFriend() {
         if (checkLogin()) {

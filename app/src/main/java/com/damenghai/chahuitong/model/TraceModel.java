@@ -2,6 +2,7 @@ package com.damenghai.chahuitong.model;
 
 import com.damenghai.chahuitong.model.bean.BeanList;
 import com.damenghai.chahuitong.model.bean.Trace;
+import com.damenghai.chahuitong.model.bean.TraceComment;
 import com.damenghai.chahuitong.model.service.DefaultTransform;
 import com.damenghai.chahuitong.model.service.ServiceClient;
 import com.damenghai.chahuitong.utils.LUtils;
@@ -36,11 +37,6 @@ public class TraceModel {
                 .compose(new DefaultTransform<>());
     }
 
-//    public Observable<BeanList<Trace>> getTraceCommendList() {
-////        return ServiceClient.getServices().(LUtils.getPreferences().getString("key", ""), 1)
-////                .compose(new DefaultTransform<>());
-//    }
-
     public Observable<Trace> getTraceDetail(int traceId) {
         return ServiceClient.getServices().traceDetail(LUtils.getPreferences().getString("key", ""), traceId)
                 .compose(new DefaultTransform<>());
@@ -73,13 +69,18 @@ public class TraceModel {
                 .compose(new DefaultTransform<>());
     }
 
-    public Observable<String> addComment(int traceId, String content) {
+    public Observable<TraceComment> addComment(int traceId, String content) {
         return ServiceClient.getServices().addTraceComment(LUtils.getPreferences().getString("key", ""), traceId, content)
                 .compose(new DefaultTransform<>());
     }
 
-    public Observable<String> delComment(int traceId) {
-        return ServiceClient.getServices().delTraceComment(LUtils.getPreferences().getString("key", ""), traceId)
+    public Observable<TraceComment> replyComment(int id, String content) {
+        return ServiceClient.getServices().replyTraceComment(LUtils.getPreferences().getString("key", ""), id, content)
+                .compose(new DefaultTransform<>());
+    }
+
+    public Observable<String> delComment(int id) {
+        return ServiceClient.getServices().delTraceComment(LUtils.getPreferences().getString("key", ""), id)
                 .compose(new DefaultTransform<>());
     }
 
@@ -94,12 +95,25 @@ public class TraceModel {
     }
 
     public Observable<BeanList<Trace>> getTraceList(int mid, int curPage) {
-        return ServiceClient.getServices().traceList(mid, 0, curPage)
-                .compose(new DefaultTransform<>());
+        return ServiceClient.getServices().traceList(mid, 0, curPage).compose(new DefaultTransform<>());
     }
 
     public Observable<BeanList<Trace>> getCommendTraceList(int curPage) {
-        return ServiceClient.getServices().traceList(0, 1, curPage)
+        return ServiceClient.getServices().traceList(0, 1, curPage).compose(new DefaultTransform<>());
+    }
+
+    public Observable<Boolean> informTrace(int traceID, String content) {
+        return ServiceClient.getServices().informTrace(LUtils.getPreferences().getString("key", ""), traceID, 0, content, 0)
+                .compose(new DefaultTransform<>());
+    }
+
+    public Observable<Boolean> informComment(int commentID, String content) {
+        return ServiceClient.getServices().informTrace(LUtils.getPreferences().getString("key", ""), 0, commentID, content, 1)
+                .compose(new DefaultTransform<>());
+    }
+
+    public Observable<Boolean> informHome(int mid, String content) {
+        return ServiceClient.getServices().informHome(LUtils.getPreferences().getString("key", ""), mid, content)
                 .compose(new DefaultTransform<>());
     }
 

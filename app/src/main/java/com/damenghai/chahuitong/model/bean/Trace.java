@@ -51,6 +51,8 @@ public class Trace implements Parcelable {
 
     private int relation;
 
+    private boolean is_like;
+
     private List<TraceComment> comment_list;
 
     private ArrayList<AlbumImage> trace_image_list;
@@ -82,6 +84,7 @@ public class Trace implements Parcelable {
         dest.writeInt(this.trace_orgcopycount);
         dest.writeInt(this.trace_commend_flag);
         dest.writeInt(this.relation);
+        dest.writeByte(this.is_like ? (byte) 1 : (byte) 0);
         dest.writeTypedList(this.comment_list);
         dest.writeTypedList(this.trace_image_list);
     }
@@ -110,6 +113,7 @@ public class Trace implements Parcelable {
         this.trace_orgcopycount = in.readInt();
         this.trace_commend_flag = in.readInt();
         this.relation = in.readInt();
+        this.is_like = in.readByte() != 0;
         this.comment_list = in.createTypedArrayList(TraceComment.CREATOR);
         this.trace_image_list = in.createTypedArrayList(AlbumImage.CREATOR);
     }
@@ -284,6 +288,14 @@ public class Trace implements Parcelable {
 
     public void setRelation(int relation) {
         this.relation = relation;
+    }
+
+    public boolean is_like() {
+        return is_like;
+    }
+
+    public void setIs_like(boolean is_like) {
+        this.is_like = is_like;
     }
 
     public List<TraceComment> getComment_list() {

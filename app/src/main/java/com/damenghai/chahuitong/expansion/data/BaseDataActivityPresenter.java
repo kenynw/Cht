@@ -1,10 +1,7 @@
 package com.damenghai.chahuitong.expansion.data;
 
-import android.os.Bundle;
-
 import com.damenghai.chahuitong.bijection.Presenter;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
-import com.damenghai.chahuitong.utils.LUtils;
 
 import rx.Subscriber;
 import rx.Subscription;

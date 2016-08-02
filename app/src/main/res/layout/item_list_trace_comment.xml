@@ -6,15 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
-    android:padding="@dimen/activity_horizontal_margin"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="@dimen/activity_horizontal_margin">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center_vertical"
+        android:orientation="horizontal"
         >
 
         <com.facebook.drawee.view.SimpleDraweeView
@@ -30,8 +30,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:orientation="vertical"
             >
 
             <TextView
@@ -48,8 +48,8 @@
                 style="@style/TextCaption"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="11小时前"
                 android:layout_marginTop="@dimen/text_drawable_padding"
+                tools:text="11小时前"
                 />
 
         </LinearLayout>
@@ -57,7 +57,7 @@
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"/>
 
         <TextView
             android:id="@+id/tv_trace_comment_like"
@@ -70,11 +70,24 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/tv_comment_original"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@color/bg_window"
+        android:orientation="horizontal"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:text="@string/text_original_comment"
+        android:visibility="gone"
+        />
+
+    <TextView
         android:id="@+id/tv_trace_comment_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="一位住在“骇客旅社”的内向电脑工程师与他朋友"
         android:layout_marginTop="@dimen/activity_vertical_margin"
+        style="@style/TextBody"
+        tools:text="一位住在“骇客旅社”的内向电脑工程师与他朋友"
         />
 
 </LinearLayout>
