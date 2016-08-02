@@ -1,5 +1,7 @@
 package com.damenghai.chahuitong.model;
 
+import com.damenghai.chahuitong.model.bean.BeanList;
+import com.damenghai.chahuitong.model.bean.People;
 import com.damenghai.chahuitong.model.bean.User;
 import com.damenghai.chahuitong.model.service.DefaultTransform;
 import com.damenghai.chahuitong.model.service.ServiceClient;
@@ -16,27 +18,50 @@ import rx.Observable;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class MemberModel {
+public class UserModel {
 
-    private static MemberModel mInstance;
+    private static UserModel mInstance;
 
-    public static MemberModel getInstance() {
+    public static UserModel getInstance() {
         if (null == mInstance) {
-            synchronized (MemberModel.class) {
-                if (null == mInstance) mInstance = new MemberModel();
+            synchronized (UserModel.class) {
+                if (null == mInstance) mInstance = new UserModel();
             }
         }
         return mInstance;
     }
 
-    public Observable<String> logout() {
-        return ServiceClient.getServices().logout(LUtils.getPreferences().getString("mobile", ""), "android").compose(new DefaultTransform<>());
-    }
-
+    /**
+     * 我的
+     * @return 我的页面
+     */
     public Observable<User> getMemberInfo() {
         return ServiceClient.getServices().getUserInfo(LUtils.getPreferences().getString("key", "")).compose(new DefaultTransform<>());
     }
 
+    /**
+     * 个人主页
+     * @param userID 用户ID
+     * @return 个人主页
+     */
+    public Observable<People> userHome(int userID) {
+        return ServiceClient.getServices().userHome(LUtils.getPreferences().getString("key", ""), userID).compose(new DefaultTransform<>());
+    }
+
+    /**
+     * 获取用户关注列表
+     * @param userID 用户ID
+     * @return 用户列表
+     */
+    public Observable<BeanList<User>> getFollowList(int userID, int type) {
+        return ServiceClient.getServices().followList(LUtils.getPreferences().getString("key", ""), userID, type).compose(new DefaultTransform<>());
+    }
+
+    /**
+     * 上传头像
+     * @param file 头像文件
+     * @return 上传结果
+     */
     public Observable<Boolean> uploadAvatar(File file) {
         RequestBody photo = RequestBody.create(MediaType.parse("multipart/form-data"), file);
         Map<String, RequestBody> photos = new HashMap<>();
@@ -46,6 +71,11 @@ public class MemberModel {
         return ServiceClient.getServices().uploadAvatar(photos).compose(new DefaultTransform<>());
     }
 
+    /**
+     * 更新个人资料
+     * @param user 用户
+     * @return 结果
+     */
     public Observable<Boolean> updateProfile(User user) {
         return ServiceClient.getServices().updateUserInfo(user, LUtils.getPreferences().getString("key", ""))
                 .compose(new DefaultTransform<>());
