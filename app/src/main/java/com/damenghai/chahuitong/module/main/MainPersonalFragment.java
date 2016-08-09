@@ -101,6 +101,7 @@ public class MainPersonalFragment extends BaseDataFragment<MainPersonalPresenter
         View view = inflater.inflate(R.layout.main_fragment_personal, container, false);
         ButterKnife.bind(this, view);
 
+        setHasOptionsMenu(true);
         initToolbar();
 
         mGridItem.setLayoutManager(new GridLayoutManager(getActivity(), 3));
@@ -153,18 +154,9 @@ public class MainPersonalFragment extends BaseDataFragment<MainPersonalPresenter
         }
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_personal, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
     private void initToolbar() {
-        setHasOptionsMenu(true);
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        activity.setSupportActionBar(mToolbar);
-        if (activity.getSupportActionBar() != null)activity.getSupportActionBar().setDisplayShowTitleEnabled(false);
         mTvTitle.setText(R.string.title_activity_personal);
+        mToolbar.inflateMenu(R.menu.menu_personal);
         mToolbar.setOnMenuItemClickListener(item -> {
             startActivity(new Intent(getActivity(), SettingsActivity.class));
             return true;
@@ -173,9 +165,9 @@ public class MainPersonalFragment extends BaseDataFragment<MainPersonalPresenter
 
     @Override
     public void setMenuVisibility(boolean menuVisible) {
+        super.setMenuVisibility(menuVisible);
         if (getView() != null) {
             getView().setVisibility(menuVisible ? View.VISIBLE : View.GONE);
         }
-        super.setMenuVisibility(menuVisible);
     }
 }

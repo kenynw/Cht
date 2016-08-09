@@ -120,131 +120,6 @@ public class User implements Parcelable {
 
     private int order_eval_count;
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(this.member_id);
-        dest.writeString(this.member_name);
-        dest.writeString(this.member_truename);
-        dest.writeString(this.member_avatar);
-        dest.writeString(this.member_sex);
-        dest.writeString(this.member_birthday);
-        dest.writeString(this.member_passwd);
-        dest.writeString(this.member_paypwd);
-        dest.writeString(this.member_email);
-        dest.writeString(this.member_email_bind);
-        dest.writeString(this.member_mobile);
-        dest.writeString(this.member_mobile_bind);
-        dest.writeString(this.member_qq);
-        dest.writeString(this.member_ww);
-        dest.writeString(this.member_login_num);
-        dest.writeString(this.member_time);
-        dest.writeString(this.member_login_time);
-        dest.writeString(this.member_old_login_time);
-        dest.writeString(this.member_login_ip);
-        dest.writeString(this.member_old_login_ip);
-        dest.writeString(this.member_qqopenid);
-        dest.writeString(this.member_qqinfo);
-        dest.writeString(this.member_sinaopenid);
-        dest.writeString(this.member_sinainfo);
-        dest.writeString(this.member_weixinopenid);
-        dest.writeString(this.member_weixininfo);
-        dest.writeString(this.member_points);
-        dest.writeString(this.member_lable);
-        dest.writeString(this.available_predeposit);
-        dest.writeString(this.freeze_predeposit);
-        dest.writeString(this.available_rc_balance);
-        dest.writeString(this.freeze_rc_balance);
-        dest.writeString(this.inform_allow);
-        dest.writeInt(this.is_buy);
-        dest.writeInt(this.is_allowtalk);
-        dest.writeInt(this.member_state);
-        dest.writeString(this.member_snsvisitnum);
-        dest.writeInt(this.member_areaid);
-        dest.writeInt(this.member_cityid);
-        dest.writeInt(this.member_provinceid);
-        dest.writeString(this.member_areainfo);
-        dest.writeString(this.member_privacy);
-        dest.writeString(this.member_quicklink);
-        dest.writeString(this.member_exppoints);
-        dest.writeInt(this.inviter_id);
-        dest.writeString(this.member_intro);
-        dest.writeString(this.articles);
-        dest.writeString(this.follow);
-        dest.writeInt(this.follow_state);
-        dest.writeString(this.member_title);
-        dest.writeString(this.key);
-        dest.writeInt(this.order_new_count);
-        dest.writeInt(this.order_pay_count);
-        dest.writeInt(this.order_send_count);
-        dest.writeInt(this.order_eval_count);
-    }
-
-    public User() {
-    }
-
-    protected User(Parcel in) {
-        this.member_id = in.readInt();
-        this.member_name = in.readString();
-        this.member_truename = in.readString();
-        this.member_avatar = in.readString();
-        this.member_sex = in.readString();
-        this.member_birthday = in.readString();
-        this.member_passwd = in.readString();
-        this.member_paypwd = in.readString();
-        this.member_email = in.readString();
-        this.member_email_bind = in.readString();
-        this.member_mobile = in.readString();
-        this.member_mobile_bind = in.readString();
-        this.member_qq = in.readString();
-        this.member_ww = in.readString();
-        this.member_login_num = in.readString();
-        this.member_time = in.readString();
-        this.member_login_time = in.readString();
-        this.member_old_login_time = in.readString();
-        this.member_login_ip = in.readString();
-        this.member_old_login_ip = in.readString();
-        this.member_qqopenid = in.readString();
-        this.member_qqinfo = in.readString();
-        this.member_sinaopenid = in.readString();
-        this.member_sinainfo = in.readString();
-        this.member_weixinopenid = in.readString();
-        this.member_weixininfo = in.readString();
-        this.member_points = in.readString();
-        this.member_lable = in.readString();
-        this.available_predeposit = in.readString();
-        this.freeze_predeposit = in.readString();
-        this.available_rc_balance = in.readString();
-        this.freeze_rc_balance = in.readString();
-        this.inform_allow = in.readString();
-        this.is_buy = in.readInt();
-        this.is_allowtalk = in.readInt();
-        this.member_state = in.readInt();
-        this.member_snsvisitnum = in.readString();
-        this.member_areaid = in.readInt();
-        this.member_cityid = in.readInt();
-        this.member_provinceid = in.readInt();
-        this.member_areainfo = in.readString();
-        this.member_privacy = in.readString();
-        this.member_quicklink = in.readString();
-        this.member_exppoints = in.readString();
-        this.inviter_id = in.readInt();
-        this.member_intro = in.readString();
-        this.articles = in.readString();
-        this.follow = in.readString();
-        this.follow_state = in.readInt();
-        this.member_title = in.readString();
-        this.key = in.readString();
-        this.order_new_count = in.readInt();
-        this.order_pay_count = in.readInt();
-        this.order_send_count = in.readInt();
-        this.order_eval_count = in.readInt();
-    }
-
     public int getMember_id() {
         return member_id;
     }
@@ -685,4 +560,140 @@ public class User implements Parcelable {
         this.order_eval_count = order_eval_count;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.member_id);
+        dest.writeString(this.member_name);
+        dest.writeString(this.member_truename);
+        dest.writeString(this.member_avatar);
+        dest.writeString(this.member_sex);
+        dest.writeString(this.member_birthday);
+        dest.writeString(this.member_passwd);
+        dest.writeString(this.member_paypwd);
+        dest.writeString(this.member_email);
+        dest.writeString(this.member_email_bind);
+        dest.writeString(this.member_mobile);
+        dest.writeString(this.member_mobile_bind);
+        dest.writeString(this.member_qq);
+        dest.writeString(this.member_ww);
+        dest.writeString(this.member_login_num);
+        dest.writeString(this.member_time);
+        dest.writeString(this.member_login_time);
+        dest.writeString(this.member_old_login_time);
+        dest.writeString(this.member_login_ip);
+        dest.writeString(this.member_old_login_ip);
+        dest.writeString(this.member_qqopenid);
+        dest.writeString(this.member_qqinfo);
+        dest.writeString(this.member_sinaopenid);
+        dest.writeString(this.member_sinainfo);
+        dest.writeString(this.member_weixinopenid);
+        dest.writeString(this.member_weixininfo);
+        dest.writeString(this.member_points);
+        dest.writeString(this.member_lable);
+        dest.writeString(this.available_predeposit);
+        dest.writeString(this.freeze_predeposit);
+        dest.writeString(this.available_rc_balance);
+        dest.writeString(this.freeze_rc_balance);
+        dest.writeString(this.inform_allow);
+        dest.writeInt(this.is_buy);
+        dest.writeInt(this.is_allowtalk);
+        dest.writeInt(this.member_state);
+        dest.writeString(this.member_snsvisitnum);
+        dest.writeInt(this.member_areaid);
+        dest.writeInt(this.member_cityid);
+        dest.writeInt(this.member_provinceid);
+        dest.writeString(this.member_areainfo);
+        dest.writeString(this.member_privacy);
+        dest.writeString(this.member_quicklink);
+        dest.writeString(this.member_exppoints);
+        dest.writeInt(this.inviter_id);
+        dest.writeString(this.member_intro);
+        dest.writeString(this.articles);
+        dest.writeString(this.follow);
+        dest.writeInt(this.follow_state);
+        dest.writeString(this.member_title);
+        dest.writeString(this.key);
+        dest.writeInt(this.order_new_count);
+        dest.writeInt(this.order_pay_count);
+        dest.writeInt(this.order_send_count);
+        dest.writeInt(this.order_eval_count);
+    }
+
+    public User() {
+    }
+
+    protected User(Parcel in) {
+        this.member_id = in.readInt();
+        this.member_name = in.readString();
+        this.member_truename = in.readString();
+        this.member_avatar = in.readString();
+        this.member_sex = in.readString();
+        this.member_birthday = in.readString();
+        this.member_passwd = in.readString();
+        this.member_paypwd = in.readString();
+        this.member_email = in.readString();
+        this.member_email_bind = in.readString();
+        this.member_mobile = in.readString();
+        this.member_mobile_bind = in.readString();
+        this.member_qq = in.readString();
+        this.member_ww = in.readString();
+        this.member_login_num = in.readString();
+        this.member_time = in.readString();
+        this.member_login_time = in.readString();
+        this.member_old_login_time = in.readString();
+        this.member_login_ip = in.readString();
+        this.member_old_login_ip = in.readString();
+        this.member_qqopenid = in.readString();
+        this.member_qqinfo = in.readString();
+        this.member_sinaopenid = in.readString();
+        this.member_sinainfo = in.readString();
+        this.member_weixinopenid = in.readString();
+        this.member_weixininfo = in.readString();
+        this.member_points = in.readString();
+        this.member_lable = in.readString();
+        this.available_predeposit = in.readString();
+        this.freeze_predeposit = in.readString();
+        this.available_rc_balance = in.readString();
+        this.freeze_rc_balance = in.readString();
+        this.inform_allow = in.readString();
+        this.is_buy = in.readInt();
+        this.is_allowtalk = in.readInt();
+        this.member_state = in.readInt();
+        this.member_snsvisitnum = in.readString();
+        this.member_areaid = in.readInt();
+        this.member_cityid = in.readInt();
+        this.member_provinceid = in.readInt();
+        this.member_areainfo = in.readString();
+        this.member_privacy = in.readString();
+        this.member_quicklink = in.readString();
+        this.member_exppoints = in.readString();
+        this.inviter_id = in.readInt();
+        this.member_intro = in.readString();
+        this.articles = in.readString();
+        this.follow = in.readString();
+        this.follow_state = in.readInt();
+        this.member_title = in.readString();
+        this.key = in.readString();
+        this.order_new_count = in.readInt();
+        this.order_pay_count = in.readInt();
+        this.order_send_count = in.readInt();
+        this.order_eval_count = in.readInt();
+    }
+
+    public static final Creator<User> CREATOR = new Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel source) {
+            return new User(source);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
 }

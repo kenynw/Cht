@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingBottom="8dp"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="8dp"
+    >
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/dv_goods_thumb"
+        android:layout_width="77dp"
+        android:layout_height="77dp"
+        android:layout_toRightOf="@id/cb_favorites_edit"
+        android:background="@color/bg_window"
+        android:padding="1dp"
+        app:actualImageScaleType="centerCrop"
+        app:placeholderImage="@mipmap/def_image_loading"
+        app:placeholderImageScaleType="centerCrop"
+        />
+
+    <TextView
+        android:id="@+id/tv_goods_name"
+        style="@style/TextCaption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/dv_goods_thumb"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_toRightOf="@id/dv_goods_thumb"
+        android:ellipsize="end"
+        android:paddingTop="2dp"
+        android:singleLine="true"
+        tools:text="喝好茶首选茶汇通"
+        />
+
+    <TextView
+        android:id="@+id/tv_goods_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/dv_goods_thumb"
+        android:layout_alignLeft="@id/tv_goods_name"
+        android:layout_marginBottom="8dp"
+        android:layout_toRightOf="@id/dv_goods_thumb"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/text_size_caption_material"
+        tools:text="￥199.00"
+        />
+
+</RelativeLayout>

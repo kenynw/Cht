@@ -1,4 +1,4 @@
-<LinearLayout
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,40 +8,44 @@
     tools:context=".module.main.MainHomeFragment"
     >
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/main_toolbar"
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/bg_actionbar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        >
+        android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/btn_toolbar_search"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/widget_small_height"
-            android:layout_gravity="center"
-            android:background="@drawable/btn_rectangle_divider_stroke"
-            android:drawableLeft="@mipmap/ic_search"
-            android:drawablePadding="@dimen/activity_horizontal_margin"
-            android:gravity="left|center_vertical"
-            android:hint="@string/hint_search"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:singleLine="true"
-            android:textColorHint="@color/text_black_secondary"
-            android:textSize="@dimen/text_size_body_material"
-            />
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/main_toolbar"
+            style="@style/TitleToolbar"
+            android:gravity="center"
+            >
 
-    </android.support.v7.widget.Toolbar>
+            <TextView
+                android:id="@+id/tv_toolbar_search"
+                style="@style/TextBody"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/widget_small_height"
+                android:background="@color/bg_window"
+                android:drawableLeft="@mipmap/ic_search"
+                android:drawablePadding="@dimen/activity_horizontal_margin"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:singleLine="true"
+                android:text="@string/hint_search"
+                android:textColor="@color/text_hint"
+                />
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/home_refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         >
 
-        <ScrollView
+        <com.damenghai.chahuitong.widget.CustomNestedScrollView
             android:id="@+id/sv_home_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -54,7 +58,6 @@
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:orientation="vertical"
-                android:paddingBottom="8dp"
                 >
 
                 <RelativeLayout
@@ -321,17 +324,18 @@
                 <TextView
                     android:id="@+id/btn_goods_list"
                     style="@style/ButtonBorderless"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/widget_small_height"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/widget_medium_height"
                     android:gravity="center"
                     android:text="查看所有茶品"
                     android:textColor="@color/text_black_secondary"
+                    android:layout_gravity="center_horizontal"
                     />
 
             </LinearLayout>
 
-        </ScrollView>
+        </com.damenghai.chahuitong.widget.CustomNestedScrollView>
     </android.support.v4.widget.SwipeRefreshLayout>
-</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
 
 

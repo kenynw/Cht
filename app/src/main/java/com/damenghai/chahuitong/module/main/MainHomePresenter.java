@@ -10,7 +10,7 @@ import com.damenghai.chahuitong.model.service.ServiceClient;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.model.service.DefaultTransform;
 import com.damenghai.chahuitong.module.goods.GoodsListActivity;
-import com.damenghai.chahuitong.module.mall.CartActivity;
+import com.damenghai.chahuitong.module.mall.CartListActivity;
 import com.damenghai.chahuitong.module.user.LoginActivity;
 import com.damenghai.chahuitong.utils.LUtils;
 
@@ -51,7 +51,7 @@ public class MainHomePresenter extends Presenter<MainHomeFragment> implements Sw
 
     public void showCart() {
         if (checkLogin()) {
-            Intent i = new Intent(getView().getActivity(), CartActivity.class);
+            Intent i = new Intent(getView().getActivity(), CartListActivity.class);
             getView().startActivity(i);
         }
     }

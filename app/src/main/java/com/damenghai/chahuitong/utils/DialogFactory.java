@@ -8,7 +8,7 @@ import android.support.annotation.StringRes;
 import android.support.v7.app.AlertDialog;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.module.mall.CartActivity;
+import com.damenghai.chahuitong.module.mall.CartListActivity;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
@@ -42,7 +42,7 @@ public class DialogFactory {
         dialog.setPositiveButton(R.string.btn_go_cart, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                context.startActivity(new Intent(context, CartActivity.class));
+                context.startActivity(new Intent(context, CartListActivity.class));
             }
         });
         dialog.show();

@@ -32,12 +32,12 @@ public class FavoritesModel {
     }
 
 
-    public Observable<String> deleteFavorites(String fav_id) {
+    public Observable<String> deleteFavorites(int fav_id) {
         return ServiceClient.getServices().favDel(API.VERSION, LUtils.getPreferences().getString("key", ""), fav_id)
                 .compose(new DefaultTransform<>());
     }
 
-    public Observable<String> addFavorites(String goods_id) {
+    public Observable<String> addFavorites(int goods_id) {
         return ServiceClient.getServices().favAdd(LUtils.getPreferences().getString("key", ""), goods_id, API.VERSION)
                 .compose(new DefaultTransform<>());
     }

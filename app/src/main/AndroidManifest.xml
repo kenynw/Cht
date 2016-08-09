@@ -107,18 +107,18 @@
         <!-- ====================================支付END=================================== -->
 
         <activity
-            android:name=".module.main.LaunchActivity"
+            android:name=".module.main.SplashActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar">
-        </activity>
-        <activity
-            android:name=".module.main.MainActivity"
-            android:screenOrientation="portrait">
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".module.main.MainActivity"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".module.user.LoginActivity"
@@ -189,7 +189,7 @@
             android:name=".module.order.OrderDetailActivity"
             android:theme="@style/AppTheme.ItemLineDecoration">
         </activity>
-        <activity android:name=".module.mall.CartActivity">
+        <activity android:name=".module.mall.CartListActivity">
         </activity>
         <activity android:name=".module.personal.VoucherActivity">
             <intent-filter>
@@ -200,10 +200,12 @@
         </activity>
         <activity
             android:name=".module.goods.GoodsDetailActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.ItemLineDecoration">
         </activity>
         <activity
             android:name=".module.personal.FavoritesActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.ItemLineDecoration">
             <intent-filter>
                 <action android:name="com.damenghai.chahuitong.Favorites"/>
@@ -211,110 +213,160 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".module.settings.SettingsActivity">
+        <activity
+            android:name=".module.settings.SettingsActivity"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".module.personal.ProfileActivity"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="com.damenghai.chahuitong.Profile"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".module.settings.ShareActivity">
+        <activity
+            android:name=".module.settings.ShareActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".module.settings.AboutActivity">
+        <activity
+            android:name=".module.settings.AboutActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".module.mall.PayActivity">
+        <activity
+            android:name=".module.mall.PayActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".module.main.SearchActivity">
+        <activity
+            android:name=".module.main.SearchActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".module.settings.ChangePasswordActivity">
+        <activity
+            android:name=".module.settings.ChangePasswordActivity"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".module.goods.GoodsListActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateUnspecified|adjustPan">
         </activity>
-        <activity android:name=".module.common.ImageBrowseActivity">
+        <activity
+            android:name=".module.common.ImageBrowseActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".module.order.WriteCommentActivity">
+        <activity
+            android:name=".module.order.WriteCommentActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".module.trace.TraceListActivity">
+        <activity
+            android:name=".module.trace.TraceListActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".module.flea.FleaListActivity">
+        <activity
+            android:name=".module.flea.FleaListActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="com.damenghai.chahuitong.Flea"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".module.mall.CategoryListActivity">
+        <activity
+            android:name=".module.mall.CategoryListActivity"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".module.trace.TraceDetailActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.ItemLineDecoration"
             android:windowSoftInputMode="stateUnspecified|adjustPan">
         </activity>
-        <activity android:name=".module.flea.FleaDetailActivity">
+        <activity
+            android:name=".module.flea.FleaDetailActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".module.user.UserInfoActivity">
-
-            <!--
-  ATTENTION: This intent was auto-generated. Follow instructions at
-  https://g.co/AppIndexing/AndroidStudio to publish your URLs.
-            -->
+        <activity
+            android:name=".module.user.UserInfoActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
+
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <!--
-                  ATTENTION: This data URL was auto-generated. We recommend that you use the HTTP scheme.
-                  TODO: Change the host or pathPrefix as necessary.
-                -->
+
                 <data android:scheme="com.cht.user"/>
             </intent-filter>
         </activity>
-        <activity android:name=".module.article.ArticleListActivity">
+        <activity
+            android:name=".module.article.ArticleListActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".module.user.PopularListActivity">
+        <activity
+            android:name=".module.user.PopularListActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".module.personal.MessageActivity">
+        <activity
+            android:name=".module.personal.MessageActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".module.personal.MessageListActivity">
+        <activity
+            android:name=".module.personal.MessageListActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".module.trace.TraceAddActivity">
+        <activity
+            android:name=".module.trace.TraceAddActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".module.user.FindUserListActivity">
+        <activity
+            android:name=".module.user.FindUserListActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".module.address.AddressEditActivity">
+        <activity
+            android:name=".module.address.AddressEditActivity"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".module.flea.FleaAddActivity"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".module.flea.FleaCateActivity">
+        <activity
+            android:name=".module.flea.FleaCateActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".module.flea.MyFleaActivity">
+        <activity
+            android:name=".module.flea.MyFleaActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="com.damenghai.chahuitong.MyFlea"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".module.flea.FleaEditActivity">
+        <activity
+            android:name=".module.flea.FleaEditActivity"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".module.user.FollowUserListActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.ItemLineDecoration">
         </activity>
 
         <service
             android:name=".module.settings.UpdateService"
             android:enabled="true"
-            android:exported="true">
+            android:exported="false"
+            >
         </service>
+
+        <activity
+            android:name=".module.article.ArticleDetailActivity"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

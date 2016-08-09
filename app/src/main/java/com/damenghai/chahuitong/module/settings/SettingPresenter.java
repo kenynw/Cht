@@ -1,6 +1,7 @@
 package com.damenghai.chahuitong.module.settings;
 
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.bijection.Presenter;
@@ -48,19 +49,24 @@ public class SettingPresenter extends Presenter<SettingsActivity> {
     }
 
     public void logout() {
-        DialogFactory.createGenericDialog(getView(), R.string.dialog_logout, (dialog, which) -> {
-            AccountModel.getInstance().logout().subscribe(new ServiceResponse<String>() {
-                @Override
-                public void onNext(String s) {
-                    if (LUtils.getPreferences().edit().remove("key").commit()) {
-                        LUtils.toast(R.string.toast_logout_success);
-                        Intent intent = new Intent(getView(), MainActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        getView().startActivity(intent);
-                    }
-                }
-            });
-        }).show();
+        new AlertDialog.Builder(getView())
+                .setTitle(R.string.dialog_title_logout)
+                .setMessage(R.string.dialog_logout)
+                .setNegativeButton(R.string.btn_cancel, null)
+                .setPositiveButton(R.string.btn_logout, (dialogInterface, i) -> {
+                    AccountModel.getInstance().logout().subscribe(new ServiceResponse<String>() {
+                        @Override
+                        public void onNext(String s) {
+                            if (LUtils.getPreferences().edit().remove("key").commit()) {
+                                LUtils.toast(R.string.toast_logout_success);
+                                Intent intent = new Intent(getView(), MainActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                getView().startActivity(intent);
+                            }
+                        }
+                    });
+                })
+                .show();
     }
 
 }

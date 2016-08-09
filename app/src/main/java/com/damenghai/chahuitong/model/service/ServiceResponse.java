@@ -30,7 +30,7 @@ public class ServiceResponse<T> extends Subscriber<T> {
 
     private void serviceError(ServiceException e) {
         if (e.getCode() == API.CODE_LOGIN_INVALID) {
-            // TODO 跳转到登录
+            LUtils.getPreferences().edit().clear().apply();
         }
         LUtils.toast(e.getMsg());
     }

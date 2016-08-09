@@ -46,7 +46,7 @@ public class FleaViewHolder extends BaseViewHolder<Flea> {
 
     @Override
     public void setData(Flea data) {
-        mDvImage.setImageURI(Uri.parse(data.getGoods_image_url()));
+        mDvImage.setImageURI(Uri.parse(data.getGoods_image()));
         mTvTitle.setText(data.getGoods_name());
         mTvAbstract.setText(data.getGoods_abstract());
         mTvPrice.setText(data.getGoods_store_price());

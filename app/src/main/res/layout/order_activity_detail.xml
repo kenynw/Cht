@@ -158,7 +158,7 @@
                         android:id="@+id/order_detail_tv_total"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/label_rmb"
+                        android:text="@string/label_total"
                         android:textColor="@color/colorAccent"
                         android:textSize="@dimen/text_size_subhead_material"
                         tools:text="￥200.00"

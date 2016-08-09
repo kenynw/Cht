@@ -10,6 +10,8 @@ import java.util.List;
  */
 public class Discover implements Parcelable {
 
+    private List<Ad> ad_list;
+
     private List<Trace> trace_list;
 
     private List<Flea> flea_list;
@@ -18,16 +20,35 @@ public class Discover implements Parcelable {
 
     private List<User> member_list;
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeTypedList(this.ad_list);
+        dest.writeTypedList(this.trace_list);
+        dest.writeTypedList(this.flea_list);
+        dest.writeTypedList(this.class_list);
+        dest.writeTypedList(this.member_list);
+    }
+
+    public Discover() {
+    }
+
     protected Discover(Parcel in) {
-        trace_list = in.createTypedArrayList(Trace.CREATOR);
-        flea_list = in.createTypedArrayList(Flea.CREATOR);
-        class_list = in.createTypedArrayList(Category.CREATOR);
+        this.ad_list = in.createTypedArrayList(Ad.CREATOR);
+        this.trace_list = in.createTypedArrayList(Trace.CREATOR);
+        this.flea_list = in.createTypedArrayList(Flea.CREATOR);
+        this.class_list = in.createTypedArrayList(Category.CREATOR);
+        this.member_list = in.createTypedArrayList(User.CREATOR);
     }
 
     public static final Creator<Discover> CREATOR = new Creator<Discover>() {
         @Override
-        public Discover createFromParcel(Parcel in) {
-            return new Discover(in);
+        public Discover createFromParcel(Parcel source) {
+            return new Discover(source);
         }
 
         @Override
@@ -36,16 +57,12 @@ public class Discover implements Parcelable {
         }
     };
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public List<Ad> getAd_list() {
+        return ad_list;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeTypedList(trace_list);
-        dest.writeTypedList(flea_list);
-        dest.writeTypedList(class_list);
+    public void setAd_list(List<Ad> ad_list) {
+        this.ad_list = ad_list;
     }
 
     public List<Trace> getTrace_list() {

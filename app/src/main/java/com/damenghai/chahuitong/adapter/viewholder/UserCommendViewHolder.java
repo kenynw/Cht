@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.model.bean.User;
+import com.damenghai.chahuitong.module.user.PopularListActivity;
 import com.damenghai.chahuitong.module.user.UserInfoActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
@@ -43,7 +44,8 @@ public class UserCommendViewHolder extends BaseViewHolder<User> {
 
     public void setMore() {
         mTvName.setText(R.string.btn_view_more);
-        itemView.setOnClickListener(v -> getContext().startActivity(new Intent(getContext(), UserInfoActivity.class)));
+        mDvAvatar.setImageURI(Uri.parse("res://com.chahuitong.com/" + R.mipmap.def_avatar_placeholder));
+        itemView.setOnClickListener(v -> getContext().startActivity(new Intent(getContext(), PopularListActivity.class)));
     }
 
 }

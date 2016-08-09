@@ -8,6 +8,7 @@ import java.util.List;
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
 public class People extends User {
+
     private List<Trace> trace_list;
 
     private int following;
@@ -15,6 +16,8 @@ public class People extends User {
     private int followers;
 
     private int trace_count;
+
+    private int relation;
 
     @Override
     public int describeContents() {
@@ -28,6 +31,7 @@ public class People extends User {
         dest.writeInt(this.following);
         dest.writeInt(this.followers);
         dest.writeInt(this.trace_count);
+        dest.writeInt(this.relation);
     }
 
     public People() {
@@ -39,6 +43,7 @@ public class People extends User {
         this.following = in.readInt();
         this.followers = in.readInt();
         this.trace_count = in.readInt();
+        this.relation = in.readInt();
     }
 
     public static final Creator<People> CREATOR = new Creator<People>() {
@@ -83,5 +88,13 @@ public class People extends User {
 
     public void setTrace_count(int trace_count) {
         this.trace_count = trace_count;
+    }
+
+    public int getRelation() {
+        return relation;
+    }
+
+    public void setRelation(int relation) {
+        this.relation = relation;
     }
 }

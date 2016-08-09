@@ -2,16 +2,13 @@ package com.damenghai.chahuitong.module.main;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
-import android.view.Menu;
 import android.widget.FrameLayout;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.bijection.BeamBaseActivity;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.utils.LUtils;
-import com.umeng.update.UmengUpdateAgent;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -34,17 +31,10 @@ public class MainActivity extends BeamBaseActivity<MainPresenter> {
         ButterKnife.bind(this);
 
         initTab();
-        checkUpdate();
-    }
-
-    private void checkUpdate() {
-        UmengUpdateAgent.setUpdateOnlyWifi(false);
-        UmengUpdateAgent.setUpdateListener(null);
-        UmengUpdateAgent.update(this);
     }
 
     private void initTab() {
-        mTabLayout.setOnTabSelectedListener(getPresenter());
+        mTabLayout.addOnTabSelectedListener(getPresenter());
         for (int i = 0; i < getPresenter().getAdapter().getCount(); i++) {
             TabLayout.Tab tab = mTabLayout.newTab();
             mTabLayout.addTab(tab, i == 0);

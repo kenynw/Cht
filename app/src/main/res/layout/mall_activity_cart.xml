@@ -5,56 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.damenghai.chahuitong.module.mall.CartActivity">
+    tools:context=".module.mall.CartListActivity">
 
-    <include layout="@layout/include_toolbar" />
+    <include layout="@layout/include_toolbar"/>
 
-    <FrameLayout
+    <com.jude.easyrecyclerview.EasyRecyclerView
+        android:id="@+id/recycle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        >
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/cart_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
-
-        <LinearLayout
-            android:id="@+id/layout_cart_empty"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:visibility="gone"
-            >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableTop="@mipmap/ic_cart_empty"
-                android:text="@string/text_cart_empty"
-                android:drawablePadding="@dimen/text_drawable_padding"
-                android:textSize="@dimen/text_size_body_material"
-                android:textColor="@color/text_black_secondary"
-                />
-
-            <Button
-                android:id="@+id/btn_cart_shopping"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:background="@drawable/btn_rectangle_accent_stroke"
-                android:text="@string/btn_go_shopping"
-                android:layout_marginTop="8dp"
-                android:textSize="@dimen/text_size_body_material"
-                android:textColor="@color/colorAccent"
-                />
-
-        </LinearLayout>
-
-    </FrameLayout>
+        />
 
     <View
         android:layout_width="match_parent"
@@ -64,9 +24,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="62dp"
+        android:background="@color/white"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:background="@color/white"
         >
 
         <CheckBox
@@ -76,54 +36,52 @@
             android:button="@null"
             android:drawableLeft="@drawable/rbtn_primary2white_sel"
             android:drawablePadding="8dp"
-            android:text="@string/btn_check_all"
-            android:textSize="@dimen/text_size_body_material"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
-            android:enabled="false"
-            android:checked="true"
+            android:text="@string/btn_check_all"
+            android:textSize="@dimen/text_size_body_material"
             />
 
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"/>
 
         <LinearLayout
             android:id="@+id/layout_cart_total"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
             android:gravity="center_vertical|right"
+            android:orientation="horizontal"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             >
 
             <TextView
+                style="@style/TextBody"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/label_total_pay"
-                style="@style/TextBody"
                 />
 
             <TextView
                 android:id="@+id/cart_tv_total"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_rmb"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:text="@string/label_zero"
                 android:textColor="@color/colorAccent"
                 android:textSize="@dimen/text_size_body_material"
-                android:paddingRight="@dimen/activity_horizontal_margin"
                 />
 
             <Button
-                android:id="@+id/btn_cart_balance"
+                android:id="@+id/btn_cart_pay"
                 android:layout_width="104dp"
                 android:layout_height="match_parent"
+                android:layout_gravity="right"
                 android:background="@color/colorPrimary"
                 android:text="@string/btn_balance"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_subhead_material"
-                android:layout_gravity="right"
                 />
 
         </LinearLayout>
@@ -138,23 +96,25 @@
 
             <Button
                 android:id="@+id/btn_cart_favorites"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="104dp"
                 android:layout_height="match_parent"
                 android:background="@color/text_black_disable"
-                android:textSize="@dimen/text_size_subhead_material"
-                android:textColor="@color/white"
                 android:text="@string/btn_move_favorites"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_subhead_material"
                 />
 
             <Button
                 android:id="@+id/btn_cart_delete"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="104dp"
                 android:layout_height="match_parent"
+                android:layout_gravity="right"
                 android:background="@color/colorPrimary"
                 android:text="@string/btn_delete"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_subhead_material"
-                android:layout_gravity="right"
                 />
 
         </LinearLayout>

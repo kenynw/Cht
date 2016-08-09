@@ -92,7 +92,7 @@
             android:id="@+id/store_tv_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/label_rmb"
+            android:text="@string/label_total"
             android:textSize="@dimen/text_size_title_material"
             android:textColor="@color/colorPrimary"
             android:gravity="center"

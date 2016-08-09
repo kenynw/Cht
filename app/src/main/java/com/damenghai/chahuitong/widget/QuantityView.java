@@ -3,10 +3,8 @@ package com.damenghai.chahuitong.widget;
 import android.app.Dialog;
 import android.content.Context;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +23,7 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
     private TextView mTvCount;
 
     private Button mBtnRight;
+
     private OnCountChangedListener mListener;
 
     public QuantityView(Context context) {
@@ -118,7 +117,7 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
             if (mTvCount.length() < 1 || mTvCount.length() == 0) {
                 mListener.countChanged(0);
             } else {
-                double count = Double.parseDouble(mTvCount.getText().toString());
+                int count = Integer.parseInt(mTvCount.getText().toString().trim());
                 mListener.countChanged(count);
             }
         }
@@ -133,10 +132,8 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
     }
 
     // 获取数量
-    public void setCount(CharSequence text) {
-        if (!TextUtils.isEmpty(text)) {
-            mTvCount.setText(text);
-        }
+    public void setCount(int count) {
+        mTvCount.setText(String.format("%s", count));
     }
 
     private void changeCount(TextView tv, int delta) {
@@ -150,7 +147,7 @@ public class QuantityView extends LinearLayout implements View.OnClickListener {
     }
 
     public interface OnCountChangedListener {
-        void countChanged(double count);
+        void countChanged(int count);
     }
 
     private class CountTextWatcher implements TextWatcher {

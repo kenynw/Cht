@@ -1,5 +1,7 @@
 package com.damenghai.chahuitong.module.main;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
@@ -7,6 +9,8 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -24,7 +28,9 @@ import com.damenghai.chahuitong.expansion.data.BaseDataFragment;
 import com.damenghai.chahuitong.expansion.list.DividerGridItemDecoration;
 import com.damenghai.chahuitong.expansion.list.DividerItemDecoration;
 import com.damenghai.chahuitong.model.bean.Discover;
+import com.damenghai.chahuitong.module.goods.GoodsListActivity;
 import com.damenghai.chahuitong.utils.LUtils;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.jude.easyrecyclerview.decoration.DividerDecoration;
 import com.jude.easyrecyclerview.decoration.SpaceDecoration;
 
@@ -41,7 +47,7 @@ public class DiscoverFragment extends BaseDataFragment<DiscoverPresenter, Discov
     TextView mTvTitle;
 
     @Bind(R.id.pager_discover_ad)
-    ViewPager mPagerAd;
+    SimpleDraweeView mPagerAd;
 
     @Bind(R.id.ll_discover_news)
     LinearLayout mLlNews;
@@ -111,6 +117,13 @@ public class DiscoverFragment extends BaseDataFragment<DiscoverPresenter, Discov
 
     @Override
     public void setData(Discover discover) {
+        mPagerAd.setImageURI(Uri.parse(discover.getAd_list().get(0).getLink_pic_url()));
+        mPagerAd.setOnClickListener(v -> {
+            Intent i = new Intent(getActivity(), GoodsListActivity.class);
+            i.putExtra("keyword", discover.getAd_list().get(0).getLink_keyword());
+            i.putExtra("op", "goods_list");
+            getActivity().startActivity(i);
+        });
         mRcvTrace.setAdapter(new TraceImageAdapter(getActivity(), discover.getTrace_list()));
         mRcvFlea.setAdapter(new FleaGalleyAdapter(getActivity(), discover.getFlea_list()));
         mRcvUser.setAdapter(new UserGridAdapter(getActivity(), discover.getMember_list()));

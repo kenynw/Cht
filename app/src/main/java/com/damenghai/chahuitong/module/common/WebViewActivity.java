@@ -18,7 +18,7 @@ import com.damenghai.chahuitong.base.BaseActivity;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.damenghai.chahuitong.utils.WebViewOB;
 import com.damenghai.chahuitong.module.mall.BuyActivity;
-import com.damenghai.chahuitong.module.mall.CartActivity;
+import com.damenghai.chahuitong.module.mall.CartListActivity;
 import com.damenghai.chahuitong.module.user.LoginActivity;
 import com.umeng.analytics.MobclickAgent;
 
@@ -44,6 +44,8 @@ public class WebViewActivity extends BaseActivity {
         ButterKnife.bind(this);
 
         mUrl = getIntent().getStringExtra("url");
+
+        LUtils.log(mUrl);
 
         handleIntent();
 
@@ -151,7 +153,7 @@ public class WebViewActivity extends BaseActivity {
                 openActivity(BuyActivity.class, bundle);
                 return true;
             } else if (url.endsWith("cart")) {
-                openActivity(CartActivity.class);
+                openActivity(CartListActivity.class);
                 return true;
             }
             else if(url.contains("tel:0592-5990900")) {

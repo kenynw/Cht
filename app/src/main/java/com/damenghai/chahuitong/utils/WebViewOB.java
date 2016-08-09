@@ -8,7 +8,7 @@ import android.support.v7.app.AlertDialog;
 import android.webkit.JavascriptInterface;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.module.mall.CartActivity;
+import com.damenghai.chahuitong.module.mall.CartListActivity;
 import com.damenghai.chahuitong.module.user.LoginActivity;
 
 /**
@@ -40,7 +40,7 @@ public class WebViewOB {
         dialog.setPositiveButton(R.string.btn_go_cart, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(mContext, CartActivity.class);
+                Intent intent = new Intent(mContext, CartListActivity.class);
                 mContext.startActivity(intent);
                 ((Activity) mContext).finish();
             }

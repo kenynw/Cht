@@ -82,44 +82,44 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.CartVi
         holder.mTvName.setText(goods.getGoods_name());
 
         if (mIsEdit) {
-            holder.mLayoutEdit.setVisibility(View.VISIBLE);
-            holder.mLayoutNormal.setVisibility(View.GONE);
-
-            holder.mQuantityView.setCount(goods.getGoods_num());
-            holder.mQuantityView.setOnCountChangedListener(new QuantityView.OnCountChangedListener() {
-                @Override
-                public void countChanged(double count) {
-                    goods.setGoods_num(count + "");
-                }
-            });
-            holder.mTvCategory.setText(goods.getBl_id());
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    holder.mCb.toggle();
-                    mStates.put(position, holder.mCb.isChecked());
-                }
-            });
+//            holder.mLayoutEdit.setVisibility(View.VISIBLE);
+//            holder.mLayoutNormal.setVisibility(View.GONE);
+//
+//            holder.mQuantityView.setCount(goods.getGoods_num());
+//            holder.mQuantityView.setOnCountChangedListener(new QuantityView.OnCountChangedListener() {
+//                @Override
+//                public void countChanged(double count) {
+//                    goods.setGoods_num(count + "");
+//                }
+//            });
+//            holder.mTvCategory.setText(goods.getBl_id());
+//            holder.itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    holder.mCb.toggle();
+//                    mStates.put(position, holder.mCb.isChecked());
+//                }
+//            });
         } else {
-            holder.mLayoutEdit.setVisibility(View.GONE);
-            holder.mLayoutNormal.setVisibility(View.VISIBLE);
-            holder.mTvPrice.setText(String.format(mContext.getString(R.string.text_rmb), goods.getGoods_price()));
-            holder.mTvCount.setText(String.format("x%s", goods.getGoods_num()));
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(mContext, GoodsDetailActivity.class);
-                    intent.putExtra("goods_id", goods.getGoods_id());
-                    mContext.startActivity(intent);
-                }
-            });
-            holder.mCb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    mStates.put(position, isChecked);
-                    if (mListener != null) mListener.onSelectedItemChanged(getCheckedItems());
-                }
-            });
+//            holder.mLayoutEdit.setVisibility(View.GONE);
+//            holder.mLayoutNormal.setVisibility(View.VISIBLE);
+//            holder.mTvPrice.setText(String.format(mContext.getString(R.string.text_rmb), goods.getGoods_price()));
+//            holder.mTvCount.setText(String.format("x%s", goods.getGoods_num()));
+//            holder.itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent intent = new Intent(mContext, GoodsDetailActivity.class);
+//                    intent.putExtra("goods_id", goods.getGoods_id());
+//                    mContext.startActivity(intent);
+//                }
+//            });
+//            holder.mCb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//                @Override
+//                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                    mStates.put(position, isChecked);
+//                    if (mListener != null) mListener.onSelectedItemChanged(getCheckedItems());
+//                }
+//            });
         }
 
     }
@@ -152,7 +152,7 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.CartVi
 
     public class CartViewHolder extends RecyclerView.ViewHolder {
 
-        @Bind(R.id.cb_cart)
+        @Bind(R.id.cb_cart_select)
         CheckBox mCb;
 
         @Bind(R.id.iv_cart_thumb)
@@ -161,23 +161,11 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.CartVi
         @Bind(R.id.tv_cart_name)
         TextView mTvName;
 
-        @Bind(R.id.layout_cart_category)
-        LinearLayout mLayoutEdit; // 编辑模式布局
-
         @Bind(R.id.count_view_cart_count)
         QuantityView mQuantityView;
 
-        @Bind(R.id.tv_cart_category)
-        TextView mTvCategory;
-
-        @Bind(R.id.layout_cart_price)
-        LinearLayout mLayoutNormal;
-
         @Bind(R.id.tv_cart_price)
         TextView mTvPrice;
-
-        @Bind(R.id.tv_cart_count)
-        TextView mTvCount;
 
         public CartViewHolder(View itemView) {
             super(itemView);

@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
 @RequiresPresenter(PopularListPresenter.class)
 public class PopularListActivity extends BaseListActivity<PopularListPresenter> {
 
-    @Bind(R.id.btn_toolbar_search)
+    @Bind(R.id.tv_toolbar_search)
     Button mBtnSearch;
 
     @Override

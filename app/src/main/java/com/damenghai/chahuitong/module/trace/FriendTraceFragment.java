@@ -1,6 +1,5 @@
 package com.damenghai.chahuitong.module.trace;
 
-import android.view.View;
 import android.view.ViewGroup;
 
 import com.damenghai.chahuitong.adapter.viewholder.TraceViewHolder;
@@ -20,11 +19,4 @@ public class FriendTraceFragment extends BaseListFragment<FriendTracePresenter, 
         return new TraceViewHolder(parent);
     }
 
-    @Override
-    public void setMenuVisibility(boolean menuVisible) {
-        super.setMenuVisibility(menuVisible);
-        if (getView() != null) {
-            getView().setVisibility(menuVisible ? View.VISIBLE : View.GONE);
-        }
-    }
 }

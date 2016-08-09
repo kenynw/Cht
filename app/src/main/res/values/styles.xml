@@ -24,8 +24,11 @@
         <item name="android:listDivider">@drawable/decoration_line</item>
     </style>
 
-    <style name="LaunchTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:background">@drawable/bg_launch</item>
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/bg_splash</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <!-- 黑色标题文本 -->

@@ -1,6 +1,7 @@
 package com.damenghai.chahuitong.widget;
 
 import android.content.Context;
+import android.support.v4.widget.NestedScrollView;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -10,7 +11,7 @@ import android.widget.ScrollView;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class CustomScrollView extends ScrollView {
+public class CustomNestedScrollView extends NestedScrollView {
 
     private int downY;
 
@@ -18,7 +19,7 @@ public class CustomScrollView extends ScrollView {
 
     private GestureDetector mGestureDetector;
 
-    public CustomScrollView(Context context) {
+    public CustomNestedScrollView(Context context) {
         super(context);
         if (isInEditMode()) return;
         mGestureDetector = new GestureDetector(context, new YScrollDetector());
@@ -27,7 +28,7 @@ public class CustomScrollView extends ScrollView {
         mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
     }
 
-    public CustomScrollView(Context context, AttributeSet attrs) {
+    public CustomNestedScrollView(Context context, AttributeSet attrs) {
         super(context, attrs);
         if (isInEditMode()) return;
         mGestureDetector = new GestureDetector(context, new YScrollDetector());
@@ -36,7 +37,7 @@ public class CustomScrollView extends ScrollView {
         mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
     }
 
-    public CustomScrollView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CustomNestedScrollView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         if (isInEditMode()) return;
         mGestureDetector = new GestureDetector(context, new YScrollDetector());

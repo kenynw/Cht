@@ -1,12 +1,15 @@
 package com.damenghai.chahuitong.adapter;
 
 import android.content.Intent;
+import android.text.TextUtils;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.model.bean.Personal;
+import com.damenghai.chahuitong.module.user.LoginActivity;
+import com.damenghai.chahuitong.utils.LUtils;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 
 import butterknife.Bind;
@@ -34,8 +37,13 @@ public class PersonalViewHolder extends BaseViewHolder<Personal> {
         mIcon.setImageResource(data.getIconRes());
         mText.setText(data.getName());
         itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(data.getAction());
-            getContext().startActivity(intent);
+            if (TextUtils.isEmpty(LUtils.getPreferences().getString("key", ""))) {
+                Intent i = new Intent(getContext(), LoginActivity.class);
+                getContext().startActivity(i);
+            } else {
+                Intent intent = new Intent(data.getAction());
+                getContext().startActivity(intent);
+            }
         });
     }
 }

@@ -106,7 +106,7 @@ public interface Services {
     @GET("?act=goods&op=goods_detail")
     Observable<GoodsInfo> goodsDetail(
             @Query("version") String version,
-            @Query("goods_id") String goods_id,
+            @Query("goods_id") int goods_id,
             @Query("key") String key
     );
 
@@ -273,23 +273,30 @@ public interface Services {
     @POST("?act=member_cart&op=cart_add")
     Observable<String> cartAdd(
             @Field("key") String key,
-            @Field("goods_id") String goods_id,
-            @Field("quantity") String quantity
+            @Field("goods_id") int goods_id,
+            @Field("quantity") int quantity
     );
 
     @FormUrlEncoded
     @POST("?act=member_cart&op=cart_del")
-    Observable<JsonObject> cartDel(
+    Observable<Boolean> cartDel(
             @Field("key") String key,
             @Field("cart_id") String cart_id
     );
 
     @FormUrlEncoded
     @POST("?act=member_cart&op=cart_edit_quantity")
-    Observable<JsonObject> cartEdit(
+    Observable<Cart> cartEditNum(
             @Field("key") String key,
-            @Field("cart_id") String cart_id,
-            @Field("quantity") String quantity
+            @Field("cart_id") int cart_id,
+            @Field("quantity") int quantity
+    );
+
+    @FormUrlEncoded
+    @POST("?act=member_cart&op=move_favorites")
+    Observable<Boolean> moveCartFav(
+            @Field("key") String key,
+            @Field("cart_id") String cartID
     );
 
     //--------------------------我的收藏--------------------------
@@ -305,7 +312,7 @@ public interface Services {
     @POST("?act=member_favorites&op=favorites_add")
     Observable<String> favAdd(
             @Field("key") String key,
-            @Field("goods_id") String goods_id,
+            @Field("goods_id") int goodsID,
             @Field("version") String version
     );
 
@@ -314,7 +321,7 @@ public interface Services {
     Observable<String> favDel(
             @Field("version") String version,
             @Field("key") String key,
-            @Field("fav_id") String fav_id
+            @Field("fav_id") int favID
     );
 
     //--------------------------我的地址--------------------------
@@ -462,8 +469,19 @@ public interface Services {
             @Query("curpage") int curPage
     );
 
+    /**
+     * 文章详情
+     * @param key 登录令牌
+     * @param articleID 文章ID
+     * @return 文章列表
+     */
+    @GET("?act=article&op=article_detail")
+    Observable<Article> articleDetail(
+            @Query("key") String key,
+            @Query("article_id") int articleID
+    );
+
     //////////////////////////茶友圈/////////////////////////
-    ;
 
     /**
      * 用户关注列表
@@ -611,6 +629,7 @@ public interface Services {
      */
     @GET("?act=member_sns_home&op=trace_list")
     Observable<BeanList<Trace>> traceList(
+            @Query("key") String key,
             @Query("mid") int mid,
             @Query("commend") int isCommend,
             @Query("curpage") int curPage
@@ -766,9 +785,10 @@ public interface Services {
      * @return 操作结果
      */
     @FormUrlEncoded
-    @POST("?act=member_flea&op=class_list")
-    Observable<List<Flea>> fleaFavorites(
-            @Field("key") String key
+    @POST("?act=member_flea&op=favorites")
+    Observable<BeanList<Flea>> fleaFavorites(
+            @Field("key") String key,
+            @Field("curpage") int curPage
     );
 
     /**

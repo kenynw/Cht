@@ -53,7 +53,7 @@
                 android:textColor="@color/colorAccent"
                 android:textSize="@dimen/text_size_body_material"
                 android:textStyle="bold"
-                android:text="@string/label_rmb"
+                android:text="@string/label_total"
                 tools:text="￥198.00"
                 />
 

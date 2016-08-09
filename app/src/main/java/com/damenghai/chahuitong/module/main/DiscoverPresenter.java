@@ -18,6 +18,7 @@ import com.damenghai.chahuitong.utils.LUtils;
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
 public class DiscoverPresenter extends BaseDataFragmentPresenter<DiscoverFragment, Discover> {
+
     @Override
     protected void onCreateView(DiscoverFragment view) {
         super.onCreateView(view);

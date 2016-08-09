@@ -101,8 +101,8 @@ public class FleaModel {
                 .compose(new DefaultTransform<>());
     }
 
-    public Observable<List<Flea>> favorites() {
-        return ServiceClient.getServices().fleaFavorites(LUtils.getPreferences().getString("key", "")).compose(new DefaultTransform<>());
+    public Observable<BeanList<Flea>> favorites(int curPage) {
+        return ServiceClient.getServices().fleaFavorites(LUtils.getPreferences().getString("key", ""), curPage).compose(new DefaultTransform<>());
     }
 
     public Observable<Boolean> addFavorite(int goodsId) {

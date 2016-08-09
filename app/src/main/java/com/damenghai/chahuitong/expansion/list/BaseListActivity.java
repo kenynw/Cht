@@ -75,7 +75,7 @@ public abstract class BaseListActivity<P extends BaseListActivityPresenter> exte
     }
 
     private void initAdapter() {
-        BaseListActivityPresenter.DataAdapter adapter = getPresenter().createAdapter();
+        BaseListActivityPresenter.DataAdapter adapter = getPresenter().getAdapter();
         mListView.setAdapterWithProgress(adapter);
         if (mListConfig.mFooterErrorAble) {
             View errorView = null;

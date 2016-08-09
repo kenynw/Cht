@@ -20,7 +20,7 @@
         >
 
         <Button
-            android:id="@+id/btn_toolbar_search"
+            android:id="@+id/tv_toolbar_search"
             android:layout_width="match_parent"
             android:layout_height="@dimen/widget_small_height"
             android:layout_gravity="center"

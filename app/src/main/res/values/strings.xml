@@ -7,9 +7,9 @@
     <string name="title_activity_about">关于茶汇通</string>
     <string name="title_activity_address">管理收货地址</string>
     <string name="title_activity_add_address">添加新地址</string>
-    <string name="title_activity_province">选择省份</string>
     <string name="title_activity_article">茶资讯</string>
     <string name="title_activity_category">所有茶类</string>
+    <string name="title_activity_cart">购物车</string>
     <string name="title_activity_bargain">限时抢购</string>
     <string name="title_activity_change_password">修改密码</string>
     <string name="title_activity_detail">详情</string>
@@ -27,6 +27,7 @@
     <string name="title_activity_pay_order">订单支付</string>
     <string name="title_activity_personal">个人中心</string>
     <string name="title_activity_profile">修改资料</string>
+    <string name="title_activity_province">选择省份</string>
     <string name="title_activity_register">注册</string>
     <string name="title_activity_reset_password">重置密码</string>
     <string name="title_activity_sample">本期免费茶样</string>
@@ -142,6 +143,7 @@
     <string name="text_goods_quality">正品保证</string>
     <string name="text_goods_delivery_today">12小时发货</string>
     <string name="text_goods_spot">实地认证</string>
+    <string name="text_go_login">去登录</string>
     <string name="text_bargain_timer">距离结束还剩</string>
     <string name="text_day">天</string>
     <string name="text_hour">时</string>
@@ -165,6 +167,7 @@
     <string name="text_voucher_none">没有可用的优惠券</string>
     <string name="text_recommend_score">综合评价%s分</string>
     <string name="text_to">%1$s&#160;~&#160;%2$s</string>
+    <string name="text_trace_need_login">登录后查看好友动态</string>
     <string name="text_man">【满%s】</string>
     <string name="text_xianshi_storage">已抢购%1$s份/共%2$s份</string>
     <string name="text_image_indicator">%1$s/%2$s</string>
@@ -216,7 +219,6 @@
     <string name="label_goods_style">购买选择：</string>
     <string name="label_goods_storage"><b>库存：</b></string>
     <string name="label_goods_total">商品总额：</string>
-    <string name="label_goods_weight">重量：</string>
     <string name="label_home_free">免费茶样领取</string>
     <string name="label_home_recommend">· 对味品鉴</string>
     <string name="label_home_guess">· 适合才是最好</string>
@@ -240,7 +242,7 @@
     <string name="label_price">参考价</string>
     <string name="label_profile_area">所在城市</string>
     <string name="label_recommend_score">综合评价</string>
-    <string name="label_rmb">￥</string>
+    <string name="label_zero">￥0.00</string>
     <string name="label_sample_obtain"><b>已领：</b></string>
     <string name="label_sex">性别</string>
     <string name="label_tag">标&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;签</string>
@@ -261,7 +263,6 @@
     <!--选项卡文字，命名格式为：tab_选项卡文字-->
     <string name="tab_home_mall">商城</string>
     <string name="tab_home_forum">论坛</string>
-    <string name="tab_home_cart">购物车</string>
     <string name="tab_home_personal">个人中心</string>
     <string name="tab_sample_notice">申领须知</string>
     <string name="tab_sample_history">往期茶样</string>
@@ -341,6 +342,7 @@
 
     <!--对话框的文字，命名格式为：dialog_文字-->
     <string name="dialog_title_delete_trace">添加购物车成功</string>
+    <string name="dialog_title_logout">退出登录</string>
     <string name="dialog_add_cart_success">添加购物车成功</string>
     <string name="dialog_cancel_order">确定要取消订单？</string>
     <string name="dialog_delete_address">确认要删除所选中的地址吗？</string>
@@ -352,7 +354,7 @@
 
     <!--menu的item文字，命名格式为：action_文字-->
     <string name="action_main_cart">购物车</string>
-    <string name="action_edit">编辑全部</string>
+    <string name="action_edit">编辑</string>
     <string name="action_done">完成</string>
     <string name="action_delete">删除</string>
     <string name="action_settings">设置</string>

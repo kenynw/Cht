@@ -24,15 +24,15 @@
     <shared>
       <config>
         <devices>
+          <device id="Nexus 4" />
           <device id="Nexus 6" />
-          <device id="Nexus One" />
           <device id="Nexus S" />
-          <device id="Nexus 9" />
           <device id="Nexus 5" />
+          <device id="Nexus One" />
+          <device id="Nexus 9" />
           <device id="Nexus 5X" />
           <device id="Nexus 6P" />
           <device id="Nexus 7 2013" />
-          <device id="Nexus 4" />
           <device id="Nexus 7" />
         </devices>
         <target>android-24</target>
@@ -124,6 +124,11 @@
           <theme>@style/AppTheme</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/user_activity_favorites.xml">
+        <config>
+          <theme>@style/AppTheme.ItemLineDecoration</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/user_activity_login.xml">
         <config>
           <theme>@style/AppTheme</theme>
@@ -206,78 +211,97 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ed91ad3-edfa-4a9e-92e1-49f448fcccd9" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/widget/BadgeActionProvider.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/splash_banner.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/FavoritesFragmentAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/CartViewHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/Ad.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/article/ArticleDetailActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/article/ArticleDetailPresenter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/flea/FleaFavoritesFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/flea/FleaFavoritesPresenter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/goods/GoodsFavoritesFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/goods/GoodsFavoritesPresenter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/SplashActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/mall/CartListPresenter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/article_activity_detail.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/empty_cart_list.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/error_login_trace_list.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_list_goods_favorites.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/LaunchActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/mall/CartPresenter.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/GoodsEditableViewHolder.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/FavoritesGoodsViewHolder.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/mall/CartActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/mall/CartListActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/widget/CustomScrollView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/widget/CustomNestedScrollView.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/bg_launch.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bg_splash.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_cart.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/mall_activity_cart.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_toolbar_back.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_toolbar_back.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/TraceImageAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/TraceImageAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/MessageViewHolder.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/MessageViewHolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/MsgSystemViewHolder.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/MsgSystemViewHolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/TraceCommentViewHolder.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/TraceCommentViewHolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/TraceCommonViewHolder.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/TraceCommonViewHolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/TraceHomeViewHolder.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/TraceHomeViewHolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/TraceImageViewHolder.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/TraceImageViewHolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/expansion/data/BaseDataActivityPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/expansion/data/BaseDataActivityPresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/expansion/list/ListConfig.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/expansion/list/ListConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/AccountModel.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/AccountModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/CommonModel.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/CommonModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/CartListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/CartListAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/PersonalViewHolder.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/PersonalViewHolder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/ArticleViewHolder.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/ArticleViewHolder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/FleaViewHolder.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/FleaViewHolder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/UserCommendViewHolder.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/UserCommendViewHolder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/expansion/list/BaseListActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/expansion/list/BaseListActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/expansion/list/BaseListActivityPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/expansion/list/BaseListActivityPresenter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/FavoritesModel.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/FavoritesModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/FleaModel.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/FleaModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/GoodsModel.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/GoodsModel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/TraceModel.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/TraceModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/UserModel.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/UserModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/Message.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/Message.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/Trace.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/Trace.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/TraceComment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/TraceComment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/UpdateInfo.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/UpdateInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/service/ServiceClient.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/service/ServiceClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/Article.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/Article.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/Cart.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/Cart.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/Discover.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/Discover.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/Goods.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/Goods.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/People.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/People.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/User.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/service/ServiceResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/service/ServiceResponse.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/service/Services.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/service/Services.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/common/WebViewActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/common/WebViewActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/goods/GoodsDetailPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/goods/GoodsDetailPresenter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/goods/GoodsListPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/goods/GoodsListPresenter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/DiscoverFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/DiscoverFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/DiscoverPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/DiscoverPresenter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainHomeFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainHomeFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainHomePresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainHomePresenter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainPersonalFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainPersonalFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainPersonalPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainPersonalPresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainPresenter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainTraceFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainTraceFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainTracePresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainTracePresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/SearchActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/SearchActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/mall/BuyActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/mall/BuyActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/order/OrderViewHolder.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/order/OrderViewHolder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/personal/FavoritesActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/personal/FavoritesActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/personal/FavoritesPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/personal/FavoritesPresenter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/personal/MessageActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/personal/MessageActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/personal/MessageListActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/personal/MessageListActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/personal/MessagePresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/personal/MessagePresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/personal/ProfileActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/personal/ProfileActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/personal/ProfilePresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/personal/ProfilePresenter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/settings/SettingPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/settings/SettingPresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/settings/SettingsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/settings/SettingsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/settings/UpdateService.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/settings/UpdateService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/trace/TraceAddActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/trace/TraceAddActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/trace/TraceDetailActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/trace/TraceDetailActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/trace/TraceDetailPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/trace/TraceDetailPresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/FollowUserListActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/FollowUserListActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/FollowUserListPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/FollowUserListPresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/LoginActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/LoginPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/LoginPresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/PopularListPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/PopularListPresenter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/trace/FriendTraceFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/trace/FriendTraceFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/trace/FriendTracePresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/trace/FriendTracePresenter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/PopularListActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/PopularListActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/UserInfoActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/UserInfoActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/UserInfoPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/UserInfoPresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/utils/LUtils.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/utils/LUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/widget/CustomScrollView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/widget/CustomScrollView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/badge_round_red_shape.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/badge_round_red_shape.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/decoration_medium.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/decoration_medium.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/decoration_small.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/decoration_small.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/utils/DialogFactory.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/utils/DialogFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/utils/WebViewOB.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/utils/WebViewOB.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/widget/QuantityView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/widget/QuantityView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/action_badge_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/action_badge_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/header_user_traces.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/header_user_traces.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/include_trace.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/include_trace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_galley_goods.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_galley_goods.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_galley_user_commend.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_galley_user_commend.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_list_message.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_list_message.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_list_msg_system.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_list_msg_system.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_list_trace_comment.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_list_trace_comment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_trace_image.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_trace_image.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_order.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_order.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/empty_favorites_list.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/empty_favorites_list.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/goods_activity_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/goods_activity_detail.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/goods_activity_list.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/goods_activity_list.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/include_store_order.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/include_store_order.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/include_toolbar.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/include_toolbar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_list_cart.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_list_cart.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_list_goods.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_list_goods.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_list_order.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_list_order.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/main_fragment_discover.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/main_fragment_discover.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/trace_activity_add.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/trace_activity_add.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/user_activity_list.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/user_activity_list.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_main_trace.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_main_trace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_personal.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_personal.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_trace.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_trace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_user.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_user.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/array.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/array.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/integer.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/integer.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/main_fragment_home.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/main_fragment_home.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/main_fragment_trace.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/main_fragment_trace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/order_activity_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/order_activity_detail.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/pupular_activity_list.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/pupular_activity_list.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/user_activity_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/user_activity_detail.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/user_activity_favorites.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/user_activity_favorites.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_address_list.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_address_list.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/paylibrary/paylibrary.iml" afterPath="$PROJECT_DIR$/paylibrary/paylibrary.iml" />
@@ -303,7 +327,72 @@
           <activation />
         </task>
         <projects_view>
-          <tree_state />
+          <tree_state>
+            <PATH>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="cht" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
+              </PATH_ELEMENT>
+            </PATH>
+            <PATH>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="cht" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value=":app" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ModuleNode" />
+              </PATH_ELEMENT>
+            </PATH>
+            <PATH>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="cht" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value=":app" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ModuleNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="Tasks" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.TasksNode" />
+              </PATH_ELEMENT>
+            </PATH>
+            <PATH>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="cht" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value=":app" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ModuleNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="Tasks" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.TasksNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="build" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.TasksNode$1" />
+              </PATH_ELEMENT>
+            </PATH>
+          </tree_state>
         </projects_view>
       </state>
     </system>
@@ -313,108 +402,90 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainTraceFragment.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainTraceFragment.java">
+      <file leaf-file-name="FavoritesGoodsViewHolder.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/FavoritesGoodsViewHolder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28240108">
-              <caret line="84" column="31" selection-start-line="84" selection-start-column="31" selection-end-line="84" selection-end-column="31" />
+            <state vertical-scroll-proportion="1.1296043">
+              <caret line="50" column="47" selection-start-line="50" selection-start-column="47" selection-end-line="50" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="action_badge_layout.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/action_badge_layout.xml">
+      <file leaf-file-name="item_list_goods_favorites.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_list_goods_favorites.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.9016395">
+              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
           <provider editor-type-id="android-designer">
             <state />
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FavoritesActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/personal/FavoritesActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.2786884">
-              <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu_main_trace.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_main_trace.xml">
+      <file leaf-file-name="FavoritesPresenter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/personal/FavoritesPresenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.75">
-              <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainTracePresenter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainTracePresenter.java">
+      <file leaf-file-name="user_activity_favorites.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/user_activity_favorites.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.540983">
+              <caret line="79" column="22" selection-start-line="79" selection-start-column="10" selection-end-line="79" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FleaFavoritesFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/flea/FleaFavoritesFragment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="90" selection-start-line="17" selection-start-column="90" selection-end-line="17" selection-end-column="90" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+              <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Services.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/service/Services.java">
+      <file leaf-file-name="FleaFavoritesPresenter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/flea/FleaFavoritesPresenter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="429" column="22" selection-start-line="429" selection-start-column="22" selection-end-line="429" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MessageCount.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/MessageCount.java">
+      <file leaf-file-name="FleaViewHolder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/FleaViewHolder.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="25" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="25" />
+              <caret line="54" column="61" selection-start-line="54" selection-start-column="61" selection-end-line="54" selection-end-column="61" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#745#746#0" expanded="false" />
-                <element signature="e#796#797#0" expanded="false" />
-                <element signature="e#866#867#0" expanded="false" />
-                <element signature="e#919#920#0" expanded="false" />
-                <element signature="e#977#978#0" expanded="false" />
-                <element signature="e#1001#1002#0" expanded="false" />
-                <element signature="e#1283#1284#0" expanded="false" />
-                <element signature="e#1314#1315#0" expanded="false" />
-                <element signature="e#1359#1360#0" expanded="false" />
-                <element signature="e#1399#1400#0" expanded="false" />
-                <element signature="e#1434#1435#0" expanded="false" />
-                <element signature="e#1468#1469#0" expanded="false" />
-                <element signature="e#1519#1520#0" expanded="false" />
-                <element signature="e#1565#1566#0" expanded="false" />
-                <element signature="e#1595#1596#0" expanded="false" />
-                <element signature="e#1624#1625#0" expanded="false" />
-                <element signature="e#1665#1666#0" expanded="false" />
-                <element signature="e#1701#1702#0" expanded="false" />
-                <element signature="e#1735#1736#0" expanded="false" />
-                <element signature="e#1768#1769#0" expanded="false" />
-                <element signature="e#1817#1818#0" expanded="false" />
-                <element signature="e#1861#1862#0" expanded="false" />
-                <element signature="e#1898#1899#0" expanded="false" />
-                <element signature="e#1934#1935#0" expanded="false" />
-                <element signature="e#1989#1990#0" expanded="false" />
-                <element signature="e#2039#2040#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MessagePresenter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/personal/MessagePresenter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="false" />
+                <element signature="e#986#987#0" expanded="true" />
+                <element signature="e#1039#1040#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -3971,57 +4042,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/MsgSystemViewHolder.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/user_activity_message.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/personal/MessageActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/Message.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_trace.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/trace/TraceDetailPresenter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/trace/TraceDetailActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/TraceModel.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/array.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/TraceHomeViewHolder.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_sns.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_user.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/header_user_traces.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/UserListActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/user_activity_list.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/AccountModel.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/integer.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/include_trace.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_list_trace_comment.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/UserListPresenter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/FollowerListPresenter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/MemberModel.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/UserInfoPresenter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/UserInfoActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/expansion/list/ListConfig.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/FollowUserListActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/PopularListPresenter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/UpdateInfo.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/utils/LUtils.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/settings/UpdateService.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/settings/SettingsActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/CommonModel.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainPresenter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/LoginActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/LoginPresenter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainPersonalPresenter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/settings/SettingPresenter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/service/Services.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/UserModel.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/FollowUserListPresenter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/common/WebViewActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/SearchActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainTracePresenter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/badge_round_red_shape.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/widget/BadgeActionProvider.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_main_trace.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/main_fragment_home.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainHomeFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/trace/FriendTracePresenter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainTraceFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/action_badge_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainPersonalFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/PersonalViewHolder.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/empty_cart_list.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_cart.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/mall/CartPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/FavoritesModel.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/goods/GoodsBodyFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/goods/GoodsDetailPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/mall/CartActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_address_list.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_list_cart.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/CartListAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/view_quantity_view.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/mall/BuyActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/Cart.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/mall_activity_cart.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/Goods.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/widget/QuantityView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/mall/CartListAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/expansion/list/BaseListActivityPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/expansion/list/BaseListActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/CartViewHolder.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/mall/CartListActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/GoodsModel.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/mall/CartListPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/goods_fragment_favorites.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/FavoritesFragmentAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/user_activity_favorites.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/GoodsEditableViewHolder.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/MediatorDataAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/MediatorActivityAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/personal/FavoritesPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/FleaViewHolder.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/service/Services.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/FleaModel.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/flea/FleaFavoritesPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/flea/FleaFavoritesFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/goods/GoodsFavoritesFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/empty_favorites_list.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/goods/GoodsFavoritesPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/goods_activity_list.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/include_toolbar.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/personal/FavoritesActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_list_goods_favorites.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/FavoritesGoodsViewHolder.java" />
       </list>
     </option>
   </component>
@@ -4033,9 +4104,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="80" />
+    <option name="x" value="64" />
     <option name="y" value="23" />
-    <option name="width" value="1357" />
+    <option name="width" value="1359" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -4086,16 +4157,6 @@
               <option name="myItemId" value="cht" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gradle Scripts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cht" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -4121,6 +4182,24 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cht" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
@@ -4141,28 +4220,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="chahuitong" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cht" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chahuitong" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="widget" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -4184,6 +4241,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cht" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chahuitong" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="adapter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -4219,9 +4298,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -4234,42 +4313,43 @@
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="192.168.56.101:5555" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_22_x86" />
     <property name="device.picker.selection" value="79AEALF2KVVC" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="114" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="112" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="135" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="132" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="138" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="135" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="885" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="865" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="140" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="137" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="148" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="145" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="153" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="150" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="831" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="812" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
-    <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.WIDTH" value="198" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.WIDTH" value="225" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/menu" />
+      <recent name="$PROJECT_DIR$/app/src" />
     </key>
     <key name="android.template.packageName">
+      <recent name="com.damenghai.chahuitong.module.article" />
       <recent name="com.damenghai.chahuitong.module.user" />
       <recent name="com.damenghai.chahuitong.module.goods" />
       <recent name="com.damenghai.chahuitong.module.flea" />
       <recent name="com.damenghai.chahuitong.module.address" />
-      <recent name="com.damenghai.chahuitong.module.trace" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/menu" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi" />
-      <recent name="$PROJECT_DIR$/app/src" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi" />
     </key>
   </component>
   <component name="RunManager" selected="Android Application.app">
@@ -4566,17 +4646,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="80" y="23" width="1357" height="877" extended-state="0" />
-    <editor active="false" />
+    <frame x="64" y="23" width="1359" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285151" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46386334" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6386334" sideWeight="0.5030303" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5676741" sideWeight="0.4969697" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3513308" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6754271" sideWeight="0.5086924" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6846255" sideWeight="0.49130765" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22095671" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7884363" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40078843" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285151" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -4584,8 +4664,8 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25779468" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3391635" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2657555" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33862433" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
@@ -4605,10 +4685,10 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6386334" sideWeight="0.5030303" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6754271" sideWeight="0.5086924" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5676741" sideWeight="0.4969697" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6846255" sideWeight="0.49130765" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -4621,15 +4701,15 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3513308" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22095671" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7884363" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40078843" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285151" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287879" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25779468" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2657555" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285151" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3391635" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33862433" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -4651,411 +4731,452 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/expansion/list/ListConfig.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="177" column="20" selection-start-line="177" selection-start-column="20" selection-end-line="177" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/FindUserListActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.25511596">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/FindUserListPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5607094">
-          <caret line="30" column="39" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/main_fragment_discover.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45089287">
-          <caret line="208" column="21" selection-start-line="208" selection-start-column="21" selection-end-line="208" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.3620178">
+          <caret line="244" column="28" selection-start-line="244" selection-start-column="18" selection-end-line="244" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/DiscoverPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4706685">
-          <caret line="27" column="48" selection-start-line="27" selection-start-column="48" selection-end-line="27" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/DiscoverFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1923602">
-          <caret line="37" column="60" selection-start-line="37" selection-start-column="60" selection-end-line="37" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/PopularListActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/Goods.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="59" selection-start-line="18" selection-start-column="59" selection-end-line="18" selection-end-column="59" />
+          <caret line="589" column="0" selection-start-line="589" selection-start-column="0" selection-end-line="589" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jude/easyrecyclerview/4.0.4/24fb9537d2ab59f2f2b09e2a62c6e97892b47315/easyrecyclerview-4.0.4-sources.jar!/com/jude/easyrecyclerview/adapter/BaseViewHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="64" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/recyclerview-v7/24.1.0/recyclerview-v7-24.1.0-sources.jar!/android/support/v7/widget/RecyclerView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2701228">
+          <caret line="9912" column="33" selection-start-line="9912" selection-start-column="33" selection-end-line="9912" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/Cart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jude/easyrecyclerview/4.0.4/24fb9537d2ab59f2f2b09e2a62c6e97892b47315/easyrecyclerview-4.0.4-sources.jar!/com/jude/easyrecyclerview/adapter/RecyclerArrayAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.126876">
+          <caret line="320" column="38" selection-start-line="320" selection-start-column="38" selection-end-line="320" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/expansion/list/BaseListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1203966">
+          <caret line="77" column="84" selection-start-line="77" selection-start-column="84" selection-end-line="77" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/empty_cart_list.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65029764">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/mall_activity_cart.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38392857">
+          <caret line="97" column="51" selection-start-line="97" selection-start-column="33" selection-end-line="97" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/widget/QuantityView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="117" column="42" selection-start-line="117" selection-start-column="42" selection-end-line="117" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/FavoritesModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4665757">
+          <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/GoodsModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="69" column="46" selection-start-line="69" selection-start-column="46" selection-end-line="69" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/mall/CartListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1568895">
+          <caret line="61" column="61" selection-start-line="61" selection-start-column="61" selection-end-line="61" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/presenter/IPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2510232">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/FavoritesFragmentAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1923602">
+          <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#577#578#0" expanded="false" />
+            <element signature="e#602#603#0" expanded="false" />
+            <element signature="e#916#917#0" expanded="false" />
+            <element signature="e#952#953#0" expanded="false" />
+            <element signature="e#1020#1021#0" expanded="false" />
+            <element signature="e#1059#1060#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/TraceFragmentAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40381992">
+          <caret line="24" column="47" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/bijection/PresenterBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27830833">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_list_order_goods.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="25" column="4" selection-start-line="0" selection-start-column="0" selection-end-line="92" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/main_fragment_trace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.5409837">
+          <caret line="47" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/GoodsCardViewHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.7571623">
+          <caret line="73" column="48" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/expansion/list/BaseListActivityPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3328786">
-          <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+        <state vertical-scroll-proportion="2.0709414">
+          <caret line="88" column="17" selection-start-line="88" selection-start-column="17" selection-end-line="88" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/UpdateInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.1882674">
-          <caret line="53" column="32" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3323442">
-          <caret line="32" column="27" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/setting_update_notification.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/PopularListPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="87" selection-start-line="18" selection-start-column="87" selection-end-line="18" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/utils/LUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5920873">
-          <caret line="178" column="21" selection-start-line="178" selection-start-column="21" selection-end-line="178" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/settings/UpdateService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5226629">
-          <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/CommonModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="38" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46930423">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.79661">
-          <caret line="301" column="48" selection-start-line="301" selection-start-column="48" selection-end-line="301" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/LoginPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="48" column="43" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainHomeFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9768076">
-          <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainHomePresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.81991816">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.1.0/d4a0c3bc36ac0ece84cdf7aa08b18c344b467238/rxjava-1.1.0-sources.jar!/rx/subjects/BehaviorSubject.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/CartViewHolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3328786">
-          <caret line="154" column="16" selection-start-line="154" selection-start-column="16" selection-end-line="154" selection-end-column="16" />
+          <caret line="43" column="42" selection-start-line="43" selection-start-column="42" selection-end-line="43" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainPersonalFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/mall/CartListPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="120" column="39" selection-start-line="120" selection-start-column="39" selection-end-line="120" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainPersonalPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="58" column="42" selection-start-line="58" selection-start-column="42" selection-end-line="58" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/settings/SettingsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/FollowUserListActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/expansion/data/BaseDataFragmentPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="89" column="16" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/AccountModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/settings/SettingPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="58" column="56" selection-start-line="58" selection-start-column="56" selection-end-line="58" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/common/WebViewActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/SearchActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.03547067">
-          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/FollowUserListPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21555252">
-          <caret line="21" column="65" selection-start-line="21" selection-start-column="65" selection-end-line="21" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/SearchPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.03547067">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/UserInfoActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4120054">
-          <caret line="67" column="75" selection-start-line="67" selection-start-column="75" selection-end-line="67" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/user/UserInfoPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42701226">
-          <caret line="54" column="29" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/UserModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="62" column="49" selection-start-line="62" selection-start-column="49" selection-end-line="62" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/badge_round_red_shape.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19686162">
-          <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-24/android.jar!/android/view/View.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.359352">
-          <caret line="2039" column="16" selection-start-line="2039" selection-start-column="16" selection-end-line="2039" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/include_toolbar.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+        <state vertical-scroll-proportion="3.2319236">
+          <caret line="130" column="45" selection-start-line="130" selection-start-column="45" selection-end-line="130" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainTracePresenter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/order/OrderViewHolder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="90" selection-start-line="17" selection-start-column="90" selection-end-line="17" selection-end-column="90" />
+        <state vertical-scroll-proportion="0.686221">
+          <caret line="154" column="70" selection-start-line="154" selection-start-column="70" selection-end-line="154" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/flea/MyFleaActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1568895">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/flea/MyFleaPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.69031376">
+          <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/expansion/list/BaseListFragmentPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3328786">
+          <caret line="65" column="35" selection-start-line="65" selection-start-column="35" selection-end-line="65" selection-end-column="35" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="e#2092#2093#0" expanded="false" />
+            <element signature="e#2133#2134#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/service/Services.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39563438">
+          <caret line="790" column="41" selection-start-line="790" selection-start-column="41" selection-end-line="790" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/FleaModel.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="429" column="22" selection-start-line="429" selection-start-column="22" selection-end-line="429" selection-end-column="22" />
+          <caret line="104" column="110" selection-start-line="104" selection-start-column="110" selection-end-line="104" selection-end-column="110" />
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/model/bean/MessageCount.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/goods/GoodsDetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.62346524">
+          <caret line="98" column="52" selection-start-line="98" selection-start-column="52" selection-end-line="98" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/flea/FleaFavoritesPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="25" />
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/flea/FleaFavoritesFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/ImagePagerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.55252385">
+          <caret line="47" column="70" selection-start-line="47" selection-start-column="70" selection-end-line="47" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/flea/FleaDetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3765348">
+          <caret line="127" column="44" selection-start-line="127" selection-start-column="44" selection-end-line="127" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/FleaViewHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="54" column="61" selection-start-line="54" selection-start-column="61" selection-end-line="54" selection-end-column="61" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#745#746#0" expanded="false" />
-            <element signature="e#796#797#0" expanded="false" />
-            <element signature="e#866#867#0" expanded="false" />
-            <element signature="e#919#920#0" expanded="false" />
-            <element signature="e#977#978#0" expanded="false" />
-            <element signature="e#1001#1002#0" expanded="false" />
-            <element signature="e#1283#1284#0" expanded="false" />
-            <element signature="e#1314#1315#0" expanded="false" />
-            <element signature="e#1359#1360#0" expanded="false" />
-            <element signature="e#1399#1400#0" expanded="false" />
-            <element signature="e#1434#1435#0" expanded="false" />
-            <element signature="e#1468#1469#0" expanded="false" />
-            <element signature="e#1519#1520#0" expanded="false" />
-            <element signature="e#1565#1566#0" expanded="false" />
-            <element signature="e#1595#1596#0" expanded="false" />
-            <element signature="e#1624#1625#0" expanded="false" />
-            <element signature="e#1665#1666#0" expanded="false" />
-            <element signature="e#1701#1702#0" expanded="false" />
-            <element signature="e#1735#1736#0" expanded="false" />
-            <element signature="e#1768#1769#0" expanded="false" />
-            <element signature="e#1817#1818#0" expanded="false" />
-            <element signature="e#1861#1862#0" expanded="false" />
-            <element signature="e#1898#1899#0" expanded="false" />
-            <element signature="e#1934#1935#0" expanded="false" />
-            <element signature="e#1989#1990#0" expanded="false" />
-            <element signature="e#2039#2040#0" expanded="false" />
+            <element signature="e#986#987#0" expanded="true" />
+            <element signature="e#1039#1040#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/personal/MessagePresenter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/bijection/BeamFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+        <state vertical-scroll-proportion="-0.78854024">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/24.1.0/support-v4-24.1.0-sources.jar!/android/support/v4/app/Fragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.126876">
+          <caret line="298" column="9" selection-start-line="298" selection-start-column="9" selection-end-line="298" selection-end-column="9" />
+          <folding>
+            <element signature="e#51047#51048#0" expanded="false" />
+            <element signature="e#51075#51076#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/expansion/list/ListConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3328786">
+          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jude/easyrecyclerview/4.0.4/24fb9537d2ab59f2f2b09e2a62c6e97892b47315/easyrecyclerview-4.0.4-sources.jar!/com/jude/easyrecyclerview/EasyRecyclerView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72169167">
+          <caret line="95" column="29" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/expansion/list/BaseListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49795362">
+          <caret line="69" column="75" selection-start-line="69" selection-start-column="75" selection-end-line="69" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/goods/GoodsFavoritesPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.686221">
+          <caret line="30" column="99" selection-start-line="30" selection-start-column="99" selection-end-line="30" selection-end-column="99" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/goods/GoodsFavoritesFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15279673">
+          <caret line="20" column="73" selection-start-line="20" selection-start-column="73" selection-end-line="20" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/empty_favorites_list.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.034124628">
-          <caret line="67" column="17" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
-          <folding />
+        <state vertical-scroll-proportion="0.54761904">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+          <folding>
+            <element signature="e#462#492#0" expanded="true" />
+            <element signature="e#842#867#0" expanded="true" />
+            <element signature="e#940#972#0" expanded="true" />
+            <element signature="e#1006#1039#0" expanded="true" />
+          </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_main_trace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.75">
-          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/design/24.1.0/res/values/values.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3771252">
-          <caret line="23" column="327" selection-start-line="23" selection-start-column="327" selection-end-line="23" selection-end-column="327" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.jude/imageprovider/2.0.2/res/drawable-xxhdpi/selector_indicator.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/action_badge_layout.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/include_toolbar.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.2786884">
-          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.5818452">
+          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/goods_activity_list.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.0877976">
+          <caret line="61" column="37" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="37" />
+          <folding>
+            <element signature="e#2797#2823#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/goods/GoodsListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4706685">
+          <caret line="51" column="37" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/main/MainTraceFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/user_activity_favorites.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28240108">
-          <caret line="84" column="31" selection-start-line="84" selection-start-column="31" selection-end-line="84" selection-end-column="31" />
+        <state vertical-scroll-proportion="-15.540983">
+          <caret line="79" column="22" selection-start-line="79" selection-start-column="10" selection-end-line="79" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/personal/FavoritesPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/module/personal/FavoritesActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_list_goods_favorites.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.9016395">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/damenghai/chahuitong/adapter/viewholder/FavoritesGoodsViewHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1296043">
+          <caret line="50" column="47" selection-start-line="50" selection-start-column="47" selection-end-line="50" selection-end-column="47" />
           <folding />
         </state>
       </provider>

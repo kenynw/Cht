@@ -8,7 +8,7 @@ import android.os.Parcelable;
  */
 public class Article implements Parcelable {
 
-    private String article_id;
+    private int article_id;
 
     private String article_title;
 
@@ -45,7 +45,7 @@ public class Article implements Parcelable {
     private String article_url;
 
     protected Article(Parcel in) {
-        article_id = in.readString();
+        article_id = in.readInt();
         article_title = in.readString();
         article_class_id = in.readString();
         article_origin = in.readString();
@@ -84,7 +84,7 @@ public class Article implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(article_id);
+        dest.writeInt(article_id);
         dest.writeString(article_title);
         dest.writeString(article_class_id);
         dest.writeString(article_origin);
@@ -104,11 +104,11 @@ public class Article implements Parcelable {
         dest.writeString(article_url);
     }
 
-    public String getArticle_id() {
+    public int getArticle_id() {
         return article_id;
     }
 
-    public void setArticle_id(String article_id) {
+    public void setArticle_id(int article_id) {
         this.article_id = article_id;
     }
 

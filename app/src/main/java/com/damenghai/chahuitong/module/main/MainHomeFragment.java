@@ -15,7 +15,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -26,7 +25,6 @@ import com.damenghai.chahuitong.adapter.GoodsRecycleGridAdapter;
 import com.damenghai.chahuitong.bijection.BeamFragment;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.model.bean.Home;
-import com.damenghai.chahuitong.module.goods.GoodsListActivity;
 import com.damenghai.chahuitong.module.special.BargainActivity;
 import com.damenghai.chahuitong.module.special.SampleActivity;
 import com.damenghai.chahuitong.widget.CirclePageIndicator;
@@ -38,7 +36,6 @@ import com.facebook.drawee.view.SimpleDraweeView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -50,8 +47,8 @@ public class MainHomeFragment extends BeamFragment<MainHomePresenter> {
     @Bind(R.id.main_toolbar)
     Toolbar mToolbar;
 
-    @Bind(R.id.btn_toolbar_search)
-    Button mBtnSearch;
+    @Bind(R.id.tv_toolbar_search)
+    TextView mTvSearch;
 
     @Bind(R.id.home_refresh)
     SwipeRefreshLayout mRefreshLayout;
@@ -107,15 +104,12 @@ public class MainHomeFragment extends BeamFragment<MainHomePresenter> {
     }
 
     private void initToolbar() {
-        setHasOptionsMenu(true);
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        activity.setSupportActionBar(mToolbar);
-        if (activity.getSupportActionBar() != null)activity.getSupportActionBar().setDisplayShowTitleEnabled(false);
+        mToolbar.inflateMenu(R.menu.menu_main);
         mToolbar.setOnMenuItemClickListener(item -> {
             getPresenter().showCart();
             return true;
         });
-        mBtnSearch.setOnClickListener(v -> startActivity(new Intent(getActivity(), SearchActivity.class)));
+        mTvSearch.setOnClickListener(v -> startActivity(new Intent(getActivity(), SearchActivity.class)));
     }
 
     public void setData(Home home) {
@@ -145,13 +139,7 @@ public class MainHomeFragment extends BeamFragment<MainHomePresenter> {
     public void setMenuVisibility(boolean menuVisible) {
         super.setMenuVisibility(menuVisible);
         if (getView() != null) {
-            getView().setVisibility(menuVisible ? View.VISIBLE : View.GONE);
+            getView().setVisibility(menuVisible ? View.VISIBLE : View.INVISIBLE);
         }
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_main, menu);
-        super.onCreateOptionsMenu(menu, inflater);
     }
 }

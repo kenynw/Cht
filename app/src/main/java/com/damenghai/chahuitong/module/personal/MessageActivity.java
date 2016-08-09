@@ -1,5 +1,6 @@
 package com.damenghai.chahuitong.module.personal;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +10,7 @@ import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.expansion.data.BaseDataActivity;
 import com.damenghai.chahuitong.model.bean.MessageCount;
+import com.damenghai.chahuitong.utils.LUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -59,18 +61,26 @@ public class MessageActivity extends BaseDataActivity<MessagePresenter, MessageC
             if (count.getNew_fans() > 0) {
                 mTvFansNum.setText(String.valueOf(count.getNew_fans()));
                 mTvFansNum.setVisibility(View.VISIBLE);
+            } else {
+                mTvFansNum.setVisibility(View.GONE);
             }
             if (count.getNew_comment() > 0) {
                 mTvCommentNum.setText(String.valueOf(count.getNew_comment()));
                 mTvCommentNum.setVisibility(View.VISIBLE);
+            } else {
+                mTvCommentNum.setVisibility(View.GONE);
             }
             if (count.getNew_at() > 0) {
                 mTvAtNum.setText(String.valueOf(count.getNew_at()));
                 mTvAtNum.setVisibility(View.VISIBLE);
+            } else {
+                mTvAtNum.setVisibility(View.GONE);
             }
             if (count.getNew_system() > 0) {
                 mTvSystemNum.setText(String.valueOf(count.getNew_system()));
                 mTvSystemNum.setVisibility(View.VISIBLE);
+            } else {
+                mTvSystemNum.setVisibility(View.GONE);
             }
         }
     }

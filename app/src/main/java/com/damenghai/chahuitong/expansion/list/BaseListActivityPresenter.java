@@ -64,11 +64,11 @@ public class BaseListActivityPresenter<V extends BaseListActivity, M> extends Pr
     }
 
     public DataAdapter createAdapter() {
-        return mAdapter = new DataAdapter(getView());
+        return new DataAdapter(getView());
     }
 
     public DataAdapter getAdapter() {
-        if (mAdapter == null) mAdapter = new DataAdapter(getView());
+        if (mAdapter == null) mAdapter = createAdapter();
         return mAdapter;
     }
 

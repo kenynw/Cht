@@ -9,7 +9,9 @@ import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.model.bean.Article;
+import com.damenghai.chahuitong.module.article.ArticleDetailActivity;
 import com.damenghai.chahuitong.module.common.WebViewActivity;
+import com.damenghai.chahuitong.utils.LUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 
@@ -50,7 +52,8 @@ public class ArticleViewHolder extends BaseViewHolder<Article> {
         mTvComment.setText(String.format(getContext().getString(R.string.text_article_heat), article.getArticle_click(), article.getArticle_comment_count()));
         itemView.setOnClickListener(v -> {
             Intent i = new Intent(getContext(), WebViewActivity.class);
-            i.putExtra("url", article.getArticle_url());
+            i.putExtra("url", "http://api.chahuitong.com/?act=article&op=article_detail&article_id=" + article.getArticle_id() + "&key=" + LUtils.getPreferences().getString("key", ""));
+//            i.putExtra("article_id", article.getArticle_id());
             getContext().startActivity(i);
         });
     }

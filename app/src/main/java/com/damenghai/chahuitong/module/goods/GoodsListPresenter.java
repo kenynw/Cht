@@ -15,6 +15,8 @@ import java.util.List;
  */
 public class GoodsListPresenter extends BaseListActivityPresenter<GoodsListActivity, Goods> implements ExpandTabView.OnItemSelectedListener {
 
+    private String mOp;
+
     private List<Category> mCategories;
 
     private int mGcID;
@@ -26,6 +28,7 @@ public class GoodsListPresenter extends BaseListActivityPresenter<GoodsListActiv
     @Override
     protected void onCreate(GoodsListActivity view, Bundle saveState) {
         super.onCreate(view, saveState);
+        mOp = getView().getIntent().getStringExtra("op");
     }
 
     @Override
@@ -43,7 +46,7 @@ public class GoodsListPresenter extends BaseListActivityPresenter<GoodsListActiv
     @Override
     public void onRefresh() {
         GoodsModel.getInstance().getGoodsList(
-                getView().getIntent().getStringExtra("op"),
+                mOp,
                 mSort, mOrder, 1, mGcID,
                 getView().getIntent().getCharSequenceExtra("keyword"))
                 .unsafeSubscribe(getRefreshSubscriber());
@@ -52,7 +55,7 @@ public class GoodsListPresenter extends BaseListActivityPresenter<GoodsListActiv
     @Override
     public void onLoadMore() {
         GoodsModel.getInstance().getGoodsList(
-                getView().getIntent().getStringExtra("op"),
+                mOp,
                 mSort, mOrder, getCurPage(), mGcID,
                 getView().getIntent().getCharSequenceExtra("keyword"))
                 .unsafeSubscribe(getMoreSubscriber());

@@ -200,11 +200,11 @@ public class BuyActivity extends BaseDataActivity<BuyPresenter, OrderInfo> {
                     viewCount.setCount(goods.getGoods_num());
                     viewCount.setOnCountChangedListener(new QuantityView.OnCountChangedListener() {
                         @Override
-                        public void countChanged(double count) {
+                        public void countChanged(int count) {
                             double total = count * price;
                             BigDecimal bd = new BigDecimal(total);
                             double result = bd.setScale(2, bd.ROUND_HALF_UP).doubleValue();
-                            mTvStoreCount.setText("共" + (int) count + "件商品：");
+                            mTvStoreCount.setText("共" + count + "件商品：");
                             mTvStoreTotal.setText("￥" + result);
                             mTvOrderTotal.setText("￥" + result);
                         }

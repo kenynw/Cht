@@ -11,16 +11,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.adapter.BaseRecycleListAdapter;
-import com.damenghai.chahuitong.adapter.GoodsRecycleGridAdapter;
-import com.damenghai.chahuitong.adapter.GoodsViewHolder;
-import com.damenghai.chahuitong.adapter.viewholder.GoodsEditableViewHolder;
+import com.damenghai.chahuitong.adapter.viewholder.FavoritesGoodsViewHolder;
 import com.damenghai.chahuitong.model.OrderModel;
 import com.damenghai.chahuitong.model.bean.Goods;
 import com.damenghai.chahuitong.model.bean.Order;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.module.common.WebViewActivity;
-import com.damenghai.chahuitong.module.goods.GoodsListActivity;
 import com.damenghai.chahuitong.module.mall.PayActivity;
 import com.damenghai.chahuitong.utils.DialogFactory;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
@@ -156,7 +152,7 @@ public class OrderViewHolder extends BaseViewHolder<Order> {
 
         @Override
         public BaseViewHolder OnCreateViewHolder(ViewGroup parent, int viewType) {
-            GoodsEditableViewHolder viewHolder = new GoodsEditableViewHolder(parent, R.layout.item_list_order_goods);
+            FavoritesGoodsViewHolder viewHolder = new FavoritesGoodsViewHolder(parent, R.layout.item_list_order_goods);
             if (mListener != null) {
                 viewHolder.setOnItemClickListener(mListener);
             }
