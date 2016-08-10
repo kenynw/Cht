@@ -19,7 +19,7 @@ public class FleaEditActivity extends FleaAddActivity {
         mEtTitle.setText(flea.getGoods_name());
         mEtDetail.setText(flea.getGoods_body());
         mBtnCate.setText(flea.getGc_name());
-        mEtPrice.setText(flea.getGoods_store_price());
+        mEtPrice.setText(String.format("%s", flea.getGoods_store_price()));
         mEtTag.setText(flea.getGoods_tag());
         mEtPhone.setText(flea.getFlea_pphone());
         mEtContact.setText(flea.getFlea_pname());

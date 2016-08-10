@@ -30,7 +30,7 @@ public class Flea implements Parcelable {
 
     private String goods_tag;
 
-    private String goods_store_price;
+    private double goods_store_price;
 
     private int goods_show;
 
@@ -81,7 +81,7 @@ public class Flea implements Parcelable {
         dest.writeString(this.goods_image);
         dest.writeTypedList(this.desc_image);
         dest.writeString(this.goods_tag);
-        dest.writeString(this.goods_store_price);
+        dest.writeDouble(this.goods_store_price);
         dest.writeInt(this.goods_show);
         dest.writeInt(this.goods_click);
         dest.writeInt(this.flea_collect_num);
@@ -114,7 +114,7 @@ public class Flea implements Parcelable {
         this.goods_image = in.readString();
         this.desc_image = in.createTypedArrayList(FleaImage.CREATOR);
         this.goods_tag = in.readString();
-        this.goods_store_price = in.readString();
+        this.goods_store_price = in.readDouble();
         this.goods_show = in.readInt();
         this.goods_click = in.readInt();
         this.flea_collect_num = in.readInt();
@@ -225,11 +225,11 @@ public class Flea implements Parcelable {
         this.goods_tag = goods_tag;
     }
 
-    public String getGoods_store_price() {
+    public double getGoods_store_price() {
         return goods_store_price;
     }
 
-    public void setGoods_store_price(String goods_store_price) {
+    public void setGoods_store_price(double goods_store_price) {
         this.goods_store_price = goods_store_price;
     }
 

@@ -16,7 +16,6 @@
         android:id="@+id/dv_goods_thumb"
         android:layout_width="77dp"
         android:layout_height="77dp"
-        android:layout_toRightOf="@id/cb_favorites_edit"
         android:background="@color/bg_window"
         android:padding="1dp"
         app:actualImageScaleType="centerCrop"

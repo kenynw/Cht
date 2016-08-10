@@ -60,12 +60,20 @@ public class FleaAddPresenter extends BaseDataActivityPresenter<FleaAddActivity,
     public void saveFlea(Flea flea) {
         getView().getExpansionDelegate().showProgressBar();
 
-        if (mIsQuotation) flea.setGoods_store_price("0");
+        if (mIsQuotation) flea.setGoods_store_price(0);
         flea.setFlea_area_id(mArea == null ? 0 : mArea.getArea_id());
         flea.setGc_id(mCate != null ? mCate.getGc_id() : 0);
         flea.setGc_name(mCate != null ? mCate.getGc_name().replace(">", " ") : "");
 
-        if (mUriList.size() > 0) {
+        if (mFlea != null) {
+            FleaModel.getInstance().editFlea(mFlea.getGoods_id(), flea, mAreaInfo)
+                    .subscribe(new ServiceResponse<Boolean>() {
+                        @Override
+                        public void onNext(Boolean result) {
+                            getView().finish();
+                        }
+                    });
+        } else if (mUriList.size() > 0) {
             FleaModel.getInstance().uploadImage(mUriList)
                     .doOnError(throwable -> {
                         getView().getExpansionDelegate().hideProgressBar();
@@ -85,7 +93,6 @@ public class FleaAddPresenter extends BaseDataActivityPresenter<FleaAddActivity,
 
         } else {
             FleaModel.getInstance().saveFlea(flea, 0, mAreaInfo)
-                    .compose(new DefaultTransform<>())
                     .subscribe(new ServiceResponse<Integer>() {
                         @Override
                         public void onNext(Integer integer) {

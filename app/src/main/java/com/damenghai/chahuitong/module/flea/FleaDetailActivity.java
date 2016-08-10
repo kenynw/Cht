@@ -130,7 +130,7 @@ public class FleaDetailActivity extends BaseDataActivity<FleaDetailPresenter, Fl
 
         mTvTitle.setText(flea.getGoods_name());
         mTvTime.setText(flea.getGoods_add_time());
-        mTvPrice.setText(flea.getGoods_store_price());
+        mTvPrice.setText(String.format("%s", flea.getGoods_store_price()));
         mTvArea.setText(flea.getFlea_area_name());
         mTvClick.setText(String.format(getString(R.string.text_flea_click), flea.getGoods_click()));
         mTvTag.setText(flea.getGoods_tag().trim());

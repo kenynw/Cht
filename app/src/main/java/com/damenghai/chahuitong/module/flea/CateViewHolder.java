@@ -1,6 +1,5 @@
 package com.damenghai.chahuitong.module.flea;
 
-import android.content.Intent;
 import android.view.ViewGroup;
 import android.widget.TextView;
 

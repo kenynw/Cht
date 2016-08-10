@@ -91,6 +91,15 @@ public class FleaModel {
         ).compose(new DefaultTransform<>());
     }
 
+    public Observable<Boolean> editFlea(int goodsID, Flea flea, String areaInfo) {
+        return ServiceClient.getServices().fleaEdit(
+                LUtils.getPreferences().getString("key", ""),
+                goodsID, flea.getGoods_name(), flea.getGc_id(), flea.getGc_name(),
+                flea.getFlea_pname(), flea.getFlea_area_id(), areaInfo, flea.getFlea_pphone(),
+                flea.getGoods_tag(), flea.getGoods_store_price(), flea.getGoods_body()
+        ).compose(new DefaultTransform<>());
+    }
+
     public Observable<Boolean> delFlea(int goodsId) {
         return ServiceClient.getServices().fleaDel(LUtils.getPreferences().getString("key", ""), goodsId)
                 .compose(new DefaultTransform<>());

@@ -41,19 +41,19 @@ public class DraweePieceView extends PieceView {
         mSimpleDraweeView= new SimpleDraweeView(getContext());
         mSimpleDraweeView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         mSimpleDraweeView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-
-        TextView tv = new TextView(getContext());
-        tv.setText("长按编辑");
-        tv.setGravity(Gravity.CENTER);
-        tv.setBackgroundColor(getContext().getResources().getColor(R.color.text_black_secondary));
-        tv.setTextColor(getContext().getResources().getColor(R.color.white));
-        tv.setPadding(0, 4, 0, 4);
-        LayoutParams tvLayout = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        tvLayout.gravity = Gravity.BOTTOM;
-        tv.setLayoutParams(tvLayout);
-
         layout.addView(mSimpleDraweeView);
-        layout.addView(tv);
+
+//        TextView tv = new TextView(getContext());
+//        tv.setText("长按编辑");
+//        tv.setGravity(Gravity.CENTER);
+//        tv.setBackgroundColor(getContext().getResources().getColor(R.color.text_black_secondary));
+//        tv.setTextColor(getContext().getResources().getColor(R.color.white));
+//        tv.setPadding(0, 4, 0, 4);
+//        LayoutParams tvLayout = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//        tvLayout.gravity = Gravity.BOTTOM;
+//        tv.setLayoutParams(tvLayout);
+//        layout.addView(tv);
+
         addView(layout);
     }
 

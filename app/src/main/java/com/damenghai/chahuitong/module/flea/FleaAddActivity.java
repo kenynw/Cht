@@ -15,9 +15,9 @@ import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.expansion.data.BaseDataActivity;
 import com.damenghai.chahuitong.model.bean.Flea;
 import com.damenghai.chahuitong.model.bean.FleaImage;
+import com.damenghai.chahuitong.utils.ImagePieceView;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.damenghai.chahuitong.utils.DraweePieceView;
-import com.jude.exgridview.ImagePieceView;
 import com.jude.exgridview.PieceViewGroup;
 
 import butterknife.Bind;
@@ -91,7 +91,7 @@ public class FleaAddActivity extends BaseDataActivity<FleaAddPresenter, Flea> {
         mEtTitle.setText(flea.getGoods_name());
         mEtDetail.setText(flea.getGoods_body());
         mBtnCate.setText(flea.getGc_name());
-        mEtPrice.setText(flea.getGoods_store_price());
+        mEtPrice.setText(String.format("%s", flea.getGoods_store_price()));
         mEtTag.setText(flea.getGoods_tag());
         mEtPhone.setText(flea.getFlea_pphone());
         mEtContact.setText(flea.getFlea_pname());
@@ -104,6 +104,9 @@ public class FleaAddActivity extends BaseDataActivity<FleaAddPresenter, Flea> {
                 addImage(Uri.parse(fleaImage.getThumb_small()));
             }
             mPvImage.setOnAskViewListener(() -> LUtils.toast("暂不支持编辑图片"));
+        }
+        if (flea.getGoods_store_price() == 0) {
+            mCbNoPrice.setChecked(true);
         }
     }
 
@@ -122,7 +125,7 @@ public class FleaAddActivity extends BaseDataActivity<FleaAddPresenter, Flea> {
         Flea flea = new Flea();
         flea.setGoods_name(mEtTitle.getText().toString().trim());
         flea.setGoods_body(mEtDetail.getText().toString().trim());
-        flea.setGoods_store_price(mEtPrice.getText().toString().trim());
+        flea.setGoods_store_price(Double.valueOf(mEtPrice.getText().toString().trim()));
         flea.setGoods_tag(mEtTag.getText().toString().trim());
         flea.setFlea_pphone(mEtPhone.getText().toString().trim());
         flea.setFlea_pname(mEtContact.getText().toString().trim());

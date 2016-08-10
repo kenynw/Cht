@@ -771,7 +771,7 @@ public interface Services {
             @Field("goods_file_id") int image_ids,
             @Field("cate_id") int cateId,
             @Field("cate_name") String cateName,
-            @Field("price") String price,
+            @Field("price") double price,
             @Field("goods_tag") String tag,
             @Field("flea_pname") String pName,
             @Field("flea_pphone") String pPhone,
@@ -870,18 +870,18 @@ public interface Services {
      */
     @FormUrlEncoded
     @POST("?act=member_flea&op=edit_goods")
-    Observable<Integer> fleaEdit(
+    Observable<Boolean> fleaEdit(
             @Field("key") String key,
-            @Field("goods_id") int goodsId,
-            @Field("goods_file_id") int imageId,
+            @Field("goods_id") int goodsID,
+            @Field("goods_name") String title,
             @Field("cate_id") int cateId,
             @Field("cate_name") String cateName,
             @Field("flea_pname") String name,
             @Field("area_id") int areaId,
-            @Field("area_info") int areaInfo,
+            @Field("area_info") String areaInfo,
             @Field("flea_pphone") String Phone,
             @Field("goods_tag") String goodsTag,
-            @Field("price") String price,
+            @Field("price") double price,
             @Field("g_body") String body
     );
 

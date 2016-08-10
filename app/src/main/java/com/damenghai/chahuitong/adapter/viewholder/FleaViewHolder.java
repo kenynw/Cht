@@ -49,7 +49,7 @@ public class FleaViewHolder extends BaseViewHolder<Flea> {
         mDvImage.setImageURI(Uri.parse(data.getGoods_image()));
         mTvTitle.setText(data.getGoods_name());
         mTvAbstract.setText(data.getGoods_abstract());
-        mTvPrice.setText(data.getGoods_store_price());
+        mTvPrice.setText(String.format("%s", data.getGoods_store_price()));
         mTvTime.setText(data.getGoods_add_time());
         itemView.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), FleaDetailActivity.class);
