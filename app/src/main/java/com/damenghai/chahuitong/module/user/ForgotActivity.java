@@ -16,22 +16,22 @@ import butterknife.ButterKnife;
 @RequiresPresenter(ForgotPresenter.class)
 public class ForgotActivity extends BeamBaseActivity<ForgotPresenter> {
 
-    @Bind(R.id.et_reset_mobile)
+    @Bind(R.id.et_reset_pwd_mobile)
     EditText mEtMobile;
 
-    @Bind(R.id.et_reset_code)
+    @Bind(R.id.et_reset_pwd_code)
     EditText mEtCode;
 
-    @Bind(R.id.btn_reset_code)
+    @Bind(R.id.btn_reset_pwd_code)
     Button mBtnCode;
 
-    @Bind(R.id.et_reset_password)
+    @Bind(R.id.et_reset_pwd_new)
     EditText mEtPwd;
 
-    @Bind(R.id.et_reset_confirm)
+    @Bind(R.id.et_reset_pwd_confirm)
     EditText mEtConfirm;
 
-    @Bind(R.id.btn_reset_ok)
+    @Bind(R.id.btn_reset_pwd_save)
     Button mBtnCommit;
 
     @Override
@@ -50,7 +50,7 @@ public class ForgotActivity extends BeamBaseActivity<ForgotPresenter> {
             return;
         }
 
-        getPresenter().sendCode(mEtMobile.getText());
+        getPresenter().sendCode(mEtMobile.getText().toString().trim());
     }
 
     private void commit() {
@@ -74,7 +74,11 @@ public class ForgotActivity extends BeamBaseActivity<ForgotPresenter> {
             return;
         }
 
-        getPresenter().commit(mEtMobile.getText(), mEtCode.getText(), mEtPwd.getText());
+        getPresenter().commit(
+                mEtMobile.getText().toString().trim(),
+                mEtCode.getText().toString().trim(),
+                mEtPwd.getText().toString().trim()
+        );
     }
 
 }

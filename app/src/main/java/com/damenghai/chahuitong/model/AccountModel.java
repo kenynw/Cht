@@ -24,8 +24,24 @@ public class AccountModel {
     }
 
     /**
+     * 发送注册验证码
+     * @param mobile 手机号
+     * @param type 类型 0-注册 1-忘记密码
+     */
+    public Observable<Boolean> sendCode(String mobile, int type) {
+        return ServiceClient.getServices().sendCode(mobile, type).compose(new DefaultTransform<>());
+    }
+
+    /**
+     * 发送注册验证码
+     * @param mobile 手机号
+     */
+    public Observable<Boolean> sendAuthCode(String mobile) {
+        return ServiceClient.getServices().sendAuthCode(mobile).compose(new DefaultTransform<>());
+    }
+
+    /**
      * 登录
-     * @return 结果
      */
     public Observable<User> login(String mobile, String password) {
         return ServiceClient.getServices().login(mobile, password, "android").compose(new DefaultTransform<>());
@@ -50,5 +66,18 @@ public class AccountModel {
                 .compose(new DefaultTransform<>());
     }
 
+    /**
+     * 修改密码
+     * @param oldPwd 旧密码
+     * @param newPwd 新密码
+     */
+    public Observable<Boolean> modifyPwd(String oldPwd, String newPwd, String confirmPwd) {
+        return ServiceClient.getServices().modifyPassword(LUtils.getPreferences().getString("key", ""), oldPwd, newPwd, confirmPwd)
+                .compose(new DefaultTransform<>());
+    }
+
+    public Observable<Boolean> forgetPwd(String mobile, String code, String newPwd) {
+        return ServiceClient.getServices().forgetPassword(mobile, code, newPwd).compose(new DefaultTransform<>());
+    }
 
 }

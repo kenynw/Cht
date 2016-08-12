@@ -13,31 +13,31 @@ import com.damenghai.chahuitong.utils.LUtils;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-@RequiresPresenter(ChangePasswordPresenter.class)
-public class ChangePasswordActivity extends BeamBaseActivity<ChangePasswordPresenter> {
+@RequiresPresenter(ModifyPwdPresenter.class)
+public class ModifyPwdActivity extends BeamBaseActivity<ModifyPwdPresenter> {
 
-    @Bind(R.id.et_change_old)
+    @Bind(R.id.et_modify_pwd_old)
     EditText mEtOld;
 
-    @Bind(R.id.et_change_new)
+    @Bind(R.id.et_modify_pwd_new)
     EditText mEtNew;
 
-    @Bind(R.id.et_change_confirm)
+    @Bind(R.id.et_modify_pwd_confirm)
     EditText mEtConfirm;
 
-    @Bind(R.id.btn_change_ok)
-    Button mBtnOk;
+    @Bind(R.id.btn_modify_pwd_save)
+    Button mBtnSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setToolbarTitle(R.string.title_activity_change_password);
-        setContentView(R.layout.setting_activity_change_passwd);
+        setContentView(R.layout.setting_activity_modify_pwd);
+        setToolbarTitle(R.string.title_activity_modify_pwd);
         ButterKnife.bind(this);
-        mBtnOk.setOnClickListener(v -> commit());
+        mBtnSave.setOnClickListener(v -> checkInput());
     }
 
-    private void commit() {
+    private void checkInput() {
         if (TextUtils.isEmpty(mEtOld.getText())) {
             LUtils.toastLong(R.string.toast_old_password);
             return;
@@ -53,7 +53,11 @@ public class ChangePasswordActivity extends BeamBaseActivity<ChangePasswordPrese
             return;
         }
 
-        getPresenter().changePassword(mEtOld.getText(), mEtNew.getText());
+        getPresenter().commit(
+                mEtOld.getText().toString().trim(),
+                mEtNew.getText().toString().trim(),
+                mEtConfirm.getText().toString().trim()
+        );
     }
 
 }

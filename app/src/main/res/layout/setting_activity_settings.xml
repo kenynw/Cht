@@ -17,6 +17,18 @@
         >
 
         <Button
+            android:id="@+id/btn_setting_modify"
+            style="@style/ListItemDetailButton"
+            android:drawableRight="@mipmap/ic_arrow_more"
+            android:text="@string/btn_modify_password"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/div_gray"/>
+
+        <Button
             android:id="@+id/btn_setting_feedback"
             style="@style/ListItemDetailButton"
             android:drawableRight="@mipmap/ic_arrow_more"
@@ -26,7 +38,6 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_vetical_bottom_divider"
             >
 
             <View
@@ -59,6 +70,11 @@
                 />
 
         </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/div_gray"/>
 
         <FrameLayout
             android:layout_width="match_parent"

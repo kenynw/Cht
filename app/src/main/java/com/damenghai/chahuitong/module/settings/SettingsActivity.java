@@ -19,6 +19,9 @@ import butterknife.ButterKnife;
 @RequiresPresenter(SettingPresenter.class)
 public class SettingsActivity extends BeamBaseActivity<SettingPresenter> {
 
+    @Bind(R.id.btn_setting_modify)
+    Button mBtnModify;
+
     @Bind(R.id.btn_setting_feedback)
     Button mBtnFeedback;
 
@@ -47,6 +50,7 @@ public class SettingsActivity extends BeamBaseActivity<SettingPresenter> {
         setToolbarTitle(R.string.title_activity_settings);
         ButterKnife.bind(this);
 
+        mBtnModify.setOnClickListener(v -> getPresenter().showModify());
         mBtnFeedback.setOnClickListener(v -> getPresenter().showFeedback());
         mBtnAbout.setOnClickListener(v -> getPresenter().showAboutUs());
         mBtnCache.setOnClickListener(v -> getPresenter().clearCache());

@@ -8,7 +8,6 @@ import android.os.Bundle;
 import com.damenghai.chahuitong.bijection.Presenter;
 import com.damenghai.chahuitong.config.Config;
 import com.damenghai.chahuitong.model.AccountModel;
-import com.damenghai.chahuitong.model.UserModel;
 import com.damenghai.chahuitong.model.bean.User;
 import com.damenghai.chahuitong.model.service.DefaultTransform;
 import com.damenghai.chahuitong.model.service.ServiceClient;
@@ -39,7 +38,6 @@ public class LoginPresenter extends Presenter<LoginActivity> implements UMAuthLi
                 .subscribe(new ServiceResponse<User>(){
                     @Override
                     public void onNext(User user) {
-                        super.onNext(user);
                         SharedPreferences.Editor editor = LUtils.getPreferences().edit();
                         editor.putString("mobile", username);
                         editor.putString("key", user.getKey());

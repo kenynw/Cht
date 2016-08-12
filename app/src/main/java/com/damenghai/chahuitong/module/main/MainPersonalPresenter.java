@@ -1,15 +1,11 @@
 package com.damenghai.chahuitong.module.main;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.text.TextUtils;
 
-import com.damenghai.chahuitong.config.API;
 import com.damenghai.chahuitong.expansion.data.BaseDataFragmentPresenter;
 import com.damenghai.chahuitong.model.UserModel;
 import com.damenghai.chahuitong.model.bean.User;
-import com.damenghai.chahuitong.model.service.DefaultTransform;
-import com.damenghai.chahuitong.model.service.ServiceClient;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.module.order.OrderListActivity;
 import com.damenghai.chahuitong.module.user.LoginActivity;
@@ -52,7 +48,6 @@ public class MainPersonalPresenter extends BaseDataFragmentPresenter<MainPersona
     protected void onResult(int requestCode, int resultCode, Intent data) {
         super.onResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE) {
-            LUtils.toast("login");
             UserModel.getInstance().getUserInfo().unsafeSubscribe(new ServiceResponse<User>() {
                 @Override
                 public void onNext(User user) {

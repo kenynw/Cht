@@ -3,8 +3,6 @@ package com.damenghai.chahuitong.module.main;
 import android.content.Intent;
 import android.text.TextUtils;
 
-import com.damenghai.chahuitong.bijection.Presenter;
-import com.damenghai.chahuitong.expansion.data.BaseDataActivityPresenter;
 import com.damenghai.chahuitong.expansion.data.BaseDataFragmentPresenter;
 import com.damenghai.chahuitong.model.bean.MessageCount;
 import com.damenghai.chahuitong.model.service.DefaultTransform;

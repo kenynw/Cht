@@ -1,12 +1,10 @@
 package com.damenghai.chahuitong.module.trace;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.widget.EditText;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.adapter.TraceCommentAdapter;
@@ -19,14 +17,11 @@ import com.damenghai.chahuitong.model.bean.TraceComment;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.module.common.ImageBrowseActivity;
 import com.damenghai.chahuitong.module.user.UserInfoActivity;
-import com.damenghai.chahuitong.utils.DialogFactory;
-import com.damenghai.chahuitong.utils.LUtils;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMImage;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 /**

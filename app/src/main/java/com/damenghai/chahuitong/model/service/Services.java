@@ -76,7 +76,7 @@ public interface Services {
 
     // 限时抢购
     @FormUrlEncoded
-    @POST("?act=xianshi_goods&op=current_list")
+    @POST("?act=goods_xianshi&op=current_list")
     Observable<BeanList<Bargain>> bargainList(
             @Field("page") int page
     );
@@ -133,8 +133,24 @@ public interface Services {
     @FormUrlEncoded
     @POST("?act=login")
     Observable<User> login(
-            @Field("username") String username,
+            @Field("usermobile") String username,
             @Field("password") String password,
+            @Field("client") String client
+    );
+
+    @FormUrlEncoded
+    @POST("?act=login&op=send_code")
+    Observable<Boolean> sendCode(
+            @Field("mobile") CharSequence mobile,
+            @Field("type") int type
+    );
+
+    @FormUrlEncoded
+    @POST("?act=login&op=register")
+    Observable<User> register(
+            @Field("mobile") String mobile,
+            @Field("password") String password,
+            @Field("code") String code,
             @Field("client") String client
     );
 
@@ -155,22 +171,36 @@ public interface Services {
             @Field("openid") String openid
     );
 
-    @FormUrlEncoded
-    @POST("?act=login&op=register_api")
-    Observable<User> register(
-            @Field("mobile") String mobile,
-            @Field("password") String password,
-            @Field("verificode") String code,
-            @Field("client") String client
-    );
+    //--------------------------密码--------------------------
 
+    /**
+     * 用于身份验证发送验证码
+     * @param mobile 手机号
+     * @return 是否成功
+     */
     @FormUrlEncoded
-    @POST("?act=login&op=send_sms")
-    Observable<Response> sendCaptcha(
+    @POST("?act=member_security&op=send_auth_code")
+    Observable<Boolean> sendAuthCode(
             @Field("mobile") CharSequence mobile
     );
 
-    //--------------------------密码--------------------------
+    /**
+     * 更改密码
+     * @param key 登录令牌
+     * @param oldPwd 旧密码
+     * @param newPwd 新密码
+     * @param confirmPwd 确认密码
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("?act=member_security&op=modify_pwd")
+    Observable<Boolean> modifyPassword(
+            @Field("key") String key,
+            @Field("old_pwd") CharSequence oldPwd,
+            @Field("new_pwd") CharSequence newPwd,
+            @Field("confirm_pwd") CharSequence confirmPwd
+    );
+
     /**
      * 忘记密码
      * @param mobile 用户手机号
@@ -179,20 +209,11 @@ public interface Services {
      * @return
      */
     @FormUrlEncoded
-    @POST("?act=login&op=change_pwd")
-    Observable<Response> resetPassword(
+    @POST("?act=login&op=forget_password")
+    Observable<Boolean> forgetPassword(
             @Field("mobile") CharSequence mobile,
-            @Field("verificode") CharSequence code,
-            @Field("newpwd") CharSequence newPwd
-    );
-
-    // 更改密码
-    @FormUrlEncoded
-    @POST("?act=member_index&op=update_member_pwd")
-    Observable<Response> changePassword(
-            @Field("key") String key,
-            @Field("oldpwd") CharSequence oldPwd,
-            @Field("newpwd") CharSequence newPwd
+            @Field("code") CharSequence code,
+            @Field("new_pwd") CharSequence newPwd
     );
 
     //--------------------------用户信息--------------------------

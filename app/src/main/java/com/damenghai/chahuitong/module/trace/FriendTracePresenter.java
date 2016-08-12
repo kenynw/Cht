@@ -6,11 +6,8 @@ import android.view.View;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.expansion.list.BaseListFragmentPresenter;
-import com.damenghai.chahuitong.model.bean.BeanList;
 import com.damenghai.chahuitong.model.bean.Trace;
 import com.damenghai.chahuitong.model.TraceModel;
-import com.damenghai.chahuitong.model.service.ServiceException;
-import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.module.user.LoginActivity;
 import com.damenghai.chahuitong.utils.LUtils;
 

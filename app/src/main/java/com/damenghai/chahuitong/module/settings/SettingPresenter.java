@@ -10,7 +10,6 @@ import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.module.main.MainActivity;
 import com.damenghai.chahuitong.module.personal.FeedbackActivity;
 import com.damenghai.chahuitong.utils.DataCleanManager;
-import com.damenghai.chahuitong.utils.DialogFactory;
 import com.damenghai.chahuitong.utils.LUtils;
 
 /**
@@ -30,6 +29,11 @@ public class SettingPresenter extends Presenter<SettingsActivity> {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void showModify() {
+        Intent i = new Intent(getView(), ModifyPwdActivity.class);
+        getView().startActivity(i);
     }
 
     public void showFeedback() {

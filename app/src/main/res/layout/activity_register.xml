@@ -7,34 +7,31 @@
     android:orientation="vertical"
     tools:context=".module.user.RegisterActivity">
 
-    <include layout="@layout/include_toolbar" />
+    <include layout="@layout/include_toolbar"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/widget_medium_height"
-        android:orientation="horizontal"
         android:background="@color/white"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal"
         >
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/LabelSecondaryMedium"
             android:text="@string/label_mobile_number"
-            style="@style/TextBody"
             />
 
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/et_register_mobile"
             android:layout_width="match_parent"
             android:layout_height="@dimen/widget_medium_height"
-            android:hint="@string/hint_mobile_number"
-            android:textColorHint="@color/text_hint"
-            android:textSize="@dimen/text_size_body_material"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:background="@color/white"
             android:drawablePadding="@dimen/text_margin"
-            android:paddingLeft="8dp"
-            android:singleLine="true"
+            android:hint="@string/hint_mobile_number"
+            android:inputType="phone"
+            android:textColorHint="@color/text_hint"
+            android:textSize="@dimen/text_size_body_material"
             />
 
     </LinearLayout>
@@ -42,49 +39,49 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/div_gray"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="8dp"
+        android:background="@color/div_gray"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/widget_medium_height"
-        android:orientation="horizontal"
         android:background="@color/white"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal"
         >
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/label_captcha"
-            style="@style/TextBody"
+            style="@style/LabelSecondaryMedium"
+            android:text="@string/label_code"
             />
 
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/et_register_captcha"
             android:layout_width="0dp"
             android:layout_height="@dimen/widget_medium_height"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_weight="1"
-            android:textColorHint="@color/text_hint"
-            android:textSize="@dimen/text_size_body_material"
             android:background="@color/white"
             android:drawablePadding="@dimen/text_margin"
-            android:paddingLeft="8dp"
-            android:singleLine="true"
+            android:ems="6"
+            android:hint="@string/hint_captcha"
             android:inputType="number"
             android:maxLength="6"
-            android:hint="@string/hint_captcha"
+            android:singleLine="true"
+            android:textColorHint="@color/text_hint"
+            android:textSize="@dimen/text_size_body_material"
             />
 
         <Button
             android:id="@+id/btn_register_caption"
+            style="@style/ButtonCaptionBorderless"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:background="@drawable/btn_rectangle_divider_bg_white_stroke"
             android:text="@string/btn_send_code"
-            style="@style/TextCaption"
             />
 
     </LinearLayout>
@@ -92,39 +89,33 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/div_gray"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="8dp"
+        android:background="@color/div_gray"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/widget_medium_height"
-        android:orientation="horizontal"
         android:background="@color/white"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal"
         >
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/LabelSecondaryMedium"
             android:text="@string/label_password"
-            style="@style/TextBody"
             />
 
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/et_register_password"
             android:layout_width="match_parent"
             android:layout_height="@dimen/widget_medium_height"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:background="@color/white"
             android:hint="@string/hint_password"
+            android:inputType="textPassword"
             android:textColorHint="@color/text_hint"
             android:textSize="@dimen/text_size_body_material"
-            android:background="@color/white"
-            android:drawablePadding="@dimen/text_margin"
-            android:paddingLeft="8dp"
-            android:singleLine="true"
-            android:inputType="textPassword"
             />
 
     </LinearLayout>
@@ -138,18 +129,16 @@
         android:text="@string/btn_register"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_subhead_material"
-        android:onClick="toRegister"
         />
 
     <Button
         android:id="@+id/btn_register_feedback"
+        style="@style/ButtonBorderlessColored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/ButtonBorderlessColored"
+        android:layout_gravity="right"
         android:text="@string/btn_login_feedback"
         android:textColor="@color/text_black_secondary"
-        android:layout_gravity="right"
-        android:onClick="toFeedback"
         />
 
 </LinearLayout>

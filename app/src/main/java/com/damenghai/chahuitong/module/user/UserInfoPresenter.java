@@ -11,12 +11,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.adapter.TraceAdapter;
 import com.damenghai.chahuitong.expansion.list.BaseListActivityPresenter;
 import com.damenghai.chahuitong.model.FriendModel;
 import com.damenghai.chahuitong.model.TraceModel;
 import com.damenghai.chahuitong.model.UserModel;
-import com.damenghai.chahuitong.model.bean.BeanList;
 import com.damenghai.chahuitong.model.bean.People;
 import com.damenghai.chahuitong.model.bean.Trace;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
@@ -28,8 +26,6 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import rx.Observable;
-import rx.functions.Func1;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.

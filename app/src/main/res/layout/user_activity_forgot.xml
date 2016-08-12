@@ -12,17 +12,24 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:background="@color/white"
-        android:padding="@dimen/activity_horizontal_margin"
         >
 
+        <TextView
+            android:id="@+id/tv_reset_pwd_mobile"
+            style="@style/LabelSecondaryMedium"
+            android:text="@string/label_mobile_number"
+            />
+
         <EditText
-            android:id="@+id/et_reset_mobile"
+            android:id="@+id/et_reset_pwd_mobile"
             style="@style/TextBody"
             android:layout_width="match_parent"
             android:layout_height="@dimen/widget_medium_height"
-            android:drawableLeft="@mipmap/ic_input_mobile"
-            android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_toRightOf="@id/tv_reset_pwd_mobile"
+            android:background="@color/white"
             android:ems="10"
             android:hint="@string/hint_mobile_number"
             android:inputType="phone"
@@ -30,81 +37,108 @@
             android:textColorHint="@color/text_hint"
             />
 
+        <TextView
+            android:id="@+id/tv_reset_pwd_code"
+            style="@style/LabelSecondaryMedium"
+            android:layout_below="@id/tv_reset_pwd_mobile"
+            android:text="@string/label_code"
+            />
+
         <EditText
-            android:id="@+id/et_reset_code"
+            android:id="@+id/et_reset_pwd_code"
             style="@style/TextBody"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/widget_medium_height"
-            android:layout_below="@id/et_reset_mobile"
-            android:drawableLeft="@mipmap/ic_input_code"
-            android:drawablePadding="@dimen/activity_horizontal_margin"
-            android:ems="10"
+            android:layout_below="@id/et_reset_pwd_mobile"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_toRightOf="@id/tv_reset_pwd_code"
+            android:background="@color/white"
+            android:ems="6"
             android:hint="@string/hint_captcha"
             android:inputType="number"
             android:maxLength="6"
             android:textColorHint="@color/text_hint"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/et_reset_pwd_mobile"
+            android:background="@color/div_gray"
+            />
+
         <Button
-            android:id="@+id/btn_reset_code"
+            android:id="@+id/btn_reset_pwd_code"
             android:layout_width="80dp"
             android:layout_height="32dp"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_below="@+id/et_reset_mobile"
-            android:background="@color/colorPrimaryLight"
+            android:layout_below="@+id/et_reset_pwd_mobile"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/btn_radius_primary2dark_selector"
             android:text="@string/btn_send_code"
             android:textColor="@color/white"
-            android:textSize="@dimen/text_size_body_material"
+            android:textSize="@dimen/text_size_caption_material"
             />
 
         <TextView
-            android:id="@+id/tv_reset_pwd"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/widget_medium_height"
-            android:layout_below="@id/et_reset_code"
-            android:gravity="center"
-            android:text="@string/label_new_password"
+            android:id="@+id/tv_reset_pwd_new"
+            style="@style/LabelSecondaryMedium"
+            android:layout_below="@id/et_reset_pwd_code"
+            android:text="@string/label_pwd_new"
             />
 
         <EditText
-            android:id="@+id/et_reset_password"
+            android:id="@+id/et_reset_pwd_new"
             style="@style/TextBody"
             android:layout_width="match_parent"
             android:layout_height="@dimen/widget_medium_height"
-            android:layout_below="@id/et_reset_code"
-            android:layout_toRightOf="@id/tv_reset_pwd"
-            android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:layout_below="@id/et_reset_pwd_code"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_toRightOf="@id/tv_reset_pwd_new"
+            android:background="@color/white"
             android:ems="10"
             android:hint="@string/hint_password"
             android:inputType="textPassword"
             android:textColorHint="@color/text_hint"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/et_reset_pwd_code"
+            android:background="@color/div_gray"
+            />
+
         <TextView
-            android:id="@+id/tv_reset_confirm"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/widget_medium_height"
-            android:layout_below="@id/tv_reset_pwd"
-            android:gravity="center"
-            android:text="@string/label_password_confirm"
+            android:id="@+id/tv_reset_pwd_confirm"
+            style="@style/LabelSecondaryMedium"
+            android:layout_below="@id/tv_reset_pwd_new"
+            android:text="@string/label_pwd_confirm"
             />
 
         <EditText
-            android:id="@+id/et_reset_confirm"
+            android:id="@+id/et_reset_pwd_confirm"
             style="@style/TextBody"
             android:layout_width="match_parent"
             android:layout_height="@dimen/widget_medium_height"
-            android:layout_below="@id/et_reset_password"
-            android:layout_toRightOf="@id/tv_reset_confirm"
-            android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:layout_below="@id/et_reset_pwd_new"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_toRightOf="@id/tv_reset_pwd_confirm"
+            android:background="@color/white"
             android:ems="10"
             android:hint="@string/hint_confirm_password"
             android:inputType="textPassword"
             android:textColorHint="@color/text_hint"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/et_reset_pwd_new"
+            android:background="@color/div_gray"
+            />
+
     </RelativeLayout>
 
     <Button
-        android:id="@+id/btn_reset_ok"
+        android:id="@+id/btn_reset_pwd_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_vertical_margin"
@@ -112,6 +146,5 @@
         android:text="@string/btn_ok"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_subhead_material"/>
-
 
 </LinearLayout>

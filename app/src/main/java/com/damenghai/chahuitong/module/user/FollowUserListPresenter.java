@@ -5,7 +5,6 @@ import android.os.Bundle;
 import com.damenghai.chahuitong.expansion.list.BaseListActivityPresenter;
 import com.damenghai.chahuitong.model.UserModel;
 import com.damenghai.chahuitong.model.bean.User;
-import com.damenghai.chahuitong.utils.LUtils;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.

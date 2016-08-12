@@ -17,7 +17,6 @@ import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import rx.Subscriber;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.

@@ -9,7 +9,6 @@ import android.widget.CompoundButton;
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.adapter.FleaConsultAdapter;
 import com.damenghai.chahuitong.expansion.data.BaseDataActivityPresenter;
-import com.damenghai.chahuitong.expansion.list.BaseListActivityPresenter;
 import com.damenghai.chahuitong.model.FleaModel;
 import com.damenghai.chahuitong.model.bean.BeanList;
 import com.damenghai.chahuitong.model.bean.Consult;
@@ -17,8 +16,6 @@ import com.damenghai.chahuitong.model.bean.Flea;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.module.user.UserInfoActivity;
 import com.damenghai.chahuitong.utils.LUtils;
-import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
-import com.tencent.connect.UserInfo;
 
 import java.util.List;
 

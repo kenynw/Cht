@@ -2,7 +2,6 @@ package com.damenghai.chahuitong.module.main;
 
 import android.content.Intent;
 
-import com.damenghai.chahuitong.bijection.Presenter;
 import com.damenghai.chahuitong.expansion.data.BaseDataActivityPresenter;
 import com.damenghai.chahuitong.model.GoodsModel;
 import com.damenghai.chahuitong.module.goods.GoodsListActivity;

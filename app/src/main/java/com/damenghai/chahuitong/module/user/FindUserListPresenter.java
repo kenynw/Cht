@@ -2,11 +2,9 @@ package com.damenghai.chahuitong.module.user;
 
 import android.text.TextUtils;
 
-import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.expansion.list.BaseListActivityPresenter;
 import com.damenghai.chahuitong.model.FriendModel;
 import com.damenghai.chahuitong.model.bean.User;
-import com.damenghai.chahuitong.model.service.ServiceClient;
 import com.damenghai.chahuitong.utils.LUtils;
 
 /**

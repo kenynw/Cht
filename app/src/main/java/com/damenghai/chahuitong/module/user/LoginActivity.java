@@ -9,9 +9,7 @@ import android.widget.EditText;
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.bijection.BeamBaseActivity;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
-import com.damenghai.chahuitong.model.bean.Account;
 import com.damenghai.chahuitong.utils.LUtils;
-import com.damenghai.chahuitong.module.main.MainActivity;
 import com.damenghai.chahuitong.module.personal.FeedbackActivity;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 
