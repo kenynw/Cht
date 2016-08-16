@@ -45,8 +45,6 @@ public class WebViewActivity extends BaseActivity {
 
         mUrl = getIntent().getStringExtra("url");
 
-        LUtils.log(mUrl);
-
         handleIntent();
 
 		initWebView();

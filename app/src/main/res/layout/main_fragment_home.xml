@@ -85,119 +85,32 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="80dp"
                     android:background="@color/white"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    android:paddingBottom="8dp"
-                    android:paddingLeft="@dimen/activity_horizontal_margin"
-                    android:paddingRight="@dimen/activity_horizontal_margin"
-                    android:paddingTop="12dp"
                     >
 
-                    <LinearLayout
-                        android:id="@+id/ll_home_sample"
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/dv_home_special_1"
                         android:layout_width="0dp"
-                        android:layout_height="64dp"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        >
-
-                        <com.facebook.drawee.view.SimpleDraweeView
-                            android:id="@+id/dv_home_sample"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginRight="8dp"
-                            android:layout_weight="1"
-                            app:actualImageScaleType="centerCrop"
-                            app:placeholderImage="@mipmap/def_image_loading"
-                            />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="right"
-                            android:orientation="vertical"
-                            >
-
-                            <TextView
-                                style="@style/TextBody"
-                                android:layout_width="wrap_content"
-                                android:layout_height="20dp"
-                                android:maxLength="6"
-                                android:text="@string/label_home_free"
-                                />
-
-                            <TextView
-                                style="@style/TextCaption"
-                                android:layout_width="wrap_content"
-                                android:layout_height="30dp"
-                                android:layout_marginTop="12dp"
-                                android:background="@drawable/btn_rectangle_divider_bg_white_stroke"
-                                android:gravity="center"
-                                android:minWidth="60dp"
-                                android:text="@string/btn_home_apply"
-                                />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="1dp"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                        android:layout_marginRight="8dp"
-                        android:background="@color/div_gray"
+                        android:layout_weight="1"
+                        app:actualImageScaleType="centerCrop"
+                        app:placeholderImage="@mipmap/def_image_loading"
+                        app:placeholderImageScaleType="centerCrop"
                         />
 
-                    <LinearLayout
-                        android:id="@+id/ll_home_bargain"
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/dv_home_special_2"
                         android:layout_width="0dp"
-                        android:layout_height="64dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:orientation="horizontal"
-                        >
-
-                        <com.facebook.drawee.view.SimpleDraweeView
-                            android:id="@+id/dv_home_bargain"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginRight="8dp"
-                            android:layout_weight="1"
-                            android:padding="1dp"
-                            app:actualImageScaleType="centerCrop"
-                            app:placeholderImage="@mipmap/def_image_loading"
-                            />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="68dp"
-                            android:gravity="right"
-                            android:orientation="vertical"
-                            >
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="19dp"
-                                android:minWidth="84dp"
-                                android:src="@mipmap/ic_bargain_timer"
-                                />
-
-                            <TextView
-                                style="@style/TextCaption"
-                                android:layout_width="wrap_content"
-                                android:layout_height="30dp"
-                                android:layout_marginTop="12dp"
-                                android:background="@drawable/btn_rectangle_divider_bg_white_stroke"
-                                android:gravity="center"
-                                android:minWidth="60dp"
-                                android:text="@string/btn_home_buy"
-                                />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
+                        android:scaleType="centerCrop"
+                        app:actualImageScaleType="centerCrop"
+                        app:placeholderImage="@mipmap/def_image_loading"
+                        app:placeholderImageScaleType="centerCrop"
+                        />
 
                 </LinearLayout>
 
@@ -326,10 +239,10 @@
                     style="@style/ButtonBorderless"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/widget_medium_height"
+                    android:layout_gravity="center_horizontal"
                     android:gravity="center"
                     android:text="查看所有茶品"
                     android:textColor="@color/text_black_secondary"
-                    android:layout_gravity="center_horizontal"
                     />
 
             </LinearLayout>

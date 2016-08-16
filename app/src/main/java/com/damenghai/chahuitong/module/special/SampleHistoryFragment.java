@@ -13,6 +13,9 @@ import java.util.List;
  */
 public class SampleHistoryFragment extends BaseListFragment implements SampleListMvpView {
 
+//    1.重写首页
+//    2.重写茶样功能页面，可能会去掉
+
     private SampleListPresenter mSamplePresenter = new SampleListPresenter();;
 
     public SampleHistoryFragment() {

@@ -3,6 +3,7 @@ package com.damenghai.chahuitong.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.annotation.LayoutRes;
 import android.support.v7.widget.RecyclerView;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -16,6 +17,8 @@ import android.widget.TextView;
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.model.bean.Goods;
 import com.damenghai.chahuitong.module.goods.GoodsDetailActivity;
+import com.jude.easyrecyclerview.adapter.BaseViewHolder;
+import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
 import java.util.List;
 
@@ -25,70 +28,49 @@ import butterknife.ButterKnife;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class GalleyAdapter extends RecyclerView.Adapter<GalleyAdapter.ViewHolder> {
+public class GalleyAdapter extends RecyclerArrayAdapter<Goods> {
 
-    private Context mContext;
-
-    private List<Goods> mData;
-
-    public GalleyAdapter(Context context, List<Goods> data) {
-        mContext = context;
-        mData = data;
+    public GalleyAdapter(Context context, List<Goods> objects) {
+        super(context, objects);
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = View.inflate(mContext, R.layout.item_galley_goods, null);
-        ViewHolder holder = new ViewHolder(view);
-
-        // 重新设置图片尺寸
-        int itemHeight = parent.getHeight() - parent.getPaddingTop() - parent.getPaddingBottom();
-        int imageSize = (int) (itemHeight / 1.43);
-        int itemWidth = (int) (itemHeight / 1.43 + view.getPaddingRight() + view.getPaddingLeft());
-        holder.mDvImage.setLayoutParams(new LinearLayout.LayoutParams(imageSize, imageSize));
-        view.setLayoutParams(new LinearLayout.LayoutParams(itemWidth, itemHeight));
-
-        return holder;
+    public BaseViewHolder OnCreateViewHolder(ViewGroup parent, int viewType) {
+        return new ViewHolder(parent);
     }
 
-    @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        final Goods goods = mData.get(position);
-
-        holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(mContext, GoodsDetailActivity.class);
-            intent.putExtra("goods_id", goods.getGoods_id());
-            mContext.startActivity(intent);
-        });
-
-        String scoreLabel = mContext.getResources().getString(R.string.label_recommend_score);
-        SpannableString spanText = new SpannableString(scoreLabel + goods.getRecommend_score() + "分");
-        spanText.setSpan(new ForegroundColorSpan(mContext.getResources().getColor(R.color.colorAccent)),
-                scoreLabel.length(), spanText.length() - 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-        holder.mDvImage.setImageURI(Uri.parse(goods.getGoods_image_url()));
-        holder.mTvName.setText(goods.getGoods_name());
-        holder.mTvScore.setText(spanText);
-    }
-
-    @Override
-    public int getItemCount() {
-        return mData.size();
-    }
-
-    static class ViewHolder extends RecyclerView.ViewHolder {
+    static class ViewHolder extends BaseViewHolder<Goods> {
         @Bind(R.id.item_galley_img)
         ImageView mDvImage;
 
         @Bind(R.id.item_galley_name)
         TextView mTvName;
 
-        @Bind(R.id.item_galley_score)
-        TextView mTvScore;
+        @Bind(R.id.item_galley_price)
+        TextView mTvPrice;
 
-        public ViewHolder(View itemView) {
-            super(itemView);
+        public ViewHolder(ViewGroup parent) {
+            super(parent, R.layout.item_galley_goods);
             ButterKnife.bind(this, itemView);
+
+            // 重新设置图片尺寸
+            int itemHeight = parent.getHeight() - parent.getPaddingTop() - parent.getPaddingBottom();
+            int itemWidth = (int) (itemHeight / 1.43 + itemView.getPaddingRight() + itemView.getPaddingLeft());
+            mDvImage.setLayoutParams(new LinearLayout.LayoutParams((int) (itemHeight / 1.43), (int) (itemHeight / 1.43)));
+            itemView.setLayoutParams(new LinearLayout.LayoutParams(itemWidth, itemHeight));
+        }
+
+        @Override
+        public void setData(Goods goods) {
+            itemView.setOnClickListener(v -> {
+                Intent intent = new Intent(getContext(), GoodsDetailActivity.class);
+                intent.putExtra("goods_id", goods.getGoods_id());
+                getContext().startActivity(intent);
+            });
+
+            mDvImage.setImageURI(Uri.parse(goods.getGoods_image()));
+            mTvName.setText(goods.getGoods_name());
+            mTvPrice.setText(String.format(getContext().getString(R.string.text_rmb), goods.getGoods_promotion_price()));
         }
     }
 

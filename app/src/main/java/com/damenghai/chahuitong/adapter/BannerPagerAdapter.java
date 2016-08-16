@@ -8,8 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.damenghai.chahuitong.model.bean.Banner;
+import com.damenghai.chahuitong.model.bean.SpecialItem;
 import com.damenghai.chahuitong.module.common.WebViewActivity;
+import com.damenghai.chahuitong.module.goods.GoodsListActivity;
+import com.damenghai.chahuitong.utils.LUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,11 +25,11 @@ public class BannerPagerAdapter extends PagerAdapter {
 
     private Context mContext;
 
-    private List<Banner> mList;
+    private List<SpecialItem> mList;
 
     private List<View> mViews;
 
-    public BannerPagerAdapter(Context context, List<Banner> list) {
+    public BannerPagerAdapter(Context context, List<SpecialItem> list) {
         this.mContext = context;
         this.mList = list;
         mViews = new ArrayList<>();
@@ -33,13 +37,33 @@ public class BannerPagerAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        final Banner banner = mList.get(position);
+        final SpecialItem item = mList.get(position);
 
         SimpleDraweeView dv = new SimpleDraweeView(mContext);
-        dv.setImageURI(Uri.parse(banner.getImage()));
+        dv.setImageURI(Uri.parse(item.getImage()));
         dv.setOnClickListener(v -> {
-            Intent intent = new Intent(mContext, WebViewActivity.class);
-            intent.putExtra("url", banner.getLink());
+            Intent intent = new Intent();
+            switch (item.getType()) {
+                case "url" :
+                    if (item.getData().startsWith("http://") || item.getData().startsWith("https://")) {
+                        intent.setClass(mContext, WebViewActivity.class);
+                        intent.putExtra("url", item.getData());
+                    } else {
+                        intent.setAction("android.intent.action.VIEW");
+                        intent.setData(Uri.parse(item.getData()));
+                    }
+                    break;
+                case "keyword" :
+                    intent.setClass(mContext, GoodsListActivity.class);
+                    intent.putExtra("keyword", item.getData());
+                    break;
+                case "special" :
+
+                    break;
+                default :
+
+                    break;
+            }
             mContext.startActivity(intent);
         });
 

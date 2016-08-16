@@ -5,14 +5,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -24,12 +21,10 @@ import com.damenghai.chahuitong.adapter.GalleyAdapter;
 import com.damenghai.chahuitong.adapter.GoodsRecycleGridAdapter;
 import com.damenghai.chahuitong.bijection.BeamFragment;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
-import com.damenghai.chahuitong.model.bean.Home;
-import com.damenghai.chahuitong.module.special.BargainActivity;
-import com.damenghai.chahuitong.module.special.SampleActivity;
-import com.damenghai.chahuitong.widget.CirclePageIndicator;
 import com.damenghai.chahuitong.expansion.list.DividerGridItemDecoration;
 import com.damenghai.chahuitong.expansion.list.DividerItemDecoration;
+import com.damenghai.chahuitong.model.bean.Home;
+import com.damenghai.chahuitong.widget.CirclePageIndicator;
 import com.damenghai.chahuitong.widget.GalleyLinearLayout;
 import com.damenghai.chahuitong.widget.HeadViewPager;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -59,17 +54,11 @@ public class MainHomeFragment extends BeamFragment<MainHomePresenter> {
     @Bind(R.id.home_indicator)
     CirclePageIndicator mIndicator;
 
-    @Bind(R.id.dv_home_sample)
-    SimpleDraweeView mDvSample;
+    @Bind(R.id.dv_home_special_1)
+    SimpleDraweeView mDvSpecial1;
 
-    @Bind(R.id.ll_home_sample)
-    LinearLayout mLayoutSample;
-
-    @Bind(R.id.dv_home_bargain)
-    SimpleDraweeView mDvBargain;
-
-    @Bind(R.id.ll_home_bargain)
-    LinearLayout mLayoutBargain;
+    @Bind(R.id.dv_home_special_2)
+    SimpleDraweeView mDvSpecial2;
 
     @Bind(R.id.ll_home_commend)
     LinearLayout mLayoutCommend;
@@ -113,17 +102,16 @@ public class MainHomeFragment extends BeamFragment<MainHomePresenter> {
     }
 
     public void setData(Home home) {
-        mViewPager.setAdapter(new BannerPagerAdapter(getActivity(), home.getAdds()));
+        mViewPager.setAdapter(new BannerPagerAdapter(getActivity(), home.getAdv_list()));
         mIndicator.setViewPager(mViewPager);
 
-        mDvSample.setImageURI(Uri.parse(home.getSample_image()));
-        mDvBargain.setImageURI(Uri.parse(home.getXianshi().getGoods_image_url()));
+        mDvSpecial1.setImageURI(Uri.parse(home.getHome3().get(0).getImage()));
+        mDvSpecial1.setOnClickListener(v -> getPresenter().itemClick(home.getHome3().get(0)));
+        mDvSpecial2.setImageURI(Uri.parse(home.getHome3().get(1).getImage()));
+        mDvSpecial2.setOnClickListener(v -> getPresenter().itemClick(home.getHome3().get(1)));
 
-        mRvGalley.setAdapter(new GalleyAdapter(getActivity(), home.getTasters_list()));
+        mRvGalley.setAdapter(new GalleyAdapter(getActivity(), home.getGoods()));
         mRvGuess.setAdapter(new GoodsRecycleGridAdapter(getActivity(), home.getGuess_list()));
-
-        mLayoutSample.setOnClickListener(v -> startActivity(new Intent(getActivity(), SampleActivity.class)));
-        mLayoutBargain.setOnClickListener(v -> startActivity(new Intent(getActivity(), BargainActivity.class)));
     }
 
     public void startRefresh() {

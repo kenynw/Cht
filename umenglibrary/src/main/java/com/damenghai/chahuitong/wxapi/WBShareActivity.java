@@ -1,4 +1,4 @@
-package com.damenghai.chahuitong.module.third;
+package com.damenghai.chahuitong.wxapi;
 
 import com.umeng.socialize.media.WBShareCallBackActivity;
 

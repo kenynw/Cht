@@ -1,9 +1,10 @@
 package com.damenghai.chahuitong.module.goods;
 
 import android.os.Bundle;
-import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
@@ -29,22 +30,27 @@ public class GoodsListActivity extends BaseListActivity<GoodsListPresenter> {
     @Bind(R.id.et_search_title)
     EditText mEtSearch;
 
+    @Bind(R.id.btn_search_done)
+    Button mBtnDone;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
-        setToolbar();
+
+        mEtSearch.setOnKeyListener((view, i, keyEvent) -> {
+            if (i == KeyEvent.KEYCODE_ENTER) {
+                getPresenter().search(mEtSearch);
+                return true;
+            }
+            return false;
+        });
+        mBtnDone.setOnClickListener(v -> getPresenter().search(mEtSearch));
     }
 
-    private void setToolbar() {
-        if (TextUtils.isEmpty(getIntent().getCharSequenceExtra("keyword"))) {
-            if (getIntent().getStringExtra("op").equals("recommend_list")) {
-                setToolbarTitle(R.string.title_valuator_recommend);
-            }
-        } else {
-            mRlSearch.setVisibility(View.VISIBLE);
-            mEtSearch.setText(getIntent().getCharSequenceExtra("keyword"));
-        }
+    public void setKeyword(CharSequence keyword) {
+        mRlSearch.setVisibility(View.VISIBLE);
+        mEtSearch.setText(keyword);
     }
 
     @Override

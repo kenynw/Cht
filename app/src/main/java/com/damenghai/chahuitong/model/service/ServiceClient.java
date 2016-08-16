@@ -30,7 +30,7 @@ public class ServiceClient {
 
     private static Retrofit createRetrofit() {
         return new Retrofit.Builder()
-                .baseUrl(Services.BACK_URL)
+                .baseUrl(Services.BASE_URL)
                 .addConverterFactory(WrapperConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .client(createClient())

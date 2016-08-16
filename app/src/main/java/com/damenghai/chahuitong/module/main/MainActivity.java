@@ -48,17 +48,6 @@ public class MainActivity extends BeamBaseActivity<MainPresenter> {
     }
 
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        long curTime = System.currentTimeMillis();
-        if (curTime - mTime < 2000) {
-            System.exit(0);
-        } else {
-            mTime = curTime;
-        }
-    }
-
-    @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             long curTime = System.currentTimeMillis();

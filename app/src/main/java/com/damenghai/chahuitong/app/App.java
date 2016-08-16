@@ -1,9 +1,8 @@
-package com.damenghai.chahuitong.base;
+package com.damenghai.chahuitong.app;
 
-import android.Manifest;
 import android.app.Application;
-import android.support.v4.app.ActivityCompat;
 
+import com.damenghai.chahuitong.base.Basis;
 import com.damenghai.chahuitong.config.Config;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.facebook.drawee.backends.pipeline.Fresco;
@@ -12,13 +11,14 @@ import com.umeng.socialize.PlatformConfig;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class BaseApplication extends Application {
+public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
 
         Fresco.initialize(this);
         LUtils.initialize(this);
+        Basis.setLifeCycleDelegateProvide(ActivityDelegate::new);
 
         initShare();
     }

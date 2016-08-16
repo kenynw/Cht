@@ -59,7 +59,6 @@ public class MainTraceFragment extends BaseDataFragment<MainTracePresenter, Mess
         ButterKnife.bind(this, view);
 
         initTab();
-        LUtils.log("onCreateView");
         initToolbar();
 
         mBtnAdd.setOnClickListener(v -> startActivity(new Intent(getActivity(), TraceAddActivity.class)));

@@ -22,7 +22,6 @@ import com.damenghai.chahuitong.model.bean.Order;
 import com.damenghai.chahuitong.model.bean.OrderInfo;
 import com.damenghai.chahuitong.model.bean.People;
 import com.damenghai.chahuitong.model.bean.Sample;
-import com.damenghai.chahuitong.model.bean.Token;
 import com.damenghai.chahuitong.model.bean.Trace;
 import com.damenghai.chahuitong.model.bean.TraceComment;
 import com.damenghai.chahuitong.model.bean.UpdateInfo;
@@ -57,7 +56,7 @@ public interface Services {
 
     // 首页
     @FormUrlEncoded
-    @POST("?act=home")
+    @POST("?act=index")
     Observable<Home> home(
             @Field("key") String key
     );

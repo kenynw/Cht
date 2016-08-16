@@ -23,6 +23,8 @@ public class Goods implements Parcelable {
 
     private String goods_marketprice;
 
+    private String goods_promotion_price;
+
     private String goods_image;
 
     private String goods_image_url;
@@ -123,6 +125,7 @@ public class Goods implements Parcelable {
         dest.writeDouble(this.goods_sum);
         dest.writeString(this.goods_price);
         dest.writeString(this.goods_marketprice);
+        dest.writeString(this.goods_promotion_price);
         dest.writeString(this.goods_image);
         dest.writeString(this.goods_image_url);
         dest.writeString(this.goods_url);
@@ -174,6 +177,7 @@ public class Goods implements Parcelable {
         this.goods_sum = in.readDouble();
         this.goods_price = in.readString();
         this.goods_marketprice = in.readString();
+        this.goods_promotion_price = in.readString();
         this.goods_image = in.readString();
         this.goods_image_url = in.readString();
         this.goods_url = in.readString();
@@ -274,6 +278,14 @@ public class Goods implements Parcelable {
 
     public void setGoods_marketprice(String goods_marketprice) {
         this.goods_marketprice = goods_marketprice;
+    }
+
+    public String getGoods_promotion_price() {
+        return goods_promotion_price;
+    }
+
+    public void setGoods_promotion_price(String goods_promotion_price) {
+        this.goods_promotion_price = goods_promotion_price;
     }
 
     public String getGoods_image() {

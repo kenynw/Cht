@@ -1,14 +1,17 @@
 package com.damenghai.chahuitong.module.main;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.TextUtils;
 
 import com.damenghai.chahuitong.bijection.Presenter;
 import com.damenghai.chahuitong.model.bean.Home;
+import com.damenghai.chahuitong.model.bean.SpecialItem;
 import com.damenghai.chahuitong.model.service.ServiceClient;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.model.service.DefaultTransform;
+import com.damenghai.chahuitong.module.common.WebViewActivity;
 import com.damenghai.chahuitong.module.goods.GoodsListActivity;
 import com.damenghai.chahuitong.module.mall.CartListActivity;
 import com.damenghai.chahuitong.module.user.LoginActivity;
@@ -59,6 +62,32 @@ public class MainHomePresenter extends Presenter<MainHomeFragment> implements Sw
     public void showGoodsList(String op) {
         Intent intent = new Intent(getView().getActivity(), GoodsListActivity.class);
         intent.putExtra("op", op);
+        getView().startActivity(intent);
+    }
+
+    public void itemClick(SpecialItem item) {
+        Intent intent = new Intent();
+        switch (item.getType()) {
+            case "url" :
+                if (item.getData().startsWith("http://") || item.getData().startsWith("https://")) {
+                    intent.setClass(getView().getActivity(), WebViewActivity.class);
+                    intent.putExtra("url", item.getData());
+                } else {
+                    intent.setAction("android.intent.action.VIEW");
+                    intent.setData(Uri.parse(item.getData()));
+                }
+                break;
+            case "keyword" :
+                intent.setClass(getView().getActivity(), GoodsListActivity.class);
+                intent.putExtra("keyword", item.getData());
+                break;
+            case "special" :
+
+                break;
+            default :
+
+                break;
+        }
         getView().startActivity(intent);
     }
 

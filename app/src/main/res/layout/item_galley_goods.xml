@@ -40,13 +40,13 @@
             />
 
         <TextView
-            android:id="@+id/item_galley_score"
+            android:id="@+id/item_galley_price"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:singleLine="true"
-            android:text="@string/text_recommend_score"
-            android:textColor="@color/text_black_primary"
+            android:text="@string/text_rmb"
+            android:textColor="@color/colorAccent"
             android:textSize="@dimen/text_size_caption_material"
             android:layout_gravity="bottom"
             android:gravity="bottom"

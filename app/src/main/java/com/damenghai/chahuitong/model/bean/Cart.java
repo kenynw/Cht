@@ -3,9 +3,6 @@ package com.damenghai.chahuitong.model.bean;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.damenghai.chahuitong.model.bean.response.Data;
-import com.google.gson.annotations.Expose;
-
 import java.util.List;
 
 /**

@@ -148,8 +148,8 @@
     <orderEntry type="library" exported="" name="recyclerview-v7-24.1.0" level="project" />
     <orderEntry type="library" exported="" name="gson-2.4" level="project" />
     <orderEntry type="library" exported="" name="retrofit-2.0.0-beta3" level="project" />
-    <orderEntry type="library" exported="" name="adapter-rxjava-2.0.0-beta3" level="project" />
     <orderEntry type="library" exported="" name="analytics-6.0.1" level="project" />
+    <orderEntry type="library" exported="" name="adapter-rxjava-2.0.0-beta3" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-24.1.0" level="project" />
     <orderEntry type="library" exported="" name="imagepipeline-base-0.9.0" level="project" />
     <orderEntry type="library" exported="" name="rxandroid-1.0.1" level="project" />
