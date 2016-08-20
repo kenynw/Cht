@@ -43,12 +43,12 @@
     </string-array>
 
     <string-array name="personal_action_list">
-        <item>com.damenghai.chahuitong.Favorites</item>
-        <item>com.damenghai.chahuitong.MyFlea</item>
-        <item>com.damenghai.chahuitong.Voucher</item>
-        <item>com.damenghai.chahuitong.Address</item>
-        <item>com.damenghai.chahuitong.Profile</item>
-        <item>com.damenghai.chahuitong.Feedback</item>
+        <item>com.cht.favorites</item>
+        <item>com.cht.myFlea</item>
+        <item>com.cht.voucher</item>
+        <item>com.cht.address</item>
+        <item>com.cht.profile</item>
+        <item>com.cht.feedback</item>
     </string-array>
 
 </resources>

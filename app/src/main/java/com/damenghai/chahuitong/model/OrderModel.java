@@ -1,11 +1,13 @@
 package com.damenghai.chahuitong.model;
 
 import com.damenghai.chahuitong.config.API;
+import com.damenghai.chahuitong.model.bean.Address;
 import com.damenghai.chahuitong.model.bean.BeanList;
-import com.damenghai.chahuitong.model.bean.Deliver;
 import com.damenghai.chahuitong.model.bean.Order;
-import com.damenghai.chahuitong.model.service.ServiceClient;
+import com.damenghai.chahuitong.model.bean.OrderInfo;
+import com.damenghai.chahuitong.model.bean.Voucher;
 import com.damenghai.chahuitong.model.service.DefaultTransform;
+import com.damenghai.chahuitong.model.service.ServiceClient;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.google.gson.JsonObject;
 
@@ -24,6 +26,28 @@ public class OrderModel {
             }
         }
         return mInstance;
+    }
+
+    public Observable<OrderInfo> getBuyInfo(String cartID, int ifCart) {
+        return ServiceClient.getServices()
+                .getOrderInfo(LUtils.getPreferences().getString("key", ""), cartID, ifCart)
+                .compose(new DefaultTransform<>());
+    }
+
+    public Observable<JsonObject> addOrder(String cartID, int ifCart, OrderInfo orderInfo, Voucher voucher) {
+        return ServiceClient.getServices().genOrder(
+                LUtils.getPreferences().getString("key", ""),
+                cartID,
+                orderInfo.getAddress_info().getAddress_id() + "",
+                orderInfo.getVat_hash(),
+                orderInfo.getFreight_hash(),
+                orderInfo.getOffpay_hash(),
+                orderInfo.getOffpay_hash_batch(),
+                "online",
+                ifCart,
+                orderInfo.getAllow_offpay(),
+                voucher == null ? "" : voucher.toString())
+                .compose(new DefaultTransform<>());
     }
 
     public Observable<BeanList<Order>> getOrderList(String state, int page) {
@@ -47,6 +71,14 @@ public class OrderModel {
 
     public Observable<String> sureOrder(String orderId) {
         return ServiceClient.getServices().orderSure(LUtils.getPreferences().getString("key", ""), orderId)
+                .compose(new DefaultTransform<>());
+    }
+
+    public Observable<OrderInfo> changeAddress(String freight_hash, Address address) {
+        return ServiceClient.getServices().changeAddress(LUtils.getPreferences().getString("key", ""),
+                freight_hash,
+                address.getCity_id(),
+                address.getArea_id())
                 .compose(new DefaultTransform<>());
     }
 

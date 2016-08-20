@@ -245,24 +245,23 @@ public interface Services {
     @FormUrlEncoded
     @POST("?act=member_buy&op=buy_step1")
     Observable<OrderInfo> getOrderInfo(
-            @Field("version") String version,
             @Field("key") String key,
             @Field("cart_id") String cartId,
-            @Field("ifcart") String isCart
+            @Field("ifcart") int isCart
     );
 
     @FormUrlEncoded
     @POST("?act=member_buy&op=buy_step2")
     Observable<JsonObject> genOrder(
             @Field("key") String key,
-            @Field("cart_id") String cart_id,
+            @Field("cart_id") String cartID,
             @Field("address_id") String address_id,
             @Field("vat_hash") String vat_hash,
             @Field("freight_hash") String freight_hash,
             @Field("offpay_hash") String offpay_hash,
             @Field("offpay_hash_batch") String offpay_hash_batch,
             @Field("pay_name") String pay_name,
-            @Field("ifcart") String ifcart,
+            @Field("ifcart") int ifcart,
             @Field("allow_offpay") String allow_offpay,
             @Field("voucher") String voucher
     );
@@ -275,7 +274,7 @@ public interface Services {
      */
     @FormUrlEncoded
     @POST("?act=member_buy&op=change_address")
-    Observable<JsonObject> changeAddress(
+    Observable<OrderInfo> changeAddress(
             @Field("key") String key,
             @Field("freight_hash") String freight_hash,
             @Field("city_id") int city_id,
@@ -438,7 +437,6 @@ public interface Services {
 
     //--------------------------我的优惠券--------------------------
     /**
-     * @param version 版本号
      * @param key 当前登录令牌
      * @param state 代金券状态(1-未使用 2-已使用 3-已过期)
      * @return
@@ -446,9 +444,9 @@ public interface Services {
     @FormUrlEncoded
     @POST("?act=member_voucher&op=voucher_list")
     Observable<BeanList<Voucher>> voucherList(
-            @Field("version") String version,
             @Field("key") String key,
-            @Field("voucher_state") int state
+            @Field("voucher_state") int state,
+            @Field("curpage") int curPage
     );
 
     //--------------------------我的消息--------------------------
@@ -836,15 +834,14 @@ public interface Services {
     );
 
     /**
-     * 茶市商品留言
+     * 茶市分类列表
      * @param key 登录令牌
-     * @return 操作结果
+     * @return 茶市分类列表
      */
-    @FormUrlEncoded
-    @POST("?act=member_flea&op=class_list")
+    @GET("?act=member_flea&op=class_list")
     Observable<List<FleaCate>> fleaCateList(
-            @Field("key") String key,
-            @Field("class_id") int cateId
+            @Query("key") String key,
+            @Query("class_id") int cateId
     );
 
     /**

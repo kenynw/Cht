@@ -1,4 +1,4 @@
-package com.damenghai.chahuitong.module.address;
+package com.damenghai.chahuitong.module.personal;
 
 import android.view.ViewGroup;
 

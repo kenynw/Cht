@@ -3,7 +3,7 @@
 
     <item android:drawable="@color/white"/>
 
-    <item android:bottom="25.0dip">
+    <item android:bottom="80dip">
         <bitmap android:gravity="center|bottom" android:src="@mipmap/splash_banner"/>
     </item>
 

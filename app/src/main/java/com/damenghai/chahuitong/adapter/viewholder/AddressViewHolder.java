@@ -1,6 +1,7 @@
 package com.damenghai.chahuitong.adapter.viewholder;
 
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -8,8 +9,7 @@ import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.model.bean.Address;
-import com.damenghai.chahuitong.module.address.AddressEditActivity;
-import com.damenghai.chahuitong.utils.DialogFactory;
+import com.damenghai.chahuitong.module.personal.AddressEditActivity;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 
 import butterknife.Bind;
@@ -54,17 +54,15 @@ public class AddressViewHolder extends BaseViewHolder<Address> {
         mCheckEdit.setOnCheckedChangeListener((button, isChecked) -> {
             if (isChecked && mListener != null) mListener.onSetDefault(data);
         });
-        mBtnDel.setOnClickListener(v -> DialogFactory.createGenericDialog(getContext(), R.string.dialog_delete_address,
-                (dialog, which) -> {
+        mBtnDel.setOnClickListener(v -> new AlertDialog.Builder(getContext())
+                .setTitle(R.string.dialog_title_delete_address)
+                .setMessage(R.string.dialog_delete_address)
+                .setNegativeButton(R.string.btn_cancel, null)
+                .setPositiveButton(R.string.btn_ok, (dialogInterface, i) -> {
                     if (mListener != null) mListener.onDelete(data);
-                }).show());
+                })
+                .show());
         mBtnEdit.setOnClickListener(v -> {
-            Intent intent = new Intent(getContext(), AddressEditActivity.class);
-            intent.putExtra("address", data);
-            getContext().startActivity(intent);
-        });
-
-        itemView.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), AddressEditActivity.class);
             intent.putExtra("address", data);
             getContext().startActivity(intent);

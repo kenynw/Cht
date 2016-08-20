@@ -82,7 +82,7 @@
 
                 <category android:name="android.intent.category.BROWSABLE"/>
 
-                <data android:scheme="bargainList"/>
+                <data android:scheme="bargain"/>
 
             </intent-filter>
         </activity>
@@ -90,7 +90,7 @@
             android:name=".module.personal.FeedbackActivity"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="com.damenghai.chahuitong.Feedback"/>
+                <action android:name="com.cht.feedback"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
@@ -106,6 +106,7 @@
         <activity
             android:name=".module.mall.BuyActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.ItemLineDecoration"
             android:windowSoftInputMode="stateUnspecified|adjustPan">
         </activity>
         <activity
@@ -122,14 +123,14 @@
                     android:scheme="http"/>
             </intent-filter>
         </activity>
-        <activity android:name=".module.address.AddressListActivity">
+        <activity android:name=".module.personal.AddressListActivity">
             <intent-filter>
-                <action android:name="com.damenghai.chahuitong.Address"/>
+                <action android:name="com.cht.address"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".module.address.AreaActivity">
+        <activity android:name=".module.personal.AreaActivity">
         </activity>
         <activity android:name=".module.order.OrderListActivity">
         </activity>
@@ -139,9 +140,9 @@
         </activity>
         <activity android:name=".module.mall.CartListActivity">
         </activity>
-        <activity android:name=".module.personal.VoucherActivity">
+        <activity android:name=".module.personal.VoucherListActivity">
             <intent-filter>
-                <action android:name="com.damenghai.chahuitong.Voucher"/>
+                <action android:name="com.cht.voucher"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
@@ -156,7 +157,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.ItemLineDecoration">
             <intent-filter>
-                <action android:name="com.damenghai.chahuitong.Favorites"/>
+                <action android:name="com.cht.favorites"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
@@ -170,7 +171,7 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="com.damenghai.chahuitong.Profile"/>
+                <action android:name="com.cht.profile"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
@@ -224,7 +225,7 @@
             android:name=".module.flea.FleaListActivity"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="com.damenghai.chahuitong.Flea"/>
+                <action android:name="com.cht.flea"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
@@ -281,13 +282,25 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".module.address.AddressEditActivity"
+            android:name=".module.personal.AddressEditActivity"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait">
+
+            <intent-filter>
+                <action android:name="com.cht.addressEdit" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
         </activity>
         <activity
             android:name=".module.flea.FleaAddActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.cht.fleaAdd" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".module.flea.FleaCateActivity"
@@ -297,7 +310,7 @@
             android:name=".module.flea.MyFleaActivity"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="com.damenghai.chahuitong.MyFlea"/>
+                <action android:name="com.cht.myFlea"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>

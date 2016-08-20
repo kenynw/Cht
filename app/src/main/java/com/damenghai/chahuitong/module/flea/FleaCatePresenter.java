@@ -3,10 +3,12 @@ package com.damenghai.chahuitong.module.flea;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.expansion.list.BaseListActivityPresenter;
 import com.damenghai.chahuitong.model.FleaModel;
 import com.damenghai.chahuitong.model.bean.FleaCate;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
+import com.damenghai.chahuitong.utils.LUtils;
 
 import java.util.List;
 
@@ -26,6 +28,11 @@ public class FleaCatePresenter extends BaseListActivityPresenter<FleaCateActivit
     @Override
     protected void onCreateView(FleaCateActivity view) {
         super.onCreateView(view);
+        if (mCate != null) {
+            getView().setToolbarTitle(mCate.getGc_name());
+        } else {
+            getView().setToolbarTitle(R.string.title_activity_flea_cate);
+        }
         onRefresh();
         getAdapter().setOnItemClickListener(position -> {
             FleaCate cate = getAdapter().getItem(position);

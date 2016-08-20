@@ -11,15 +11,13 @@ import com.damenghai.chahuitong.model.bean.Area;
 import com.damenghai.chahuitong.model.bean.Flea;
 import com.damenghai.chahuitong.model.bean.FleaCate;
 import com.damenghai.chahuitong.model.bean.FleaImage;
-import com.damenghai.chahuitong.model.service.DefaultTransform;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
-import com.damenghai.chahuitong.module.address.AreaActivity;
+import com.damenghai.chahuitong.module.personal.AreaActivity;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.jude.exgridview.PieceViewGroup.OnViewDeleteListener;
 import com.jude.library.imageprovider.ImageProvider;
 import com.jude.library.imageprovider.OnImageSelectListener;
 
-import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -27,8 +25,6 @@ import java.util.ArrayList;
  */
 public class FleaAddPresenter extends BaseDataActivityPresenter<FleaAddActivity, Flea>
         implements OnViewDeleteListener, OnImageSelectListener {
-
-    private static final int REQUEST_AREA = 0;
 
     private ImageProvider mProvider;
 
@@ -41,8 +37,6 @@ public class FleaAddPresenter extends BaseDataActivityPresenter<FleaAddActivity,
     private FleaCate mCate;
 
     private Area mArea;
-
-    private String mAreaInfo;
 
     @Override
     protected void onCreate(FleaAddActivity view, Bundle saveState) {
@@ -66,7 +60,7 @@ public class FleaAddPresenter extends BaseDataActivityPresenter<FleaAddActivity,
         flea.setGc_name(mCate != null ? mCate.getGc_name().replace(">", " ") : "");
 
         if (mFlea != null) {
-            FleaModel.getInstance().editFlea(mFlea.getGoods_id(), flea, mAreaInfo)
+            FleaModel.getInstance().editFlea(mFlea.getGoods_id(), flea)
                     .subscribe(new ServiceResponse<Boolean>() {
                         @Override
                         public void onNext(Boolean result) {
@@ -80,7 +74,7 @@ public class FleaAddPresenter extends BaseDataActivityPresenter<FleaAddActivity,
                         LUtils.toast("图片上传失败");
                     })
                     .toList()
-                    .flatMap(uploadId -> FleaModel.getInstance().saveFlea(flea, uploadId.get(0), mAreaInfo))
+                    .flatMap(uploadId -> FleaModel.getInstance().saveFlea(flea, uploadId.get(0)))
                     .finallyDo(() -> getView().getExpansionDelegate().hideProgressBar())
                     .subscribe(new ServiceResponse<Integer>() {
                         @Override
@@ -92,7 +86,7 @@ public class FleaAddPresenter extends BaseDataActivityPresenter<FleaAddActivity,
                     });
 
         } else {
-            FleaModel.getInstance().saveFlea(flea, 0, mAreaInfo)
+            FleaModel.getInstance().saveFlea(flea, 0)
                     .subscribe(new ServiceResponse<Integer>() {
                         @Override
                         public void onNext(Integer integer) {
@@ -107,7 +101,9 @@ public class FleaAddPresenter extends BaseDataActivityPresenter<FleaAddActivity,
 
     public void showArea() {
         Intent intent = new Intent(getView(), AreaActivity.class);
-        getView().startActivityForResult(intent, REQUEST_AREA);
+        intent.putExtra("deep", 2);
+        intent.putExtra("action", "com.cht.fleaAdd");
+        getView().startActivity(intent);
     }
 
     public void showCate() {
@@ -141,21 +137,14 @@ public class FleaAddPresenter extends BaseDataActivityPresenter<FleaAddActivity,
     @Override
     protected void onResult(int requestCode, int resultCode, Intent data) {
         mProvider.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == Activity.RESULT_OK) {
-            switch (requestCode) {
-                case REQUEST_AREA:
-                    mArea = data.getParcelableExtra("area");
-                    mAreaInfo = data.getStringExtra("area_info");
-                    getView().setArea(mAreaInfo);
-                    break;
-            }
-        }
     }
 
     @Override
     protected void onNewIntent(Intent intent) {
         mCate = intent.getParcelableExtra("cate");
-        getView().setCate(mCate.getGc_name());
+        if (mCate != null) getView().setCate(mCate.getGc_name());
+        mArea = intent.getParcelableExtra("area");
+        if (mArea != null) getView().setArea(mArea.getArea_name());
     }
 
     @Override
@@ -168,12 +157,7 @@ public class FleaAddPresenter extends BaseDataActivityPresenter<FleaAddActivity,
                 mUriList.remove(index - mFlea.getDesc_image().size());
             }
         } else {
-//        Uri uri = mUriList.get(index);
-//        if ("http".equals(uri.getScheme())) {
-//            FleaModel.getInstance().delFleaImage()
-//        } else {
             mUriList.remove(index);
-//        }
         }
     }
 

@@ -90,7 +90,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccent"
             android:textSize="@dimen/text_size_subhead_material"
-            android:text="@string/label_total"
+            android:text="@string/text_rmb"
             />
 
         <TextView

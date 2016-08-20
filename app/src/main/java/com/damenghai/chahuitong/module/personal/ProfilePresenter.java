@@ -12,7 +12,6 @@ import com.damenghai.chahuitong.model.UserModel;
 import com.damenghai.chahuitong.model.bean.Area;
 import com.damenghai.chahuitong.model.bean.User;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
-import com.damenghai.chahuitong.module.address.AreaActivity;
 import com.damenghai.chahuitong.utils.DateUtils;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.jude.library.imageprovider.ImageProvider;
@@ -94,6 +93,7 @@ public class ProfilePresenter extends BaseDataActivityPresenter<ProfileActivity,
     public void showArea() {
         Intent i = new Intent(getView(), AreaActivity.class);
         i.putExtra("deep", 2);
+        i.putExtra("action", "com.cht.profile");
         getView().startActivity(i);
     }
 

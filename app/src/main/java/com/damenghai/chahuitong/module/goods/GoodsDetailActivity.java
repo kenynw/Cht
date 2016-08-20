@@ -108,7 +108,7 @@ public class GoodsDetailActivity extends BaseDataActivity<GoodsDetailPresenter, 
         mTvPrice.append(TextUtils.isEmpty(goods.getPromotion_price()) ? goods.getGoods_price() : goods.getPromotion_price());
         mTvOldPrice.append(goods.getGoods_marketprice());
         mTvOldPrice.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
-        mTvFreight.append(goods.getGoods_freight());
+        mTvFreight.setText(String.format(getString(R.string.label_goods_freight), goods.getGoods_freight()));
         mTvSales.append(goods.getGoods_salenum());
 
         String[] images = goodsInfo.getGoods_image().split(",");

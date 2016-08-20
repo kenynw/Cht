@@ -81,21 +81,21 @@ public class FleaModel {
 
     }
 
-    public Observable<Integer> saveFlea(Flea flea, int imageId, String areaInfo) {
+    public Observable<Integer> saveFlea(Flea flea, int imageId) {
         return ServiceClient.getServices().saveFlea(
                 LUtils.getPreferences().getString("key", ""),
                 flea.getGoods_name(), flea.getGoods_body(), imageId,
                 flea.getGc_id(), flea.getGc_name(), flea.getGoods_store_price(),
                 flea.getGoods_tag(), flea.getFlea_pname(), flea.getFlea_pphone(),
-                flea.getFlea_area_id(), areaInfo
+                flea.getFlea_area_id(), flea.getFlea_area_name()
         ).compose(new DefaultTransform<>());
     }
 
-    public Observable<Boolean> editFlea(int goodsID, Flea flea, String areaInfo) {
+    public Observable<Boolean> editFlea(int goodsID, Flea flea) {
         return ServiceClient.getServices().fleaEdit(
                 LUtils.getPreferences().getString("key", ""),
                 goodsID, flea.getGoods_name(), flea.getGc_id(), flea.getGc_name(),
-                flea.getFlea_pname(), flea.getFlea_area_id(), areaInfo, flea.getFlea_pphone(),
+                flea.getFlea_pname(), flea.getFlea_area_id(), flea.getFlea_area_name(), flea.getFlea_pphone(),
                 flea.getGoods_tag(), flea.getGoods_store_price(), flea.getGoods_body()
         ).compose(new DefaultTransform<>());
     }

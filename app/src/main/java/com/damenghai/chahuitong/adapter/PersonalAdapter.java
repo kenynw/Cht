@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
 import com.damenghai.chahuitong.R;
+import com.damenghai.chahuitong.adapter.viewholder.PersonalViewHolder;
 import com.damenghai.chahuitong.model.bean.Personal;
 
 import java.util.ArrayList;

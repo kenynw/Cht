@@ -94,7 +94,7 @@ public class SampleActivity extends BaseDataActivity<SamplePresenter, Sample> {
         mBtnApply.setText(sample.getState_text());
 
         if (sample.getAllow() == 1) {
-            mBtnApply.setOnClickListener(v -> startActivity(BuyPresenter.getStartIntent(SampleActivity.this, sample.getSample_link() + "|1", "0")));
+            mBtnApply.setOnClickListener(v -> startActivity(BuyPresenter.getStartIntent(SampleActivity.this, sample.getSample_link() + "|1", 0)));
         } else {
             mBtnApply.setEnabled(false);
         }

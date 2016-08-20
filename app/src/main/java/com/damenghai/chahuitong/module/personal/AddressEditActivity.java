@@ -1,9 +1,8 @@
-package com.damenghai.chahuitong.module.address;
+package com.damenghai.chahuitong.module.personal;
 
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 
 import com.damenghai.chahuitong.R;

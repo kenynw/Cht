@@ -1,6 +1,5 @@
-package com.damenghai.chahuitong.module.address;
+package com.damenghai.chahuitong.module.personal;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ViewGroup;
@@ -8,16 +7,12 @@ import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.expansion.list.BaseListActivityPresenter;
-import com.damenghai.chahuitong.expansion.list.BaseListFragmentPresenter;
 import com.damenghai.chahuitong.model.AddressModel;
 import com.damenghai.chahuitong.model.bean.Area;
-import com.damenghai.chahuitong.module.personal.ProfileActivity;
-import com.damenghai.chahuitong.utils.LUtils;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import de.greenrobot.event.EventBus;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
@@ -28,11 +23,14 @@ public class AreaPresenter extends BaseListActivityPresenter<AreaActivity, Area>
 
     private Area mArea;
 
+    private String mAction;
+
     @Override
     protected void onCreate(AreaActivity view, Bundle saveState) {
         super.onCreate(view, saveState);
         mDeep = getView().getIntent().getIntExtra("deep", 0);
         mArea = getView().getIntent().getParcelableExtra("area");
+        mAction = getView().getIntent().getStringExtra("action");
     }
 
     @Override
@@ -47,8 +45,9 @@ public class AreaPresenter extends BaseListActivityPresenter<AreaActivity, Area>
             if (mArea != null) area.setArea_name(mArea.getArea_name() + " " + area.getArea_name());
             Intent intent = new Intent();
             intent.putExtra("area", area);
+            intent.putExtra("action", mAction);
             if (area.getArea_deep() == (mDeep > 0 ? mDeep : 3)) {
-                intent.setClass(getView(), ProfileActivity.class);
+                intent.setAction(mAction);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             } else {
                 intent.putExtra("deep", mDeep);

@@ -20,7 +20,7 @@ import butterknife.ButterKnife;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class FavoritesGoodsViewHolder extends BaseViewHolder<Goods> {
+public class GoodsFavoritesViewHolder extends BaseViewHolder<Goods> {
 
     @Bind(R.id.dv_goods_thumb)
     SimpleDraweeView mDvThumb;
@@ -33,12 +33,12 @@ public class FavoritesGoodsViewHolder extends BaseViewHolder<Goods> {
 
     public RecyclerArrayAdapter.OnItemClickListener mListener;
 
-    public FavoritesGoodsViewHolder(ViewGroup parent, GoodsFavoritesPresenter presenter) {
+    public GoodsFavoritesViewHolder(ViewGroup parent, GoodsFavoritesPresenter presenter) {
         super(parent, R.layout.item_list_goods_favorites);
         ButterKnife.bind(this, itemView);
     }
 
-    public FavoritesGoodsViewHolder(ViewGroup parent, @LayoutRes int res) {
+    public GoodsFavoritesViewHolder(ViewGroup parent, @LayoutRes int res) {
         super(parent, res);
         ButterKnife.bind(this, itemView);
     }

@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.adapter.viewholder.FavoritesGoodsViewHolder;
+import com.damenghai.chahuitong.adapter.viewholder.GoodsFavoritesViewHolder;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.expansion.list.BaseListFragment;
 import com.damenghai.chahuitong.expansion.list.ListConfig;
@@ -28,7 +28,7 @@ public class GoodsFavoritesFragment extends BaseListFragment<GoodsFavoritesPrese
 
     @Override
     public BaseViewHolder<Goods> createViewHolder(ViewGroup parent, int viewType) {
-        return new FavoritesGoodsViewHolder(parent, getPresenter());
+        return new GoodsFavoritesViewHolder(parent, getPresenter());
     }
 
     @Override

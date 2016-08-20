@@ -135,9 +135,7 @@ public class CartListActivity extends BaseListActivity<CartListPresenter> {
 //    }
 
     public void setList(List<Goods> list) {
-//        mAdapter = new CartListAdapter(CartListActivity.this, list);
 ////        mRecyclerView.setAdapter(mAdapter);
-//        mAdapter.setOnSelectedItemChangedListener(new CartListAdapter.OnSelectedItemChangedListener() {
 //            @Override
 //            public void onSelectedItemChanged(List<Goods> selectedList) {
 //                if (selectedList.size() == mAdapter.getItemCount()) mCheckAll.setChecked(true);

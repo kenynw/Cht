@@ -1,5 +1,6 @@
 package com.damenghai.chahuitong.module.mall;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,23 +8,22 @@ import android.os.Bundle;
 import com.chaxin.paylibrary.pay.alipay.AlipayManager;
 import com.chaxin.paylibrary.pay.wxpay.WxpayManager;
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.config.API;
 import com.damenghai.chahuitong.expansion.data.BaseDataActivityPresenter;
+import com.damenghai.chahuitong.model.OrderModel;
 import com.damenghai.chahuitong.model.bean.Address;
 import com.damenghai.chahuitong.model.bean.Order;
 import com.damenghai.chahuitong.model.bean.OrderInfo;
 import com.damenghai.chahuitong.model.bean.Voucher;
-import com.damenghai.chahuitong.model.service.ServiceClient;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
-import com.damenghai.chahuitong.model.service.DefaultTransform;
-import com.damenghai.chahuitong.utils.LUtils;
-import com.damenghai.chahuitong.module.user.LoginActivity;
 import com.damenghai.chahuitong.module.common.WebViewActivity;
+import com.damenghai.chahuitong.module.personal.AddressListActivity;
+import com.damenghai.chahuitong.module.personal.VoucherListActivity;
+import com.damenghai.chahuitong.utils.LUtils;
 import com.damenghai.chahuitong.wxapi.WXPayEntryActivity;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
-import de.greenrobot.event.EventBus;
+import java.util.ArrayList;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
@@ -34,17 +34,17 @@ public class BuyPresenter extends BaseDataActivityPresenter<BuyActivity, OrderIn
 
     public static final String EXTRA_IF_CART = "BuyActivity:ifCart";
 
+    public static final int REQUEST_CODE_ADDRESS = 0x01;
+
+    public static final int REQUEST_CODE_VOUCHER = 0x02;
+
+    private String mCartID;
+
+    private int mIfCart;
+
     private Voucher mCurVoucher;
 
-    /**
-     * 用于跳转到BuyActivity
-     *
-     * @param context 上一个Activity的上下文
-     * @param cartId  购买标识
-     * @param ifCart  购物车标识
-     * @return 封装了参数的Intent
-     */
-    public static Intent getStartIntent(Context context, String cartId, String ifCart) {
+    public static Intent getStartIntent(Context context, String cartId, int ifCart) {
         Intent intent = new Intent(context, BuyActivity.class);
         intent.putExtra(EXTRA_CART_ID, cartId);
         intent.putExtra(EXTRA_IF_CART, ifCart);
@@ -54,64 +54,22 @@ public class BuyPresenter extends BaseDataActivityPresenter<BuyActivity, OrderIn
     @Override
     protected void onCreate(BuyActivity view, Bundle saveState) {
         super.onCreate(view, saveState);
-        EventBus.getDefault().register(this);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        EventBus.getDefault().unregister(this);
+        mCartID = getView().getIntent().getStringExtra(EXTRA_CART_ID);
+        mIfCart = getView().getIntent().getIntExtra(EXTRA_IF_CART, 0);
     }
 
     @Override
     protected void onCreateView(BuyActivity view) {
         super.onCreateView(view);
-        if (LUtils.getPreferences().getString("key", "").isEmpty()) {
-            getView().startActivity(new Intent(getView(), LoginActivity.class));
-            getView().finish();
-        }
         orderInfo();
     }
 
     private void orderInfo() {
-        ServiceClient.getServices().getOrderInfo(API.VERSION, LUtils.getPreferences().getString("key", ""),
-                getView().getIntent().getStringExtra(EXTRA_CART_ID),
-                getView().getIntent().getStringExtra(EXTRA_IF_CART))
-                .compose(new DefaultTransform<>())
-                .subscribe(getDataSubscriber());
+        OrderModel.getInstance().getBuyInfo(mCartID, mIfCart).unsafeSubscribe(getDataSubscriber());
     }
 
-    private String getCartId() {
-        return getView().getIntent().getStringExtra(EXTRA_IF_CART).equals("1")
-                ? getView().getIntent().getStringExtra(EXTRA_CART_ID)
-                : getView().genCartId();
-    }
-
-    public void pay() {
-//        LUtils.log(
-//                "cart id: " + getCartId()
-//                + "\naddress id: " + getDataSubject().getValue().getAddress_info().getAddress_id()
-//                + "\nvat hash: " + getDataSubject().getValue().getVat_hash()
-//                + "\nfreight hash: " + getDataSubject().getValue().getFreight_hash()
-//                + "\noff pay hash: " + getDataSubject().getValue().getOffpay_hash()
-//                + "\noff pay hash batch: " + getDataSubject().getValue().getOffpay_hash_batch()
-//                + "\nif cart: " + getView().getIntent().getStringExtra(EXTRA_IF_CART)
-//                + "\nvoucher: " + (mCurVoucher ==null ? "" : mCurVoucher.toString())
-//        );
-
-        ServiceClient.getServices().genOrder(
-                LUtils.getPreferences().getString("key", ""),
-                getCartId(),
-                getDataSubject().getValue().getAddress_info().getAddress_id() + "",
-                getDataSubject().getValue().getVat_hash(),
-                getDataSubject().getValue().getFreight_hash(),
-                getDataSubject().getValue().getOffpay_hash(),
-                getDataSubject().getValue().getOffpay_hash_batch(),
-                "online",
-                getView().getIntent().getStringExtra(EXTRA_IF_CART),
-                getDataSubject().getValue().getAllow_offpay(),
-                mCurVoucher == null ? "" : mCurVoucher.toString())
-                .compose(new DefaultTransform<>())
+    public void addOrder() {
+        OrderModel.getInstance().addOrder(mCartID, mIfCart, getDataSubject().getValue(), mCurVoucher)
                 .subscribe(new ServiceResponse<JsonObject>() {
                     @Override
                     public void onNext(JsonObject jsonObject) {
@@ -119,11 +77,30 @@ public class BuyPresenter extends BaseDataActivityPresenter<BuyActivity, OrderIn
                         startPay(order);
                     }
                 });
-
     }
 
-    public void setVoucher(Voucher voucher) {
-        mCurVoucher = voucher;
+    public void showAddress() {
+        Intent intent = new Intent(getView(), AddressListActivity.class);
+        intent.putExtra("state", 1);
+        getView().startActivityForResult(intent, REQUEST_CODE_ADDRESS);
+    }
+
+    public void showVoucher(ArrayList<Voucher> vouchers) {
+        Intent intent = new Intent(getView(), VoucherListActivity.class);
+        intent.putParcelableArrayListExtra("voucher_list", vouchers);
+        getView().startActivityForResult(intent, REQUEST_CODE_VOUCHER);
+    }
+
+    public void changeAddress(Address address) {
+        OrderModel.getInstance().changeAddress(getDataSubject().getValue().getFreight_hash(), address)
+                .subscribe(new ServiceResponse<OrderInfo>() {
+                    @Override
+                    public void onNext(OrderInfo orderInfo) {
+                        getView().setAddress(address);
+                        getDataSubject().getValue().setOffpay_hash(orderInfo.getOffpay_hash());
+                        getDataSubject().getValue().setOffpay_hash_batch(orderInfo.getOffpay_hash_batch());
+                    }
+                });
     }
 
     public void startPay(Order order) {
@@ -136,7 +113,7 @@ public class BuyPresenter extends BaseDataActivityPresenter<BuyActivity, OrderIn
         intent.putExtra("order", order);
 
         switch (getView().getPayViewId()) {
-            case R.id.order_rbtn_alipay:
+            case R.id.rbtn_buy_alipay:
                 AlipayManager mManager = AlipayManager.getInstance(getView());
                 mManager.pay(title, title, getView().getTotal(), order.getPay_sn(),
                         new AlipayManager.AlipayListener() {
@@ -159,13 +136,13 @@ public class BuyPresenter extends BaseDataActivityPresenter<BuyActivity, OrderIn
                             }
                         });
                 break;
-            case R.id.order_rbtn_wxpay:
+            case R.id.rbtn_buy_wxpay:
                 WxpayManager manager = WxpayManager.getInstance(getView());
                 manager.pay(title, getView().getTotal(), order.getPay_sn());
 
                 getView().finish();
                 break;
-            case R.id.order_rbtn_upmp:
+            case R.id.rbtn_buy_upmp:
                 String url = "http://www.chahuitong.com/mobile/index.php?act=member_payment&op=pay&key="
                         + LUtils.getPreferences().getString("key", "")
                         + "&pay_sn=" + order.getPay_sn() + "&payment_code=yinlian";
@@ -177,27 +154,20 @@ public class BuyPresenter extends BaseDataActivityPresenter<BuyActivity, OrderIn
         }
     }
 
-    // called when user change address
-    public void onEventMainThread(Address address) {
-        getView().setAddress(address);
-
-        ServiceClient.getServices().changeAddress(
-                LUtils.getPreferences().getString("key", ""),
-                getDataSubject().getValue().getFreight_hash(),
-                address.getCity_id(),
-                address.getArea_id())
-                .compose(new DefaultTransform<>())
-                .subscribe(new ServiceResponse<JsonObject>() {
-                    @Override
-                    public void onNext(JsonObject jsonObject) {
-                        super.onNext(jsonObject);
-                        getDataSubject().getValue().setAddress_info(address);
-//                        getDataSubject().getValue().setAllow_offpay(jsonObject.get("allow_offpay").toString());
-//                        getDataSubject().getValue().setOffpay_hash(jsonObject.get("offpay_hash").toString());
-//                        getDataSubject().getValue().setOffpay_hash_batch(jsonObject.get("offpay_hash_batch").toString());
-                    }
-                });
-
+    @Override
+    protected void onResult(int requestCode, int resultCode, Intent data) {
+        super.onResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK && data != null) {
+            switch (requestCode) {
+                case REQUEST_CODE_ADDRESS :
+                    changeAddress(data.getParcelableExtra("address"));
+                    break;
+                case REQUEST_CODE_VOUCHER :
+                    mCurVoucher = data.getParcelableExtra("voucher");
+                    getView().setVoucher(mCurVoucher);
+                    break;
+            }
+        }
     }
 
 }

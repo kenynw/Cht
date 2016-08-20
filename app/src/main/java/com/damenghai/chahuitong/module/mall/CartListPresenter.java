@@ -2,12 +2,10 @@ package com.damenghai.chahuitong.module.mall;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.adapter.viewholder.CartViewHolder;
 import com.damenghai.chahuitong.expansion.list.BaseListActivityPresenter;
-import com.damenghai.chahuitong.model.FavoritesModel;
 import com.damenghai.chahuitong.model.GoodsModel;
 import com.damenghai.chahuitong.model.bean.Cart;
 import com.damenghai.chahuitong.model.bean.Goods;
@@ -17,9 +15,6 @@ import com.damenghai.chahuitong.utils.LUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import de.greenrobot.event.EventBus;
-import rx.Observable;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
@@ -44,6 +39,7 @@ public class CartListPresenter extends BaseListActivityPresenter<CartListActivit
 
                     @Override
                     public void onNext(List<Goods> goodses) {
+                        getAdapter().clearViewHolder();
                         getAdapter().clear();
                         getAdapter().addAll(goodses);
                     }
@@ -74,10 +70,7 @@ public class CartListPresenter extends BaseListActivityPresenter<CartListActivit
                 if (i != getAdapter().getCheckedList().size() - 1) cartID.append(",");
             }
             if (cartID.length() > 0) {
-                Intent intent = new Intent(getView(), BuyActivity.class);
-                intent.putExtra(BuyPresenter.EXTRA_IF_CART, "1");
-                intent.putExtra(BuyPresenter.EXTRA_CART_ID, cartID.toString());
-                getView().startActivity(intent);
+                getView().startActivity(BuyPresenter.getStartIntent(getView(), cartID.toString(), 1));
             }
         } else {
             LUtils.toast("您还没有选中商品哦");
@@ -130,6 +123,10 @@ public class CartListPresenter extends BaseListActivityPresenter<CartListActivit
 
         public void registerViewHolder(CartViewHolder vh) {
             mVHList.add(vh);
+        }
+
+        public void clearViewHolder() {
+            mVHList.clear();
         }
 
         public void checkedChange() {

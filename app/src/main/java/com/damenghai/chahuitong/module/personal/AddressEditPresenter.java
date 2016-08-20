@@ -1,23 +1,18 @@
-package com.damenghai.chahuitong.module.address;
+package com.damenghai.chahuitong.module.personal;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 
-import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.expansion.data.BaseDataActivityPresenter;
 import com.damenghai.chahuitong.model.AddressModel;
 import com.damenghai.chahuitong.model.bean.Address;
 import com.damenghai.chahuitong.model.bean.Area;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.utils.LUtils;
-import com.google.gson.JsonObject;
 
 import de.greenrobot.event.EventBus;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
@@ -87,7 +82,15 @@ public class AddressEditPresenter extends BaseDataActivityPresenter<AddressEditA
 
     public void showArea() {
         Intent intent = new Intent(getView(), AreaActivity.class);
+        intent.putExtra("deep", 3);
+        intent.putExtra("action", "com.cht.addressEdit");
         getView().startActivityForResult(intent, REQUEST_CODE_CHOOSE_AREA);
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        mArea = intent.getParcelableExtra("area");
+        if (mArea != null) getView().setArea(mArea.getArea_name());
     }
 
     @Override

@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
                 android:text="@string/label_zero"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/text_size_body_material"
                 />
 

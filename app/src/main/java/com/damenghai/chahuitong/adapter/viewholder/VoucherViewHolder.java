@@ -36,7 +36,7 @@ public class VoucherViewHolder extends BaseViewHolder<Voucher> {
     public void setData(Voucher voucher) {
         super.setData(voucher);
         mTvTitle.setText(voucher.getVoucher_title());
-        mTvValue.setText(voucher.getVoucher_price());
+        mTvValue.setText(String.format(getContext().getString(R.string.text_rmb), voucher.getVoucher_price()));
         mTvValid.setText(String.format(getContext().getString(R.string.text_to), voucher.getVoucher_start_date(), voucher.getVoucher_end_date()));
         mTvLimit.setText(String.format(getContext().getString(R.string.text_man), voucher.getVoucher_limit()));
     }

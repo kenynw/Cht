@@ -35,7 +35,7 @@ public class Goods implements Parcelable {
 
     private String goods_total;
 
-    private String goods_freight;
+    private double goods_freight;
 
     private String goods_storage;
 
@@ -131,7 +131,7 @@ public class Goods implements Parcelable {
         dest.writeString(this.goods_url);
         dest.writeString(this.goods_vat);
         dest.writeString(this.goods_total);
-        dest.writeString(this.goods_freight);
+        dest.writeDouble(this.goods_freight);
         dest.writeString(this.goods_storage);
         dest.writeString(this.goods_commonid);
         dest.writeString(this.goods_storage_alarm);
@@ -183,7 +183,7 @@ public class Goods implements Parcelable {
         this.goods_url = in.readString();
         this.goods_vat = in.readString();
         this.goods_total = in.readString();
-        this.goods_freight = in.readString();
+        this.goods_freight = in.readDouble();
         this.goods_storage = in.readString();
         this.goods_commonid = in.readString();
         this.goods_storage_alarm = in.readString();
@@ -328,11 +328,11 @@ public class Goods implements Parcelable {
         this.goods_total = goods_total;
     }
 
-    public String getGoods_freight() {
+    public double getGoods_freight() {
         return goods_freight;
     }
 
-    public void setGoods_freight(String goods_freight) {
+    public void setGoods_freight(double goods_freight) {
         this.goods_freight = goods_freight;
     }
 

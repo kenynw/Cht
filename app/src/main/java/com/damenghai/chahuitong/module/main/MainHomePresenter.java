@@ -12,6 +12,7 @@ import com.damenghai.chahuitong.model.service.ServiceClient;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.model.service.DefaultTransform;
 import com.damenghai.chahuitong.module.common.WebViewActivity;
+import com.damenghai.chahuitong.module.goods.GoodsDetailActivity;
 import com.damenghai.chahuitong.module.goods.GoodsListActivity;
 import com.damenghai.chahuitong.module.mall.CartListActivity;
 import com.damenghai.chahuitong.module.user.LoginActivity;
@@ -83,6 +84,10 @@ public class MainHomePresenter extends Presenter<MainHomeFragment> implements Sw
                 break;
             case "special" :
 
+                break;
+            case "goods" :
+                intent.setClass(getView().getActivity(), GoodsDetailActivity.class);
+                intent.putExtra("goods_id", Integer.valueOf(item.getData()));
                 break;
             default :
 

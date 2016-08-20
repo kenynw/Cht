@@ -86,7 +86,7 @@ public class GoodsDetailPresenter extends BaseDataActivityPresenter<GoodsDetailA
 
     public void toBuy() {
         if (isLogin()) {
-            getView().startActivity(BuyPresenter.getStartIntent(getView(), mGoodsId + "|1", "0"));
+            getView().startActivity(BuyPresenter.getStartIntent(getView(), mGoodsId + "|1", 0));
         }
     }
 

@@ -41,7 +41,6 @@ public class TitlePagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        LUtils.log("position: " + position);
         return mFragments.get(position);
     }
 

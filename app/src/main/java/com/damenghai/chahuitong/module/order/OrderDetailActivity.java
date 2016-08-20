@@ -12,16 +12,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
+import com.damenghai.chahuitong.adapter.GoodsOrderAdapter;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
-import com.damenghai.chahuitong.config.API;
 import com.damenghai.chahuitong.expansion.data.BaseDataActivity;
 import com.damenghai.chahuitong.expansion.list.DividerItemDecoration;
 import com.damenghai.chahuitong.model.bean.Address;
 import com.damenghai.chahuitong.model.bean.Goods;
 import com.damenghai.chahuitong.model.bean.Order;
 import com.damenghai.chahuitong.model.service.ServiceException;
-import com.damenghai.chahuitong.module.address.AddressListActivity;
-import com.damenghai.chahuitong.utils.DateUtils;
 import com.damenghai.chahuitong.utils.LUtils;
 
 import java.util.List;
@@ -103,7 +101,7 @@ public class OrderDetailActivity extends BaseDataActivity<OrderDetailPresenter, 
 
             List<Goods> data = order.getExtend_order_goods();
             if (data != null) {
-                mLvGoods.setAdapter(new OrderViewHolder.OrderGoodsListAdapter(OrderDetailActivity.this, data));
+                mLvGoods.setAdapter(new GoodsOrderAdapter(OrderDetailActivity.this, data));
             }
 
             switch (order.getOrder_state()) {

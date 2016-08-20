@@ -42,29 +42,72 @@
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:layout_toRightOf="@id/iv_cart_thumb"
         android:ellipsize="end"
+        android:paddingTop="8dp"
         android:singleLine="true"
         tools:text="滇臻號·【滇】"
-        />
-
-    <com.damenghai.chahuitong.widget.QuantityView
-        android:id="@+id/count_view_cart_count"
-        android:layout_width="106dp"
-        android:layout_height="34dp"
-        android:layout_below="@id/tv_cart_name"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_toRightOf="@id/iv_cart_thumb"
         />
 
     <TextView
         android:id="@+id/tv_cart_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/count_view_cart_count"
+        android:layout_alignBottom="@id/iv_cart_thumb"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_toRightOf="@id/iv_cart_thumb"
-        android:textColor="@color/colorAccent"
-        android:textSize="@dimen/text_size_caption_material"
+        android:paddingBottom="8dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_size_subhead_material"
         tools:text="￥198.00"
         />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/tv_cart_price"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_toRightOf="@id/tv_cart_price"
+        android:gravity="right"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        >
+
+        <Button
+            android:id="@+id/btn_cart_minus"
+            style="@style/ButtonBorderless"
+            android:layout_width="@dimen/widget_tiny_height"
+            android:layout_height="@dimen/widget_tiny_height"
+            android:background="@drawable/btn_cart_change_num_selector"
+            android:gravity="center"
+            android:text="@string/btn_minus"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_subhead_material"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/tv_cart_num"
+            style="@style/TextBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/larger_horizontal_margin"
+            android:layout_marginRight="@dimen/larger_horizontal_margin"
+            tools:text="1"
+            />
+
+        <Button
+            android:id="@+id/btn_cart_plus"
+            style="@style/ButtonBorderless"
+            android:layout_width="@dimen/widget_tiny_height"
+            android:layout_height="@dimen/widget_tiny_height"
+            android:background="@drawable/btn_cart_change_num_selector"
+            android:gravity="center"
+            android:text="@string/btn_plus"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_subhead_material"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
 
 </RelativeLayout>

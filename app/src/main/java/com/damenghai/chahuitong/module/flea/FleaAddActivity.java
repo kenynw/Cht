@@ -129,6 +129,7 @@ public class FleaAddActivity extends BaseDataActivity<FleaAddPresenter, Flea> {
         flea.setGoods_tag(mEtTag.getText().toString().trim());
         flea.setFlea_pphone(mEtPhone.getText().toString().trim());
         flea.setFlea_pname(mEtContact.getText().toString().trim());
+        flea.setFlea_area_name(mBtnLocation.getText().toString().trim());
 
         getPresenter().saveFlea(flea);
     }

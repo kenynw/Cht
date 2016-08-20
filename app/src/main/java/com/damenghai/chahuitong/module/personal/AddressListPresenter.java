@@ -1,4 +1,4 @@
-package com.damenghai.chahuitong.module.address;
+package com.damenghai.chahuitong.module.personal;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,10 +9,9 @@ import com.damenghai.chahuitong.adapter.viewholder.AddressViewHolder;
 import com.damenghai.chahuitong.expansion.list.BaseListActivityPresenter;
 import com.damenghai.chahuitong.model.AddressModel;
 import com.damenghai.chahuitong.model.bean.Address;
-import com.damenghai.chahuitong.model.bean.Area;
-import com.damenghai.chahuitong.model.service.DefaultTransform;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.utils.LUtils;
+import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
 import de.greenrobot.event.EventBus;
 
@@ -21,12 +20,12 @@ import de.greenrobot.event.EventBus;
  */
 public class AddressListPresenter extends BaseListActivityPresenter<AddressListActivity, Address> implements AddressViewHolder.OnOperationListener {
 
-    private String mState;
+    private int mState;
 
     @Override
     protected void onCreate(AddressListActivity view, Bundle saveState) {
         super.onCreate(view, saveState);
-        mState = getView().getIntent().getStringExtra("state");
+        mState = getView().getIntent().getIntExtra("state", 0);
         EventBus.getDefault().register(this);
     }
 
@@ -34,6 +33,17 @@ public class AddressListPresenter extends BaseListActivityPresenter<AddressListA
     protected void onCreateView(AddressListActivity view) {
         super.onCreateView(view);
         onRefresh();
+        getAdapter().setOnItemClickListener(position -> {
+            if (mState == 1) {
+                Intent intent = new Intent().putExtra("address", getAdapter().getItem(position));
+                getView().setResult(Activity.RESULT_OK, intent);
+                getView().finish();
+            } else {
+                Intent intent = new Intent(getView(), AddressEditActivity.class);
+                intent.putExtra("address", getAdapter().getItem(position));
+                getView().startActivity(intent);
+            }
+        });
     }
 
     @Override

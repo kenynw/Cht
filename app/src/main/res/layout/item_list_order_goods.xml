@@ -5,29 +5,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/white"
     android:paddingBottom="8dp"
-    android:background="@drawable/bg_vetical_bottom_divider"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="8dp"
     >
 
-    <CheckBox
-        android:id="@+id/cb_favorites_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="8dp"
-        android:button="@null"
-        android:drawableLeft="@drawable/rbtn_primary2white_sel"
-        android:visibility="gone"
-        />
-
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/dv_goods_thumb"
-        android:layout_width="77dp"
-        android:layout_height="77dp"
-        android:layout_toRightOf="@id/cb_favorites_edit"
+        android:layout_width="104dp"
+        android:layout_height="104dp"
         android:background="@color/bg_window"
         android:padding="1dp"
         app:actualImageScaleType="centerCrop"
@@ -35,59 +23,43 @@
         app:placeholderImageScaleType="centerCrop"
         />
 
-    <LinearLayout
-        android:id="@+id/layout_goods_title"
+    <TextView
+        android:id="@+id/tv_goods_name"
+        style="@style/TextSubhead"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/dv_goods_thumb"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:layout_toRightOf="@id/dv_goods_thumb"
-        android:orientation="horizontal"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
-        android:paddingTop="2dp"
-        >
-
-        <TextView
-            android:id="@+id/tv_goods_name"
-            style="@style/TextCaption"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ellipsize="end"
-            android:singleLine="true"
-            tools:text="喝好茶首选茶汇通"
-            />
-
-        <TextView
-            android:id="@+id/tv_goods_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            android:textSize="@dimen/text_size_caption_material"
-            tools:text="￥199.00"
-            />
-
-    </LinearLayout>
-
-    <com.damenghai.chahuitong.widget.QuantityView
-        android:id="@+id/goods_count_view"
-        android:layout_width="106dp"
-        android:layout_height="34dp"
-        android:layout_alignBottom="@id/dv_goods_thumb"
-        android:layout_alignLeft="@id/layout_goods_title"
-        android:layout_marginLeft="8dp"
-        android:visibility="gone"
+        android:ellipsize="end"
+        android:paddingTop="8dp"
+        android:singleLine="true"
+        tools:text="滇臻號·【滇】"
         />
 
     <TextView
-        android:id="@+id/goods_tv_count"
+        android:id="@+id/tv_goods_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/dv_goods_thumb"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_toRightOf="@id/dv_goods_thumb"
+        android:paddingBottom="8dp"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/text_size_caption_material"
+        tools:text="￥199.00"
+        />
+
+    <TextView
+        android:id="@+id/tv_goods_num"
         style="@style/TextCaption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/dv_goods_thumb"
         android:layout_alignParentRight="true"
-        android:text="x"
-        android:visibility="gone"
+        android:paddingBottom="8dp"
+        android:text="@string/text_order_goods_count"
+        tools:text="x1"
         />
 
 </RelativeLayout>
