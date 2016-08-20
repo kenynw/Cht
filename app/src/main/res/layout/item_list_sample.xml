@@ -53,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:drawableLeft="@mipmap/ic_location_goods"
+            android:drawableLeft="@mipmap/ic_goods_location"
             android:drawablePadding="@dimen/text_drawable_padding"
             android:paddingRight="4dp"
             android:text="云南"

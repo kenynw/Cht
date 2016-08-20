@@ -31,7 +31,6 @@
     <string name="title_activity_province">选择省份</string>
     <string name="title_activity_register">注册</string>
     <string name="title_activity_reset_password">重置密码</string>
-    <string name="title_activity_sample">本期免费茶样</string>
     <string name="title_activity_settings">设置</string>
     <string name="title_activity_trace_add">发表动态</string>
     <string name="title_activity_trace_commend">精选动态</string>
@@ -226,7 +225,6 @@
     <string name="label_goods_style">购买选择：</string>
     <string name="label_goods_storage"><b>库存：</b></string>
     <string name="label_goods_total">商品总额：</string>
-    <string name="label_home_free">免费茶样领取</string>
     <string name="label_home_recommend">· 对味品鉴</string>
     <string name="label_home_guess">· 适合才是最好</string>
     <string name="label_introduction">个人简介</string>
@@ -272,7 +270,6 @@
     <string name="tab_home_forum">论坛</string>
     <string name="tab_home_personal">个人中心</string>
     <string name="tab_sample_notice">申领须知</string>
-    <string name="tab_sample_history">往期茶样</string>
     <string name="tab_discount_nowadays">今日抢购</string>
     <string name="tab_discount_next">明日预告</string>
     <string name="tab_order_all">全部订单</string>
@@ -370,5 +367,6 @@
     <string name="action_inform">举报</string>
     <string name="action_block">拉黑</string>
     <string name="action_publish">发布</string>
+    <string name="action_message">我的消息</string>
 
 </resources>

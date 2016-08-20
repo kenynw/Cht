@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingBottom="8dp"
+    >
 
     <TextView
         android:id="@+id/tv_attr_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="净含量: "
+        android:singleLine="true"
         android:textColor="@color/text_black_secondary"
         android:textSize="@dimen/text_size_body_material"
-        android:singleLine="true"
+        tools:text="净含量: "
         />
 
     <TextView
         android:id="@+id/tv_attr_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="200g"
-        android:textSize="@dimen/text_size_body_material"
-        android:textColor="@color/text_black_primary"
         android:singleLine="true"
+        android:textColor="@color/text_black_primary"
+        android:textSize="@dimen/text_size_body_material"
+        tools:text="200g"
         />
 
 </LinearLayout>

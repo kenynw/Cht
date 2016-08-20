@@ -40,7 +40,7 @@ public class GoodsOrderViewHolder extends BaseViewHolder<Goods> {
     public void setData(Goods data) {
         mDvThumb.setImageURI(Uri.parse(data.getGoods_image_url()));
         mTvName.setText(data.getGoods_name());
-        mTvPrice.setText(data.getGoods_price());
+        mTvPrice.setText(String.format(getContext().getString(R.string.text_rmb), data.getGoods_price()));
         mTvNum.setText(String.format(getContext().getString(R.string.text_order_goods_count), data.getGoods_num()));
         itemView.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), GoodsDetailActivity.class);

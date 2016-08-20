@@ -16,13 +16,11 @@ import com.damenghai.chahuitong.model.bean.Goods;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.module.goods.GoodsDetailActivity;
 import com.damenghai.chahuitong.module.mall.CartListPresenter;
-import com.damenghai.chahuitong.widget.QuantityView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import de.greenrobot.event.EventBus;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.

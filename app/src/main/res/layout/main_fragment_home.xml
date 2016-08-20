@@ -23,7 +23,7 @@
                 style="@style/TextBody"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/widget_small_height"
-                android:background="@color/bg_window"
+                android:background="@color/bg_white_secondary"
                 android:drawableLeft="@mipmap/ic_search"
                 android:drawablePadding="@dimen/activity_horizontal_margin"
                 android:gravity="left|center_vertical"
@@ -99,6 +99,14 @@
                         app:actualImageScaleType="centerCrop"
                         app:placeholderImage="@mipmap/def_image_loading"
                         app:placeholderImageScaleType="centerCrop"
+                        />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/div_gray"
+                        android:layout_marginTop="@dimen/activity_horizontal_margin"
+                        android:layout_marginBottom="@dimen/activity_horizontal_margin"
                         />
 
                     <com.facebook.drawee.view.SimpleDraweeView

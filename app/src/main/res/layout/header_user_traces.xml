@@ -117,7 +117,7 @@
             android:layout_width="@dimen/widget_tiny_height"
             android:layout_height="@dimen/widget_tiny_height"
             android:contentDescription="@string/desc_gender"
-            android:src="@mipmap/ic_store_name"
+            android:src="@mipmap/ic_action_cart"
             />
 
         <TextView

@@ -1,11 +1,9 @@
 package com.damenghai.chahuitong.module.personal;
 
 import android.text.TextUtils;
-import android.widget.Toast;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.bijection.Presenter;
-import com.damenghai.chahuitong.model.bean.response.Response;
 import com.damenghai.chahuitong.model.service.DefaultTransform;
 import com.damenghai.chahuitong.model.service.ServiceClient;
 import com.damenghai.chahuitong.model.service.ServiceResponse;

@@ -78,4 +78,12 @@ public class GoodsModel {
         return ServiceClient.getServices().moveCartFav(LUtils.getPreferences().getString("key", ""), cartID).compose(new DefaultTransform<>());
     }
 
+    public Observable<BeanList<Goods>> getSampleList() {
+        return ServiceClient.getServices().sampleList().compose(new DefaultTransform<>());
+    }
+
+    public Observable<Goods> getSampleDetail() {
+        return ServiceClient.getServices().curSample(LUtils.getPreferences().getString("key", "")).compose(new DefaultTransform<>());
+    }
+
 }

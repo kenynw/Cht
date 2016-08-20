@@ -1,22 +1,17 @@
 package com.damenghai.chahuitong.module.mall;
 
-import android.app.AlertDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
-import com.damenghai.chahuitong.adapter.BaseListAdapter;
 import com.damenghai.chahuitong.adapter.GoodsOrderAdapter;
-import com.damenghai.chahuitong.adapter.ViewHolder;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.expansion.data.BaseDataActivity;
 import com.damenghai.chahuitong.expansion.list.DividerItemDecoration;
@@ -26,15 +21,6 @@ import com.damenghai.chahuitong.model.bean.Store;
 import com.damenghai.chahuitong.model.bean.Voucher;
 import com.damenghai.chahuitong.model.bean.OrderInfo;
 import com.damenghai.chahuitong.module.personal.AddressEditActivity;
-import com.damenghai.chahuitong.module.personal.AddressListActivity;
-import com.damenghai.chahuitong.widget.QuantityView;
-import com.jude.easyrecyclerview.EasyRecyclerView;
-import com.jude.easyrecyclerview.adapter.BaseViewHolder;
-import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
-
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

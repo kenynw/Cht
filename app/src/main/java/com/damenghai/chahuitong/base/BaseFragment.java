@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 
-import com.damenghai.chahuitong.module.MvpView;
 import com.damenghai.chahuitong.module.user.LoginActivity;
 
 /**

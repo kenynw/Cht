@@ -16,7 +16,6 @@ import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.utils.LUtils;
-import com.damenghai.chahuitong.module.MvpView;
 import com.damenghai.chahuitong.module.user.LoginActivity;
 import com.umeng.analytics.MobclickAgent;
 

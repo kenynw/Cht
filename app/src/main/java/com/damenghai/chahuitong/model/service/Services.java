@@ -21,13 +21,11 @@ import com.damenghai.chahuitong.model.bean.MessageCount;
 import com.damenghai.chahuitong.model.bean.Order;
 import com.damenghai.chahuitong.model.bean.OrderInfo;
 import com.damenghai.chahuitong.model.bean.People;
-import com.damenghai.chahuitong.model.bean.Sample;
 import com.damenghai.chahuitong.model.bean.Trace;
 import com.damenghai.chahuitong.model.bean.TraceComment;
 import com.damenghai.chahuitong.model.bean.UpdateInfo;
 import com.damenghai.chahuitong.model.bean.User;
 import com.damenghai.chahuitong.model.bean.Voucher;
-import com.damenghai.chahuitong.model.bean.response.Response;
 import com.google.gson.JsonObject;
 
 import java.util.List;
@@ -64,12 +62,12 @@ public interface Services {
     //--------------------------专题--------------------------
     // 免费茶样往期列表
     @GET("?act=goods_sample&op=overdue_goods")
-    Observable<Response<List<Sample>>> sampleList();
+    Observable<BeanList<Goods>> sampleList();
 
     // 免费茶样当前
     @FormUrlEncoded
     @POST("?act=goods_sample")
-    Observable<Sample> curSample(
+    Observable<Goods> curSample(
             @Field("key") String key
     );
 

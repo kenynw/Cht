@@ -35,7 +35,7 @@ public class PopularListActivity extends BaseListActivity<PopularListPresenter> 
 
     @Override
     protected int getLayout() {
-        return R.layout.pupular_activity_list;
+        return R.layout.user_activity_list_pupular;
     }
 
     @Override

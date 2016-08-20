@@ -7,7 +7,7 @@
     <item
         android:id="@+id/action_message"
         android:orderInCategory="1"
-        android:title="我的消息"
+        android:title="@string/action_message"
         app:actionLayout="@layout/action_badge_layout"
         app:showAsAction="always"/>
 

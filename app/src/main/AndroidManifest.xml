@@ -68,11 +68,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".module.special.SampleActivity"
+            android:name=".module.goods.SampleDetailActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".module.special.BargainActivity"
+            android:name=".module.goods.GoodsBargainActivity"
             android:screenOrientation="portrait">
 
             <intent-filter>

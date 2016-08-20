@@ -17,9 +17,9 @@ import java.util.List;
 public class PersonalAdapter extends RecyclerView.Adapter<PersonalViewHolder> {
 
     private final int[] ICON_RES_LIST = new int[]{
-            R.mipmap.ic_personal_favorites, R.mipmap.ic_personal_voucher,
-            R.mipmap.ic_personal_voucher, R.mipmap.ic_personal_voucher,
-            R.mipmap.ic_personal_active, R.mipmap.ic_personal_feedback
+            R.mipmap.ic_personal_favorites, R.mipmap.ic_personal_flea,
+            R.mipmap.ic_personal_voucher, R.mipmap.ic_personal_address,
+            R.mipmap.ic_personal_profile, R.mipmap.ic_personal_feedback
     };
 
     private Context mContext;

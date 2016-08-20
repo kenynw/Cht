@@ -9,6 +9,6 @@
     android:layout_height="match_parent"
     android:minHeight="180dp"
     app:layoutManager="LinearLayoutManager"
-    tools:context=".module.special.SampleHistoryFragment"
+    tools:context=".module.goods.SampleListFragment"
     tools:listitem="@layout/item_list_bargain"
     />

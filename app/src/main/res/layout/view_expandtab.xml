@@ -17,7 +17,7 @@
         style="@style/TextCaption"
         android:checked="true"
         android:background="@null"
-        android:drawableRight="@mipmap/ic_valuator_tab_normal"
+        android:drawableRight="@mipmap/ic_goods_tab_normal"
         android:paddingRight="8dp"
         android:paddingLeft="8dp"
         android:onClick="toPopupMenu"
@@ -41,7 +41,7 @@
         style="@style/TextCaption"
         android:checked="true"
         android:background="@color/white"
-        android:drawableRight="@mipmap/ic_valuator_tab_normal"
+        android:drawableRight="@mipmap/ic_goods_tab_normal"
         android:paddingRight="8dp"
         android:paddingLeft="8dp"
         />
@@ -63,7 +63,7 @@
         android:textOn="价格从高到低"
         style="@style/TextCaption"
         android:background="@color/white"
-        android:drawableRight="@mipmap/ic_valuator_tab_normal"
+        android:drawableRight="@mipmap/ic_goods_tab_normal"
         android:paddingRight="8dp"
         android:paddingLeft="8dp"
         />
@@ -85,7 +85,7 @@
         android:textOn="价格从高到低"
         style="@style/TextCaption"
         android:background="@color/white"
-        android:drawableRight="@mipmap/ic_valuator_tab_normal"
+        android:drawableRight="@mipmap/ic_goods_tab_normal"
         android:paddingRight="8dp"
         android:paddingLeft="8dp"
         />

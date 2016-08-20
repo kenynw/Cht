@@ -15,15 +15,10 @@ import com.damenghai.chahuitong.adapter.viewholder.CartViewHolder;
 import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.expansion.list.BaseListActivity;
 import com.damenghai.chahuitong.expansion.list.ListConfig;
-import com.damenghai.chahuitong.model.bean.Goods;
-import com.damenghai.chahuitong.utils.LUtils;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
-
-import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 @RequiresPresenter(CartListPresenter.class)
 public class CartListActivity extends BaseListActivity<CartListPresenter> {
@@ -108,48 +103,6 @@ public class CartListActivity extends BaseListActivity<CartListPresenter> {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_address_list, menu);
         return super.onCreateOptionsMenu(menu);
-    }
-
-    private void changeModeToEdit(boolean isEdit) {
-        if (isEdit) {
-            mLayoutDelete.setVisibility(View.VISIBLE);
-            mLayoutTotal.setVisibility(View.GONE);
-        } else {
-            mLayoutDelete.setVisibility(View.GONE);
-            mLayoutTotal.setVisibility(View.VISIBLE);
-        }
-    }
-
-    @OnClick(R.id.cart_cb_all)
-    public void toCheckAll(View view) {
-//        Map<Integer, Boolean> map = mAdapter.getStates();
-//        for (Integer key : map.keySet()) {
-//            map.put(key, mCheckAll.isChecked());
-//        }
-//        mAdapter.notifyDataSetChanged();
-    }
-
-//    @OnClick(R.id.btn_cart_shopping)
-//    public void shopping() {
-//        openActivity(BargainActivity.class);
-//    }
-
-    public void setList(List<Goods> list) {
-////        mRecyclerView.setAdapter(mAdapter);
-//            @Override
-//            public void onSelectedItemChanged(List<Goods> selectedList) {
-//                if (selectedList.size() == mAdapter.getItemCount()) mCheckAll.setChecked(true);
-//                else mCheckAll.setChecked(false);
-//
-//                double total = 0;
-//                for (Goods goods : selectedList) {
-//                    double price = Double.parseDouble(goods.getGoods_price());
-//                    total += price;
-//                }
-//                mTvTotal.setText("￥" + total);
-//            }
-//        });
-//        changeMode(MODE_NORMAL);
     }
 
     public void setTotal(double total) {

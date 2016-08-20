@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawablePadding="@dimen/text_drawable_padding"
-        android:drawableTop="@mipmap/ic_cart_empty"
+        android:drawableTop="@mipmap/ic_empty_cart"
         android:text="@string/text_cart_empty"
         android:textColor="@color/text_black_secondary"
         android:textSize="@dimen/text_size_body_material"

@@ -93,7 +93,7 @@ public class MainHomeFragment extends BeamFragment<MainHomePresenter> {
     }
 
     private void initToolbar() {
-        mToolbar.inflateMenu(R.menu.menu_main);
+        mToolbar.inflateMenu(R.menu.menu_main_mall);
         mToolbar.setOnMenuItemClickListener(item -> {
             getPresenter().showCart();
             return true;

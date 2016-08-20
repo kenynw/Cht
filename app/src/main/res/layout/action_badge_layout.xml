@@ -5,14 +5,14 @@
     android:layout_height="?attr/actionBarSize"
     >
 
-    <TextView
-        android:id="@+id/tv_action_msg"
+    <ImageView
+        android:id="@+id/iv_action_msg"
         style="@style/TextBody"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:text="消息"
+        android:src="@mipmap/ic_action_message"
         />
 
     <View

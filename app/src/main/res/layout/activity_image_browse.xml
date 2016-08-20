@@ -30,7 +30,7 @@
         android:id="@+id/iv_image_browse_back"
         android:layout_width="@dimen/widget_medium_height"
         android:layout_height="@dimen/widget_medium_height"
-        android:src="@mipmap/ic_toolbar_white_back"
+        android:src="@mipmap/ic_toolbar_back"
         android:layout_marginLeft="6dp"
         android:layout_marginRight="-6dp"
         android:gravity="center_vertical"

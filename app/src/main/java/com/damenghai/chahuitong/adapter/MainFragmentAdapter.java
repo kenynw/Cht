@@ -18,8 +18,8 @@ import java.util.List;
  */
 public class MainFragmentAdapter extends FragmentPagerAdapter {
 
-    private final int[] ICON = new int[] {R.drawable.btn_home_mall_selector, R.drawable.btn_home_forum_selector
-                                        , R.drawable.btn_home_cart_selector, R.drawable.btn_home_personal_selector};
+    private final int[] ICON = new int[] {R.drawable.btn_home_mall_selector, R.drawable.btn_home_trace_selector
+                                        , R.drawable.btn_home_discover_selector, R.drawable.btn_home_personal_selector};
     private final String[] TITLE = new String[] {"购茶", "动态", "发现", "我的"};
 
     private List<Fragment> mFragments;

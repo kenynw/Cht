@@ -152,7 +152,7 @@ public class MainPersonalFragment extends BaseDataFragment<MainPersonalPresenter
 
     private void initToolbar() {
         mTvTitle.setText(R.string.title_activity_personal);
-        mToolbar.inflateMenu(R.menu.menu_personal);
+        mToolbar.inflateMenu(R.menu.menu_main_personal);
         mToolbar.setOnMenuItemClickListener(item -> {
             startActivity(new Intent(getActivity(), SettingsActivity.class));
             return true;

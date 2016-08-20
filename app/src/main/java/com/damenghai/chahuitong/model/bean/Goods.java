@@ -19,9 +19,9 @@ public class Goods implements Parcelable {
 
     private double goods_sum;
 
-    private String goods_price;
+    private double goods_price;
 
-    private String goods_marketprice;
+    private double goods_marketprice;
 
     private String goods_promotion_price;
 
@@ -123,8 +123,8 @@ public class Goods implements Parcelable {
         dest.writeString(this.goods_name);
         dest.writeInt(this.goods_num);
         dest.writeDouble(this.goods_sum);
-        dest.writeString(this.goods_price);
-        dest.writeString(this.goods_marketprice);
+        dest.writeDouble(this.goods_price);
+        dest.writeDouble(this.goods_marketprice);
         dest.writeString(this.goods_promotion_price);
         dest.writeString(this.goods_image);
         dest.writeString(this.goods_image_url);
@@ -175,8 +175,8 @@ public class Goods implements Parcelable {
         this.goods_name = in.readString();
         this.goods_num = in.readInt();
         this.goods_sum = in.readDouble();
-        this.goods_price = in.readString();
-        this.goods_marketprice = in.readString();
+        this.goods_price = in.readDouble();
+        this.goods_marketprice = in.readDouble();
         this.goods_promotion_price = in.readString();
         this.goods_image = in.readString();
         this.goods_image_url = in.readString();
@@ -264,19 +264,19 @@ public class Goods implements Parcelable {
         this.goods_sum = goods_sum;
     }
 
-    public String getGoods_price() {
+    public double getGoods_price() {
         return goods_price;
     }
 
-    public void setGoods_price(String goods_price) {
+    public void setGoods_price(double goods_price) {
         this.goods_price = goods_price;
     }
 
-    public String getGoods_marketprice() {
+    public double getGoods_marketprice() {
         return goods_marketprice;
     }
 
-    public void setGoods_marketprice(String goods_marketprice) {
+    public void setGoods_marketprice(double goods_marketprice) {
         this.goods_marketprice = goods_marketprice;
     }
 
