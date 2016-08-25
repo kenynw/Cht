@@ -17,7 +17,7 @@ public class UserInfoActivity extends BaseListActivity<UserInfoPresenter> {
 
     @Override
     protected BaseViewHolder createViewHolder(ViewGroup parent, int viewType) {
-        return new TraceHomeViewHolder(parent);
+        return new TraceHomeViewHolder(parent, getPresenter());
     }
 
     @Override
@@ -30,23 +30,6 @@ public class UserInfoActivity extends BaseListActivity<UserInfoPresenter> {
         return super.getListConfig().setContainerEmptyAble(false);
     }
 
-    //
-//    public void setRelation(int relation) {
-//        switch (relation) {
-//            case 1 :
-//                btnFollow.setText(R.string.btn_add_follow);
-//                btnFollow.setOnClickListener(v -> getPresenter().getPeople());
-//                break;
-//            case 2 :
-//                btnFollow.setText(R.string.btn_relation_friend);
-//                break;
-//            case 3:
-//                btnFollow.setText(R.string.btn_edit);
-//            default :
-//                break;
-//        }
-//    }
-//
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

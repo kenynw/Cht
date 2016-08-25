@@ -26,10 +26,14 @@
 
     <Button
         android:id="@+id/btn_user_follow"
+        style="@style/ButtonSmall"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/widget_tiny_height"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
+        android:background="@drawable/btn_rectangle_primary_stroke"
         android:text="@string/btn_add_follow"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_size_caption_material"
         />
 </RelativeLayout>

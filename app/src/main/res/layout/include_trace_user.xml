@@ -44,17 +44,11 @@
         android:id="@+id/btn_trace_follow"
         style="@style/ButtonSmall"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/widget_tiny_height"
+        android:background="@drawable/btn_rectangle_primary_stroke"
         android:text="@string/btn_add_follow"
-        android:textColor="@color/text_black_secondary"
-        android:visibility="gone"
-        />
-
-    <Button
-        style="@style/ButtonBorderless"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="more"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_size_caption_material"
         android:visibility="gone"
         />
 

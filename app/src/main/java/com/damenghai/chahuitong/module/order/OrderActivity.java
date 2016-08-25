@@ -15,7 +15,7 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class OrderListActivity extends BaseActivity {
+public class OrderActivity extends BaseActivity {
     private final int[] TITLE_RES = new int[] {
             R.string.tab_order_unpaid,
             R.string.tab_order_paid,

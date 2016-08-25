@@ -47,7 +47,7 @@ public class BaseDataFragmentPresenter<V extends BaseDataFragment, M> extends Pr
 
             @Override
             public void onError(Throwable e) {
-                getView().showError(e);
+                getView().onError(e);
             }
 
             @Override

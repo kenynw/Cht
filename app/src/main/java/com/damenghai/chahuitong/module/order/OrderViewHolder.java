@@ -66,7 +66,6 @@ public class OrderViewHolder extends BaseViewHolder<Order> {
         GoodsOrderAdapter adapter = new GoodsOrderAdapter(getContext(), order.getExtend_order_goods());
         mLvGoods.setLayoutManager(new LinearLayoutManager(getContext()));
         mLvGoods.setAdapter(adapter);
-        adapter.setOnItemClickListener(position -> startOrderInfo(order));
         itemView.setOnClickListener(v -> startOrderInfo(order));
 
         if (order.getPay_amount() > 0) {

@@ -19,6 +19,6 @@ public class BaseDataFragment<PresenterType extends BaseDataFragmentPresenter, M
 
     public void setData(M m) {}
 
-    public void showError(Throwable throwable) {}
+    public void onError(Throwable throwable) {}
 
 }

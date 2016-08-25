@@ -7,7 +7,7 @@ import com.damenghai.chahuitong.expansion.data.BaseDataFragmentPresenter;
 import com.damenghai.chahuitong.model.UserModel;
 import com.damenghai.chahuitong.model.bean.User;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
-import com.damenghai.chahuitong.module.order.OrderListActivity;
+import com.damenghai.chahuitong.module.order.OrderActivity;
 import com.damenghai.chahuitong.module.user.LoginActivity;
 import com.damenghai.chahuitong.utils.LUtils;
 
@@ -30,7 +30,7 @@ public class MainPersonalPresenter extends BaseDataFragmentPresenter<MainPersona
 
     public void showOrder(int position) {
         if (isLogin()) {
-            Intent intent = new Intent(getView().getActivity(), OrderListActivity.class);
+            Intent intent = new Intent(getView().getActivity(), OrderActivity.class);
             intent.putExtra("position", position);
             getView().startActivity(intent);
         }

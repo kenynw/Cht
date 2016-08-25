@@ -19,6 +19,7 @@ import com.damenghai.chahuitong.model.bean.People;
 import com.damenghai.chahuitong.model.bean.Trace;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.module.personal.ProfileActivity;
+import com.damenghai.chahuitong.utils.LUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
@@ -84,6 +85,16 @@ public class UserInfoPresenter extends BaseListActivityPresenter<UserInfoActivit
     @Override
     public void onLoadMore() {
         TraceModel.getInstance().getUserTraceList(mUserId, getCurPage()).unsafeSubscribe(getMoreSubscriber());
+    }
+
+    public void deleteTrace(int traceID) {
+        TraceModel.getInstance().delTrace(traceID).subscribe(new ServiceResponse<String>() {
+            @Override
+            public void onNext(String s) {
+                LUtils.toast(R.string.toast_del_success);
+                onRefresh();
+            }
+        });
     }
 
     public void inform(String content) {
@@ -173,6 +184,8 @@ public class UserInfoPresenter extends BaseListActivityPresenter<UserInfoActivit
             switch (relation) {
                 case 2 :
                     mBtnFollow.setText(R.string.btn_relation_friend);
+                    mBtnFollow.setTextColor(getView().getResources().getColor(R.color.white));
+                    mBtnFollow.setBackgroundResource(R.drawable.btn_radius_primary2dark_selector);
                     mBtnFollow.setOnClickListener(v -> FriendModel.getInstance().delFollow(mUserId).subscribe(mRefreshSubscriber));
                     break;
                 case 3 :
@@ -184,6 +197,8 @@ public class UserInfoPresenter extends BaseListActivityPresenter<UserInfoActivit
                     break;
                 case 4 :
                     mBtnFollow.setText(R.string.btn_followed);
+                    mBtnFollow.setTextColor(getView().getResources().getColor(R.color.white));
+                    mBtnFollow.setBackgroundResource(R.drawable.btn_radius_primary2dark_selector);
                     mBtnFollow.setOnClickListener(v -> FriendModel.getInstance().delFollow(mUserId).subscribe(mRefreshSubscriber));
                     break;
                 default :

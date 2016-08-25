@@ -13,17 +13,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:padding="@dimen/activity_horizontal_margin"
-        tools:text="在这我老表美的秋天，在这般清好的下午，煮一壶水，烹一盏茶等一个共话收获之秋，体悟品之美"
-        android:maxLines="@integer/trace_max_line"
         android:ellipsize="end"
+        android:maxLines="@integer/trace_max_line"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:lineSpacingMultiplier="1.5"
+        tools:text="在这我老表美的秋天，在这般清好的下午，煮一壶水，烹一盏茶等一个共话收获之秋，体悟品之美"
         />
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="320dp"
-        android:paddingTop="@dimen/activity_vertical_margin"
         android:background="@color/white"
+        android:paddingTop="@dimen/activity_vertical_margin"
         >
 
         <com.facebook.drawee.view.SimpleDraweeView
@@ -59,17 +60,28 @@
         android:orientation="horizontal"
         >
 
-        <Button
-            android:id="@+id/btn_trace_share"
-            style="@style/ButtonBorderless"
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/btn_share"
-            android:textColor="@color/text_black_secondary"
-            android:textSize="@dimen/text_size_caption_material"
-            />
+            >
+
+            <Button
+                android:id="@+id/btn_trace_share"
+                style="@style/ButtonBorderless"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:drawableLeft="@mipmap/ic_trace_share"
+                android:gravity="center"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:text="@string/btn_share"
+                android:textColor="@color/text_black_secondary"
+                android:textSize="@dimen/text_size_caption_material"
+                />
+
+        </RelativeLayout>
 
         <View
             android:layout_width="1dp"
@@ -77,17 +89,26 @@
             android:background="@color/div_line"
             />
 
-        <Button
-            android:id="@+id/btn_trace_comment"
-            style="@style/ButtonBorderless"
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/btn_trace_comment"
-            android:textColor="@color/text_black_secondary"
-            android:textSize="@dimen/text_size_caption_material"
-            />
+            >
+
+            <Button
+                android:id="@+id/btn_trace_comment"
+                style="@style/ButtonBorderless"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:drawableLeft="@mipmap/ic_trace_comment"
+                android:gravity="center"
+                android:text="@string/btn_trace_comment"
+                android:textColor="@color/text_black_secondary"
+                android:textSize="@dimen/text_size_caption_material"
+                />
+
+        </RelativeLayout>
 
         <View
             android:layout_width="1dp"
@@ -95,17 +116,27 @@
             android:background="@color/div_line"
             />
 
-        <RadioButton
-            android:id="@+id/btn_trace_like"
-            style="@style/ButtonBorderless"
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/btn_trace_like"
-            android:textColor="@color/text_black_secondary"
-            android:textSize="@dimen/text_size_caption_material"
-            />
+            >
+
+            <RadioButton
+                android:id="@+id/btn_trace_like"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/btn_trace_like"
+                android:textColor="@color/text_black_secondary"
+                android:textSize="@dimen/text_size_caption_material"
+                android:button="@drawable/icon_btn_like_selector"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                />
+
+        </RelativeLayout>
 
     </LinearLayout>
 

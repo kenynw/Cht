@@ -51,9 +51,8 @@ public class ArticleViewHolder extends BaseViewHolder<Article> {
         mDvImage.setImageURI(Uri.parse(article.getArticle_image()));
         mTvComment.setText(String.format(getContext().getString(R.string.text_article_heat), article.getArticle_click(), article.getArticle_comment_count()));
         itemView.setOnClickListener(v -> {
-            Intent i = new Intent(getContext(), WebViewActivity.class);
-            i.putExtra("url", "http://api.chahuitong.com/?act=article&op=article_detail&article_id=" + article.getArticle_id() + "&key=" + LUtils.getPreferences().getString("key", ""));
-//            i.putExtra("article_id", article.getArticle_id());
+            Intent i = new Intent(getContext(), ArticleDetailActivity.class);
+            i.putExtra("article", article);
             getContext().startActivity(i);
         });
     }

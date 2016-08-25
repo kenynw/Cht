@@ -82,11 +82,11 @@ public class LoginPresenter extends Presenter<LoginActivity> implements UMAuthLi
 
     @Override
     public void onError(SHARE_MEDIA share_media, int i, Throwable throwable) {
-//        getView().showError("授权出错");
+//        getView().onError("授权出错");
     }
 
     @Override
     public void onCancel(SHARE_MEDIA share_media, int i) {
-//        getView().showError("授权取消");
+//        getView().onError("授权取消");
     }
 }

@@ -22,7 +22,9 @@
         android:drawableLeft="@mipmap/ic_login_username"
         android:drawablePadding="@dimen/text_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:inputType="phone"
         />
 
     <View
@@ -82,10 +84,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_vertical_margin"
-        android:background="@drawable/btn_radius_primary2dark_selector"
         android:text="@string/btn_ok"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_subhead_material"
+        style="@style/Widget.AppCompat.Button.Colored"
         />
 
     <Button

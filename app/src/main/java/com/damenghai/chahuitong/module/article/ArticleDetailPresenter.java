@@ -1,11 +1,17 @@
 package com.damenghai.chahuitong.module.article;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 
+import com.damenghai.chahuitong.bijection.BeamBaseActivity;
+import com.damenghai.chahuitong.bijection.Presenter;
 import com.damenghai.chahuitong.expansion.data.BaseDataActivityPresenter;
+import com.damenghai.chahuitong.model.ArticleModel;
 import com.damenghai.chahuitong.model.bean.Article;
 import com.damenghai.chahuitong.model.service.DefaultTransform;
 import com.damenghai.chahuitong.model.service.ServiceClient;
+import com.damenghai.chahuitong.model.service.ServiceResponse;
+import com.damenghai.chahuitong.model.service.Services;
 import com.damenghai.chahuitong.utils.LUtils;
 
 /**
@@ -13,20 +19,28 @@ import com.damenghai.chahuitong.utils.LUtils;
  */
 public class ArticleDetailPresenter extends BaseDataActivityPresenter<ArticleDetailActivity, Article> {
 
-    private int mArticleID;
+    private Article mArticle;
 
     @Override
     protected void onCreate(ArticleDetailActivity view, Bundle saveState) {
         super.onCreate(view, saveState);
-        mArticleID = getView().getIntent().getIntExtra("article_id", 0);
+        mArticle = getView().getIntent().getParcelableExtra("article");
     }
 
     @Override
     protected void onCreateView(ArticleDetailActivity view) {
         super.onCreateView(view);
-        LUtils.log("id: " + mArticleID);
-//        ServiceClient.getServices().articleDetail(LUtils.getPreferences().getString("key", ""), mArticleID)
-//                .compose(new DefaultTransform<>())
-//                .unsafeSubscribe(getDataSubscriber());
+        publishObject(mArticle);
     }
+
+    public void addComment(String content) {
+        ArticleModel.getInstance().addComment(mArticle.getArticle_id(), content)
+                .unsafeSubscribe(new ServiceResponse<Integer>() {
+                    @Override
+                    public void onNext(Integer result) {
+                        publishObject(mArticle);
+                    }
+                });
+    }
+
 }

@@ -6,8 +6,6 @@ import android.view.View;
 
 import com.damenghai.chahuitong.R;
 
-import java.util.List;
-
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
@@ -30,7 +28,7 @@ public class ListConfig implements Cloneable {
 
     boolean mContainerEmptyAble = true;
     View mContainerEmptyView;
-    int mContainerEmptyRes = R.layout.defalut_view_list_empty;
+    int mContainerEmptyRes = R.layout.default_view_list_empty;
 
     boolean mContainerProgressAble = false;
     View mContainerProgressView;

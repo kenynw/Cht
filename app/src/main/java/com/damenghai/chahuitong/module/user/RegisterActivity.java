@@ -38,7 +38,7 @@ public class RegisterActivity extends BeamBaseActivity<RegisterPresenter> {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.user_activity_register);
         setToolbarTitle(R.string.title_activity_register);
         ButterKnife.bind(this);
 

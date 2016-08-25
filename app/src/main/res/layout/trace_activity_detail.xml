@@ -54,35 +54,6 @@
 
     </ScrollView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/widget_max_height"
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingLeft="@dimen/activity_horizontal_margin">
-
-        <EditText
-            android:id="@+id/et_trace_comment"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:hint="@string/hint_new_content"
-            android:paddingLeft="8dp"
-            android:textSize="@dimen/text_size_body_material"
-            />
-
-        <Button
-            android:id="@+id/btn_trace_add_comment"
-            style="@style/ButtonBorderless"
-            android:layout_width="@dimen/button_min_width"
-            android:layout_height="match_parent"
-            android:enabled="false"
-            android:text="@string/btn_publish"
-            android:textColor="@color/text_color_primary_disable_selector"
-            android:textSize="@dimen/text_size_title_material"
-            />
-
-    </LinearLayout>
+    <include layout="@layout/include_add_bar" />
 
 </LinearLayout>

@@ -497,6 +497,20 @@ public interface Services {
             @Query("article_id") int articleID
     );
 
+
+    /**
+     * 文章评论
+     * @param key 登录令牌
+     * @param articleID 文章ID
+     * @return 文章列表
+     */
+    @GET("?act=article_comment&op=comment_add")
+    Observable<Integer> articleAddComment(
+            @Query("key") String key,
+            @Query("object_id") int articleID,
+            @Query("comment_message") String content
+    );
+
     //////////////////////////茶友圈/////////////////////////
 
     /**

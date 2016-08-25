@@ -69,6 +69,8 @@ public class UserViewHolder<M extends User> extends BaseViewHolder<M> {
                 break;
             case 1:
                 mTvFollow.setText(R.string.btn_followed);
+                mTvFollow.setTextColor(getContext().getResources().getColor(R.color.white));
+                mTvFollow.setBackgroundResource(R.drawable.btn_radius_primary2dark_selector);
                 mTvFollow.setOnClickListener(v -> FriendModel.getInstance().delFollow(user.getMember_id())
                         .subscribe(new ServiceResponse<Integer>() {
                             @Override
@@ -79,6 +81,8 @@ public class UserViewHolder<M extends User> extends BaseViewHolder<M> {
                 break;
             case 2:
                 mTvFollow.setText(R.string.btn_relation_friend);
+                mTvFollow.setTextColor(getContext().getResources().getColor(R.color.white));
+                mTvFollow.setBackgroundResource(R.drawable.btn_radius_primary2dark_selector);
                 mTvFollow.setOnClickListener(v -> FriendModel.getInstance().delFollow(user.getMember_id())
                         .subscribe(new ServiceResponse<Integer>() {
                             @Override

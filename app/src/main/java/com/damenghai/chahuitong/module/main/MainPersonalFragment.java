@@ -21,6 +21,7 @@ import com.damenghai.chahuitong.expansion.data.BaseDataFragment;
 import com.damenghai.chahuitong.model.bean.User;
 import com.damenghai.chahuitong.module.settings.SettingsActivity;
 import com.damenghai.chahuitong.module.user.UserInfoActivity;
+import com.damenghai.chahuitong.utils.LUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import butterknife.Bind;
@@ -147,6 +148,13 @@ public class MainPersonalFragment extends BaseDataFragment<MainPersonalPresenter
             mTvUncomment.setText(String.valueOf(user.getOrder_eval_count()));
         } else {
             mTvUncomment.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void onError(Throwable throwable) {
+        if (!LUtils.getPreferences().getString("key", "").isEmpty()) {
+            LUtils.getPreferences().edit().remove("key").apply();
         }
     }
 

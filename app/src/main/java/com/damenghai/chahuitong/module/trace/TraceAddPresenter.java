@@ -35,6 +35,11 @@ public class TraceAddPresenter extends Presenter<TraceAddActivity>
         mProvider = new ImageProvider(getView());
     }
 
+    @Override
+    protected void onCreateView(TraceAddActivity view) {
+        super.onCreateView(view);
+    }
+
     public void save(String content) {
         if (mUriList.size() <= 0) {
             LUtils.toast("无图无真相");

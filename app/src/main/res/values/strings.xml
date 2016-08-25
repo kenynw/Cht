@@ -121,8 +121,8 @@
     <string name="btn_stay_shopping">再逛逛</string>
     <string name="btn_submit">提&#160;交</string>
     <string name="btn_to_buy">去购买</string>
-    <string name="btn_trace_comment">评价%s</string>
-    <string name="btn_trace_like">赞%s</string>
+    <string name="btn_trace_comment">评价</string>
+    <string name="btn_trace_like">赞</string>
     <string name="btn_unpaid">待付款</string>
     <string name="btn_uncomment">待评价</string>
     <string name="btn_view_all_class">查看所有品类</string>
@@ -132,10 +132,10 @@
     <string name="btn_voucher_order">选择优惠券</string>
 
     <!--文本文字，命名格式为：text_按钮事件-->
-    <string name="text_copyright">©茶信科技</string>
     <string name="text_about_chahuitong">茶汇通APP是茶产业垂直生态平台，整合茶域庞大的生态圈，融合线上线下，提供专家咨询、精华资讯、
         即时交流、茶圈互动、活动发起、精品购茶等一系列多样化服务。在茶汇通，茶友圈的信息是即时的、直接的、精华的、权威的；茶产品是安全、高质
         、正品、专享的；茶友圈的社交是个性的、全分享的。</string>
+    <string name="text_copyright">©茶信科技</string>
     <string name="text_hotline_counseling">客服/热线咨询：</string>
     <string name="text_phone_number">05925990900</string>
     <string name="text_rmb">￥%s</string>
@@ -143,9 +143,9 @@
     <string name="text_carriage_free">免运费</string>
     <string name="text_sample_notice">申领资格：茶汇通注册会员\r\n申领限额：每月一次\r\n申领流程</string>
     <string name="text_cart_empty">暂无商品</string>
-    <string name="text_empty">这里空空如也，快去逛逛吧~~</string>
+    <string name="text_empty">暂无数据</string>
     <string name="text_empty_comment">还没有任何评论，快来抢沙发吧~~</string>
-    <string name="text_empty_trace">还未发表过任何动态</string>
+    <string name="text_empty_trace">暂无动态</string>
     <string name="text_goods_quality">正品保证</string>
     <string name="text_goods_delivery_today">12小时发货</string>
     <string name="text_goods_spot">实地认证</string>
@@ -286,6 +286,7 @@
     <string name="toast_del_success">删除成功,如数据未更新请手动刷新</string>
     <string name="toast_exit">再按一次退出茶汇通</string>
     <string name="toast_feedback_success">感谢您的反馈</string>
+    <string name="toast_inform_success">举报成功</string>
     <string name="toast_invalid_code">请输入6位验证码</string>
     <string name="toast_invalid_confirm">两次输入的密码不一致</string>
     <string name="toast_invalid_content">不少于五个汉字</string>
@@ -361,6 +362,7 @@
     <string name="action_edit">编辑</string>
     <string name="action_done">完成</string>
     <string name="action_delete">删除</string>
+    <string name="action_copy_url">复制链接</string>
     <string name="action_settings">设置</string>
     <string name="action_search">搜索</string>
     <string name="action_share">分享</string>

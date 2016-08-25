@@ -9,6 +9,7 @@ import com.damenghai.chahuitong.model.service.DefaultTransform;
 import com.damenghai.chahuitong.model.service.ServiceClient;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.module.personal.MessageActivity;
+import com.damenghai.chahuitong.module.trace.TraceAddActivity;
 import com.damenghai.chahuitong.module.user.PopularListActivity;
 import com.damenghai.chahuitong.module.user.LoginActivity;
 import com.damenghai.chahuitong.utils.LUtils;
@@ -26,6 +27,10 @@ public class MainTracePresenter extends BaseDataFragmentPresenter<MainTraceFragm
         ServiceClient.getServices().newMsgCount(LUtils.getPreferences().getString("key", ""))
                 .compose(new DefaultTransform<>())
                 .subscribe(getSubscriber());
+    }
+
+    public void toAddTrace() {
+        if (checkLogin()) getView().startActivity(new Intent(getView().getActivity(), TraceAddActivity.class));
     }
 
     public void showFindFriend() {

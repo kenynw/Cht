@@ -105,18 +105,18 @@ public class OrderDetailActivity extends BaseDataActivity<OrderDetailPresenter, 
             }
 
             switch (order.getOrder_state()) {
-                case OrderListActivity.STATE_UNPAID:
+                case OrderActivity.STATE_UNPAID:
                     mBtnLeft.setOnClickListener(view -> getPresenter().cancelOrder());
                     mBtnRight.setOnClickListener(view -> getPresenter().payOrder());
                     break;
-                case OrderListActivity.STATE_RECEIVE:
+                case OrderActivity.STATE_RECEIVE:
                     mBtnLeft.setText(R.string.btn_order_delivery);
                     mBtnLeft.setOnClickListener(view -> getPresenter().viewDelivery());
 
                     mBtnRight.setText(R.string.btn_order_sure);
                     mBtnRight.setOnClickListener(view -> getPresenter().sureOrder());
                     break;
-                case OrderListActivity.STATE_UNCOMMENT:
+                case OrderActivity.STATE_UNCOMMENT:
                     mBtnLeft.setText(R.string.btn_order_delivery);
                     mBtnLeft.setOnClickListener(view -> getPresenter().viewDelivery());
 

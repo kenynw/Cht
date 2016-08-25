@@ -1,9 +1,11 @@
 package com.damenghai.chahuitong.module.personal;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.DatePicker;
 import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
@@ -18,6 +20,11 @@ import com.jude.library.imageprovider.ImageProvider;
 import com.jude.library.imageprovider.OnImageSelectListener;
 
 import java.io.File;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
@@ -85,9 +92,23 @@ public class ProfilePresenter extends BaseDataActivityPresenter<ProfileActivity,
     }
 
     public void showBorn(TextView view) {
-        String date = view.getText().toString();
-        DateUtils.showDateDialog(getView(), date, (view1, year, monthOfYear, dayOfMonth)
-                -> view.setText(String.format("%s-%02d-%s", year, monthOfYear + 1, dayOfMonth)));
+//        LUtils.toast("lll");
+//        String date1 = view.getText().toString();
+//        DateUtils.showDateDialog(getView(), date1, (view1, year, monthOfYear, dayOfMonth)
+//                -> view.setText(String.format("%s-%02d-%s", year, monthOfYear + 1, dayOfMonth)));
+//
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
+        try {
+            Date date = format.parse(view.getText().toString());
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+            DatePickerDialog dialog = new DatePickerDialog(getView(), (datePicker, year, monthOfYear, dayOfMonth) -> {
+                view.setText(String.format("%s-%02d-%s", year, monthOfYear + 1, dayOfMonth));
+            }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE));
+            dialog.show();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
     public void showArea() {

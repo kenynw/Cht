@@ -50,7 +50,7 @@ public class MainTraceFragment extends BaseDataFragment<MainTracePresenter, Mess
         initTab();
         initToolbar();
 
-        mBtnAdd.setOnClickListener(v -> startActivity(new Intent(getActivity(), TraceAddActivity.class)));
+        mBtnAdd.setOnClickListener(v -> getPresenter().toAddTrace());
 
         return view;
     }

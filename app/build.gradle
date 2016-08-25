@@ -3,6 +3,7 @@ apply plugin: 'me.tatarka.retrolambda' // lambda插件
 
 Properties props = new Properties();
 props.load(new FileInputStream(file("signing.properties")))
+props.load(new FileInputStream(file("config.properties")))
 
 android {
     compileSdkVersion 24
@@ -25,6 +26,9 @@ android {
         targetSdkVersion 23
         versionCode 42
         versionName "3.0"
+        manifestPlaceholders = [
+                UMENG_APPKEY    : props['UMENG_APPKEY'],
+        ]
     }
     buildTypes {
         release {
@@ -38,7 +42,18 @@ android {
         }
     }
     productFlavors {
+        xiaomi{}
+        baidu{}
+        wandoujia{}
+        qihu360{}
+        share{}
+        liuhengyu{}
+        origin{}
+        update{}
+        qq{}
     }
+    //应用到每一个flavor
+    productFlavors.all { flavor -> manifestPlaceholders.put("UMENG_CHANNEL",name) }
 }
 
 dependencies {

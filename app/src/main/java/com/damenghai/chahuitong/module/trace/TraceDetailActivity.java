@@ -54,10 +54,10 @@ public class TraceDetailActivity extends BaseDataActivity<TraceDetailPresenter, 
     @Bind(R.id.rcv_trace_comment)
     EasyRecyclerView mRcvComment;
 
-    @Bind(R.id.et_trace_comment)
+    @Bind(R.id.et_add)
     EditText mEtComment;
 
-    @Bind(R.id.btn_trace_add_comment)
+    @Bind(R.id.btn_add)
     Button mBtnAddComment;
 
     @Bind(R.id.btn_trace_share)
@@ -96,9 +96,9 @@ public class TraceDetailActivity extends BaseDataActivity<TraceDetailPresenter, 
         mDvImage.setImageURI(Uri.parse(trace.getTrace_image()));
         mDvImage.setOnClickListener(v -> getPresenter().showImageDetail(trace.getTrace_image_list()));
         mTvImgNum.setText(String.valueOf(trace.getTrace_image_list().size()));
-        mBtnComment.setText(String.format(getString(R.string.btn_trace_comment), trace.getTrace_commentcount() > 0 ? trace.getTrace_commentcount() : ""));
+        mBtnComment.setText(String.format("%s", trace.getTrace_commentcount() > 0 ? trace.getTrace_commentcount() : getString(R.string.btn_trace_comment)));
         mBtnShare.setOnClickListener(v -> getPresenter().share());
-        mBtnLike.setText(String.format(getString(R.string.btn_trace_like), trace.getTrace_likecount() > 0 ? trace.getTrace_likecount() : ""));
+        mBtnLike.setText(String.format("%s", trace.getTrace_likecount() > 0 ? trace.getTrace_likecount() : getString(R.string.btn_trace_like)));
         mBtnLike.setOnClickListener(v -> getPresenter().addLike());
         mBtnLike.setChecked(trace.is_like());
         mTvTime.setText(trace.getTrace_addtime());
@@ -129,12 +129,16 @@ public class TraceDetailActivity extends BaseDataActivity<TraceDetailPresenter, 
                 mTvTime.setVisibility(View.GONE);
                 mBtnFollow.setVisibility(View.VISIBLE);
                 mBtnFollow.setText(R.string.btn_add_follow);
+                mBtnFollow.setTextColor(getResources().getColor(R.color.colorPrimary));
+                mBtnFollow.setBackgroundResource(R.drawable.btn_rectangle_primary_stroke);
                 mBtnFollow.setOnClickListener(v -> getPresenter().addFollow());
                 break;
             case 2 :
                 mTvTime.setVisibility(View.GONE);
                 mBtnFollow.setVisibility(View.VISIBLE);
                 mBtnFollow.setText(R.string.btn_relation_friend);
+                mBtnFollow.setTextColor(getResources().getColor(R.color.white));
+                mBtnFollow.setBackgroundResource(R.drawable.btn_radius_primary2dark_selector);
                 mBtnFollow.setOnClickListener(v -> getPresenter().delFollow());
                 break;
             case 3 :
@@ -146,6 +150,8 @@ public class TraceDetailActivity extends BaseDataActivity<TraceDetailPresenter, 
                 mTvTime.setVisibility(View.GONE);
                 mBtnFollow.setVisibility(View.VISIBLE);
                 mBtnFollow.setText(R.string.btn_followed);
+                mBtnFollow.setTextColor(getResources().getColor(R.color.white));
+                mBtnFollow.setBackgroundResource(R.drawable.btn_radius_primary2dark_selector);
                 mBtnFollow.setOnClickListener(v -> getPresenter().delFollow());
                 break;
         }

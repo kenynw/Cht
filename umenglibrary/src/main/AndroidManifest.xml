@@ -6,9 +6,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         >
-        <meta-data android:value="5563e50967e58e4bbf00179c" android:name="UMENG_APPKEY"/>
-
-        <meta-data android:value="Channel ID" android:name="UMENG_CHANNEL"/>
         <!-- ###################分享##################### -->
         <activity
             android:name="com.umeng.socialize.editorpage.ShareActivity"

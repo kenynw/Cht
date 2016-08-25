@@ -98,7 +98,7 @@ public class TraceDetailPresenter extends BaseDataActivityPresenter<TraceDetailA
                     @Override
                     public void onNext(Integer relation) {
                         Trace trace = getDataSubject().getValue();
-                        trace.setRelation(relation);
+                        trace.setRelation(4);
                         getView().setRelation(trace);
                     }
                 });

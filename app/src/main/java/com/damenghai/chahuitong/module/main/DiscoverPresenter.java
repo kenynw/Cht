@@ -12,6 +12,7 @@ import com.damenghai.chahuitong.module.flea.FleaListActivity;
 import com.damenghai.chahuitong.module.mall.CategoryListActivity;
 import com.damenghai.chahuitong.module.trace.TraceListActivity;
 import com.damenghai.chahuitong.module.user.FindUserListActivity;
+import com.damenghai.chahuitong.module.user.LoginActivity;
 import com.damenghai.chahuitong.utils.LUtils;
 
 /**
@@ -26,7 +27,12 @@ public class DiscoverPresenter extends BaseDataFragmentPresenter<DiscoverFragmen
     }
 
     private boolean checkLogin() {
-        return !TextUtils.isEmpty(LUtils.getPreferences().getString("key", ""));
+        if (TextUtils.isEmpty(LUtils.getPreferences().getString("key", ""))) {
+            Intent intent = new Intent(getView().getActivity(), LoginActivity.class);
+            getView().startActivity(intent);
+            return false;
+        }
+        return true;
     }
 
     public void showNews() {

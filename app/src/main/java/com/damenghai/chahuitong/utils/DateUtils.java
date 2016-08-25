@@ -16,7 +16,7 @@ public class DateUtils {
      *
      */
     public static void showDateDialog(Context context, String dateStr, DatePickerDialog.OnDateSetListener listener) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
         try {
             Date date = format.parse(dateStr);
             Calendar calendar = Calendar.getInstance();
