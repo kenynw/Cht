@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.Html;
+import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,8 +22,12 @@ import com.damenghai.chahuitong.expansion.list.DividerItemDecoration;
 import com.damenghai.chahuitong.model.bean.Trace;
 import com.damenghai.chahuitong.model.bean.TraceComment;
 import com.damenghai.chahuitong.utils.LUtils;
+import com.damenghai.chahuitong.utils.Replacer;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.jude.easyrecyclerview.EasyRecyclerView;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -42,7 +47,7 @@ public class TraceDetailActivity extends BaseDataActivity<TraceDetailPresenter, 
     @Bind(R.id.tv_trace_time)
     TextView mTvTime;
 
-    @Bind(R.id.tv_trace_content)
+    @Bind(R.id.et_trace_content)
     TextView mTvContent;
 
     @Bind(R.id.dv_trace_image)
@@ -63,8 +68,8 @@ public class TraceDetailActivity extends BaseDataActivity<TraceDetailPresenter, 
     @Bind(R.id.btn_trace_share)
     Button mBtnShare;
 
-    @Bind(R.id.btn_trace_comment)
-    Button mBtnComment;
+    @Bind(R.id.tv_trace_comment)
+    TextView mTvComment;
 
     @Bind(R.id.btn_trace_like)
     RadioButton mBtnLike;
@@ -76,8 +81,10 @@ public class TraceDetailActivity extends BaseDataActivity<TraceDetailPresenter, 
         setToolbarTitle(R.string.title_trace_detail);
         ButterKnife.bind(this);
 
-        mRcvComment.setLayoutManager(new LinearLayoutManager(this));
+        mTvContent.setMaxLines(20);
+
         mRcvComment.setEmptyView(R.layout.empty_list_comment);
+        mRcvComment.setLayoutManager(new LinearLayoutManager(this));
         mRcvComment.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
 
         mEtComment.addTextChangedListener(getPresenter());
@@ -90,13 +97,13 @@ public class TraceDetailActivity extends BaseDataActivity<TraceDetailPresenter, 
         mDvAvatar.setOnClickListener(v -> getPresenter().showUserInfo(trace.getTrace_memberid()));
         mTvUsername.setText(trace.getTrace_membername());
         mTvUsername.setOnClickListener(v -> getPresenter().showUserInfo(trace.getTrace_memberid()));
-        mTvContent.setText(Html.fromHtml(trace.getTrace_title()));
-        mTvContent.setClickable(true);
-        mTvContent.setMovementMethod(LinkMovementMethod.getInstance());
+
+        mTvContent.setText(getContent(trace.getTrace_title()));
+
         mDvImage.setImageURI(Uri.parse(trace.getTrace_image()));
         mDvImage.setOnClickListener(v -> getPresenter().showImageDetail(trace.getTrace_image_list()));
         mTvImgNum.setText(String.valueOf(trace.getTrace_image_list().size()));
-        mBtnComment.setText(String.format("%s", trace.getTrace_commentcount() > 0 ? trace.getTrace_commentcount() : getString(R.string.btn_trace_comment)));
+        mTvComment.setText(String.format("%s", trace.getTrace_commentcount() > 0 ? trace.getTrace_commentcount() : getString(R.string.btn_trace_comment)));
         mBtnShare.setOnClickListener(v -> getPresenter().share());
         mBtnLike.setText(String.format("%s", trace.getTrace_likecount() > 0 ? trace.getTrace_likecount() : getString(R.string.btn_trace_like)));
         mBtnLike.setOnClickListener(v -> getPresenter().addLike());
@@ -116,7 +123,7 @@ public class TraceDetailActivity extends BaseDataActivity<TraceDetailPresenter, 
     public void clearEditText() {
         LUtils.closeKeyboard(mEtComment);
         mEtComment.setText("");
-        mBtnComment.setOnClickListener(v -> mEtComment.setHint(getString(R.string.hint_new_content)));
+        mTvComment.setOnClickListener(v -> mEtComment.setHint(getString(R.string.hint_new_content)));
     }
 
     public Button getSubmitBtn() {
@@ -182,4 +189,28 @@ public class TraceDetailActivity extends BaseDataActivity<TraceDetailPresenter, 
         }
         return super.onCreateOptionsMenu(menu);
     }
+
+    private CharSequence getContent(String content) {
+        String regexAt = "<a[^>]+>[^<]*</a>";
+        String regexTopic = "#[\u4e00-\u9fa5\\w]+#";
+        String regexEmoji = "\\[[\u4e00-\u9fa5\\w]+\\";
+
+        SpannableString spannableString = new SpannableString(content);
+
+        Pattern pattern = Pattern.compile(regexAt);
+        Matcher matcher = pattern.matcher(spannableString);
+
+        if (matcher.find()) {
+            String atStr = matcher.group();
+            int start = matcher.start();
+
+            mTvContent.setClickable(true);
+            mTvContent.setMovementMethod(LinkMovementMethod.getInstance());
+
+            return Replacer.replace(spannableString, regexAt, Html.fromHtml(atStr));
+        }
+
+        return spannableString;
+    }
+
 }

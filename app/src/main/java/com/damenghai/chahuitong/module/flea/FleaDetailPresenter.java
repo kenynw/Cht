@@ -16,6 +16,9 @@ import com.damenghai.chahuitong.model.bean.Flea;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.module.user.UserInfoActivity;
 import com.damenghai.chahuitong.utils.LUtils;
+import com.umeng.socialize.ShareAction;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.media.UMImage;
 
 import java.util.List;
 
@@ -25,7 +28,7 @@ import java.util.List;
 public class FleaDetailPresenter extends BaseDataActivityPresenter<FleaDetailActivity, Flea>
         implements TextWatcher, CompoundButton.OnCheckedChangeListener {
 
-    private int mFleaId;
+    private int mFleaID;
 
     private FleaConsultAdapter mConsultAdapter;
 
@@ -34,42 +37,71 @@ public class FleaDetailPresenter extends BaseDataActivityPresenter<FleaDetailAct
     @Override
     protected void onCreate(FleaDetailActivity view, Bundle saveState) {
         super.onCreate(view, saveState);
-        mFleaId = getView().getIntent().getIntExtra("flea_id", 0);
+        mFleaID = getView().getIntent().getIntExtra("flea_id", 0);
     }
 
     @Override
     protected void onCreateView(FleaDetailActivity view) {
         super.onCreateView(view);
-        FleaModel.getInstance().getFleaDetail(mFleaId).subscribe(getDataSubscriber());
+        loadData();
         mConsultPage = 2;
     }
 
+    private void loadData() {
+        FleaModel.getInstance().getFleaDetail(mFleaID).unsafeSubscribe(getDataSubscriber());
+    }
+
     public void loadMoreConsult() {
-        FleaModel.getInstance().getConsultList(mConsultPage, mFleaId).subscribe(new ServiceResponse<BeanList<Consult>>(){
+        FleaModel.getInstance().getConsultList(mConsultPage, mFleaID).subscribe(new ServiceResponse<BeanList<Consult>>(){
             @Override
             public void onNext(BeanList<Consult> consultBeanList) {
                 super.onNext(consultBeanList);
                 mConsultPage++;
-                mConsultAdapter.addList(consultBeanList.getList());
+                mConsultAdapter.addAll(consultBeanList.getList());
             }
         });
     }
 
-    public FleaConsultAdapter getAdapter(List<Consult> consultList) {
-        if (mConsultAdapter == null) mConsultAdapter = new FleaConsultAdapter(getView(), consultList);
+    public FleaConsultAdapter getAdapter() {
+        if (mConsultAdapter == null) mConsultAdapter = new FleaConsultAdapter(getView());
         return mConsultAdapter;
     }
 
     public void publishConsult(String content) {
-        FleaModel.getInstance().saveConsult(content, mFleaId).subscribe(new ServiceResponse<Consult>() {
+        FleaModel.getInstance().saveConsult(content, mFleaID).subscribe(new ServiceResponse<Consult>() {
             @Override
             public void onNext(Consult consult) {
                 LUtils.toast(R.string.toast_operate_success);
                 LUtils.closeKeyboard(getView().getEtConsult());
                 getView().getEtConsult().setText("");
-                mConsultAdapter.add(0, consult);
+                mConsultAdapter.insert(consult, 0);
+                mConsultAdapter.notifyDataSetChanged();
             }
         });
+    }
+
+    public void showUser(int member_id) {
+        Intent intent = new Intent(getView(), UserInfoActivity.class);
+        intent.putExtra("user_id", member_id);
+        getView().startActivity(intent);
+    }
+
+    public void share() {
+        final SHARE_MEDIA[] displayList = new SHARE_MEDIA[]{
+                SHARE_MEDIA.WEIXIN,
+                SHARE_MEDIA.WEIXIN_CIRCLE,
+                SHARE_MEDIA.QQ,
+                SHARE_MEDIA.QZONE,
+                SHARE_MEDIA.SINA
+        };
+
+        new ShareAction(getView())
+                .setDisplayList(displayList)
+                .withTitle(getDataSubject().getValue().getGoods_name())
+                .withTargetUrl(getDataSubject().getValue().getGoods_url())
+                .withText(getDataSubject().getValue().getGoods_abstract())
+                .withMedia(new UMImage(getView(), getDataSubject().getValue().getGoods_image()))
+                .open();
     }
 
     @Override
@@ -91,16 +123,10 @@ public class FleaDetailPresenter extends BaseDataActivityPresenter<FleaDetailAct
 
     }
 
-    public void showUser(int member_id) {
-        Intent intent = new Intent(getView(), UserInfoActivity.class);
-        intent.putExtra("user_id", member_id);
-        getView().startActivity(intent);
-    }
-
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
         if (b) {
-            FleaModel.getInstance().addFavorite(mFleaId).subscribe(new ServiceResponse<Boolean>() {
+            FleaModel.getInstance().addFavorite(mFleaID).subscribe(new ServiceResponse<Boolean>() {
                 @Override
                 public void onError(Throwable e) {
                     super.onError(e);
@@ -114,7 +140,7 @@ public class FleaDetailPresenter extends BaseDataActivityPresenter<FleaDetailAct
             });
 
         } else {
-            FleaModel.getInstance().delFavorite(mFleaId).subscribe(new ServiceResponse<Boolean>() {
+            FleaModel.getInstance().delFavorite(mFleaID).subscribe(new ServiceResponse<Boolean>() {
 
                 @Override
                 public void onError(Throwable e) {

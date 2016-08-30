@@ -8,6 +8,7 @@ import com.damenghai.chahuitong.model.bean.FleaImage;
 import com.damenghai.chahuitong.model.service.DefaultTransform;
 import com.damenghai.chahuitong.model.service.ServiceClient;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
+import com.damenghai.chahuitong.utils.ImageUtils;
 import com.damenghai.chahuitong.utils.LUtils;
 
 import java.io.File;
@@ -51,8 +52,8 @@ public class FleaModel {
                 .compose(new DefaultTransform<>());
     }
 
-    public Observable<Flea> getFleaDetail(int goodsId) {
-        return ServiceClient.getServices().fleaDetail(LUtils.getPreferences().getString("key", ""), goodsId)
+    public Observable<Flea> getFleaDetail(int goodsID) {
+        return ServiceClient.getServices().fleaDetail(LUtils.getPreferences().getString("key", ""), goodsID)
                 .compose(new DefaultTransform<>());
     }
 
@@ -61,7 +62,7 @@ public class FleaModel {
                 .map(image -> {
                     if (image.getUri() != null) {
                         File file = new File(image.getUri().getPath());
-                        RequestBody photo = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+                        RequestBody photo = RequestBody.create(MediaType.parse("multipart/form-data"), ImageUtils.compressImage(file));
                         Map<String, RequestBody> photos = new HashMap<>();
                         photos.put("image\"; filename=\"" + file.getName() + "\"", photo);
                         photos.put("key", RequestBody.create(null, LUtils.getPreferences().getString("key", "")));

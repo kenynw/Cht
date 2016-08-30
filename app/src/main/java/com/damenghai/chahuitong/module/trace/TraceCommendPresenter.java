@@ -7,17 +7,17 @@ import com.damenghai.chahuitong.model.bean.Trace;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class TraceListPresenter extends BaseListActivityPresenter<TraceListActivity, Trace> {
+public class TraceCommendPresenter extends BaseListActivityPresenter<TraceCommendActivity, Trace> {
 
     @Override
-    protected void onCreateView(TraceListActivity view) {
+    protected void onCreateView(TraceCommendActivity view) {
         super.onCreateView(view);
         onRefresh();
     }
 
     @Override
     public void onRefresh() {
-        TraceModel.getInstance().getCommendTraceList(0).unsafeSubscribe(getRefreshSubscriber());
+        TraceModel.getInstance().getCommendTraceList(1).unsafeSubscribe(getRefreshSubscriber());
     }
 
     @Override

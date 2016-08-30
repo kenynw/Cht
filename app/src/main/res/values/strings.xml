@@ -184,10 +184,9 @@
     <string name="text_address">收货地址：%1$s&#160;%2$s</string>
     <string name="text_news">茶资讯</string>
     <string name="text_news_caption">每日新鲜茶资讯</string>
-    <string name="text_hill">山头</string>
-    <string name="text_hill_caption">名山出名茶</string>
     <string name="text_trace_commend">精选动态</string>
     <string name="text_flea_commend">茶市精选</string>
+    <string name="text_flea_caption">茶叶交易市场</string>
     <string name="text_staple_class">热门茶类</string>
     <string name="text_user_commend">推荐用户</string>
     <string name="text_article_heat">%1$s阅读 · %2$s评论</string>
@@ -314,7 +313,7 @@
     <string name="toast_upload_success">上传成功</string>
 
     <!--编辑框的提示文字，命名格式为：hint_提示信息-->
-    <string name="hint_login_username">请您输入手机号/用户名</string>
+    <string name="hint_login_mobile">请您输入手机号</string>
     <string name="hint_mobile_number">请输入手机号</string>
     <string name="hint_password">请输入密码</string>
     <string name="hint_old_password">请输入旧密码</string>
@@ -341,7 +340,8 @@
     <!--图片的描述文字，命名格式为：desc_图片文字-->
     <string name="desc_cart_empty">购物车暂无商品</string>
     <string name="desc_goods_thumb">商品缩略图</string>
-    <string name="desc_gender">商品缩略图</string>
+    <string name="desc_gender">性别</string>
+    <string name="desc_flea_back">取消键盘</string>
     <string name="desc_more">查看更多</string>
 
     <!--对话框的文字，命名格式为：dialog_文字-->

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -117,6 +118,9 @@ public class UserInfoPresenter extends BaseListActivityPresenter<UserInfoActivit
         @Bind(R.id.dv_user_avatar)
         SimpleDraweeView mDvAvatar;
 
+        @Bind(R.id.iv_user_gender)
+        ImageView mIvGender;
+
         @Bind(R.id.tv_user_username)
         TextView mTvUsername;
 
@@ -168,6 +172,9 @@ public class UserInfoPresenter extends BaseListActivityPresenter<UserInfoActivit
             mDvAvatar.setImageURI(Uri.parse(mPeople.getMember_avatar()));
             mLlFollowing.setOnClickListener(v -> showUserList(0));
             mLlFollowers.setOnClickListener(v -> showUserList(1));
+            if (mPeople.getMember_sex() != null)
+                mIvGender.setImageResource(mPeople.getMember_sex().equals("1") ? R.mipmap.ic_male : R.mipmap.ic_female);
+            else mIvGender.setVisibility(View.GONE);
             mTvUsername.setText(mPeople.getMember_name());
             mTvTraces.setText(String.valueOf(mPeople.getTrace_count()));
             mTvFollowing.setText(String.valueOf(mPeople.getFollowing()));

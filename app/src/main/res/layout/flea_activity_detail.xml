@@ -9,7 +9,7 @@
 
     <include layout="@layout/include_toolbar"/>
 
-    <ScrollView
+    <com.damenghai.chahuitong.widget.CustomNestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -18,9 +18,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:focusable="true"
             android:focusableInTouchMode="true"
+            android:orientation="vertical"
             >
 
             <com.damenghai.chahuitong.widget.HeadViewPager
@@ -189,9 +189,9 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 />
-
         </LinearLayout>
-    </ScrollView>
+
+    </com.damenghai.chahuitong.widget.CustomNestedScrollView>
 
     <LinearLayout
         android:id="@+id/layout_flea_contact"
@@ -202,6 +202,7 @@
         >
 
         <LinearLayout
+            android:id="@+id/ll_flea_info"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -231,16 +232,16 @@
 
         <CheckBox
             android:id="@+id/btn_flea_favorites"
+            style="@style/TextCaption"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:button="@null"
             android:drawableTop="@drawable/check_favorites_selector"
             android:gravity="center"
-            android:button="@null"
-            android:text="@string/btn_favorites"
-            style="@style/TextCaption"
-            android:paddingTop="8dp"
             android:paddingBottom="4dp"
+            android:paddingTop="8dp"
+            android:text="@string/btn_favorites"
             />
 
         <View
@@ -255,7 +256,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:drawableTop="@mipmap/ic_share_normal"
+            android:drawableTop="@mipmap/ic_flea_consult"
             android:gravity="center"
             android:text="@string/btn_consult"
             />
@@ -271,11 +272,11 @@
             style="@style/ButtonCaptionBorderless"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_weight="1"
             android:drawableTop="@mipmap/ic_share_normal"
             android:gravity="center"
             android:text="@string/btn_share"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
             />
 
     </LinearLayout>
@@ -284,26 +285,32 @@
         android:id="@+id/layout_flea_publish"
         android:layout_width="match_parent"
         android:layout_height="@dimen/widget_max_height"
+        android:background="@color/bg_actionbar"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:visibility="gone"
         >
 
-        <ImageView
+        <ImageButton
             android:id="@+id/iv_flea_back"
+            style="@style/ButtonBorderless"
             android:layout_width="@dimen/widget_max_height"
             android:layout_height="match_parent"
+            android:contentDescription="@string/desc_flea_back"
             android:scaleType="center"
-            android:src="@mipmap/ic_launcher"
+            android:src="@mipmap/ic_flea_detail_back"
             />
 
         <EditText
             android:id="@+id/et_flea_consult"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/widget_small_height"
+            android:layout_gravity="center_vertical"
             android:layout_weight="1"
+            android:background="@drawable/btn_rectangle_divider_bg_white_stroke"
             android:hint="@string/hint_new_content"
             android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             android:textSize="@dimen/text_size_body_material"
             />
 

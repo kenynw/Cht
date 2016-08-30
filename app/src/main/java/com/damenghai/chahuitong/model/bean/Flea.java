@@ -26,6 +26,8 @@ public class Flea implements Parcelable {
 
     private String goods_image;
 
+    private String goods_url;
+
     private List<FleaImage> desc_image;
 
     private String goods_tag;
@@ -79,6 +81,7 @@ public class Flea implements Parcelable {
         dest.writeString(this.member_name);
         dest.writeString(this.member_avatar);
         dest.writeString(this.goods_image);
+        dest.writeString(this.goods_url);
         dest.writeTypedList(this.desc_image);
         dest.writeString(this.goods_tag);
         dest.writeDouble(this.goods_store_price);
@@ -112,6 +115,7 @@ public class Flea implements Parcelable {
         this.member_name = in.readString();
         this.member_avatar = in.readString();
         this.goods_image = in.readString();
+        this.goods_url = in.readString();
         this.desc_image = in.createTypedArrayList(FleaImage.CREATOR);
         this.goods_tag = in.readString();
         this.goods_store_price = in.readDouble();
@@ -207,6 +211,14 @@ public class Flea implements Parcelable {
 
     public void setGoods_image(String goods_image) {
         this.goods_image = goods_image;
+    }
+
+    public String getGoods_url() {
+        return goods_url;
+    }
+
+    public void setGoods_url(String goods_url) {
+        this.goods_url = goods_url;
     }
 
     public List<FleaImage> getDesc_image() {

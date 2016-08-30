@@ -99,7 +99,7 @@ public class ProfilePresenter extends BaseDataActivityPresenter<ProfileActivity,
 //
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
         try {
-            Date date = format.parse(view.getText().toString());
+            Date date = format.parse(view.getText().toString().trim().isEmpty() ? "1970-01-01" : view.getText().toString().trim());
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(date);
             DatePickerDialog dialog = new DatePickerDialog(getView(), (datePicker, year, monthOfYear, dayOfMonth) -> {

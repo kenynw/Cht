@@ -15,7 +15,6 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             style="@style/TitleToolbar"
-            app:layout_scrollFlags="scroll|enterAlways"
             >
 
             <TextView
@@ -55,7 +54,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="88dp"
+                android:layout_height="74dp"
                 android:baselineAligned="false"
                 android:orientation="horizontal">
 
@@ -64,7 +63,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="#999"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:orientation="vertical"
                     >
@@ -74,6 +73,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/text_news"
+                        android:textStyle="bold"
                         />
 
                     <TextView
@@ -91,26 +91,27 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="#666"
+                    android:background="@drawable/bg_discover_flea"
                     android:gravity="center"
                     android:orientation="vertical"
                     >
 
                     <TextView
-                        style="@style/Base.TextAppearance.AppCompat.Title"
+                        style="@style/TextTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/text_hill"
+                        android:text="@string/title_activity_flea"
                         android:textColor="@color/white"
+                        android:textStyle="bold"
                         />
 
                     <TextView
-                        style="@style/Base.TextAppearance.AppCompat.Caption"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/text_drawable_padding"
-                        android:text="@string/text_hill_caption"
-                        android:textColor="@color/white"
+                        android:text="@string/text_flea_caption"
+                        android:textColor="@color/bg_white_secondary"
+                        android:textSize="@dimen/text_size_caption_material"
                         />
 
                 </LinearLayout>
@@ -134,6 +135,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
+                android:paddingBottom="8dp"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 />

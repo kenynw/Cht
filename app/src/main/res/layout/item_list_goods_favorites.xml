@@ -50,4 +50,13 @@
         tools:text="￥199.00"
         />
 
+    <ImageView
+        android:id="@+id/iv_favorite_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_favorites_checked"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        />
+
 </RelativeLayout>

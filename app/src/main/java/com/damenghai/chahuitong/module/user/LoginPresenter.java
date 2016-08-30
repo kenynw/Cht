@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 
 import com.damenghai.chahuitong.bijection.Presenter;
 import com.damenghai.chahuitong.config.Config;
@@ -89,4 +91,5 @@ public class LoginPresenter extends Presenter<LoginActivity> implements UMAuthLi
     public void onCancel(SHARE_MEDIA share_media, int i) {
 //        getView().onError("授权取消");
     }
+
 }

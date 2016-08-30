@@ -1,5 +1,6 @@
 package com.damenghai.chahuitong.module.main;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.text.TextUtils;
 
@@ -16,7 +17,7 @@ import com.damenghai.chahuitong.utils.LUtils;
  */
 public class MainPersonalPresenter extends BaseDataFragmentPresenter<MainPersonalFragment, User> {
 
-    private final int REQUEST_CODE = 0;
+    private final int REQUEST_CODE_LOGIN = 0;
 
     @Override
     protected void onCreateView(MainPersonalFragment view) {
@@ -38,7 +39,7 @@ public class MainPersonalPresenter extends BaseDataFragmentPresenter<MainPersona
 
     public boolean isLogin() {
         if (TextUtils.isEmpty(LUtils.getPreferences().getString("key", ""))) {
-            getView().startActivityForResult(new Intent(getView().getActivity(), LoginActivity.class), REQUEST_CODE);
+            getView().startActivityForResult(new Intent(getView().getActivity(), LoginActivity.class), REQUEST_CODE_LOGIN);
             return false;
         }
         return true;
@@ -46,14 +47,16 @@ public class MainPersonalPresenter extends BaseDataFragmentPresenter<MainPersona
 
     @Override
     protected void onResult(int requestCode, int resultCode, Intent data) {
-        super.onResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE) {
-            UserModel.getInstance().getUserInfo().unsafeSubscribe(new ServiceResponse<User>() {
-                @Override
-                public void onNext(User user) {
-                    getView().setData(user);
-                }
-            });
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == REQUEST_CODE_LOGIN) {
+                UserModel.getInstance().getUserInfo().unsafeSubscribe(new ServiceResponse<User>() {
+                    @Override
+                    public void onNext(User user) {
+                        getView().setData(user);
+                    }
+                });
+            }
         }
+        super.onResult(requestCode, resultCode, data);
     }
 }

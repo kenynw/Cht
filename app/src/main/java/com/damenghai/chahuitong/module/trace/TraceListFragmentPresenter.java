@@ -11,12 +11,9 @@ import com.damenghai.chahuitong.model.TraceModel;
  */
 public class TraceListFragmentPresenter extends BaseListFragmentPresenter<TraceListFragment, Trace> {
 
-    private int mUserId = 0;
-
     @Override
     protected void onCreate(TraceListFragment view, Bundle saveState) {
         super.onCreate(view, saveState);
-        if (getView().getArguments() != null) mUserId = getView().getArguments().getInt("mid");
     }
 
     @Override
@@ -27,12 +24,12 @@ public class TraceListFragmentPresenter extends BaseListFragmentPresenter<TraceL
 
     @Override
     public void onRefresh() {
-        TraceModel.getInstance().getTraceList(mUserId, 1).unsafeSubscribe(getRefreshSubscriber());
+        TraceModel.getInstance().getHomeTraceList(1).unsafeSubscribe(getRefreshSubscriber());
     }
 
     @Override
     public void onLoadMore() {
-        TraceModel.getInstance().getTraceList(mUserId, getCurPage()).unsafeSubscribe(getMoreSubscriber());
+        TraceModel.getInstance().getHomeTraceList(getCurPage()).unsafeSubscribe(getMoreSubscriber());
     }
 
 }

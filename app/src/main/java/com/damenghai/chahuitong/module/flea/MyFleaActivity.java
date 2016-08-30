@@ -20,7 +20,7 @@ public class MyFleaActivity extends BaseListActivity<MyFleaPresenter> {
 
     @Override
     protected BaseViewHolder createViewHolder(ViewGroup parent, int viewType) {
-        return new FleaMyViewHolder(parent);
+        return new FleaMyViewHolder(parent, getPresenter());
     }
 
     @Override

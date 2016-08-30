@@ -7,31 +7,23 @@ import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.adapter.viewholder.ConsultViewHolder;
 import com.damenghai.chahuitong.model.bean.Consult;
 import com.damenghai.chahuitong.utils.LUtils;
+import com.jude.easyrecyclerview.adapter.BaseViewHolder;
+import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
 import java.util.List;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class FleaConsultAdapter extends BaseRecycleListAdapter<Consult, ConsultViewHolder> {
+public class FleaConsultAdapter extends RecyclerArrayAdapter<Consult> {
 
-    public FleaConsultAdapter(Context context, List<Consult> data) {
-        super(context, data);
+    public FleaConsultAdapter(Context context) {
+        super(context);
     }
 
     @Override
-    public ConsultViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public BaseViewHolder OnCreateViewHolder(ViewGroup parent, int viewType) {
         return new ConsultViewHolder(parent, R.layout.item_list_flea_consult);
-    }
-
-    @Override
-    public void onBindViewHolder(ConsultViewHolder holder, int position) {
-        holder.setData(mData.get(position));
-    }
-
-    @Override
-    public int getItemCount() {
-        return mData.size();
     }
 
 }

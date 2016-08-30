@@ -227,7 +227,7 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".module.trace.TraceListActivity"
+            android:name=".module.trace.TraceCommendActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity

@@ -9,11 +9,10 @@ import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.expansion.list.BaseListActivity;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 
-import butterknife.Bind;
 import butterknife.ButterKnife;
 
-@RequiresPresenter(TraceListPresenter.class)
-public class TraceListActivity extends BaseListActivity<TraceListPresenter> {
+@RequiresPresenter(TraceCommendPresenter.class)
+public class TraceCommendActivity extends BaseListActivity<TraceCommendPresenter> {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

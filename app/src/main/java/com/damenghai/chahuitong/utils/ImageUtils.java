@@ -19,9 +19,12 @@ import android.provider.MediaStore;
 import android.support.v4.content.CursorLoader;
 import android.util.Base64;
 
+import com.damenghai.chahuitong.app.App;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
@@ -30,118 +33,52 @@ import java.io.IOException;
  * Created by Sgun on 15/8/31.
  */
 public class ImageUtils {
-    public static final int CAMERA_REQUEST_CODE = 0x500;
-    public static final int GALLERY_REQUEST_CODE = 0x501;
-    public static final int ZOOM_REQUEST_CODE = 0x502;
 
-    public static Uri imageUri;
+    public static final int IMAGE_WIDTH_MAX = 800;
 
-    public static void showImagePickDialog(final Activity activity) {
-        String[] item = new String[] {"拍照", "图库"};
+    public static final int IMAGE_HEIGHT_MIN = 1280;
 
-        new AlertDialog.Builder(activity).setItems(item, new DialogInterface.OnClickListener() {
-
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                switch (which) {
-                    case 0:
-                        pickImageFromCamera(activity);
-                        break;
-                    case 1:
-                        pickImageFromGallery(activity);
-                        break;
-                }
-            }
-
-        }).show();
-    }
-
-    // 打开照相机
-    public static void pickImageFromCamera(Activity activity) {
-        imageUri = createImageUri(activity);
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-        activity.startActivityForResult(intent, CAMERA_REQUEST_CODE);
-    }
-
-    // 打开图库
-    public static void pickImageFromGallery(Activity activity) {
-        Intent intent;
-        if (Build.VERSION.SDK_INT < 19) {
-            intent = new Intent(Intent.ACTION_GET_CONTENT);
-            intent.setType("image/*");
-        } else {
-            intent = new Intent(
-                    Intent.ACTION_PICK,
-                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+    public static File compressImage(File file){
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(file.getPath(), options);
+        int height = options.outHeight;
+        int width = options.outWidth;
+        int inSampleSize = 1;
+        int reqHeight=IMAGE_HEIGHT_MIN;
+        int reqWidth=IMAGE_WIDTH_MAX;
+        if (height > reqHeight || width > reqWidth) {
+            final int heightRatio = Math.round((float) height/ (float) reqHeight);
+            final int widthRatio = Math.round((float) width / (float) reqWidth);
+            inSampleSize = heightRatio < widthRatio ? heightRatio : widthRatio;
         }
-        activity.startActivityForResult(intent, GALLERY_REQUEST_CODE);
-    }
+        options.inSampleSize = inSampleSize;
+        options.inJustDecodeBounds = false;
+        Bitmap bitmap= BitmapFactory.decodeFile(file.getPath(), options);
 
-    // 打开裁剪图片界面
-    public static void showZoomImage(Activity activity, Uri uri) {
-        Intent intent = new Intent("com.android.camera.action.CROP");
-        intent.setDataAndType(uri, "image/*");
-        intent.putExtra("crop", true);
-        intent.putExtra("aspectX", 1);
-        intent.putExtra("aspectY", 1);
-        intent.putExtra("outputX", 150);
-        intent.putExtra("outputY", 150);
-        intent.putExtra("return-data", true);
-        activity.startActivityForResult(intent, ZOOM_REQUEST_CODE);
-    }
-
-    // 打开裁剪图片界面
-    public static void showZoomImage(Activity activity) {
-        showZoomImage(activity, imageUri);
-    }
-
-    // 创建一条Uri用于保存拍照后的照片
-    public static Uri createImageUri(Context context) {
-        String name = "CHT" + System.currentTimeMillis();
-
-        ContentValues values = new ContentValues();
-        values.put(MediaStore.Images.Media.TITLE, name);
-        values.put(MediaStore.Images.Media.DISPLAY_NAME, name + ".jpeg");
-        values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg");
-
-        return context.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
-    }
-
-    // 删除一条Uri
-    public static void deleteImageUri(Context context) {
-        if (imageUri != null) context.getContentResolver().delete(imageUri, null, null);
-    }
-
-    /**
-	 * 通过路径生成Base64文件
-	 * @param uri 路径
-	 * @return Base64
-	 */
-	public static String getBase64FromUri(Context context, Uri uri)
-	{
-        File file = new File(getRealPathFromURI(uri, context));
-        return getBase64FromFile(file);
-	}
-
-    /**
-     * 通过路径生成Base64文件
-     * @param file 路径
-     * @return Base64
-     */
-    public static String getBase64FromFile(File file)
-    {
-        String base64="";
-        try
-        {
-            byte[] buffer = new byte[(int) file.length() + 100];
-            @SuppressWarnings("resource")
-            int length = new FileInputStream(file).read(buffer);
-            base64 = Base64.encodeToString(buffer, 0, length, Base64.DEFAULT);
+        File tempfile =  createTempImage();
+        FileOutputStream baos;
+        try {
+            baos = new FileOutputStream(tempfile);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 80, baos);
+            baos.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            return null;
         }
-        return base64;
+        return tempfile;
+    }
+
+    private static File createTempImage(){
+        String state = Environment.getExternalStorageState();
+        String name = Math.random()*10000+System.nanoTime()+".jpg";
+        if(state.equals(Environment.MEDIA_MOUNTED)){
+            // 已挂载
+            File pic = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+            return new File(pic, name);
+        }else{
+            File cacheDir = App.getInstance().getCacheDir();
+            return new File(cacheDir, name);
+        }
     }
 
     /**
@@ -162,10 +99,6 @@ public class ImageUtils {
         int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
         cursor.moveToFirst();
         return column_index == 0 ? "" : cursor.getString(column_index);
-    }
-
-    public static String getCameraImagePath(Context context) {
-        return getImageAbsolutePath19((Activity) context, imageUri);
     }
 
     /////////////////////Android4.4以上版本特殊处理如下//////////////////////////////////////
@@ -239,50 +172,6 @@ public class ImageUtils {
                 cursor.close();
         }
         return null;
-    }
-    /**
-     * bitmap转为base64
-     * @param bitmap
-     * @return
-     */
-    public static String bitmapToBase64(Bitmap bitmap) {
-
-        String result = null;
-        ByteArrayOutputStream baos = null;
-        try {
-            if (bitmap != null) {
-                baos = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 90, baos);
-
-                baos.flush();
-                baos.close();
-
-                byte[] bitmapBytes = baos.toByteArray();
-                result = Base64.encodeToString(bitmapBytes, Base64.DEFAULT);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (baos != null) {
-                    baos.flush();
-                    baos.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return result;
-    }
-
-    /**
-     * base64转为bitmap
-     * @param base64Data
-     * @return
-     */
-    public static Bitmap base64ToBitmap(String base64Data) {
-        byte[] bytes = Base64.decode(base64Data, Base64.DEFAULT);
-        return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
     }
 
     /**

@@ -12,9 +12,17 @@ import com.umeng.socialize.PlatformConfig;
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
 public class App extends Application {
+    private static App sInstance = null;
+
+    public static App getInstance() {
+        return sInstance;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
+
+        sInstance = this;
 
         Fresco.initialize(this);
         LUtils.initialize(this);

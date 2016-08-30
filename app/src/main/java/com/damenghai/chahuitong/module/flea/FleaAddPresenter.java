@@ -14,6 +14,7 @@ import com.damenghai.chahuitong.model.bean.FleaImage;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.module.personal.AreaActivity;
 import com.damenghai.chahuitong.utils.LUtils;
+import com.google.gson.Gson;
 import com.jude.exgridview.PieceViewGroup.OnViewDeleteListener;
 import com.jude.library.imageprovider.ImageProvider;
 import com.jude.library.imageprovider.OnImageSelectListener;
@@ -32,8 +33,6 @@ public class FleaAddPresenter extends BaseDataActivityPresenter<FleaAddActivity,
 
     private Flea mFlea;
 
-    private boolean mIsQuotation;
-
     private FleaCate mCate;
 
     private Area mArea;
@@ -48,13 +47,12 @@ public class FleaAddPresenter extends BaseDataActivityPresenter<FleaAddActivity,
     @Override
     protected void onCreateView(FleaAddActivity view) {
         super.onCreateView(view);
-        FleaModel.getInstance().getFleaDetail(mFlea != null ? mFlea.getGoods_id() : 0).subscribe(getDataSubscriber());
+        if (mFlea != null) FleaModel.getInstance().getFleaDetail(mFlea.getGoods_id()).subscribe(getDataSubscriber());
     }
 
     public void saveFlea(Flea flea) {
         getView().getExpansionDelegate().showProgressBar();
 
-        if (mIsQuotation) flea.setGoods_store_price(0);
         flea.setFlea_area_id(mArea == null ? 0 : mArea.getArea_id());
         flea.setGc_id(mCate != null ? mCate.getGc_id() : 0);
         flea.setGc_name(mCate != null ? mCate.getGc_name().replace(">", " ") : "");
@@ -68,6 +66,7 @@ public class FleaAddPresenter extends BaseDataActivityPresenter<FleaAddActivity,
                         }
                     });
         } else if (mUriList.size() > 0) {
+            LUtils.log("gc_id: " + flea.getGc_id() + ", gc_name: " + flea.getGc_name());
             FleaModel.getInstance().uploadImage(mUriList)
                     .doOnError(throwable -> {
                         getView().getExpansionDelegate().hideProgressBar();
@@ -130,10 +129,6 @@ public class FleaAddPresenter extends BaseDataActivityPresenter<FleaAddActivity,
         }
     }
 
-    public void setIsQuotation(boolean isQuotation) {
-        mIsQuotation = isQuotation;
-    }
-
     @Override
     protected void onResult(int requestCode, int resultCode, Intent data) {
         mProvider.onActivityResult(requestCode, resultCode, data);
@@ -141,10 +136,14 @@ public class FleaAddPresenter extends BaseDataActivityPresenter<FleaAddActivity,
 
     @Override
     protected void onNewIntent(Intent intent) {
-        mCate = intent.getParcelableExtra("cate");
-        if (mCate != null) getView().setCate(mCate.getGc_name());
-        mArea = intent.getParcelableExtra("area");
-        if (mArea != null) getView().setArea(mArea.getArea_name());
+        if (intent.hasExtra("cate")) {
+            mCate = intent.getParcelableExtra("cate");
+            getView().setCate(mCate.getGc_name());
+        }
+        if (intent.hasExtra("area")) {
+            mArea = intent.getParcelableExtra("area");
+            getView().setArea(mArea.getArea_name());
+        }
     }
 
     @Override

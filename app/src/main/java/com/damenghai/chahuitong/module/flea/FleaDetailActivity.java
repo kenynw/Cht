@@ -1,14 +1,14 @@
 package com.damenghai.chahuitong.module.flea;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,6 +19,7 @@ import com.damenghai.chahuitong.expansion.data.BaseDataActivity;
 import com.damenghai.chahuitong.model.bean.Flea;
 import com.damenghai.chahuitong.model.bean.FleaImage;
 import com.damenghai.chahuitong.model.bean.Image;
+import com.damenghai.chahuitong.utils.LUtils;
 import com.damenghai.chahuitong.widget.HeadViewPager;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.jude.easyrecyclerview.EasyRecyclerView;
@@ -70,6 +71,9 @@ public class FleaDetailActivity extends BaseDataActivity<FleaDetailPresenter, Fl
     @Bind(R.id.layout_flea_contact)
     LinearLayout mLayoutContact;
 
+    @Bind(R.id.ll_flea_info)
+    LinearLayout mLayoutInfo;
+
     @Bind(R.id.tv_flea_p_phone)
     TextView mTvPhone;
 
@@ -83,13 +87,13 @@ public class FleaDetailActivity extends BaseDataActivity<FleaDetailPresenter, Fl
     Button mBtnConsult;
 
     @Bind(R.id.btn_flea_share)
-    Button mBtnChat;
+    Button mBtnShare;
 
     @Bind(R.id.layout_flea_publish)
     LinearLayout mLayoutPublish;
 
     @Bind(R.id.iv_flea_back)
-    ImageView mIvBack;
+    ImageButton mBtnBack;
 
     @Bind(R.id.et_flea_consult)
     EditText mEtConsult;
@@ -104,13 +108,22 @@ public class FleaDetailActivity extends BaseDataActivity<FleaDetailPresenter, Fl
         setToolbarTitle(R.string.title_activity_detail);
         ButterKnife.bind(this);
 
-        mRvConsult.setLayoutManager(new LinearLayoutManager(this));
         mRvConsult.setEmptyView(R.layout.empty_list_comment);
+        mRvConsult.setLayoutManager(new LinearLayoutManager(this));
 
         mBtnConsult.setOnClickListener(v -> showPublish());
-        mIvBack.setOnClickListener(v -> showContact());
-        mBtnPublish.setOnClickListener(v -> getPresenter().publishConsult(mEtConsult.getText().toString()));
+        mBtnBack.setOnClickListener(v -> showContact());
+        mBtnPublish.setOnClickListener(v -> checkInput());
         mEtConsult.addTextChangedListener(getPresenter());
+        mBtnShare.setOnClickListener(v -> getPresenter().share());
+    }
+
+    private void checkInput() {
+        if (mEtConsult.getText().toString().trim().isEmpty()) {
+            LUtils.toast(R.string.toast_null_content);
+            return;
+        }
+        getPresenter().publishConsult(mEtConsult.getText().toString().trim());
     }
 
     @Override
@@ -126,7 +139,11 @@ public class FleaDetailActivity extends BaseDataActivity<FleaDetailPresenter, Fl
             }
         }
         mPagerImage.setAdapter(new ImagePagerAdapter(this, list));
-        mRvConsult.setAdapter(getPresenter().getAdapter(flea.getConsult_list()));
+
+        mRvConsult.setAdapter(getPresenter().getAdapter());
+        if (flea.getConsult_list() != null) {
+            getPresenter().getAdapter().addAll(flea.getConsult_list());
+        }
 
         mTvTitle.setText(flea.getGoods_name());
         mTvTime.setText(flea.getGoods_add_time());
@@ -139,6 +156,11 @@ public class FleaDetailActivity extends BaseDataActivity<FleaDetailPresenter, Fl
         mLayoutUser.setOnClickListener(v -> getPresenter().showUser(flea.getMember_id()));
         mTvDetail.setText(flea.getGoods_body());
         mTvPhone.setText(flea.getFlea_pphone());
+        if (!flea.getFlea_pphone().isEmpty()) mLayoutInfo.setOnClickListener(v -> {
+            Uri uri = Uri.parse("tel:" + flea.getFlea_pphone());
+            Intent intent = new Intent(Intent.ACTION_DIAL, uri);
+            startActivity(intent);
+        });
         mTvName.setText(flea.getFlea_pname());
         mCbFav.setChecked(flea.isFavorite());
         mCbFav.setOnCheckedChangeListener(getPresenter());

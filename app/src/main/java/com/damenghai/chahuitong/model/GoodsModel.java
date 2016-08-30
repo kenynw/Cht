@@ -51,7 +51,7 @@ public class GoodsModel {
     }
 
     public Observable<List<Category>> getGoodsCategory(int gc_id) {
-        return ServiceClient.getServices().goodsClass(API.VERSION, gc_id).compose(new DefaultTransform<>());
+        return ServiceClient.getServices().goodsClass(gc_id).compose(new DefaultTransform<>());
     }
 
     public Observable<String[]> getHotSearch() {

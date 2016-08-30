@@ -114,10 +114,11 @@
         >
 
         <ImageView
-            android:layout_width="@dimen/widget_tiny_height"
-            android:layout_height="@dimen/widget_tiny_height"
+            android:id="@+id/iv_user_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:contentDescription="@string/desc_gender"
-            android:src="@mipmap/ic_action_cart"
+            android:src="@mipmap/ic_female"
             />
 
         <TextView
@@ -125,7 +126,7 @@
             style="@style/TextBody"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
+            android:layout_marginLeft="4dp"
             tools:text="thkiwi"
             />
 

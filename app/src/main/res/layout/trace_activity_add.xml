@@ -10,7 +10,7 @@
     <include layout="@layout/include_toolbar"/>
 
     <EditText
-        android:id="@+id/tv_trace_content"
+        android:id="@+id/et_trace_content"
         style="@style/TextBody"
         android:layout_width="match_parent"
         android:layout_height="160dp"
@@ -19,6 +19,13 @@
         android:hint="@string/hint_new_trace"
         android:padding="@dimen/activity_horizontal_margin"
         android:textColorHint="@color/text_hint"
+        android:inputType="textMultiLine"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_trace"
         />
 
     <com.jude.exgridview.PieceViewGroup

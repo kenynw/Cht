@@ -10,7 +10,7 @@ import com.damenghai.chahuitong.model.service.ServiceClient;
 import com.damenghai.chahuitong.module.article.ArticleListActivity;
 import com.damenghai.chahuitong.module.flea.FleaListActivity;
 import com.damenghai.chahuitong.module.mall.CategoryListActivity;
-import com.damenghai.chahuitong.module.trace.TraceListActivity;
+import com.damenghai.chahuitong.module.trace.TraceCommendActivity;
 import com.damenghai.chahuitong.module.user.FindUserListActivity;
 import com.damenghai.chahuitong.module.user.LoginActivity;
 import com.damenghai.chahuitong.utils.LUtils;
@@ -52,8 +52,7 @@ public class DiscoverPresenter extends BaseDataFragmentPresenter<DiscoverFragmen
 
     public void showTraceCommend() {
         if (checkLogin()) {
-            Intent intent = new Intent(getView().getActivity(), TraceListActivity.class);
-            intent.putExtra("commend", 1);
+            Intent intent = new Intent(getView().getActivity(), TraceCommendActivity.class);
             getView().startActivity(intent);
         }
     }

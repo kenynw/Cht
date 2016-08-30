@@ -1,13 +1,20 @@
 package com.damenghai.chahuitong.model;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Environment;
+
+import com.damenghai.chahuitong.app.App;
 import com.damenghai.chahuitong.model.bean.BeanList;
 import com.damenghai.chahuitong.model.bean.Trace;
 import com.damenghai.chahuitong.model.bean.TraceComment;
 import com.damenghai.chahuitong.model.service.DefaultTransform;
 import com.damenghai.chahuitong.model.service.ServiceClient;
+import com.damenghai.chahuitong.utils.ImageUtils;
 import com.damenghai.chahuitong.utils.LUtils;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,11 +39,6 @@ public class TraceModel {
         return mInstance;
     }
 
-    public Observable<BeanList<Trace>> getFriendTraceList(int page) {
-        return ServiceClient.getServices().friendTraceList(LUtils.getPreferences().getString("key", ""), page)
-                .compose(new DefaultTransform<>());
-    }
-
     public Observable<Trace> getTraceDetail(int traceId) {
         return ServiceClient.getServices().traceDetail(LUtils.getPreferences().getString("key", ""), traceId)
                 .compose(new DefaultTransform<>());
@@ -44,7 +46,8 @@ public class TraceModel {
     public Observable<Integer> imageUpload(File[] files) {
         return Observable.from(files)
                 .map(file -> {
-                    RequestBody photo = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+                    RequestBody photo = RequestBody.create(MediaType.parse("multipart/form-data"),
+                            ImageUtils.compressImage(file));
                     Map<String, RequestBody> photos = new HashMap<>();
                     photos.put("image\"; filename=\"" + file.getName() + "\"", photo);
                     photos.put("key", RequestBody.create(null, LUtils.getPreferences().getString("key", "")));
@@ -94,16 +97,41 @@ public class TraceModel {
                 .compose(new DefaultTransform<>());
     }
 
+    /**
+     * 获取首页动态列表
+     * @param curPage 当前页
+     * @return 动态列表
+     */
+    public Observable<BeanList<Trace>> getHomeTraceList(int curPage) {
+        return ServiceClient.getServices().homeTraceList(LUtils.getPreferences().getString("key", ""), 0, curPage).compose(new DefaultTransform<>());
+    }
+
+    /**
+     * 获取好友动态列表
+     * @param page 当前页
+     * @return 动态列表
+     */
+    public Observable<BeanList<Trace>> getFriendTraceList(int page) {
+        return ServiceClient.getServices().friendTraceList(LUtils.getPreferences().getString("key", ""), page).compose(new DefaultTransform<>());
+    }
+
+    /**
+     * 某用户的动态列表
+     * @param mid 用户ID
+     * @param curPage 当前页
+     * @return 动态列表
+     */
     public Observable<BeanList<Trace>> getUserTraceList(int mid, int curPage) {
-        return ServiceClient.getServices().traceList(LUtils.getPreferences().getString("key", ""), mid, 0, curPage).compose(new DefaultTransform<>());
+        return ServiceClient.getServices().userTraceList(LUtils.getPreferences().getString("key", ""), mid, curPage).compose(new DefaultTransform<>());
     }
 
-    public Observable<BeanList<Trace>> getTraceList(int mid, int curPage) {
-        return ServiceClient.getServices().traceList("", mid, 0, curPage).compose(new DefaultTransform<>());
-    }
-
+    /**
+     * 精选动态列表
+     * @param curPage 当前页
+     * @return 动态列表
+     */
     public Observable<BeanList<Trace>> getCommendTraceList(int curPage) {
-        return ServiceClient.getServices().traceList("", 0, 1, curPage).compose(new DefaultTransform<>());
+        return ServiceClient.getServices().homeTraceList(LUtils.getPreferences().getString("key", ""), 1, curPage).compose(new DefaultTransform<>());
     }
 
     public Observable<Boolean> informTrace(int traceID, String content) {

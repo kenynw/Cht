@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
+import com.damenghai.chahuitong.bijection.BeamBaseActivity;
 import com.damenghai.chahuitong.model.bean.Image;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.damenghai.chahuitong.widget.DraweePhotoView;
@@ -73,7 +74,7 @@ public class ImageBrowseActivity extends AppCompatActivity implements ViewPager.
         public Object instantiateItem(ViewGroup container, int position) {
             View view = LayoutInflater.from(ImageBrowseActivity.this).inflate(R.layout.item_pager_image, container, false);
             DraweePhotoView draweePhotoView = (DraweePhotoView) view.findViewById(R.id.photo_view_image_browse);
-            draweePhotoView.setImageUri(mImageList.get(position).getThumb_max());
+            draweePhotoView.setImageUri(mImageList.get(position).getThumb_mid());
             draweePhotoView.setOnPhotoTapListener((view1, x, y) -> finish());
             container.addView(view);
             return view;

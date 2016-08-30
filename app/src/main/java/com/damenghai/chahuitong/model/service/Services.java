@@ -119,7 +119,6 @@ public interface Services {
 
     @GET("?act=goods_class")
     Observable<List<Category>> goodsClass(
-            @Query("version") String version,
             @Query("gc_id") int gc_id
     );
 
@@ -529,18 +528,6 @@ public interface Services {
     );
 
     /**
-     * 好友动态列表
-     * @param key 登录令牌
-     * @param curPage 当前页数
-     * @return
-     */
-    @GET("?act=member_sns_trace&op=trace_list")
-    Observable<BeanList<Trace>> friendTraceList(
-            @Query("key") String key,
-            @Query("curpage") int curPage
-    );
-
-    /**
      * 动态详情
      * @param key 登录令牌
      * @param traceId 当前页数
@@ -651,17 +638,41 @@ public interface Services {
     );
 
     /**
-     * 全部动态列表
-     * @param mid 指定某用户
-     * @param isCommend 是否推荐 0-否 1-推荐
-     * @param curPage 当前页
+     * 用户主页
+     * @param key 当前登录令牌
+     * @param commend 是否推荐
      * @return
      */
-    @GET("?act=member_sns_home&op=trace_list")
-    Observable<BeanList<Trace>> traceList(
+    @FormUrlEncoded
+    @POST("?act=member_sns_home&op=trace_list")
+    Observable<BeanList<Trace>> homeTraceList(
+            @Field("key") String key,
+            @Field("commend") int commend,
+            @Query("curpage") int curPage
+    );
+
+    /**
+     * 某用户的动态列表
+     * @param mid 指定某用户
+     * @param curPage 当前页
+     * @return 动态列表
+     */
+    @GET("?act=member_sns_trace&op=trace_list")
+    Observable<BeanList<Trace>> userTraceList(
             @Query("key") String key,
             @Query("mid") int mid,
-            @Query("commend") int isCommend,
+            @Query("curpage") int curPage
+    );
+
+    /**
+     * 好友动态列表
+     * @param key 登录令牌
+     * @param curPage 当前页数
+     * @return
+     */
+    @GET("?act=member_sns_friend&op=trace_list")
+    Observable<BeanList<Trace>> friendTraceList(
+            @Query("key") String key,
             @Query("curpage") int curPage
     );
 
@@ -774,7 +785,7 @@ public interface Services {
     @POST("?act=member_flea&op=flea_detail")
     Observable<Flea> fleaDetail(
             @Field("key") String key,
-            @Field("goods_id") int goodsId
+            @Field("goods_id") int goodsID
     );
 
     /**

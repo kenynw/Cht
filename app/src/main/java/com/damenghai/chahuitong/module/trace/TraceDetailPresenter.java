@@ -111,6 +111,7 @@ public class TraceDetailPresenter extends BaseDataActivityPresenter<TraceDetailA
                     public void onNext(Integer s) {
                         Trace trace = getDataSubject().getValue();
                         trace.setRelation(1);
+                        trace.setIs_like(false);
                         getView().setRelation(trace);
                     }
                 });
@@ -123,6 +124,7 @@ public class TraceDetailPresenter extends BaseDataActivityPresenter<TraceDetailA
                     public void onNext(TraceComment comment) {
                         getView().clearEditText();
                         comment.setRelation(1);
+                        comment.setIs_like(false);
                         mAdapter.insert(comment, 0);
                         mAdapter.notifyDataSetChanged();
                     }
@@ -156,7 +158,7 @@ public class TraceDetailPresenter extends BaseDataActivityPresenter<TraceDetailA
 
     public void showUserInfo(int userId) {
         Intent i = new Intent(getView(), UserInfoActivity.class);
-        i.putExtra("userId", userId);
+        i.putExtra("user_id", userId);
         getView().startActivity(i);
     }
 
@@ -184,7 +186,13 @@ public class TraceDetailPresenter extends BaseDataActivityPresenter<TraceDetailA
     }
 
     public void share() {
-        final SHARE_MEDIA[] displayList = new SHARE_MEDIA[]{SHARE_MEDIA.WEIXIN, SHARE_MEDIA.WEIXIN_CIRCLE, SHARE_MEDIA.QQ, SHARE_MEDIA.QZONE, SHARE_MEDIA.SINA};
+        final SHARE_MEDIA[] displayList = new SHARE_MEDIA[]{
+                SHARE_MEDIA.WEIXIN,
+                SHARE_MEDIA.WEIXIN_CIRCLE,
+                SHARE_MEDIA.QQ,
+                SHARE_MEDIA.QZONE,
+                SHARE_MEDIA.SINA
+        };
 
         new ShareAction(getView())
                 .setDisplayList(displayList)

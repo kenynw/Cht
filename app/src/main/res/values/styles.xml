@@ -104,7 +104,7 @@
         <item name="com.damenghai.chahuitong:roundAsCircle">true</item>
         <item name="com.damenghai.chahuitong:actualImageScaleType">centerCrop</item>
         <item name="com.damenghai.chahuitong:placeholderImageScaleType">centerCrop</item>
-        <item name="com.damenghai.chahuitong:placeholderImage">@mipmap/def_image_loading</item>
+        <item name="com.damenghai.chahuitong:placeholderImage">@mipmap/def_avatar_placeholder</item>
     </style>
 
     <style name="SmallAvatar" parent="UserAvatar">

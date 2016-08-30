@@ -12,10 +12,7 @@
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/dv_trace_avatar"
-        android:layout_width="@dimen/widget_medium_height"
-        android:layout_height="@dimen/widget_medium_height"
-        app:actualImageScaleType="centerCrop"
-        app:roundAsCircle="true"
+        style="@style/MediumAvatar"
         />
 
     <TextView

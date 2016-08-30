@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.support.annotation.LayoutRes;
 import android.text.Html;
 import android.text.TextUtils;
-import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -38,7 +37,7 @@ public abstract class TraceCommonViewHolder extends BaseViewHolder<Trace> {
     @Bind(R.id.tv_trace_time)
     TextView mTvTime;
 
-    @Bind(R.id.tv_trace_content)
+    @Bind(R.id.et_trace_content)
     TextView mTvContent;
 
     @Bind(R.id.dv_trace_image)
@@ -50,8 +49,8 @@ public abstract class TraceCommonViewHolder extends BaseViewHolder<Trace> {
     @Bind(R.id.btn_trace_share)
     Button mBtnShare;
 
-    @Bind(R.id.btn_trace_comment)
-    Button mBtnComment;
+    @Bind(R.id.tv_trace_comment)
+    TextView mTvComment;
 
     @Bind(R.id.btn_trace_like)
     RadioButton mBtnLike;
@@ -84,8 +83,8 @@ public abstract class TraceCommonViewHolder extends BaseViewHolder<Trace> {
         mBtnLike.setOnClickListener(v -> like(trace));
         mBtnLike.setText(trace.getTrace_likecount() > 0 ? trace.getTrace_likecount() + "" : getContext().getString(R.string.btn_trace_like));
         mBtnLike.setChecked(trace.is_like());
-        mBtnComment.setText(trace.getTrace_commentcount() > 0 ? trace.getTrace_commentcount() + "" : getContext().getString(R.string.btn_trace_comment));
-        mBtnComment.setOnClickListener(v -> toDetail(trace));
+        mTvComment.setText(trace.getTrace_commentcount() > 0 ? trace.getTrace_commentcount() + "" : getContext().getString(R.string.btn_trace_comment));
+        mTvComment.setOnClickListener(v -> toDetail(trace));
     }
 
     private void toDetail(Trace trace) {

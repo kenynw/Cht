@@ -1,9 +1,13 @@
 package com.damenghai.chahuitong.module.trace;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 
+import com.damenghai.chahuitong.app.App;
 import com.damenghai.chahuitong.bijection.Presenter;
 import com.damenghai.chahuitong.model.TraceModel;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
@@ -13,6 +17,8 @@ import com.jude.library.imageprovider.ImageProvider;
 import com.jude.library.imageprovider.OnImageSelectListener;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,8 +27,7 @@ import rx.functions.Action0;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class TraceAddPresenter extends Presenter<TraceAddActivity>
-        implements OnImageSelectListener, OnViewDeleteListener {
+public class TraceAddPresenter extends Presenter<TraceAddActivity> implements OnImageSelectListener, OnViewDeleteListener {
 
     private List<Uri> mUriList;
 

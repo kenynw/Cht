@@ -82,7 +82,6 @@ public class FleaAddActivity extends BaseDataActivity<FleaAddPresenter, Flea> {
                 mEtPrice.setVisibility(View.VISIBLE);
                 mEtUnit.setVisibility(View.VISIBLE);
             }
-            getPresenter().setIsQuotation(!isChecked);
         });
     }
 
@@ -125,11 +124,11 @@ public class FleaAddActivity extends BaseDataActivity<FleaAddPresenter, Flea> {
         Flea flea = new Flea();
         flea.setGoods_name(mEtTitle.getText().toString().trim());
         flea.setGoods_body(mEtDetail.getText().toString().trim());
-        flea.setGoods_store_price(Double.valueOf(mEtPrice.getText().toString().trim()));
         flea.setGoods_tag(mEtTag.getText().toString().trim());
         flea.setFlea_pphone(mEtPhone.getText().toString().trim());
         flea.setFlea_pname(mEtContact.getText().toString().trim());
         flea.setFlea_area_name(mBtnLocation.getText().toString().trim());
+        flea.setGoods_store_price(!mCbNoPrice.isChecked() ? Double.valueOf(mEtPrice.getText().toString().trim()) : 0);
 
         getPresenter().saveFlea(flea);
     }

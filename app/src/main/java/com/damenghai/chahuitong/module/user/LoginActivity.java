@@ -2,9 +2,13 @@ package com.damenghai.chahuitong.module.user;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.bijection.BeamBaseActivity;
@@ -17,10 +21,13 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 @RequiresPresenter(LoginPresenter.class)
-public class LoginActivity extends BeamBaseActivity<LoginPresenter> {
+public class LoginActivity extends BeamBaseActivity<LoginPresenter> implements TextWatcher, View.OnFocusChangeListener {
 
     @Bind(R.id.et_login_username)
     EditText mEtUsername;
+
+    @Bind(R.id.btn_username_clear)
+    ImageButton mBtnClearName;
 
     @Bind(R.id.et_login_password)
     EditText mEtPassword;
@@ -54,6 +61,10 @@ public class LoginActivity extends BeamBaseActivity<LoginPresenter> {
         ButterKnife.bind(this);
 
         mEtUsername.setText(LUtils.getPreferences().getString("mobile", ""));
+        mEtUsername.addTextChangedListener(this);
+        mEtUsername.setOnFocusChangeListener(this);
+        mBtnClearName.setOnClickListener(v -> mEtUsername.setText(""));
+
         mBtnLogin.setOnClickListener(v -> checkInput());
         mBtnRegister.setOnClickListener(v -> startActivity(new Intent(this, RegisterActivity.class)));
         mBtnForgot.setOnClickListener(v -> startActivity(new Intent(this, ForgotActivity.class)));
@@ -83,4 +94,31 @@ public class LoginActivity extends BeamBaseActivity<LoginPresenter> {
         getPresenter().login(mEtUsername.getText().toString().trim(), mEtPassword.getText().toString().trim());
     }
 
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        if (charSequence.length() > 0) {
+            mBtnClearName.setVisibility(View.VISIBLE);
+        } else {
+            mBtnClearName.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) {
+
+    }
+
+    @Override
+    public void onFocusChange(View view, boolean b) {
+        if (b && mEtUsername.length() > 0) {
+            mBtnClearName.setVisibility(View.VISIBLE);
+        } else {
+            mBtnClearName.setVisibility(View.GONE);
+        }
+    }
 }

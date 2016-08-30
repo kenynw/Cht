@@ -4,10 +4,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.LayoutRes;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.damenghai.chahuitong.R;
+import com.damenghai.chahuitong.model.FavoritesModel;
 import com.damenghai.chahuitong.model.bean.Goods;
+import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.module.goods.GoodsDetailActivity;
 import com.damenghai.chahuitong.module.goods.GoodsFavoritesPresenter;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -31,15 +34,14 @@ public class GoodsFavoritesViewHolder extends BaseViewHolder<Goods> {
     @Bind(R.id.tv_goods_price)
     TextView mTvPrice;
 
-    public RecyclerArrayAdapter.OnItemClickListener mListener;
+    @Bind(R.id.iv_favorite_state)
+    ImageView mIvState;
+
+    private GoodsFavoritesPresenter mPresenter;
 
     public GoodsFavoritesViewHolder(ViewGroup parent, GoodsFavoritesPresenter presenter) {
         super(parent, R.layout.item_list_goods_favorites);
-        ButterKnife.bind(this, itemView);
-    }
-
-    public GoodsFavoritesViewHolder(ViewGroup parent, @LayoutRes int res) {
-        super(parent, res);
+        mPresenter = presenter;
         ButterKnife.bind(this, itemView);
     }
 
@@ -48,19 +50,13 @@ public class GoodsFavoritesViewHolder extends BaseViewHolder<Goods> {
         mDvThumb.setImageURI(Uri.parse(goods.getGoods_image_url()));
         mTvName.setText(goods.getGoods_name());
         mTvPrice.setText(String.format(getContext().getString(R.string.text_rmb), goods.getGoods_price()));
-        itemView.setOnClickListener(v -> {
-            if (mListener != null) {
-                mListener.onItemClick(getAdapterPosition());
-            } else {
-                Intent intent = new Intent(getContext(), GoodsDetailActivity.class);
-                intent.putExtra("goods_id", goods.getGoods_id());
-                getContext().startActivity(intent);
-            }
-        });
-    }
+        mIvState.setOnClickListener(v -> mPresenter.delFav(goods.getFav_id()));
 
-    public void setOnItemClickListener(RecyclerArrayAdapter.OnItemClickListener listener) {
-        mListener = listener;
+        itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), GoodsDetailActivity.class);
+            intent.putExtra("goods_id", goods.getGoods_id());
+            getContext().startActivity(intent);
+        });
     }
 
 }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -19,12 +18,7 @@
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/dv_trace_comment_avatar"
-            android:layout_width="@dimen/widget_tiny_height"
-            android:layout_height="@dimen/widget_tiny_height"
-            app:actualImageScaleType="centerCrop"
-            app:placeholderImage="@mipmap/def_avatar_placeholder"
-            app:placeholderImageScaleType="centerCrop"
-            app:roundAsCircle="true"
+            style="@style/SmallAvatar"
             />
 
         <LinearLayout
@@ -59,12 +53,22 @@
             android:layout_height="match_parent"
             android:layout_weight="1"/>
 
+        <ImageView
+            android:id="@+id/iv_trace_comment_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:src="@mipmap/ic_like_normal"
+            />
+
         <TextView
             android:id="@+id/tv_trace_comment_like"
             style="@style/TextCaption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="点赞"
+            android:drawablePadding="@dimen/text_drawable_padding"
+            android:gravity="center"
+            tools:text="10"
             />
 
     </LinearLayout>
@@ -83,10 +87,10 @@
 
     <TextView
         android:id="@+id/tv_trace_comment_content"
+        style="@style/TextBody"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/activity_vertical_margin"
-        style="@style/TextBody"
         tools:text="一位住在“骇客旅社”的内向电脑工程师与他朋友"
         />
 

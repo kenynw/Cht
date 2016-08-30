@@ -25,9 +25,9 @@ public class SettingPresenter extends Presenter<SettingsActivity> {
 
     private void setData() {
         try {
-            getView().setCache(DataCleanManager.getCacheSize(getView().getExternalCacheDir()));
+            getView().setCache(DataCleanManager.getCacheSize(getView().getCacheDir()));
         } catch (Exception e) {
-            e.printStackTrace();
+            LUtils.toast("获取缓存失败");
         }
     }
 
@@ -47,7 +47,7 @@ public class SettingPresenter extends Presenter<SettingsActivity> {
     }
 
     public void clearCache() {
-        DataCleanManager.cleanExternalCache(getView());
+        DataCleanManager.cleanInternalCache(getView());
         LUtils.toast(R.string.toast_clean_success);
         setData();
     }
