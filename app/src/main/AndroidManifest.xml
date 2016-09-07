@@ -28,7 +28,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-
         <!--友盟-->
         <meta-data
             android:name="UMENG_APPKEY"

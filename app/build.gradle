@@ -44,13 +44,12 @@ android {
     productFlavors {
         xiaomi{}
         baidu{}
+        yingyongbao{}
         wandoujia{}
         qihu360{}
-        share{}
-        liuhengyu{}
+        huawei{}
+        pp{}
         origin{}
-        update{}
-        qq{}
     }
     //应用到每一个flavor
     productFlavors.all { flavor -> manifestPlaceholders.put("UMENG_CHANNEL",name) }

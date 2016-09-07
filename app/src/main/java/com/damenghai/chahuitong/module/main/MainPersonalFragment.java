@@ -20,7 +20,6 @@ import com.damenghai.chahuitong.bijection.RequiresPresenter;
 import com.damenghai.chahuitong.expansion.data.BaseDataFragment;
 import com.damenghai.chahuitong.model.bean.User;
 import com.damenghai.chahuitong.module.settings.SettingsActivity;
-import com.damenghai.chahuitong.module.user.UserInfoActivity;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -104,19 +103,18 @@ public class MainPersonalFragment extends BaseDataFragment<MainPersonalPresenter
         mGridItem.setLayoutManager(new GridLayoutManager(getActivity(), 3));
         mGridItem.setAdapter(new PersonalAdapter(getActivity()));
 
-        mLayoutHead.setOnClickListener(v -> getPresenter().isLogin());
-        mBtnUnpaid.setOnClickListener(v -> getPresenter().showOrder(0));
-        mBtnPaid.setOnClickListener(v -> getPresenter().showOrder(1));
-        mBtnReceive.setOnClickListener(v -> getPresenter().showOrder(2));
-        mBtnUncomment.setOnClickListener(v -> getPresenter().showOrder(3));
-        mBtnOrder.setOnClickListener(v -> getPresenter().showOrder(4));
+        mLayoutHead.setOnClickListener(v -> getPresenter().toUserInfo());
+        mBtnUnpaid.setOnClickListener(v -> getPresenter().toOrder(0));
+        mBtnPaid.setOnClickListener(v -> getPresenter().toOrder(1));
+        mBtnReceive.setOnClickListener(v -> getPresenter().toOrder(2));
+        mBtnUncomment.setOnClickListener(v -> getPresenter().toOrder(3));
+        mBtnOrder.setOnClickListener(v -> getPresenter().toOrder(4));
 
         return view;
     }
 
     @Override
     public void setData(User user) {
-        mLayoutHead.setOnClickListener(v -> startActivity(new Intent(getActivity(), UserInfoActivity.class)));
         mDvAvatar.setImageURI(Uri.parse(user.getMember_avatar()));
         mTvUsername.append(user.getMember_name());
         mTvPoint.append(user.getMember_points());

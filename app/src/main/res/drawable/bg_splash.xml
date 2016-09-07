@@ -4,11 +4,7 @@
     <item android:drawable="@color/white"/>
 
     <item android:bottom="80dip">
-        <bitmap android:gravity="center|bottom" android:src="@mipmap/splash_banner"/>
-    </item>
-
-    <item android:bottom="25dip">
-        <bitmap android:src="@mipmap/xiaomi_logo" android:gravity="center|bottom" />
+        <bitmap android:src="@mipmap/splash_banner" android:gravity="center|bottom" />
     </item>
 
 </layer-list>

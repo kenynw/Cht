@@ -10,6 +10,7 @@ import com.damenghai.chahuitong.model.bean.User;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
 import com.damenghai.chahuitong.module.order.OrderActivity;
 import com.damenghai.chahuitong.module.user.LoginActivity;
+import com.damenghai.chahuitong.module.user.UserInfoActivity;
 import com.damenghai.chahuitong.utils.LUtils;
 
 /**
@@ -29,7 +30,7 @@ public class MainPersonalPresenter extends BaseDataFragmentPresenter<MainPersona
         UserModel.getInstance().getUserInfo().subscribe(getSubscriber());
     }
 
-    public void showOrder(int position) {
+    public void toOrder(int position) {
         if (isLogin()) {
             Intent intent = new Intent(getView().getActivity(), OrderActivity.class);
             intent.putExtra("position", position);
@@ -37,7 +38,13 @@ public class MainPersonalPresenter extends BaseDataFragmentPresenter<MainPersona
         }
     }
 
-    public boolean isLogin() {
+    public void toUserInfo() {
+        if (isLogin()) {
+            getView().startActivity(new Intent(getView().getActivity(), UserInfoActivity.class));
+        }
+    }
+
+    private boolean isLogin() {
         if (TextUtils.isEmpty(LUtils.getPreferences().getString("key", ""))) {
             getView().startActivityForResult(new Intent(getView().getActivity(), LoginActivity.class), REQUEST_CODE_LOGIN);
             return false;

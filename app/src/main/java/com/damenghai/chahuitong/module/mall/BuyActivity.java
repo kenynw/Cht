@@ -21,6 +21,7 @@ import com.damenghai.chahuitong.model.bean.Store;
 import com.damenghai.chahuitong.model.bean.Voucher;
 import com.damenghai.chahuitong.model.bean.OrderInfo;
 import com.damenghai.chahuitong.module.personal.AddressEditActivity;
+import com.damenghai.chahuitong.module.personal.AddressListActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -110,7 +111,7 @@ public class BuyActivity extends BaseDataActivity<BuyPresenter, OrderInfo> {
         } else {
             mLayoutAddress.setVisibility(View.GONE);
             mBtnAddress.setVisibility(View.VISIBLE);
-            mBtnAddress.setOnClickListener(v -> startActivity(new Intent(BuyActivity.this, AddressEditActivity.class)));
+            mBtnAddress.setOnClickListener(v -> getPresenter().showAddress());
         }
     }
 

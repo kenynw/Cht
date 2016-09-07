@@ -2,6 +2,7 @@ package com.damenghai.chahuitong.module.article;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.widget.EditText;
 
 import com.damenghai.chahuitong.bijection.BeamBaseActivity;
 import com.damenghai.chahuitong.bijection.Presenter;
@@ -33,12 +34,14 @@ public class ArticleDetailPresenter extends BaseDataActivityPresenter<ArticleDet
         publishObject(mArticle);
     }
 
-    public void addComment(String content) {
-        ArticleModel.getInstance().addComment(mArticle.getArticle_id(), content)
+    public void addComment(EditText editText) {
+        ArticleModel.getInstance().addComment(mArticle.getArticle_id(), editText.getText().toString().trim())
                 .unsafeSubscribe(new ServiceResponse<Integer>() {
                     @Override
                     public void onNext(Integer result) {
                         publishObject(mArticle);
+                        LUtils.closeKeyboard(editText);
+                        editText.getText().clear();
                     }
                 });
     }

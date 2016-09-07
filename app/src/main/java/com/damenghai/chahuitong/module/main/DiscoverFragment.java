@@ -27,6 +27,7 @@ import com.damenghai.chahuitong.model.bean.Discover;
 import com.damenghai.chahuitong.module.goods.GoodsListActivity;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.jude.easyrecyclerview.EasyRecyclerView;
 import com.jude.easyrecyclerview.decoration.SpaceDecoration;
 
 import butterknife.Bind;
@@ -63,7 +64,7 @@ public class DiscoverFragment extends BaseDataFragment<DiscoverPresenter, Discov
     TextView mTvFlea;
 
     @Bind(R.id.rcv_discover_flea)
-    RecyclerView mRcvFlea;
+    EasyRecyclerView mRcvFlea;
 
     @Bind(R.id.tv_discover_class)
     TextView mTvClass;

@@ -30,9 +30,6 @@ public class TraceAddActivity extends BeamBaseActivity<TraceAddPresenter> {
     @Bind(R.id.pv_trace_image)
     PieceViewGroup mPvImage;
 
-    @Bind(R.id.tv_trace)
-    TextView mTvContent;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,9 +58,6 @@ public class TraceAddActivity extends BeamBaseActivity<TraceAddPresenter> {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         getPresenter().save(mEtContent.getText().toString().trim());
-//        LUtils.log(Html.toHtml(mEtContent.getText()));
-//        LUtils.log(mEtContent.getText().toString().trim());
-//        mTvContent.setText(mEtContent.getText().toString().trim());
         return true;
     }
 

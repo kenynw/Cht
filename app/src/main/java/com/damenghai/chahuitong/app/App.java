@@ -1,8 +1,11 @@
 package com.damenghai.chahuitong.app;
 
+import android.app.Activity;
 import android.app.Application;
 
 import com.damenghai.chahuitong.base.Basis;
+import com.damenghai.chahuitong.bijection.ActivityLifeCycleDelegate;
+import com.damenghai.chahuitong.bijection.ActivityLifeCycleDelegateProvide;
 import com.damenghai.chahuitong.config.Config;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.facebook.drawee.backends.pipeline.Fresco;

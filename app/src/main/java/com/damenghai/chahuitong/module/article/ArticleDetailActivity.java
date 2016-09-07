@@ -1,10 +1,13 @@
 package com.damenghai.chahuitong.module.article;
 
 import android.annotation.SuppressLint;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.webkit.CookieManager;
 import android.webkit.JsResult;
@@ -37,7 +40,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 @RequiresPresenter(ArticleDetailPresenter.class)
-public class ArticleDetailActivity extends BaseDataActivity<ArticleDetailPresenter, Article> {
+public class ArticleDetailActivity extends BaseDataActivity<ArticleDetailPresenter, Article> implements TextWatcher {
 
     @Bind(R.id.wv_article_detail)
     WebView mWvDetail;
@@ -73,10 +76,19 @@ public class ArticleDetailActivity extends BaseDataActivity<ArticleDetailPresent
                         }
                     }
                 }
+
+                try {
+                    startActivity(new Intent("android.intent.action.VIEW", Uri.parse(url)));
+                    return true;
+                } catch (ActivityNotFoundException e) {
+                    e.printStackTrace();
+                }
+
                 return super.shouldOverrideUrlLoading(view, url);
             }
         });
 
+        mEtAdd.addTextChangedListener(this);
         mBtnAdd.setOnClickListener(v -> checkInput());
     }
 
@@ -94,7 +106,25 @@ public class ArticleDetailActivity extends BaseDataActivity<ArticleDetailPresent
             return;
         }
         
-        getPresenter().addComment(mEtAdd.getText().toString().trim());
+        getPresenter().addComment(mEtAdd);
     }
 
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        if (charSequence.length() > 0) {
+            mBtnAdd.setEnabled(true);
+        } else {
+            mBtnAdd.setEnabled(false);
+        }
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) {
+
+    }
 }

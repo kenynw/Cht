@@ -22,6 +22,7 @@ public class BeamBaseActivity<P extends Presenter> extends BeamAppCompatActivity
 
     @Override
     public void preCreatePresenter() {
+        super.preCreatePresenter();
         mContentParent = (FrameLayout) findViewById(android.R.id.content);
     }
 

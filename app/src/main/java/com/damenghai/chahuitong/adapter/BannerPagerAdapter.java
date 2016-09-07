@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import com.damenghai.chahuitong.model.bean.Banner;
 import com.damenghai.chahuitong.model.bean.SpecialItem;
 import com.damenghai.chahuitong.module.common.WebViewActivity;
+import com.damenghai.chahuitong.module.goods.GoodsDetailActivity;
 import com.damenghai.chahuitong.module.goods.GoodsListActivity;
 import com.damenghai.chahuitong.utils.LUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -58,10 +59,14 @@ public class BannerPagerAdapter extends PagerAdapter {
                     intent.putExtra("keyword", item.getData());
                     break;
                 case "special" :
-
+                    intent.setClass(mContext, GoodsListActivity.class);
+                    break;
+                case "goods" :
+                    intent.setClass(mContext, GoodsDetailActivity.class);
+                    intent.putExtra("goods_id", Integer.parseInt(item.getData()));
                     break;
                 default :
-
+                    intent.setClass(mContext, GoodsListActivity.class);
                     break;
             }
             mContext.startActivity(intent);

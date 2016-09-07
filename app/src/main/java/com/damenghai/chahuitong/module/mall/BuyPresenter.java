@@ -15,6 +15,7 @@ import com.damenghai.chahuitong.model.bean.Order;
 import com.damenghai.chahuitong.model.bean.OrderInfo;
 import com.damenghai.chahuitong.model.bean.Voucher;
 import com.damenghai.chahuitong.model.service.ServiceResponse;
+import com.damenghai.chahuitong.model.service.Services;
 import com.damenghai.chahuitong.module.common.WebViewActivity;
 import com.damenghai.chahuitong.module.personal.AddressListActivity;
 import com.damenghai.chahuitong.module.personal.VoucherListActivity;
@@ -143,7 +144,7 @@ public class BuyPresenter extends BaseDataActivityPresenter<BuyActivity, OrderIn
                 getView().finish();
                 break;
             case R.id.rbtn_buy_upmp:
-                String url = "http://www.chahuitong.com/mobile/index.php?act=member_payment&op=pay&key="
+                String url = Services.BASE_URL + "?act=member_payment&op=pay&key="
                         + LUtils.getPreferences().getString("key", "")
                         + "&pay_sn=" + order.getPay_sn() + "&payment_code=yinlian";
                 Intent webIntent = new Intent(getView(), WebViewActivity.class);
