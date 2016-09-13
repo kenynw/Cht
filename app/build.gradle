@@ -49,6 +49,7 @@ android {
         qihu360{}
         huawei{}
         pp{}
+        meizu{}
         origin{}
     }
     //应用到每一个flavor
