@@ -4,7 +4,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/bg_actionbar</item>
+        <item name="colorPrimaryDark">@color/bg_window_bar</item>
         <item name="colorAccent">@color/colorPrimaryLight</item>
 
         <item name="windowActionBar">false</item>
@@ -24,11 +24,13 @@
         <item name="android:listDivider">@drawable/decoration_line</item>
     </style>
 
-    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+    <style name="SplashTheme" parent="AppTheme">
         <item name="android:windowBackground">@drawable/bg_splash</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/white</item>
+    </style>
+
+    <style name="BlackBarTheme" parent="AppTheme">
+        <item name="colorPrimaryDark">@color/black</item>
     </style>
 
     <!-- 黑色标题文本 -->
@@ -40,6 +42,9 @@
 
     <style name="TextSubhead" parent="TextAppearance.AppCompat.Subhead"/><!-- 副标题文本 -->
     <style name="TextBody" parent="TextAppearance.AppCompat.Body1"/><!--主体文本-->
+    <style name="TextSecondaryBody" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/text_black_secondary</item>
+    </style><!--主体文本-->
     <style name="TextCaption" parent="TextAppearance.AppCompat.Caption"/><!--说明文本-->
 
     <style name="ButtonNormal" parent="Widget.AppCompat.Button"/>

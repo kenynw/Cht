@@ -271,11 +271,6 @@
     <string name="tab_sample_notice">申领须知</string>
     <string name="tab_discount_nowadays">今日抢购</string>
     <string name="tab_discount_next">明日预告</string>
-    <string name="tab_order_all">全部订单</string>
-    <string name="tab_order_unpaid">待付款</string>
-    <string name="tab_order_paid">待发货</string>
-    <string name="tab_order_receive">待收货</string>
-    <string name="tab_order_uncomment">待评价</string>
     <string name="tab_goods_detail">产品详情</string>
     <string name="tab_comment">评价</string>
 

@@ -2,11 +2,11 @@
 <resources>
     <!--我的订单-->
     <string-array name="tab_order_list">
-        <item>全部</item>
         <item>待付款</item>
         <item>待发货</item>
         <item>待收货</item>
         <item>待评价</item>
+        <item>全部</item>
     </string-array>
 
     <!--我的订单-->

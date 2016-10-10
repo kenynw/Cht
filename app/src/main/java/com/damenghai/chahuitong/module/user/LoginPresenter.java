@@ -18,6 +18,7 @@ import com.damenghai.chahuitong.utils.LUtils;
 import com.umeng.socialize.UMAuthListener;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.view.UMFriendListener;
 
 import java.util.Map;
 
@@ -64,22 +65,51 @@ public class LoginPresenter extends Presenter<LoginActivity> implements UMAuthLi
 
     @Override
     public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
-        String type;
-        String openId;
+        final String type;
+        final String openID;
         if (share_media == SHARE_MEDIA.WEIXIN) {
-            openId = map.containsKey("openid") ? map.get("openid") : "";
+            openID = map.containsKey("openid") ? map.get("openid") : "";
             type = "wechat";
         } else if (share_media == SHARE_MEDIA.SINA) {
-            openId = map.containsKey("uid") ? map.get("uid") : "";
+            openID = map.containsKey("uid") ? map.get("uid") : "";
             type = "sina";
         } else {
-            openId = map.containsKey("openid") ? map.get("openid") : "";
+            openID = map.containsKey("openid") ? map.get("openid") : "";
             type = "qq";
         }
+        mShareApi.getPlatformInfo(getView(), share_media, new UMAuthListener() {
+            @Override
+            public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
 
-        ServiceClient.getServices().thirdLogin(Config.MD5_KEY, Config.CLIENT_TYPE, type, openId)
-                .compose(new DefaultTransform<>())
-                .subscribe();
+                if (map.containsKey("screen_name")){
+                    String screenName = map.get("screen_name");
+
+                    AccountModel.getInstance().thirdLogin(type, openID, screenName)
+                            .subscribe(new ServiceResponse<User>() {
+                                @Override
+                                public void onNext(User user) {
+                                    SharedPreferences.Editor editor = LUtils.getPreferences().edit();
+//                                    editor.putString("username", user.getMember_name());
+                                    editor.putString("key", user.getKey());
+                                    editor.putString("avatar", user.getMember_avatar());
+                                    editor.apply();
+                                    getView().setResult(Activity.RESULT_OK);
+                                    getView().finish();
+                                }
+                            });
+                }
+            }
+
+            @Override
+            public void onError(SHARE_MEDIA share_media, int i, Throwable throwable) {
+
+            }
+
+            @Override
+            public void onCancel(SHARE_MEDIA share_media, int i) {
+
+            }
+        });
     }
 
     @Override

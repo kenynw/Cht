@@ -16,13 +16,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class OrderActivity extends BaseActivity {
-    private final int[] TITLE_RES = new int[] {
-            R.string.tab_order_unpaid,
-            R.string.tab_order_paid,
-            R.string.tab_order_receive,
-            R.string.tab_order_uncomment,
-            R.string.tab_order_all
-    };
 
     /**
      * 未付款
@@ -71,7 +64,7 @@ public class OrderActivity extends BaseActivity {
         fragments.add(OrderListFragment.newInstance(STATE_RECEIVE + ""));
         fragments.add(OrderListFragment.newInstance(STATE_UNCOMMENT + ""));
         fragments.add(OrderListFragment.newInstance(""));
-        TitlePagerAdapter adapter = new TitlePagerAdapter(this, TITLE_RES, fragments, getSupportFragmentManager());
+        TitlePagerAdapter adapter = new TitlePagerAdapter(this, R.array.tab_order_list, fragments, getSupportFragmentManager());
         mPager.setAdapter(adapter);
         mTabLayout.setupWithViewPager(mPager);
         mPager.setCurrentItem(mPosition, false);

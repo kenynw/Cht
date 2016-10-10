@@ -63,6 +63,7 @@
         </activity>
         <activity
             android:name=".module.main.MainActivity"
+            android:theme="@style/AppTheme"
             android:screenOrientation="portrait">
         </activity>
         <activity
@@ -218,6 +219,7 @@
         </activity>
         <activity
             android:name=".module.common.ImageBrowseActivity"
+            android:theme="@style/BlackBarTheme"
             android:screenOrientation="portrait">
         </activity>
         <activity

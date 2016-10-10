@@ -155,16 +155,25 @@ public interface Services {
     Observable<String> logout(
             @Field("key") String key,
             @Field("mobile") String mobile,
+            @Field("username") String username,
             @Field("client") String client
     );
 
+    /**
+     * 第三方登录
+     * @param client 客户端类型
+     * @param type 第三方类型
+     * @param openid 唯一标识
+     * @param unsername 用户名
+     * @return 登录令牌
+     */
     @FormUrlEncoded
-    @POST("?act=login&op=register_api")
-    Observable<JsonObject> thirdLogin(
-            @Field("key") String key,
+    @POST("?act=login&op=oauth")
+    Observable<User> thirdLogin(
             @Field("client") String client,
-            @Field("op") String type,
-            @Field("openid") String openid
+            @Field("type") String type,
+            @Field("openid") String openid,
+            @Field("username") String unsername
     );
 
     //--------------------------密码--------------------------

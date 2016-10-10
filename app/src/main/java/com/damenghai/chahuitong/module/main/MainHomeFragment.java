@@ -39,12 +39,6 @@ import butterknife.ButterKnife;
 @RequiresPresenter(MainHomePresenter.class)
 public class MainHomeFragment extends BeamFragment<MainHomePresenter> {
 
-    @Bind(R.id.main_toolbar)
-    Toolbar mToolbar;
-
-    @Bind(R.id.tv_toolbar_search)
-    TextView mTvSearch;
-
     @Bind(R.id.home_refresh)
     SwipeRefreshLayout mRefreshLayout;
 
@@ -87,18 +81,7 @@ public class MainHomeFragment extends BeamFragment<MainHomePresenter> {
         mBtnGoodsList.setOnClickListener(v -> getPresenter().showGoodsList("goods_list"));
         mLayoutCommend.setOnClickListener(v -> getPresenter().showGoodsList("recommend_list"));
 
-        initToolbar();
-
         return view;
-    }
-
-    private void initToolbar() {
-        mToolbar.inflateMenu(R.menu.menu_main_mall);
-        mToolbar.setOnMenuItemClickListener(item -> {
-            getPresenter().showCart();
-            return true;
-        });
-        mTvSearch.setOnClickListener(v -> startActivity(new Intent(getActivity(), SearchActivity.class)));
     }
 
     public void setData(Home home) {
@@ -123,11 +106,4 @@ public class MainHomeFragment extends BeamFragment<MainHomePresenter> {
         mRefreshLayout.setRefreshing(false);
     }
 
-    @Override
-    public void setMenuVisibility(boolean menuVisible) {
-        super.setMenuVisibility(menuVisible);
-        if (getView() != null) {
-            getView().setVisibility(menuVisible ? View.VISIBLE : View.INVISIBLE);
-        }
-    }
 }

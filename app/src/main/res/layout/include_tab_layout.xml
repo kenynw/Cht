@@ -8,6 +8,6 @@
     app:tabIndicatorColor="@color/colorPrimary"
     app:tabIndicatorHeight="2dp"
     app:tabSelectedTextColor="@color/colorPrimary"
-    app:tabTextAppearance="@style/TextBody"
+    app:tabTextAppearance="@style/TextSecondaryBody"
     android:background="@color/white"
     />

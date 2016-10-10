@@ -2,6 +2,7 @@ package com.damenghai.chahuitong.adapter;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.support.annotation.ArrayRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -23,20 +24,18 @@ public class TitlePagerAdapter extends FragmentStatePagerAdapter {
 
     private List<Fragment> mFragments;
 
-    public TitlePagerAdapter(Context context, int[] resId, List<Fragment> fragments, FragmentManager fm) {
+    public TitlePagerAdapter(Context context, @ArrayRes int resId, List<Fragment> fragments, FragmentManager fm) {
         super(fm);
         mContext = context;
         mFragments = fragments;
-        initResources(resId);
+        mTitles = mContext.getResources().getStringArray(resId);
     }
 
-    private void initResources(int[] resIds) {
-        Resources res = mContext.getResources();
-        String[] titles = new String[resIds.length];
-        for (int i=0; i<resIds.length; i++) {
-            titles[i] = res.getString(resIds[i]);
-        }
+    public TitlePagerAdapter( Context context, String[] titles, List<Fragment> fragments, FragmentManager fm) {
+        super(fm);
+        mContext = context;
         mTitles = titles;
+        mFragments = fragments;
     }
 
     @Override

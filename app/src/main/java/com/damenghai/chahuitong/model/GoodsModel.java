@@ -32,6 +32,15 @@ public class GoodsModel {
         return mInstance;
     }
 
+    /**
+     * @param op 接口名字 goods_list-所有商品列表 recommend_list-茶艺师推荐列表
+     * @param key 排序方式 1-销量 2-浏览量 3-价格 空-按最新发布排序
+     * @param order 排序方式 1-升序 2-降序
+     * @param curPage 当前页码
+     * @param gc_id 分类编号
+     * @param keyword 搜索关键字 注：gc_id和keyword二选一不能同时出现
+     * @return
+     */
     public Observable<BeanList<Goods>> getGoodsList(String op, String key, int order, int curPage, int gc_id, CharSequence keyword) {
         return ServiceClient.getServices().goodsList(
                     op,

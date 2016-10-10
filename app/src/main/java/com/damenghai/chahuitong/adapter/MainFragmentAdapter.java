@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.damenghai.chahuitong.R;
 import com.damenghai.chahuitong.module.main.DiscoverFragment;
 import com.damenghai.chahuitong.module.main.MainHomeFragment;
+import com.damenghai.chahuitong.module.main.MainShopFragment;
 import com.damenghai.chahuitong.module.main.MainTraceFragment;
 import com.damenghai.chahuitong.module.main.MainPersonalFragment;
 
@@ -31,7 +32,7 @@ public class MainFragmentAdapter extends FragmentPagerAdapter {
 
     private void initFragments() {
         mFragments = new ArrayList<>();
-        mFragments.add(new MainHomeFragment());
+        mFragments.add(new MainShopFragment());
         mFragments.add(new MainTraceFragment());
         mFragments.add(new DiscoverFragment());
         mFragments.add(new MainPersonalFragment());
