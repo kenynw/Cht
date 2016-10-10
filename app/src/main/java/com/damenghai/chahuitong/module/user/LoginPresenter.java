@@ -67,6 +67,7 @@ public class LoginPresenter extends Presenter<LoginActivity> implements UMAuthLi
     public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
         final String type;
         final String openID;
+
         if (share_media == SHARE_MEDIA.WEIXIN) {
             openID = map.containsKey("openid") ? map.get("openid") : "";
             type = "wechat";
@@ -80,16 +81,16 @@ public class LoginPresenter extends Presenter<LoginActivity> implements UMAuthLi
         mShareApi.getPlatformInfo(getView(), share_media, new UMAuthListener() {
             @Override
             public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
-
                 if (map.containsKey("screen_name")){
                     String screenName = map.get("screen_name");
 
                     AccountModel.getInstance().thirdLogin(type, openID, screenName)
+                            .compose(new DefaultTransform<>())
                             .subscribe(new ServiceResponse<User>() {
                                 @Override
                                 public void onNext(User user) {
                                     SharedPreferences.Editor editor = LUtils.getPreferences().edit();
-//                                    editor.putString("username", user.getMember_name());
+                                    editor.putString("username", user.getMember_name());
                                     editor.putString("key", user.getKey());
                                     editor.putString("avatar", user.getMember_avatar());
                                     editor.apply();
@@ -110,6 +111,7 @@ public class LoginPresenter extends Presenter<LoginActivity> implements UMAuthLi
 
             }
         });
+
     }
 
     @Override

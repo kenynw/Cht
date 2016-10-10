@@ -53,7 +53,6 @@ public class SettingPresenter extends Presenter<SettingsActivity> {
     }
 
     public void logout() {
-        LUtils.toast(LUtils.getPreferences().getString("username", ""));
         new AlertDialog.Builder(getView())
                 .setTitle(R.string.dialog_title_logout)
                 .setMessage(R.string.dialog_logout)
